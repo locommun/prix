@@ -1,9 +1,4 @@
-rholog-*
-sim-*
-bin/libs
-bin/RhoBundle
-bin/tmp
-bin/target
-bin/*.ap_
-*.o
-*.jar
+*.log
+*.pot
+*.pyc
+local_settings.py
