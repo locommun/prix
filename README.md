@@ -25,5 +25,7 @@ Updating database
 Admin account
 -------------
 
+django admin is at http://localhost:8000/admin
+
 user: admin
 pw: powwow
