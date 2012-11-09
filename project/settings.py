@@ -110,9 +110,6 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     
-    # Why must this be absult ??
-    "/home/flyover/Workspace/prix/templates"
-    
 )
 
 INSTALLED_APPS = (
