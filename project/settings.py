@@ -5,7 +5,7 @@ TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
     ('Max', 'mxm'+'@'+'zedat'+'fu-berlin'+'.'+'de'),
-		('Tobi', 'tobi'+'@'+'schmidies'+'.'+'de'),
+		('Tobi', '2toschmid'+'@'+'googlemail'+'.'+'com'),
 		('Andi', 'andreas.knoepfle'+'@'+'gmail'+'.'+'com'),
 		('Lili', 'lilian_h'+'@'+'gmx'+'.'+'net')
 )
@@ -109,6 +109,10 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    
+    # Why must this be absult ??
+    "/home/flyover/Workspace/prix/templates"
+    
 )
 
 INSTALLED_APPS = (
@@ -122,8 +126,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
-		# unsere app
-		'powwow',
+	# our app
+	'powwow',
 )
 
 # A sample logging configuration. The only tangible logging

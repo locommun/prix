@@ -9,10 +9,14 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'project.views.home', name='home'),
     # url(r'^project/', include('powwow.foo.urls')),
+    
+    #url(r'^$', 'powwow.views.index', name='home'),
+    url(r'^powwow/', include('powwow.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+
 )
