@@ -105,6 +105,8 @@ ROOT_URLCONF = 'project.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'project.wsgi.application'
 
+import os
+path = os.getcwd()
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
@@ -115,6 +117,7 @@ TEMPLATE_DIRS = (
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
+    'django.contrib.humanize',
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
@@ -123,8 +126,10 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
-	# our app
-	'powwow',
+		# our app
+		'powwow',
+		# registration app
+		'registration',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -155,3 +160,6 @@ LOGGING = {
         },
     }
 }
+
+# config for django-registration
+ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window; you may, of course, use a different value.
