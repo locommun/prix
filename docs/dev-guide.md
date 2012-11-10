@@ -9,6 +9,7 @@ Django-registration
 
 http://docs.b-list.org/django-registration/0.8/
 http://localhost:8000/accounts/register/
+http://localhost:8000/accounts/login/
 
 
 
