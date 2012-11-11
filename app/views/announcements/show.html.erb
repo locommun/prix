@@ -1,5 +1,15 @@
 
 <h1><%= @announcement.name %></h1>
 <p><%= @announcement.description %></p>
+
+<% @announcement.comments.each do |comment| %>
+	<div class="well">
+		<%= comment.text %>
+	</div>
+<%end%>
+<div class="well">
+		<%= link_to "Write Comment" , new_comment_path(:announcement_id => @announcement.id)%>
+</div>
+
 <%= link_to 'Edit', edit_announcement_path(@announcement) %> |
 <%= link_to 'Back', billboard_path(@announcement.billboard) %>
