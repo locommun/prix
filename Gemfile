@@ -15,7 +15,7 @@ end
 
 platforms :ruby do
   gem 'therubyracer'
-  gem 'activerecord-sqlite3-adapter'
+  gem 'sqlite3'
 end
 
 # Gmaps4Rails
