@@ -9,6 +9,12 @@ gem 'activerecord-jdbcsqlite3-adapter'
 
 platforms :jruby do
   gem 'jruby-openssl'
+  gem 'therubyrhino'
+end
+
+platforms :ruby do
+  gem 'therubyracer'
+  
 end
 
 # Gmaps4Rails
@@ -34,7 +40,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyrhino'
+  
 
   gem 'uglifier', '>= 1.0.3'
 end
