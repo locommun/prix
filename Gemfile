@@ -12,6 +12,8 @@ gem 'jruby-openssl'
 # Gmaps4Rails
 gem 'gmaps4rails'
 
+# Devise
+gem 'devise'
 
 # GeoCoding
 gem "geocoder"
