@@ -4,12 +4,19 @@
 
 <% @announcement.comments.each do |comment| %>
 	<div class="well">
-		<%= comment.text %>
+		<% if comment.user %>
+			<strong><Anonym><%= comment.user.email %>:</strong> <%= comment.text %>
+		<%else%>
+			<strong>Anonym:</strong> <%= comment.text %>
+		<%end%>
 	</div>
 <%end%>
 <div class="well">
 		<%= link_to "Write Comment" , new_comment_path(:announcement_id => @announcement.id)%>
 </div>
 
-<%= link_to 'Edit', edit_announcement_path(@announcement) %> |
+<%if current_user && @announcement.user == current_user%>
+	<%= link_to 'Edit', edit_announcement_path(@announcement) %> |
+<%end%>
+
 <%= link_to 'Back', billboard_path(@announcement.billboard) %>

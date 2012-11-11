@@ -42,5 +42,7 @@
 	</div>
 </div>
 
-<%= link_to 'Edit Billboard', edit_billboard_path(@billboard) %> |
+<%if current_user && @billboard.user == current_user%>
+	<%= link_to 'Edit Billboard', edit_billboard_path(@billboard) %> |
+<%end%>
 <%= link_to 'Back', billboards_path %> 

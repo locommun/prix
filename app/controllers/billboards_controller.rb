@@ -11,6 +11,7 @@ class BillboardsController < ApplicationController
 
   def new
     @billboard = Billboard.new
+
     @json = @billboard.to_gmaps4rails
     respond_to do |format|
       format.html  # new.html.erb
@@ -20,6 +21,9 @@ class BillboardsController < ApplicationController
 
   def create
     @billboard = Billboard.new(params[:billboard])
+    if current_user
+      @billboard.user = current_user
+    end
     @billboard.gmaps = true
     respond_to do |format|
       if @billboard.save

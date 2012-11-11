@@ -20,6 +20,7 @@ class AnnouncementsController < ApplicationController
   def new
     @announcement = Announcement.new
     @announcement.billboard_id = params[:billboard_id] 
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @announcement }
@@ -35,7 +36,10 @@ class AnnouncementsController < ApplicationController
   # POST /announcements.json
   def create
     @announcement = Announcement.new(params[:announcement])
-
+    if current_user
+      @announcement.user = current_user
+    end
+    
     respond_to do |format|
       if @announcement.save
         format.html { redirect_to @announcement, notice: 'Announcement was successfully created.' }
@@ -70,7 +74,7 @@ class AnnouncementsController < ApplicationController
     @announcement.destroy
 
     respond_to do |format|
-      format.html { redirect_to announcements_url }
+      format.html { redirect_to Announcements_url }
       format.json { head :no_content }
     end
   end
