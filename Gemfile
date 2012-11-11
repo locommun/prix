@@ -5,16 +5,17 @@ gem 'rails', '3.2.8'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'activerecord-jdbcsqlite3-adapter'
+
 
 platforms :jruby do
   gem 'jruby-openssl'
   gem 'therubyrhino'
+  gem 'activerecord-jdbcsqlite3-adapter'
 end
 
 platforms :ruby do
   gem 'therubyracer'
-  
+  gem 'activerecord-sqlite3-adapter'
 end
 
 # Gmaps4Rails
