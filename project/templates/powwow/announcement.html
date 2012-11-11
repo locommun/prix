@@ -1,0 +1,7 @@
+{% if announcement %}
+	<h1>Announcement {{ announcement.title }}</h1>
+	<p> {{announcement.body}} </p>
+	
+{% else %}
+    <p>Announcement does not exist!</p>
+{% endif %}
