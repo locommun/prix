@@ -5,9 +5,18 @@ gem 'rails', '3.2.8'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'activerecord-jdbcsqlite3-adapter'
 
-gem 'jruby-openssl'
+
+platforms :jruby do
+  gem 'jruby-openssl'
+  gem 'therubyrhino'
+  gem 'activerecord-jdbcsqlite3-adapter'
+end
+
+platforms :ruby do
+  gem 'therubyracer'
+  gem 'sqlite3'
+end
 
 # Gmaps4Rails
 gem 'gmaps4rails'
@@ -34,7 +43,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyrhino'
+  
 
   gem 'uglifier', '>= 1.0.3'
 end
