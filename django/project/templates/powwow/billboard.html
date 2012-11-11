@@ -1,0 +1,19 @@
+
+{% extends "base.html" %}
+
+{% block title %}My amazing blog{% endblock %}
+
+{% block content %}
+{% if billboard %}
+	<h1>Billboard {{ billboard.title }}</h1>
+	<h2>Announcements</h2>
+    <ul>
+    {% for notice in billboard.announcement_set.all %}
+        <li><a href="/powwow/announcement/{{ notice.id }}/">{{ notice.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Billboard does not exist!</p>
+{% endif %}
+
+{% endblock %}

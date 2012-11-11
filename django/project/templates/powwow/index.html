@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}My amazing blog{% endblock %}
+
+{% block content %}
+{% if billboards %}
+	<h2>Billboards:</h2>
+    <ul>
+    {% for board in billboards %}
+        <li><a href="/powwow/billboard/{{ board.id }}/">{{ board.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>no Billboards!</p>
+{% endif %}
+{% endblock %}

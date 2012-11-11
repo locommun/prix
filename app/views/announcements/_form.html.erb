@@ -1,0 +1,8 @@
+<%= simple_form_for(@announcement) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :name%>
+  <%= f.input :description%>
+  <%= f.input :billboard_id , :as => :hidden %>
+  <%= f.button :submit %>
+  
+<% end %>

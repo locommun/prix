@@ -1,0 +1,5 @@
+
+<h1><%= @announcement.name %></h1>
+<p><%= @announcement.description %></p>
+<%= link_to 'Edit', edit_announcement_path(@announcement) %> |
+<%= link_to 'Back', billboard_path(@announcement.billboard) %>

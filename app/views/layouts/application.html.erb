@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+  <title>Powwow</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag 'gmaps4rails' %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          
+          <a class="brand" href="/">PowWow</a>
+         
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="main-container">
+		<% flash.each do |type, msg| -%>
+					<div class="row">
+						<div class="span12">
+							<a class="close" data-dismiss="alert">×</a>
+							<p class="alert alert-<%= bootstrap_notice_mapper(type)%>" >
+								<%= msg %>
+							</p>
+						</div>
+					</div>
+		<%end%>
+     	<%= yield %>
+    </div> <!-- /container -->
+
+<footer>
+		<%= yield :scripts %>
+
+	     
+</footer>
+</body>
+</html>
+
+
+
+
