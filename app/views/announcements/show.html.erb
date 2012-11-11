@@ -5,26 +5,28 @@
 <% @announcement.comments.each do |comment| %>
 	<div class="well">
 		<% if comment.user %>
-			<strong><Anonym><%= comment.user.email %>:</strong> <%= comment.text %>
+			<strong><Anonym><%= comment.user.name %>:</strong> <%= comment.text %>
 		<%else%>
 			<strong>Anonym:</strong> <%= comment.text %>
 		<%end%>
 	</div>
 <%end%>
-<div class="well">	
-	<%= simple_form_for(@announcement.comments.build) do |f| %>
-	
-	  <div class="form-inputs">
-	    <%= f.input :text ,:label => "Write a comment:", :required => false , :input_html => {:rows => 5 }%>
-	  	<%= f.input :announcement_id , :as => :hidden %>
-	  </div>
-	
-	  <div class="form-actions">
-	    <%= f.button :submit %>
-	  </div>
-	<% end %>
-</div>
-
+<% if @announcement.billboard.user == current_user ||
+	 current_user && BillboardActivation.where(:user_id => current_user.id, :billboard_id => @announcement.billboard.id).first %>
+	<div class="well">	
+		<%= simple_form_for(@announcement.comments.build) do |f| %>
+		
+		  <div class="form-inputs">
+		    <%= f.input :text ,:label => "Write a comment:", :required => false , :input_html => {:rows => 5 }%>
+		  	<%= f.input :announcement_id , :as => :hidden %>
+		  </div>
+		
+		  <div class="form-actions">
+		    <%= f.button :submit %>
+		  </div>
+		<% end %>
+	</div>
+<%end%>
 <%if current_user && @announcement.user == current_user%>
 	<%= link_to 'Edit', edit_announcement_path(@announcement) %> |
 <%end%>

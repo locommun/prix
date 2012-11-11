@@ -1,0 +1,2 @@
+module BillboardActivationHelper
+end

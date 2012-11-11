@@ -34,11 +34,14 @@
 			</div>
 		</div>
 		<%end%>
-		<div class="span2">
-			<div class="well">
-				<%= link_to "New Announcement" , new_announcement_path(:billboard_id => @billboard.id)%>
+		<% if  @billboard.user == current_user ||
+			 current_user && BillboardActivation.where(:user_id => current_user.id, :billboard_id => @billboard.id).first %>
+			<div class="span2">
+				<div class="well">
+					<%= link_to "New Announcement" , new_announcement_path(:billboard_id => @billboard.id)%>
+				</div>
 			</div>
-			</div>
+		<% end %>
 	</div>
 </div>
 

@@ -7,9 +7,13 @@ Powwow::Application.routes.draw do
   resources :billboards
   resources :announcements
   
+  resources :activateBillboards
+  
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
+  
+  match 'activate_billboard' => 'billboards#activate'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

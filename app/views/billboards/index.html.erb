@@ -10,5 +10,15 @@
 	}) %> 
 	<%end%>
 	</br>
-<%= link_to 'New Billboard', new_billboard_path , :class => "btn"%>
-
+	<div>
+		<strong>Activate a billboard:</strong>
+		<form class="form-inline" action="activate_billboard">
+				<input type="text" class="search-query span2" name="key"  value="<%= params["code"]%>" placeholder="billboard code...">
+				<button type="submit" class="btn">
+					activate
+				</button>
+		</form>
+		<strong>Create a new billboard:</strong></br>
+		<%= link_to 'New Billboard', new_billboard_path , :class => "btn"%>
+	
+	</div>

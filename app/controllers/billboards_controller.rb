@@ -9,6 +9,34 @@ class BillboardsController < ApplicationController
     end
   end
 
+  def activate
+    
+    if !current_user
+      redirect_to new_user_session_path
+      return
+    end    
+    
+    key = params[:key]
+    if key != ""
+      billboard = Billboard.where(:key => key).first
+      if billboard
+        flash[:notice] = "You have successfully activated the billboard!"
+        if BillboardActivation.where(:user_id => current_user.id, :billboard_id => billboard.id).first
+          flash[:notice] = "the billboard is already activated!"
+        else
+          BillboardActivation.new(:user_id => current_user.id, :billboard_id => billboard.id).save
+        end
+        redirect_to billboard_path(billboard)
+      else
+        flash[:error] = "This key is not correct. please enter a correct billboard key!"
+        redirect_to root_path
+      end
+    else
+        flash[:notice] = "please enter a key!"
+        redirect_to root_path
+    end
+  end
+
   def new
     @billboard = Billboard.new
 
@@ -24,6 +52,14 @@ class BillboardsController < ApplicationController
     if current_user
       @billboard.user = current_user
     end
+    
+    #TODO: check for correktness
+    key = SecureRandom.hex(8)
+    while Billboard.where(:key => key).first
+      key = SecureRandom.hex(8)
+    end
+    @billboard.key = key
+    
     @billboard.gmaps = true
     respond_to do |format|
       if @billboard.save

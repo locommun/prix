@@ -1,6 +1,6 @@
 class Billboard < ActiveRecord::Base
   include Rails.application.routes.url_helpers
-  attr_accessible :description, :gmaps, :latitude, :longitude, :name, :user
+  attr_accessible :description, :gmaps, :latitude, :longitude, :name, :user, :key
   has_many :announcements
   belongs_to :user
   
