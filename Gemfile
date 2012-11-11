@@ -27,6 +27,9 @@ gem 'devise'
 # GeoCoding
 gem "geocoder"
 
+# QR Code
+gem "rqrcode"
+
 #ActiveAdmin
 
   gem 'activeadmin'
