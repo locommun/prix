@@ -1,14 +1,15 @@
  <% if request.location %>
   <%= gmaps({ 
-	"map_options" => {  "center_longitude" => request.location.longitude,"center_latitude" => request.location.latitude, "zoom" => 12, "auto_adjust" => false,  "provider" => "openlayers"},
+	"map_options" => {  "center_longitude" => request.location.longitude,"center_latitude" => request.location.latitude, "zoom" => 12, "auto_adjust" => false},
 	"markers" => {"data" => @json}
 	}) %> 
 	<%else%>
 	 <%= gmaps({ 
-	"map_options" => {  "zoom" => 1 , "auto_zoom" => false,  "provider" => "openlayers"},
+	"map_options" => {  "zoom" => 1 , "auto_zoom" => false},
 	"markers" => {"data" => @json}
 	}) %> 
 	<%end%>
 	</br>
 <%= link_to 'New Billboard', new_billboard_path , :class => "btn"%>
+<%= request.location.to_yaml%>
 

@@ -202,7 +202,7 @@ class @Gmaps4RailsOpenlayers extends Gmaps4Rails
   # #////////////////////////////////////////////////////
  
   fitBounds: ->
-    @map.zoomToExtent(@boundsObject, true)
+    #@map.zoomToExtent(@boundsObject, true)
   
   centerMapOnUser: ->
     @map.setCenter @userLocation
