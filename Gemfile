@@ -7,7 +7,9 @@ gem 'rails', '3.2.8'
 
 gem 'activerecord-jdbcsqlite3-adapter'
 
-gem 'jruby-openssl'
+platforms :jruby do
+  gem 'jruby-openssl'
+end
 
 # Gmaps4Rails
 gem 'gmaps4rails'

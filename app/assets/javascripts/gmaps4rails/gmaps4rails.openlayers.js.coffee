@@ -187,13 +187,13 @@ class @Gmaps4RailsOpenlayers extends Gmaps4Rails
                                null, true, @onPopupClose)
     feature.popup = popup
     popup.feature = feature
-    @serviceObject.addPopup popup
+    @map.addPopup popup
 
   onFeatureUnselect: (evt) ->
     feature = evt.feature
     if feature.popup
       #//popup.feature = null;
-      @serviceObject.removePopup feature.popup
+      @map.removePopup feature.popup
       feature.popup.destroy()
       feature.popup = null
 
@@ -202,8 +202,8 @@ class @Gmaps4RailsOpenlayers extends Gmaps4Rails
   # #////////////////////////////////////////////////////
  
   fitBounds: ->
-    @serviceObject.zoomToExtent(@boundsObject, true)
+    @map.zoomToExtent(@boundsObject, true)
   
   centerMapOnUser: ->
-    @serviceObject.setCenter @userLocation
+    @map.setCenter @userLocation
     
