@@ -11,8 +11,18 @@
 		<%end%>
 	</div>
 <%end%>
-<div class="well">
-		<%= link_to "Write Comment" , new_comment_path(:announcement_id => @announcement.id)%>
+<div class="well">	
+	<%= simple_form_for(@announcement.comments.build) do |f| %>
+	
+	  <div class="form-inputs">
+	    <%= f.input :text ,:label => "Write a comment:", :required => false , :input_html => {:rows => 5 }%>
+	  	<%= f.input :announcement_id , :as => :hidden %>
+	  </div>
+	
+	  <div class="form-actions">
+	    <%= f.button :submit %>
+	  </div>
+	<% end %>
 </div>
 
 <%if current_user && @announcement.user == current_user%>
