@@ -4,12 +4,12 @@
 	<%= f.input :description , :input_html => { :cols => 50, :rows => 5 }%>
 	  <% if request.location %>
   <%= gmaps({ 
-	"map_options" => {  "center_longitude" => request.location.longitude,"center_latitude" => request.location.latitude, "zoom" => 12, "auto_adjust" => true,  "provider" => "openlayers"},
+	"map_options" => {  "center_longitude" => request.location.longitude,"center_latitude" => request.location.latitude, "zoom" => 12, "auto_adjust" => true},
 	"markers" => {"data" => @json}
 	}) %> 
 	<%else%>
 	 <%= gmaps({ 
-	"map_options" => {  "zoom" => 1, "auto_adjust" => true , "auto_zoom" => false , "provider" => "openlayers"},
+	"map_options" => {  "zoom" => 1, "auto_adjust" => true , "auto_zoom" => false },
 	"markers" => {"data" => @json}
 	}) %> 
 	<%end%>
