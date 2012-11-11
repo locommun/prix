@@ -19,6 +19,13 @@
 				<%= @billboard.longitude %>
 			</span>
 		</p>
+		<p>
+			<% if @billboard.user == current_user %>
+				<strong>
+					<%=link_to "Print the billboard", billboard_print_path(:id => @billboard.id), :class => "btn" %>
+				</strong>
+			<%end%>
+		</p>
 		
 	</div>
 	<div class="span10">
@@ -34,7 +41,7 @@
 			</div>
 		</div>
 		<%end%>
-		<% if  @billboard.user == current_user ||
+		<% if @billboard.user == current_user ||
 			 current_user && BillboardActivation.where(:user_id => current_user.id, :billboard_id => @billboard.id).first %>
 			<div class="span2">
 				<div class="well">

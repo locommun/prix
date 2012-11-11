@@ -9,6 +9,14 @@ class BillboardsController < ApplicationController
     end
   end
 
+  def print
+    @billboard = Billboard.find(params[:id])
+    respond_to do |format|
+      format.html  # new.html.erb
+      format.json  { render :json => @billboard }
+    end
+  end
+
   def activate
     
     if !current_user
