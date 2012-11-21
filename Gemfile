@@ -17,6 +17,7 @@ platforms :ruby do
   gem 'therubyracer'
   gem 'sqlite3'
   gem 'mysql'
+  gem 'activerecord-mysql-adapter'
   gem "unicorn", "~> 4.4.0"
 end
 
