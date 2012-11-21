@@ -1,6 +1,7 @@
 
 set :application, "demestoa"
 
+require "bundler/capistrano"
 
 set :repository,  "https://github.com/mxm/prix.git"
 set :scm, "git"
