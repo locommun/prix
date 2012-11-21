@@ -17,7 +17,7 @@ set :normalize_asset_timestamps, false
 
 role :web, "demestoa.spline.de"                          # Your HTTP server, Apache/etc
 role :app, "demestoa.spline.de"                          # This may be the same as your `Web` server
-#role :db,  "127.0.0.1", :primary => true # This is where Rails migrations will run
+role :db,  "demestoa.spline.de", :primary => true # This is where Rails migrations will run
 #role :db,  "your slave db-server here"
 
 #
