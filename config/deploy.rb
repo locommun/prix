@@ -1,4 +1,7 @@
+require 'mongrel_cluster/recipes'
+
 set :application, "demestoa"
+
 set :repository,  "https://github.com/mxm/prix.git"
 set :scm, "git"
 set :branch, "master"
