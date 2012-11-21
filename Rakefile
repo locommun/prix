@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Powwow::Application.load_tasks
+Demestoa::Application.load_tasks

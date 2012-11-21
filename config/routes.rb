@@ -1,4 +1,4 @@
-Powwow::Application.routes.draw do
+Demestoa::Application.routes.draw do
   
   resources :comments
 
