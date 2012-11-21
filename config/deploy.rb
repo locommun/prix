@@ -1,6 +1,6 @@
-require 'capistrano-unicorn'
 
 set :application, "demestoa"
+require 'capistrano-unicorn'
 
 set :repository,  "https://github.com/mxm/prix.git"
 set :scm, "git"
