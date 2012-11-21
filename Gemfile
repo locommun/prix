@@ -21,8 +21,7 @@ platforms :ruby do
 end
 
 group :development do
-  gem 'capistrano-unicorn', :require => false
-end
+  gem 'capistrano-unicorn', github: "sosedoff/capistrano-unicorn", branch: "master", :require => false
 
 
 # capistrano
