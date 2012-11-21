@@ -1,6 +1,10 @@
 
 set :application, "demestoa"
 
+set :default_environment, {
+  'PATH' => "/var/lib/gems/1.9.1/bin/:$PATH"
+}
+
 require "bundler/capistrano"
 
 set :repository,  "https://github.com/mxm/prix.git"
