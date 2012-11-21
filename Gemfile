@@ -16,7 +16,13 @@ end
 platforms :ruby do
   gem 'therubyracer'
   gem 'sqlite3'
+	#gem 'mysql'
+	#gem 'mongrel'
+	#gem 'mongrel_cluster'
 end
+
+# capistrano
+gem 'capistrano'
 
 # Gmaps4Rails
 gem 'gmaps4rails'
