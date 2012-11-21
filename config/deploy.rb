@@ -30,7 +30,7 @@ set :deploy_to, "/home/deploy/#{application}"
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
 require 'capistrano-unicorn'
-
+after 'deploy:restart', 'unicorn:restart' # app IS NOT preloaded
 after 'deploy:restart', 'unicorn:reload'  # app preloaded
 
 # if you're still using the script/reaper helper you will need
