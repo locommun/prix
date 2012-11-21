@@ -1,4 +1,4 @@
-require 'mongrel_cluster/recipes'
+
 
 set :application, "demestoa"
 
@@ -25,6 +25,9 @@ set :mongrel_conf, "#{current_path}/config/mongrel_cluster.yml"
 
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
+
+after 'deploy:restart', 'unicorn:restart' # app IS NOT preloaded
+after 'deploy:restart', 'unicorn:reload'  # app preloaded
 
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
