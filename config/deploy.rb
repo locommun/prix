@@ -1,6 +1,6 @@
 
 set :application, "demestoa"
-require 'capistrano-unicorn'
+
 
 set :repository,  "https://github.com/mxm/prix.git"
 set :scm, "git"
@@ -21,11 +21,10 @@ role :app, "demestoa.spline.de"                          # This may be the same 
 
 #
 set :deploy_to, "/home/deploy/#{application}"
-set :mongrel_conf, "#{current_path}/config/mongrel_cluster.yml"
 
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
-
+require 'capistrano-unicorn'
 after 'deploy:restart', 'unicorn:restart' # app IS NOT preloaded
 after 'deploy:restart', 'unicorn:reload'  # app preloaded
 
