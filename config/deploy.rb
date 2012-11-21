@@ -1,4 +1,4 @@
-
+require 'capistrano-unicorn'
 
 set :application, "demestoa"
 
