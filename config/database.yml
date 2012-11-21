@@ -17,4 +17,5 @@ test:
 
 production:
   adapter: mysql2
+  username: deploy
   database: demestoa_production
