@@ -1,0 +1,33 @@
+
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>Link zur Stoa</th>
+			<th>Beschreibung</th>
+			<th>Entfernung</th>
+		</tr>
+	</thead>
+<% @billboards.each do |billboard| %>
+ <tr>
+ 	<td><%= link_to billboard.name, billboard %></td>
+ 	<td><%= billboard.description[0..15]%>...</td>
+ 	<% if request.location %>
+ 		<td><%= Geocoder::Calculations.distance_between(
+ 		[request.location.latitude,request.location.longitude],[billboard.latitude,billboard.longitude]).round(1) %> km</td>
+ 	<%else%>
+ 		<td>?</td>
+ 	<%end%>
+ </tr>
+<%end%>
+</table>
+
+	<div class="well">
+  <h3>Aktiviere eine Stoa</h3>
+	
+	<form class="form-inline" action="activate_billboard">
+		<input type="text" class="search-query span1" name="key"  value="<%= params["code"]%>" placeholder="Code...">
+		<button type="submit" class="btn">
+			activate
+		</button>
+	</form>	        
+</div>

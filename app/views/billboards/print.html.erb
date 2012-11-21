@@ -10,4 +10,10 @@
 	To join the billboard go to localhost and enter the billboard key:
 	
 	<h2><%= @billboard.key%></h2>
+	
+	or scan:
+	
+	<%= qrcode "localhost:3000/activate_billboard" %>
+	
 </div>
+
