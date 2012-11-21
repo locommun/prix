@@ -1,24 +1,10 @@
- <% if request.location %>
-  <%= gmaps({ 
-	"map_options" => {  "center_longitude" => request.location.longitude,"center_latitude" => request.location.latitude, "zoom" => 12, "auto_adjust" => false},
-	"markers" => {"data" => @json}
-	}) %> 
-	<%else%>
-	 <%= gmaps({ 
-	"map_options" => {  "zoom" => 1 , "auto_zoom" => false},
-	"markers" => {"data" => @json}
-	}) %> 
-	<%end%>
-	</br>
-	<div>
-		<strong>Activate a billboard:</strong>
-		<form class="form-inline" action="activate_billboard">
-				<input type="text" class="search-query span2" name="key"  value="<%= params["code"]%>" placeholder="billboard code...">
-				<button type="submit" class="btn">
-					activate
-				</button>
-		</form>
-		<strong>Create a new billboard:</strong></br>
-		<%= link_to 'New Billboard', new_billboard_path , :class => "btn"%>
-	
-	</div>
+      	      	
+    <div class="hidden-phone">
+    	<%=  link_to "verberge Karte", no_map_index_path %>
+    	<%= render 'map_index' %>	
+    </div>  	      	
+    <div class="visible-phone">
+    	<%=  link_to "zeige Karte", map_index_path %>
+    </div>
+ 	
+ 	<%= render 'list_index' %>

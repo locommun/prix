@@ -16,6 +16,9 @@ Powwow::Application.routes.draw do
   match 'activate_billboard' => 'billboards#activate'
   match 'billboard_print' => 'billboards#print'
 
+  match 'no_map_index' => 'billboards#no_map_index'
+  match 'map_index' => 'billboards#map_index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
