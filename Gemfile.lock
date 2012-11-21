@@ -211,7 +211,7 @@ DEPENDENCIES
   jruby-openssl
   less-rails
   meta_search (>= 1.1.0.pre)
-  mongrel (>= 1.2.0.pre2)
+  mongrel (~> 1.2.0.pre2)
   mongrel_cluster
   mysql
   rails (= 3.2.8)

@@ -17,7 +17,7 @@ platforms :ruby do
   gem 'therubyracer'
   gem 'sqlite3'
   gem 'mysql'
-  gem 'mongrel' , '>= 1.2.0.pre2'
+  gem "mongrel", "~> 1.2.0.pre2"
   gem 'mongrel_cluster'
 end
 
