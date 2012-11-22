@@ -1,4 +1,12 @@
+
 set :application, "demestoa"
+
+set :default_environment, {
+  'PATH' => "/var/lib/gems/1.9.1/bin/:$PATH"
+}
+
+require "bundler/capistrano"
+
 set :repository,  "https://github.com/mxm/prix.git"
 set :scm, "git"
 set :branch, "master"
@@ -13,15 +21,17 @@ set :normalize_asset_timestamps, false
 
 role :web, "demestoa.spline.de"                          # Your HTTP server, Apache/etc
 role :app, "demestoa.spline.de"                          # This may be the same as your `Web` server
-#role :db,  "127.0.0.1", :primary => true # This is where Rails migrations will run
+role :db,  "demestoa.spline.de", :primary => true # This is where Rails migrations will run
 #role :db,  "your slave db-server here"
 
 #
 set :deploy_to, "/home/deploy/#{application}"
-set :mongrel_conf, "#{current_path}/config/mongrel_cluster.yml"
 
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
+require 'capistrano-unicorn'
+after 'deploy:restart', 'unicorn:restart' # app IS NOT preloaded
+after 'deploy:restart', 'unicorn:reload'  # app preloaded
 
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts

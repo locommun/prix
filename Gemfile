@@ -16,9 +16,12 @@ end
 platforms :ruby do
   gem 'therubyracer'
   gem 'sqlite3'
-	#gem 'mysql'
-	#gem 'mongrel'
-	#gem 'mongrel_cluster'
+  gem 'mysql2'
+  gem "unicorn", "~> 4.4.0"
+end
+
+group :development do
+  gem 'capistrano-unicorn', :git => 'git://github.com/sosedoff/capistrano-unicorn', :branch => "master", :require => false
 end
 
 # capistrano
