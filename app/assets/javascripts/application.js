@@ -13,3 +13,24 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function(){
+
+	// Hide Map
+	$('#hide-map-button').click(function() {
+	  $('#hidden-map').hide();
+	  $('#hidden-map').removeClass("hidden-phone");
+	  $('#show-map-link').removeClass("visible-phone");
+	  $('#show-map-link').show();
+	});
+	
+	//Show Map
+	$('#show-map-button').click(function() {
+	  $('#hidden-map').show();
+	  $('#hidden-map').removeClass("hidden-phone");
+	  $('#show-map-link').removeClass("visible-phone");
+	  $('#show-map-link').hide();
+	   google.maps.event.trigger(map, 'resize');
+	});
+});
+

@@ -1,10 +1,10 @@
       	      	
-    <div class="hidden-phone">
-    	<%=  link_to "verberge Karte", no_map_index_path %>
-    	<%= render 'map_index' %>	
+    <div class="hidden-phone center-content" id="hidden-map">
+    	<%= render 'map_index' %></br>	
+    	<button id="hide-map-button"><i class="icon-chevron-up"></i>Verstecke Karte</button>
     </div>  	      	
-    <div class="visible-phone">
-    	<%=  link_to "zeige Karte", map_index_path %>
+    <div class="visible-phone center-content" id="show-map-link">
+    	<button id="show-map-button"><i class="icon-chevron-down"></i>Zeige Karte</button>
     </div>
  	
  	<%= render 'list_index' %>
