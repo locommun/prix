@@ -21,7 +21,7 @@
 		<p>
 			<% if @billboard.user == current_user %>
 				<strong>
-					<%=link_to "Aushang drucken", billboard_path(:id => @billboard.id, :format => pdf), :class => "btn" %>
+					<%=link_to "Aushang drucken", billboard_path(:id => @billboard.id, :format => :pdf), :class => "btn" %>
 				</strong>
 			<%end%>
 		</p>
