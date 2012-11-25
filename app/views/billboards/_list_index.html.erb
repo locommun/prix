@@ -24,8 +24,8 @@
 	<div class="well">
   <h3>Aktiviere eine Stoa</h3>
 	
-	<form class="form-inline" action="activate_billboard">
-		<input type="text" class="search-query span1" name="key"  value="<%= params["code"]%>" placeholder="Code...">
+	<form class="form-inline" action="billboards/activate">
+		<input type="text"  name="key"  value="<%= params["code"]%>" placeholder="Code...">
 		<button type="submit" class="btn">
 			activate
 		</button>

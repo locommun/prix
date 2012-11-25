@@ -4,7 +4,10 @@ Demestoa::Application.routes.draw do
 
   devise_for :users
 
-  resources :billboards
+  resources :billboards do 
+    get 'activate', :on => :collection
+    get 'print', :on => :member
+  end
   resources :announcements
   
   resources :activateBillboards
@@ -12,10 +15,7 @@ Demestoa::Application.routes.draw do
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
-  
-  match 'activate_billboard' => 'billboards#activate'
-  match 'billboard_print' => 'billboards#print'
-
+ 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

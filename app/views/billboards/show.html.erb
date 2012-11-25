@@ -22,7 +22,7 @@
 		<p>
 			<% if @billboard.user == current_user %>
 				<strong>
-					<%=link_to "Print the billboard", billboard_print_path(:id => @billboard.id), :class => "btn" %>
+					<%=link_to "Print the billboard", print_billboard_path(:id => @billboard.id), :class => "btn" %>
 				</strong>
 			<%end%>
 		</p>

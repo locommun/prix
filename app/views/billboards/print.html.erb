@@ -12,8 +12,9 @@
 	<h2><%= @billboard.key%></h2>
 	
 	or scan:
-	
-	<%= qrcode "localhost:3000/activate_billboard" %>
+	<% qrcode_url= url_for :action => "activate", :key => @billboard.key ,:only_path => false%>
+	<%= qrcode qrcode_url  , :level => :m%>
+
 	
 </div>
 
