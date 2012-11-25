@@ -45,6 +45,22 @@
 	.map_container {
 		width:300px !important;
 	}
+	.inputs input {
+	  width:150px;
+	}
+	
+	.form-inline input {
+		width: 100px;
+	}
+	
+	.form-inputs input {
+		width: 150px;
+	}
+	.form-inputs textarea {
+		width: 150px;
+	}
+	
+	
  }
  
  @media (min-width:481px) and (max-width: 767px) {
