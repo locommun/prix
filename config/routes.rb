@@ -6,7 +6,6 @@ Demestoa::Application.routes.draw do
 
   resources :billboards do 
     get 'activate', :on => :collection
-    get 'print', :on => :member
   end
   resources :announcements
   
