@@ -1,6 +1,11 @@
 class BillboardsController < ApplicationController
   def index
     @billboards = Billboard.all
+    if request.location
+      @user_longitude = request.location.longitude
+      @user_latitude= request.location.latitude
+      @near_billboards = Billboard.near([@user_latitude, @user_longitude], 20) 
+    end
     @json = Billboard.all.to_gmaps4rails
    
     respond_to do |format|

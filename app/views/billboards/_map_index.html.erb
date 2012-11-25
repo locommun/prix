@@ -1,6 +1,6 @@
  <% if request.location %>
   <%= gmaps({ 
-	"map_options" => {  "center_longitude" => request.location.longitude,"center_latitude" => request.location.latitude, "zoom" => 12, "auto_adjust" => false},
+	"map_options" => {  "center_longitude" => @user_longitude,"center_latitude" => @user_latitude, "zoom" => 12, "auto_adjust" => false},
 	"markers" => {"data" => @json}
 	}) %> 
 	<%else%>

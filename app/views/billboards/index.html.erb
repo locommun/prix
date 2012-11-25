@@ -1,10 +1,31 @@
-      	      	
-    <div class="hidden-phone center-content" id="hidden-map">
-    	<%= render 'map_index' %></br>	
-    	<button id="hide-map-button"><i class="icon-chevron-up"></i>Verstecke Karte</button>
-    </div>  	      	
-    <div class="visible-phone center-content" id="show-map-link">
-    	<button id="show-map-button"><i class="icon-chevron-down"></i>Zeige Karte</button>
+    <div class="row"> 	
+	    <div class="well">
+	    	LOGO und Comic
+	    </div>  
+	</div>	
+    <div class="row"> 	  	      	
+	    <div class="hidden-phone center-content" id="hidden-map">
+	    	<%= render 'map_index' %></br>	
+	    	<button id="hide-map-button"><i class="icon-chevron-up"></i>Verstecke Karte</button>
+	    </div>  	      	
+	    <div class="visible-phone center-content" id="show-map-link">
+	    	<button id="show-map-button"><i class="icon-chevron-down"></i>Zeige Karte</button>
+	    </div>
     </div>
  	
- 	<%= render 'list_index' %>
+ 	<div class="row">
+ 		<div class="span6">
+ 			<h3>Litfaßsäulen in deiner Nähe:</h3>
+ 			<%= render 'list_index' %>
+ 		</div>
+		<div class="span6">
+	 		<h3>Activierungscode eingeben</h3>
+		
+			<form class="form-inline" action="billboards/activate">
+				<input type="text"  name="key"  value="<%= params["code"]%>" placeholder="Code...">
+				<button type="submit" class="btn">
+					activate
+				</button>
+			</form>	 
+	    </div>   
+	</div>

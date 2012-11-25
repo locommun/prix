@@ -13,6 +13,8 @@ class Billboard < ActiveRecord::Base
     ""
   end
 
+  reverse_geocoded_by :latitude, :longitude
+
   def gmaps4rails_infowindow
     head = "<a href=\"#{billboard_path(self)}\"><h3>#{self.name}</h3></a>"
   end
