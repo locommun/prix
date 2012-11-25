@@ -39,8 +39,8 @@ gem "geocoder"
 # QR Code
 gem "rqrcode"
 
-#pdf generation
-
+#PDF - requires wkhtmltopdf installed
+gem 'wicked_pdf'
 
 #ActiveAdmin
 

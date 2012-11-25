@@ -14,13 +14,6 @@ class BillboardsController < ApplicationController
     end
   end
 
-  def print
-    @billboard = Billboard.find(params[:id])
-    respond_to do |format|
-      format.html  # new.html.erb
-      format.json  { render :json => @billboard }
-    end
-  end
 
   def activate
     
@@ -94,6 +87,9 @@ class BillboardsController < ApplicationController
     respond_to do |format|
       format.html  # show.html.erb
       format.json  { render :json => @billboard }
+      format.pdf do
+        render :pdf => "file_name", :no_background => false
+      end
     end
   end
 

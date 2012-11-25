@@ -193,6 +193,8 @@ GEM
       raindrops (~> 0.7)
     warden (1.1.1)
       rack (>= 1.0)
+    wicked_pdf (0.8.0)
+      rails
 
 PLATFORMS
   java
@@ -222,3 +224,4 @@ DEPENDENCIES
   therubyrhino
   uglifier (>= 1.0.3)
   unicorn (~> 4.4.0)
+  wicked_pdf
