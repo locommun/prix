@@ -18,6 +18,7 @@ platforms :ruby do
   gem 'sqlite3'
   gem 'mysql2'
   gem "unicorn", "~> 4.4.0"
+  gem "wkhtmltopdf-binary", "~> 0.9.9.1"
 end
 
 group :development do
