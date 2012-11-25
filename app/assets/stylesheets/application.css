@@ -94,7 +94,7 @@
    width: 10px;
    height: 10px;
  }
-.qrcode td.black { background-color: #000; }
-.qrcode td.white { background-color: #fff; }
+.qrcode td.black { background-color: #000 !important; }
+.qrcode td.white { background-color: #fff !important; }
 
 

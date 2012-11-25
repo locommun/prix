@@ -39,6 +39,9 @@ gem "geocoder"
 # QR Code
 gem "rqrcode"
 
+#pdf generation
+
+
 #ActiveAdmin
 
   gem 'activeadmin'

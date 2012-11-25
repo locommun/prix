@@ -2,7 +2,6 @@
 	<div class="span2">
 		<h2><%= @billboard.name %></h2>
 		<p>
-			<b>Description:</b>
 			<%= @billboard.description %>
 		</p>
 		<%= gmaps({ 
@@ -11,10 +10,10 @@
 			}) %> 
 		
 		<p>
-			<p  style="font-size:xx-small;">
+			<p style="font-size:xx-small;">
 			<b>Lat:</b>
 			<%= @billboard.latitude %></span>
-			<p  style="font-size:xx-small;">
+			<p style="font-size:xx-small;">
 			<b>Long:</b>
 				<%= @billboard.longitude %>
 			</span>
@@ -22,7 +21,7 @@
 		<p>
 			<% if @billboard.user == current_user %>
 				<strong>
-					<%=link_to "Print the billboard", print_billboard_path(:id => @billboard.id), :class => "btn" %>
+					<%=link_to "Aushang drucken", print_billboard_path(:id => @billboard.id), :class => "btn" %>
 				</strong>
 			<%end%>
 		</p>
@@ -33,11 +32,11 @@
 		<% @billboard.announcements.each do |announcement| %>
 		<div class="span2">
 			<div class="well">
-			<h3><%= announcement.name %></h3>
+			<h3><%= link_to  announcement.name , announcement %></h3>
 			<p>
 				<%= announcement.description %>
 			</p>
-			<%= link_to "Show" , announcement , :class=> "btn"%>
+			
 			</div>
 		</div>
 		<%end%>
@@ -45,7 +44,7 @@
 			 current_user && BillboardActivation.where(:user_id => current_user.id, :billboard_id => @billboard.id).first %>
 			<div class="span2">
 				<div class="well">
-					<%= link_to "New Announcement" , new_announcement_path(:billboard_id => @billboard.id)%>
+					<%= link_to "Neue Anzeige" , new_announcement_path(:billboard_id => @billboard.id)%>
 				</div>
 			</div>
 		<% end %>
@@ -53,6 +52,6 @@
 </div>
 
 <%if current_user && @billboard.user == current_user%>
-	<%= link_to 'Edit Billboard', edit_billboard_path(@billboard) %> |
+	<%= link_to 'Editieren', edit_billboard_path(@billboard) %> |
 <%end%>
-<%= link_to 'Back', billboards_path %> 
+<%= link_to 'Zurück', billboards_path %> 

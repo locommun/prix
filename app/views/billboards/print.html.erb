@@ -1,10 +1,6 @@
-<%=link_to "Print the billboard", "javascript:print()"  %>
+<%=link_to "Aushang drucken", "javascript:print()"  %>
 
-<h1>Billboard <%= @billboard.name%></h1>
-
-<div class="well">
-	<%= @billboard.description%>
-</div>
+<h1><%= @billboard.name%></h1>
 
 <div class="well">
 	To join the billboard go to localhost and enter the billboard key:
