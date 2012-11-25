@@ -9,7 +9,7 @@
 	
 	or scan:
 	<% qrcode_url= url_for :action => "activate", :key => @billboard.key ,:only_path => false%>
-	<%= qrcode qrcode_url  , :level => :m%>
+	<%= qrcode qrcode_url  , :level => :m , :size => 7%>
 
 	
 </div>
