@@ -1,3 +1,6 @@
+#!/bin/env ruby
+# encoding: utf-8
+
 class BillboardsController < ApplicationController
   def index
     @billboards = Billboard.all
@@ -14,33 +17,40 @@ class BillboardsController < ApplicationController
     end
   end
 
+  
 
   def activate
-    
-    if !current_user
-      redirect_to new_user_session_path
-      return
-    end    
-    
     key = params[:key]
-    if key != ""
-      billboard = Billboard.where(:key => key).first
-      if billboard
-        flash[:notice] = "You have successfully activated the billboard!"
-        if BillboardActivation.where(:user_id => current_user.id, :billboard_id => billboard.id).first
-          flash[:notice] = "the billboard is already activated!"
-        else
-          BillboardActivation.new(:user_id => current_user.id, :billboard_id => billboard.id).save
-        end
-        redirect_to billboard_path(billboard)
-      else
-        flash[:error] = "This key is not correct. please enter a correct billboard key!"
-        redirect_to root_path
-      end
-    else
-        flash[:notice] = "please enter a key!"
-        redirect_to root_path
+    if !(user_signed_in?)
+      deny_access_to_save_object key 
+      return
+    end   
+     
+    if get_stored_object
+        key = get_stored_object
     end
+    
+    if !key
+       redirect_to root_path
+       return
+    end
+    
+    billboard = Billboard.where(:key => key).first
+        
+    if billboard
+       if BillboardActivation.where(:user_id => current_user.id, :billboard_id => billboard.id).first
+            flash[:notice] = "Bereits aktiviert!"
+       else
+            BillboardActivation.new(:user_id => current_user.id, :billboard_id => billboard.id).save
+            flash[:notice] = "Erfolgreich aktiviert! Du kannst jetzt Anzeigen veröffentlichen"
+       end
+          redirect_to billboard_path(billboard)
+     else
+          flash[:error] = "Ungültiger Aktivierungscode!"
+          redirect_to root_path
+     end
+     
+   
   end
 
   def new
