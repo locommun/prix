@@ -1,23 +1,70 @@
 <html>
 	<head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  	<%= wicked_pdf_stylesheet_link_tag "print" -%>
-  	<%= wicked_pdf_stylesheet_link_tag "application" -%>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<%= wicked_pdf_stylesheet_link_tag "print" -%>
+		<%= wicked_pdf_stylesheet_link_tag "application" -%>
 	</head>
 
-<div class="well">
-<h1><%= @billboard.name%></h1>
+	<body>
+		<br/>
+		<div class="container">
+			<div class="row">
 
+				<div class="span12">
+					<div class="well ">
+						
+						<%= wicked_pdf_image_tag('comic2.jpg' ,:class => "float-right") %>
+						
+						<h3>Das ist die Litfaßsäule</h3>
+						</span>
+						<h1> <%= @billboard.name%></h1>
 
-	To join the billboard go to localhost and enter the billboard key:
-	
-	<h2><%= @billboard.key%></h2>
-	
-	or scan:
-	<% qrcode_url= url_for :action => "activate", :key => @billboard.key ,:only_path => false%>
-	<%= qrcode qrcode_url  , :level => :m , :size => 7%>
+						<br />
+						<br />
+						<br />
+						<h2>Demestoa</h2>
+						<p class="justify-content">
+							Das Internet hat die Menschen näher zusammengebracht. Doch was ist mit
+							den Menschen, die ohnehin schon nahe beieinander waren? Welche Bedeutung
+							hat das Internet im Kiez? Wir finden, ziemlich viel. Mit Demestoa kannst
+							du dich mit deiner Umgebung vernetzen. Einfach eine Nachricht bei dir im
+							Hausflur, an der nächsten Straßenecke oder beim Kulturverein posten. Ob
+							du Fußball spielen, eine neue Sprache lernen oder einfach nur Leute
+							kennenlernen willst: alle das ist möglich. Mit Demestoa können wir uns
+							lokal vernetzen.
+						</p>
+						
+						<h2>Wie geht das?</h2>
+						<p class="justify-content">
+							Eigentlich funktioniert Demestoa nicht anders als die guten alten
+							Aushänge an Pinnwänden, schwarzen Brettern, Litfaßsäulen, oder wie die
+							Dinger noch heißen. Ein Aushang bei Demestoa ist digital und analog
+							zugleich. Du erkennst ihn an dem Demestoa-Logo und einem QR-Code. Ein
+							QR-Code sieht ähnlich wie ein Barcode aus. Du kannst ihn mit deinem
+							Smartphone abfotografieren. Er führt dich dann zu dem Aushang oder der
+							Pinnwand, wo du alle Aushänge sehen kannst. Nur wenn du einen QR-Code
+							abfotografiert hast, kann du auch auf die jeweilige Pinnwand schreiben.
+							Das klingt kompliziert, aber es ist kinderleicht. Probier's doch einfach
+							mal aus!
+						</p>
+						<div class="center-content">
+							<p >
+								Um diese Litfaßsäule freizuschalten, gebe folgenden Aktivierungscode auf <h4>demestoa.spline.de</h4> ein:
+							</p>
 
-	
+							<h3><%= @billboard.key%></h3>
+							<br />
 
-</div>
+							<p>
+								oder scanne einfach den QR-Code mit deinem Smartphone:
+							</p>
+						</div>
+						<% qrcode_url= url_for :action => "activate", :key => @billboard.key ,:only_path => false%>
+						<%= qrcode qrcode_url  , :level => :l , :size => 6 %>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
