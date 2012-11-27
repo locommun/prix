@@ -1,0 +1,34 @@
+
+de:
+# Devise
+  devise:
+    links:
+      sign_in: "Anmelden"
+      sign_up: "Registrieren"
+      forgot_password: "Passwort vergessen?"
+      confirmation_instruction: "Keine Bestätigungsanweisung erhalten?"
+      unlock_instruction: "Keine Anweisungen zur Freischaltung erhalten?"
+      sign_in_with: "Mit anderem Account anmelden #{provider.to_s.titleize}"
+    actions:
+      unlock: "E-mail Anweisungen zur Freischaltung erneut senden"
+    new_profile:
+      password: "Passwort eingeben"
+      password_confirmation: "Passwort bestätigen"
+    edit_profile:
+      email: "Bitte Email-Adresse angeben"
+      password: "Geben Sie ein neues Passwort an (Freilassen, falls kein neues Passwort angelegt werden soll)"
+      password_confirmation: "Neues Passwort bestätigen"
+      current_password: "Bisheriges Passwort angeben (wir benötigen Ihr bisheriges Passwort um die Änderungen zu bestätigen)"
+      cancel_account: "Benutzerkonto löschen"
+      cancel_account_confirm: "Sind Sie sicher?"
+      
+# Formtastic     
+  formtastic: 
+    labels:
+        announcement:
+          name: "Name"
+          description: "Beschreibung"
+    actions:
+      create: "%{model} erstellen"
+      update: "Änderungen speichern"
+      login: "Anmelden"

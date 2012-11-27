@@ -1,3 +1,6 @@
+#!/bin/env ruby
+# encoding: utf-8
+
 class AnnouncementsController < ApplicationController
   # GET /announcements
   # GET /announcements.json
@@ -20,11 +23,17 @@ class AnnouncementsController < ApplicationController
   def new
     @announcement = Announcement.new
     @announcement.billboard_id = params[:billboard_id] 
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @announcement }
-    end
+    if current_user && ( @announcement.billboard.user == current_user ||  BillboardActivation.where(:user_id => current_user.id, :billboard_id => @billboard.id).first)
+        respond_to do |format|
+          format.html # new.html.erb
+          format.json { render json: @announcement }
+        end
+      else
+       respond_to do |format|
+           format.html  { redirect_to(root_path,
+                        :notice => 'Du bist leider noch nicht für diese Littfaßsäule freigeschalten!') }
+       end
+      end
   end
 
   # GET /announcements/1/edit

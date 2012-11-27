@@ -2,4 +2,24 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+# Devise
+  devise:
+    links:
+      sign_in: "Sign in"
+      sign_up: "Sign up"
+      forgot_password: "Forgot your password?"
+      confirmation_instruction: "Didn't receive confirmation instructions?"
+      unlock_instruction: "Didn't receive unlock instructions?"
+      sign_in_with: "Sign in with #{provider.to_s.titleize}"
+    actions:
+      unlock: "Resend unlock instructions"
+    new_profile:
+      password: "Enter password"
+      password_confirmation: "Confirm password"
+    edit_profile:
+      email: "Enter your email address"
+      password: "Enter new password (leave blank if you don't want to change it)"
+      password_confirmation: "Confirm new password"
+      current_password: "Enter current password (we need your current password to confirm your changes)"
+      cancel_account: "Cancel my account"
+      cancel_account_confirm: "Are you sure?"
