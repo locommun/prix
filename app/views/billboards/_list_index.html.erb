@@ -4,7 +4,7 @@
 	 <tr>
 	 	<td><%= link_to billboard.name, billboard %></td>
 	 	<% if request.location %>
-	 		<%# <td><%= Geocoder::Calculations.distance_between([request.location.latitude,request.location.longitude],[billboard.latitude,billboard.longitude]).round(1) %> km</td>%>
+	 		<%# <td><%= Geocoder::Calculations.distance_between([request.location.latitude,request.location.longitude],[billboard.latitude,billboard.longitude]).round(1) > km</td>%>
 	 	<%else%>
 	 		<td>?</td>
 	 	<%end%>
