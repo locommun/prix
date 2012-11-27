@@ -32,7 +32,7 @@
 		
 		<p>
 		<%if current_user && @billboard.user == current_user%>
-			<%= link_to 'Editieren', edit_billboard_path(@billboard) ,:class => "btn btn-primary"%> |
+			<%= link_to 'Editieren', edit_billboard_path(@billboard) ,:class => "btn"%>
 		<%end%>
 		</p>
 		<p>
