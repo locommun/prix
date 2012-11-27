@@ -28,7 +28,7 @@
 	</div>
 <%end%>
 <%if current_user && @announcement.user == current_user%>
-	<%= link_to 'Editieren', edit_announcement_path(@announcement) %> |
+	<%= link_to 'Editieren', edit_announcement_path(@announcement) %>
 <%end%>
 
 <%= link_to 'Zurück', billboard_path(@announcement.billboard) ,  :class =>"btn"%>
