@@ -17,6 +17,9 @@ class BillboardsController < ApplicationController
     end
   end
 
+def description
+  
+end
   
 
   def activate
