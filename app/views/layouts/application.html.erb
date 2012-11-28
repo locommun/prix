@@ -14,12 +14,12 @@
 
 </head>
 <body>
-
+	
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           
-          <a class="brand" href="/">Demestoa</a>
+          <a class="brand" href="/">Demestoa</a><span class="label label-demestoa"><%= link_to "Alpha" , :controller => "billboard", :action => "description" , :anchor=> "alpha" %></span>
           <ul class="nav pull-right">
           	<% if user_signed_in? %>
 			 	<li><%= link_to 'Abmelden', destroy_user_session_path %></li>
