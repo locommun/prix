@@ -46,11 +46,13 @@
 		<%end%>
      	<%= yield %>
     </div> <!-- /container -->
+<hr />
 
-<footer>
-		<%= yield :scripts %>
+	<footer class="center-content">
+			<%= yield :scripts %>
+	<h3><%= link_to "Impressum","http://www.mi.fu-berlin.de/fb/impressum/index.html" %></h3>
+	</footer>
 
-</footer>
 </body>
 </html>
 
