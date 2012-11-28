@@ -1,6 +1,14 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  
+   before_filter :track_user
+   
+   def track_user 
+      ip = request.remote_ip 
+      useragent = request.env['HTTP_USER_AGENT']
+      user_tracking = UserTracking.new(:ip => ip, :useragent => useragent, :url => request.path)
+      user_tracking.save
+   end
+   
    def after_sign_in_path_for(resource_or_scope)
       if get_stored_location
         store_location = get_stored_location
