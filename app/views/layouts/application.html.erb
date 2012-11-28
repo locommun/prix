@@ -50,8 +50,10 @@
 
 	<footer class="center-content">
 			<%= yield :scripts %>
-	<h3><%= link_to "Impressum","http://www.mi.fu-berlin.de/fb/impressum/index.html" %></h3>
+  <%= link_to "FAQ", controller => "billboards", :action => "description" %> | 
+	<%= link_to "Impressum","http://www.mi.fu-berlin.de/fb/impressum/index.html" %>
 	</footer>
+  <span style="height:10px;">&nbsp;</span>
 
 </body>
 </html>
