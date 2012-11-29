@@ -23,7 +23,7 @@ class AnnouncementsController < ApplicationController
   def new
     @announcement = Announcement.new
     @announcement.billboard_id = params[:billboard_id] 
-    if current_user && ( @announcement.billboard.user == current_user ||  BillboardActivation.where(:user_id => current_user.id, :billboard_id => @billboard.id).first)
+    if current_user && ( @announcement.billboard.user == current_user ||  BillboardActivation.where(:user_id => current_user.id, :billboard_id => @announcement.billboard.id).first)
         respond_to do |format|
           format.html # new.html.erb
           format.json { render json: @announcement }
