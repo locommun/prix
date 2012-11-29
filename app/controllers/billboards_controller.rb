@@ -83,10 +83,11 @@ end
     respond_to do |format|
       if @billboard.save
         format.html  { redirect_to(@billboard,
-                    :notice => 'Billboard was successfully created.') }
+                    :notice => 'Erfolgreich erstellt.') }
         format.json  { render :json => @billboard,
                     :status => :created, :location => @billboard }
       else
+        @json = @billboard.to_gmaps4rails
         format.html  { render :action => "new" }
         format.json  { render :json => @billboard.errors,
                     :status => :unprocessable_entity }
@@ -101,7 +102,7 @@ end
       format.html  # show.html.erb
       format.json  { render :json => @billboard }
       format.pdf do
-        render :pdf => "file_name", :no_background => false
+        render :pdf => "demestoa", :no_background => false
       end
     end
   end
@@ -117,7 +118,7 @@ end
     respond_to do |format|
       if @billboard.update_attributes(params[:billboard])
         format.html  { redirect_to(@billboard,
-                    :notice => 'Billboard was successfully updated.') }
+                    :notice => 'Änderungen gespeichert') }
         format.json  { head :no_content }
       else
         format.html  { render :action => "edit" }

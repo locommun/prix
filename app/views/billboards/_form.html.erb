@@ -1,7 +1,7 @@
 <%= simple_form_for(@billboard, :html => {:class => 'form-inline' }) do |f| %>
 	<%= f.error_notification %>
-	<%= f.input :name%>
-	<%= f.input :description , :input_html => { :cols => 50, :rows => 5 }%>
+	<%= f.input :name , :label => "Titel der Litfaßsäule"%>
+	<%= f.input :description , :input_html => { :cols => 50, :rows => 5 }, :label => "Lagebeschreibung"%>
 	  <% if request.location %>
   <%= gmaps({ 
 	"map_options" => {  "center_longitude" => request.location.longitude,"center_latitude" => request.location.latitude, "zoom" => 12, "auto_adjust" => true},
