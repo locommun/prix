@@ -127,4 +127,10 @@ end
       end
     end
   end
+  
+  def request_activate
+     @billboard = Billboard.find(params[:id])
+     @json = @billboard.to_gmaps4rails
+  end
+  
 end
