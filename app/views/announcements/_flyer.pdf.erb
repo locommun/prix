@@ -1,0 +1,23 @@
+<div class="span12">
+	<div class="well ">
+		<h2> <%= @announcement.name%></h2>
+		<br />
+		<p class="justify-content">
+			<%= @announcement.description[0..400]%>
+		</p>
+		
+		<div class="center-content">
+			<p >
+				Link zu dieser Anzeige:
+			</p>
+
+			<h3><%= polymorphic_url(@announcement) %></h3>
+
+		</div>
+		
+		<% qrcode_url= polymorphic_url(@announcement) %>
+		<%= qrcode qrcode_url  , :level => :l , :size => 6 %>
+
+	</div>
+	
+</div>
