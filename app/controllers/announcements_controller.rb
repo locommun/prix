@@ -18,7 +18,7 @@ class AnnouncementsController < ApplicationController
       format.json { render json: @announcement }
       
       format.pdf do
-        render :pdf => "demestoa", :no_background => false
+        render :pdf => "flyer", :no_background => false
       end
     
     end

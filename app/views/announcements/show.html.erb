@@ -28,10 +28,17 @@
 	</div>
 <%end%>
 
+<%if (current_user && BillboardActivation.where(:user_id => current_user.id, :billboard_id => @announcement.billboard.id).first )%>
+
+	<%=link_to (raw ("<i  class=\"icon-print icon-white \"></i> Flyer drucken")), announcement_path(:id => @announcement.id, :format => :pdf) ,:class => "btn btn-primary" %>
+	
+<%end%>
+
+
 <%if current_user && @announcement.user == current_user%>
 
-	<%=link_to (raw ("<i  class=\"icon-print \"></i> Flyer drucken")), announcement_path(:id => @announcement.id, :format => :pdf) ,:class => "btn" %>
 	<%= link_to 'Editieren', edit_announcement_path(@announcement) , :class => "btn"%>
+
 <%end%>
 
 <%= link_to 'Zurück', billboard_path(@announcement.billboard) ,  :class =>"btn"%>
