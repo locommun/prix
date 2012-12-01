@@ -1,4 +1,5 @@
-<h2>Change your password</h2>
+<div class="well">
+<h2>Passwort ändern</h2>
 
 <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= f.error_notification %>
@@ -7,13 +8,14 @@
   <%= f.full_error :reset_password_token %>
 
   <div class="inputs">
-    <%= f.input :password, :label => "New password", :required => true %>
-    <%= f.input :password_confirmation, :label => "Confirm your new password", :required => true %>
+    <%= f.input :password, :label => "Neues Passwort", :required => true %>
+    <%= f.input :password_confirmation, :label => "Neues Passwort bestätigen", :required => true %>
   </div>
 
   <div class="actions">
-    <%= f.button :submit, "Change my password" %>
+    <%= f.button :submit, "Passwort ändern" %>
   </div>
 <% end %>
 
 <%= render "links" %>
+</div>

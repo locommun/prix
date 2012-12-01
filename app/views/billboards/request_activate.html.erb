@@ -1,0 +1,23 @@
+<div class="row">
+		<div class="span12">
+		
+		<div class="well">
+			<%= image_tag('comic2.jpg', :class => "float-right")%>
+			<h3>Registriere dich bitte für diese Litfaßsäule</h3>
+			
+		<p>Um neue Anzeigen auf dieser Litfaßsäule veröffentlichen zu können musst du zum Aushang der Litfaßsäule gehen und dort den QR-Code einscannen oder den dort ausgehängten Code abschreiben und auf der <a href="/">Hauptseite</a> unten eintippen.
+		</p>
+		 </br>
+		<p>Du findest die Anzeige mit Hilfe der unten Angezeigten Karte und folgender Wegbeschreibung:</p>
+		<p><b><%= @billboard.description%></b></p>
+		<p>Mehr dazu findest du in den  <a href="/billboards/description">FAQs</a>.</p> 
+			<%= link_to 'Zurück', billboard_path(@billboard) ,:class => "btn"%></br/>
+		</div>	
+		</div>
+</div>
+	<%= gmaps({ 
+			"map_options" => { "auto_adjust" => true , "zoom" => 14,"auto_zoom" => false},
+			"markers" => {"data" => @json}
+			}) %> 
+
+

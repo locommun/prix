@@ -6,10 +6,10 @@
   <%= f.error_notification %>
 
   <div class="inputs">
-  	<%= f.input :name, :required => true, :autofocus => true %>
-    <%= f.input :email, :required => true %>
-    <%= f.input :password, :required => true %>
-    <%= f.input :password_confirmation, :required => true %>
+  	<%= f.input :name, :required => true, :autofocus => true  , :label => "Name"%>
+    <%= f.input :email, :required => true  , :label => "E-Mail"%>
+    <%= f.input :password, :required => true , :label => "Passwort"%>
+    <%= f.input :password_confirmation, :required => true , :label => "Passwort bestätigen"%>
   </div>
 
   <div class="actions">
