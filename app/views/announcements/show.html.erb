@@ -29,6 +29,8 @@
 <%end%>
 
 <%if current_user && @announcement.user == current_user%>
+
+	<%=link_to (raw ("<i  class=\"icon-print \"></i> Flyer drucken")), announcement_path(:id => @announcement.id, :format => :pdf) ,:class => "btn" %>
 	<%= link_to 'Editieren', edit_announcement_path(@announcement) , :class => "btn"%>
 <%end%>
 
