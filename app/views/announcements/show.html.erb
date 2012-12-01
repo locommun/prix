@@ -12,8 +12,8 @@
 		<%end%>
 	</div>
 <%end%>
-<% if @announcement.billboard.user == current_user ||
-	 current_user && BillboardActivation.where(:user_id => current_user.id, :billboard_id => @announcement.billboard.id).first %>
+
+<% if ( current_user && @announcement.billboard.user == current_user) || ( current_user && BillboardActivation.where(:user_id => current_user.id, :billboard_id => @announcement.billboard.id).first ) %>
 	<div class="well">	
 		<%= simple_form_for(@announcement.comments.build) do |f| %>
 		
@@ -27,6 +27,7 @@
 		<% end %>
 	</div>
 <%end%>
+
 <%if current_user && @announcement.user == current_user%>
 	<%= link_to 'Editieren', edit_announcement_path(@announcement) , :class => "btn"%>
 <%end%>
