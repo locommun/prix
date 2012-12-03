@@ -1,3 +1,6 @@
+#!/bin/env ruby
+# encoding: utf-8
+
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
@@ -12,5 +15,19 @@ class User < ActiveRecord::Base
   has_many :announcements
   has_many :comments
   has_many :billboards
+  
+  def activate_billboard billboard
+    msg = "Diese Litfaßsäule existiert nicht."
+    if billboard
+       if BillboardActivation.where(:user_id => self.id, :billboard_id => billboard.id).first
+            msg = "Bereits aktiviert!"
+       else
+            BillboardActivation.new(:user_id => self.id, :billboard_id => billboard.id).save
+            msg = "Erfolgreich aktiviert! Du kannst jetzt Anzeigen veröffentlichen."
+       end
+    end
+    return msg
+  end
+  
   
 end

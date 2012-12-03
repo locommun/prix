@@ -18,4 +18,8 @@ class Billboard < ActiveRecord::Base
   def gmaps4rails_infowindow
     head = "<a href=\"#{billboard_path(self)}\"><h3>#{self.name}</h3></a>"
   end
+  
+  def is_activated? user
+    self.user == user ||  BillboardActivation.exists?(:user_id => user.id, :billboard_id => self.id)
+  end
 end
