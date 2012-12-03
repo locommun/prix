@@ -24,8 +24,16 @@ end
 
   def activate
     key = params[:key]
-    if !(user_signed_in?)
-      deny_access_to_save_object key 
+    billboard = Billboard.where(:key => key).first
+    
+    if !billboard
+          flash[:error] = "Ungültiger Aktivierungscode!"
+          redirect_to root_path
+        
+    elsif !(user_signed_in?)
+      deny_access_to_save_object key
+      #store_object_to_session key
+      #redirect_to billboard
       return
     end   
      
@@ -37,9 +45,7 @@ end
        redirect_to root_path
        return
     end
-    
-    billboard = Billboard.where(:key => key).first
-        
+
     if billboard
        if BillboardActivation.where(:user_id => current_user.id, :billboard_id => billboard.id).first
             flash[:notice] = "Bereits aktiviert!"
@@ -48,12 +54,8 @@ end
             flash[:notice] = "Erfolgreich aktiviert! Du kannst jetzt Anzeigen veröffentlichen"
        end
           redirect_to billboard_path(billboard)
-     else
-          flash[:error] = "Ungültiger Aktivierungscode!"
-          redirect_to root_path
-     end
-     
-   
+    end
+    
   end
 
   def new

@@ -47,7 +47,9 @@
 			<div class="well">
 			<h3><%= link_to  announcement.name , announcement %></h3>
 			<p>
-				<%= announcement.description %>
+				<%= announcement.description[0..150] %>
+				</br>
+				<%= link_to  'mehr' , announcement %>
 			</p>
 			</div>
 			
