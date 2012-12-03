@@ -96,5 +96,7 @@
 img.float-right { width:300px;  float: right; }
 
 
-
+.break-word {
+  word-wrap: break-word;
+}
 

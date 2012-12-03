@@ -1,63 +1,64 @@
-<div class="row">
-	<div class="span3">
-		<div class="well" id="billboard-controlls">
-		<h2><%= @billboard.name %></h2>
-		<p>
-			<%= @billboard.description %>
-		</p>
-		<%= gmaps({ 
-			"map_options" => { "container_class" => "minimap_container", "id" =>  "minimap","auto_adjust" => true , "zoom" => 14,"auto_zoom" => false},
-			"markers" => {"data" => @json}
-			}) %> 
-		
-		<p>
-			<p style="font-size:xx-small;">
-			<b>Lat:</b>
-			<%= @billboard.latitude %></span>
-			<p style="font-size:xx-small;">
-			<b>Long:</b>
-				<%= @billboard.longitude %>
-			</span>
-		</p>
-		<p><strong>
-		<%= link_to  (raw ("<i  class=\"icon-file icon-white\"></i> Neue Anzeige")) , new_announcement_path(:billboard_id => @billboard.id) ,:class => "btn btn-primary"%>
-		</strong></p>
-		<p>
-			<% if @billboard.user == current_user %>
-				
-					<%=link_to (raw ("<i  class=\"icon-print \"></i> Aushang drucken")), billboard_path(:id => @billboard.id, :format => :pdf) ,:class => "btn" %>
-				
-			<%end%>
-		</p>
-		
-		<p>
-		<%if current_user && @billboard.user == current_user%>
-			<%= link_to 'Editieren', edit_billboard_path(@billboard) ,:class => "btn"%>
-		<%end%>
-		</p>
-		<p>
-		<%= link_to 'Zurück', billboards_path ,:class => "btn"%>
-		</p> 
-		</div>
-	</div>
-	
-	<div class="per3">
-		<% @billboard.announcements.each do |announcement| %>
-		<div class="span3">
-			<div class="well">
-			<h3><%= link_to  announcement.name , announcement %></h3>
-			<p>
-				<%= announcement.description[0..150] %>
-				</br>
-				<%= link_to  'mehr' , announcement %>
-			</p>
-			</div>
-			
-		</div>
-		<%end%>
-	</div>
-			
-		
-		
-</div>
 
+
+	<% if (!user_signed_in?) && session.has_key?(:billboard)  && session[:billboard] == @billboard.id%>
+		<div class="alert alert-info ">
+			Du hast einen <b><i class="icon-qrcode"></i> Aktivierungscode</b> eingescannt oder eingetippt! Um dich für diese Litfaßsäule freizuschalten, musst du dich <b><%= link_to 'anmelden', new_user_session_path %></b> oder
+			<%= link_to 'registrieren', new_user_registration_path%>, falls du noch keinen Benutzeraccount hast.
+
+			</div >
+	<%end%>
+
+	<div class="row">
+		<div class="span3">
+			<div class="well" id="billboard-controlls">
+				<h2><%= @billboard.name %></h2>
+				<p>
+					<%= @billboard.description %>
+				</p>
+				<%= gmaps({
+				"map_options" => { "container_class" => "minimap_container", "id" =>  "minimap","auto_adjust" => true , "zoom" => 14,"auto_zoom" => false},
+				"markers" => {"data" => @json}
+				}) %> <p>
+				<p style="font-size:xx-small;">
+					<b>Lat:</b>
+					<%= @billboard.latitude %></span>
+				<p style="font-size:xx-small;">
+					<b>Long:</b>
+					<%= @billboard.longitude %>
+					</span>
+				</p>
+				<p>
+					<strong> <%= link_to  (raw ("<i  class=\"icon-file icon-white\"></i> Neue Anzeige")) , new_announcement_path(:billboard_id => @billboard.id) ,:class => "btn btn-primary"%> </strong>
+				</p>
+				<p>
+					<% if @billboard.user == current_user %>
+
+					<%= link_to (raw ("<i  class=\"icon-print \"></i> Aushang drucken")), billboard_path(:id => @billboard.id, :format => :pdf) ,:class => "btn" %>
+
+					<%end%>
+				</p>
+				<p>
+					<%if current_user && @billboard.user == current_user%>
+					<%= link_to 'Editieren', edit_billboard_path(@billboard) ,:class => "btn"%>
+					<%end%>
+				</p>
+				<p>
+					<%= link_to 'Zurück', billboards_path ,:class => "btn"%>
+				</p>
+			</div>
+		</div>
+		<div class="per3">
+			<% @billboard.announcements.each do |announcement| %>
+			<div class="span3">
+				<div class="well break-word ">
+					<h3><%= link_to  announcement.name , announcement %></h3>
+					<p>
+						<%= announcement.description[0..150] %>
+						</br>
+						<%= link_to  'mehr' , announcement %>
+					</p>
+				</div>
+			</div>
+			<%end%>
+		</div>
+	</div>

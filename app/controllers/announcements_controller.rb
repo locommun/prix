@@ -29,7 +29,7 @@ class AnnouncementsController < ApplicationController
   def new
     @announcement = Announcement.new
     @announcement.billboard_id = params[:billboard_id] 
-    if current_user && ( @announcement.billboard.user == current_user ||  BillboardActivation.where(:user_id => current_user.id, :billboard_id => @announcement.billboard.id).first)
+    if current_user && @announcement.billboard.is_activated?(current_user)
         respond_to do |format|
           format.html # new.html.erb
           format.json { render json: @announcement }
@@ -51,46 +51,48 @@ class AnnouncementsController < ApplicationController
   # POST /announcements.json
   def create
     @announcement = Announcement.new(params[:announcement])
-    if current_user
+    if current_user && @announcement.billboard.is_activated?(current_user)
       @announcement.user = current_user
-    end
-    
-    respond_to do |format|
-      if @announcement.save
-        format.html { redirect_to @announcement, notice: 'Announcement was successfully created.' }
-        format.json { render json: @announcement, status: :created, location: @announcement }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @announcement.errors, status: :unprocessable_entity }
-      end
-    end
+        respond_to do |format|
+          if @announcement.save
+            format.html { redirect_to @announcement, notice: 'Announcement was successfully created.' }
+            format.json { render json: @announcement, status: :created, location: @announcement }
+          else
+            format.html { render action: "new" }
+            format.json { render json: @announcement.errors, status: :unprocessable_entity }
+          end
+        end
+     end
   end
 
   # PUT /announcements/1
   # PUT /announcements/1.json
   def update
     @announcement = Announcement.find(params[:id])
-
-    respond_to do |format|
-      if @announcement.update_attributes(params[:announcement])
-        format.html { redirect_to @announcement, notice: 'Announcement was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @announcement.errors, status: :unprocessable_entity }
+    if(@announcement.user == current_user)
+      respond_to do |format|
+        if @announcement.update_attributes(params[:announcement])
+          format.html { redirect_to @announcement, notice: 'Announcement was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @announcement.errors, status: :unprocessable_entity }
+        end
       end
-    end
+     end
   end
 
   # DELETE /announcements/1
   # DELETE /announcements/1.json
   def destroy
+   if(@announcement.user == current_user)
     @announcement = Announcement.find(params[:id])
     @announcement.destroy
 
     respond_to do |format|
       format.html { redirect_to Announcements_url }
       format.json { head :no_content }
+    end
     end
   end
   

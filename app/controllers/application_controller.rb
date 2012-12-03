@@ -10,6 +10,11 @@ class ApplicationController < ActionController::Base
    end
    
    def after_sign_in_path_for(resource_or_scope)
+     if session.has_key?(:billboard) 
+       billboard = Billboard.find session[:billboard]
+       flash[:notice] = current_user.activate_billboard billboard
+       return billboard_path(billboard)
+     end
       if get_stored_location
         store_location = get_stored_location
         clear_stored_location
@@ -17,7 +22,6 @@ class ApplicationController < ActionController::Base
       else
          root_path
       end
-    
   end
   
   # Useful Set of Methods for Storing Objects for session initiation
