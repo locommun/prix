@@ -31,7 +31,7 @@ class AnnouncementsController < ApplicationController
       else
        respond_to do |format|
            format.html  { redirect_to(request_activate_billboard_path(@announcement.billboard),
-                        :notice => 'Du bist leider noch nicht für diese Littfaßsäule freigeschalten!') }
+                        :notice => 'Du bist leider noch nicht für diese Littfaßsäule freigeschalten oder nicht eingeloggt!') }
        end
       end
   end

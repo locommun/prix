@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   
   # Useful Set of Methods for Storing Objects for session initiation
   def deny_access_to_save_object serialized_object, path = request.path
-    flash[:warning] = t('devise.failure.unauthenticated')
+    flash[:warning] = "Du musst dich zuerst einloggen bevor du weitermachen kannst!"
     session[:return_to] = path
     session[:stored_object] = serialized_object
     redirect_to new_user_session_path
