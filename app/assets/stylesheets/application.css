@@ -51,6 +51,10 @@
 	  width:150px;
 	}
 	
+	.controls input {
+		width: 100px;
+	}
+	
 	.form-inline input {
 		width: 100px;
 	}
