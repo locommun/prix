@@ -27,7 +27,7 @@
 		<% end %>
 	</div>
 
-<%if (current_user && BillboardActivation.where(:user_id => current_user.id, :billboard_id => @announcement.billboard.id).first )%>
+<%if (current_user && @announcement.billboard.is_activated?(current_user) )%>
 
 	<%=link_to (raw ("<i  class=\"icon-print icon-white \"></i> Flyer drucken")), announcement_path(:id => @announcement.id, :format => :pdf) ,:class => "btn btn-primary" %>
 	

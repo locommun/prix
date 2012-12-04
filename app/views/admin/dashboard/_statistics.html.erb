@@ -1,0 +1,12 @@
+<table class="index_table index">
+	<tr>
+		<th> URL </th>
+		<th> Visitors </th>
+	</tr>
+		<% UserTracking.count("visitor", :distinct => "true", :group => "url").each do |url,count| %> 
+			<tr>
+				<td> <a  href="<%=url%>"><%= url%></a> </td>
+				<td> <%= count%> </td>
+			</tr>
+		<% end %>
+</table>

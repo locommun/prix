@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
    def track_user 
       ip = request.remote_ip 
       useragent = request.env['HTTP_USER_AGENT']
-      user_tracking = UserTracking.new(:ip => ip, :useragent => useragent, :url => request.path)
+      user_tracking = UserTracking.new(:visitor => ip + "#" +  useragent, :url => request.path)
       user_tracking.save
    end
    

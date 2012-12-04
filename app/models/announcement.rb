@@ -5,5 +5,5 @@ class Announcement < ActiveRecord::Base
   has_many :comments
   
   validates_length_of :description, :minimum => 50
-  
+  validates_length_of :name, :maximum => 30
 end
