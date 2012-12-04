@@ -21,7 +21,19 @@ class BillboardsController < ApplicationController
   end
 
   def dialog
+
     @dialog = Dialog.find(params[:id])
+  end
+  
+  def dialog_accept
+    if user_signed_in?
+      @dialog = Dialog.find(params[:id])
+      @dialog.godfather_id = current_user.id  
+      @dialog.save
+    else
+      flash[:notice] = "Du musst dich zuerst einloggen!"
+    end
+    redirect_to :controller => "billboards", :action => "dialog", :id => @dialog.id
   end
 
   def activate

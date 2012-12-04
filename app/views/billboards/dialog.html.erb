@@ -5,11 +5,14 @@
 
 	<p><%= @dialog.text %></p>
 	 
+	 <%if user_signed_in? && @dialog.user != current_user%>
+	 	<h2><%= link_to "Patenschaft annehmen", :controller => "billboards", :action => "dialog_accept", :id => @dialog.id%></h2>
+	 <%end%>
 </div>
 
-<% @dialog.billboard.dialogs.where(:parent => @dialog.id).each do |dialog| %>
+<% @dialog.dialogcomments.each do |dialogcomment| %>
 	<div class="well">
-			<strong><Anonym><%= dialog.user.name %>:</strong> <%= dialog.text %>
+			<strong><Anonym><%= dialogcomment.user.name %>:</strong> <%= dialogcomment.text %>
 	</div>
 <%end%>
 
@@ -17,16 +20,16 @@
 	<div class="well">	
 		<a href="/billboards/description#pate">Mehr Informationen zum Thema Patenschaft</a>
 		<hr />
-		<%= simple_form_for(@dialog.billboard.dialogs.build) do |f| %>
+		<%= simple_form_for(@dialog.dialogcomments.build) do |f| %>
 		
 		  <div class="form-inputs">
-		    <%= f.input :text ,:label => (dialog_closed? @dialog.id) ? "Schreibe eine Nachricht:" : "Nehme die Patenschaft an und schreibe eine Nachricht:", :required => false , :input_html => {:rows => 7 }%>
+		    <%= f.input :text ,:label => "Schreibe eine Nachricht:" , :required => false , :input_html => {:rows => 7 }%>
 		  	
-		  	<%= f.input :billboard_id , :as => :hidden %>
-		  	<%= f.input :parent, :as => :hidden, :input_html => { :value => @dialog.id }%>
+		  	<%= f.input :dialog_id , :as => :hidden%>
+
 		  </div>
 		
-		  	<%= f.submit (dialog_closed? @dialog.id) ? "Abschicken" : "Patenschaft annehmen" , :class => "btn btn-primary"%>
+		  	<%= f.submit "Abschicken" , :class => "btn btn-primary"%>
 		  
 		<% end %>
 	</div>

@@ -1,8 +1,10 @@
 class Dialog < ActiveRecord::Base
-  attr_accessible :billboard_id, :parent, :text, :user_id
+  attr_accessible :billboard_id, :godfather_id, :text, :user_id
+  
   
   belongs_to :billboard
   belongs_to :user
   validates_presence_of :text
+  has_many :dialogcomments
   
 end

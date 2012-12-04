@@ -1,38 +1,70 @@
 
+<div class="row">
+
 <div class="well" id="billboard-controlls">
 	<h1><%= current_user.name %></h1>
 </div>
 
 
-
-<h3>Litfaßsäulen:</h3>
-
-<% Billboard.all.each do |billboard| %>
-	<%if billboard.is_activated?(current_user)%>
-		<div class="well span3">
-			<h4><%= billboard.name %></h4>
-			
-			<table class="table table-hover">
-				<tr>
-					<td><b>Eigene Anzeigen:</b></td>
-				</tr>
-				<% current_user.announcements.where(:billboard_id=>billboard.id).each do |announcement| %>
-					 <tr>
-					 	<td><%= link_to announcement.name, announcement %></td>
-					 </tr>
+<div class="well span5">
+	<h3>Paten</h3>
+	<table class="table table-hover">
+		<%current_user.dialogs.each do |dialog|%>
+			<tr>
+				<%if dialog.godfather_id && dialog.godfather_id > 0 %>
+					<td><%=link_to dialog.billboard.name+"("+User.find(dialog.godfather_id).name+")", :controller => "billboards", :action => "dialog", :id => dialog.id%></td>
+				<%else%>
+					<td><%=link_to dialog.billboard.name+"(Noch kein Pate gefunden)", :controller => "billboards", :action => "dialog", :id => dialog.id%></td>
 				<%end%>
+			</tr>
+		<%end%>
+	</table>
+</div>
+
+
+<div class="well span5">
+<h3>Patenschaften</h3>
+	<table class="table table-hover">
+		<%Dialog.all.each do |dialog|%>
+			<%if dialog.godfather_id == current_user.id %>
 				<tr>
-					<td><b>Fremde Anzeigen:</b></td>
+					<td><%=link_to dialog.billboard.name+"("+User.find(dialog.user_id).name+")", :controller => "billboards", :action => "dialog", :id => dialog.id%></td>
 				</tr>
-				<% billboard.announcements.each do |announcement| %>
-					<% if (Comment.exists? Comment.where(:announcement_id => announcement.id).first) && announcement.user != current_user %>
+			<%end%>
+		<%end%>
+	</table>
+</div>
+
+	<h3>Litfaßsäulen:</h3>
+	
+	<% Billboard.all.each do |billboard| %>
+		<%if billboard.is_activated?(current_user)%>
+			<div class="well span3">
+				<h4><%= link_to billboard.name, billboard %></h4>
+				
+				<table class="table table-hover">
+					<tr>
+						<td><b>Eigene Anzeigen:</b></td>
+					</tr>
+					<% current_user.announcements.where(:billboard_id=>billboard.id).each do |announcement| %>
 						 <tr>
 						 	<td><%= link_to announcement.name, announcement %></td>
 						 </tr>
-					 <%end%>
-				<%end%>
-			</table>
-			
-		</div>
+					<%end%>
+					<tr>
+						<td><b>Fremde Anzeigen:</b></td>
+					</tr>
+					<% billboard.announcements.each do |announcement| %>
+						<% if (Comment.exists? Comment.where(:announcement_id => announcement.id).first) && announcement.user != current_user %>
+							 <tr>
+							 	<td><%= link_to announcement.name, announcement %></td>
+							 </tr>
+						 <%end%>
+					<%end%>
+				</table>
+				
+			</div>
+		<%end%>
 	<%end%>
-<%end%>
+	
+</div>

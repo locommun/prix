@@ -1,7 +1,9 @@
 Demestoa::Application.routes.draw do
   
-  resources :dialogs
-
+  resources :dialogs do
+    get 'dialogcomment', :on => :collection
+  end
+  resources :dialogcomments
   resources :comments
 
   devise_for :users
@@ -11,6 +13,8 @@ Demestoa::Application.routes.draw do
     get 'description', :on => :collection
     get 'request_activate', :on => :member
     get 'dialog', :on => :collection
+    get 'dialog_accept', :on => :collection
+    
   end
   resources :announcements
   

@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   has_many :announcements
   has_many :comments
+  has_many :dialogcomments
   has_many :billboards
   has_many :dialogs
   

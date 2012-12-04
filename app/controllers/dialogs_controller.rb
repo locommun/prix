@@ -9,7 +9,7 @@ class DialogsController < ApplicationController
     if user_signed_in?
       
       dialog_old = Dialog.where(:user_id => current_user.id).first
-      if (Dialog.exists? dialog_old) && !@dialog.parent
+      if (Dialog.exists? dialog_old)
         
         flash[:notice] = "Du hast bereits ein Patenschats-Gesuch auf dieser Litfaßsäule erstellt!"
         redirect_to billboard_path(@dialog.billboard)
@@ -22,12 +22,9 @@ class DialogsController < ApplicationController
     if @dialog.save
       
       if current_user
-        if !@dialog.parent
-        redirect_to billboard_path(@dialog.billboard)
+        redirect_to :controller=>"billboards", :action=>"dialog", :id=> @dialog.id
         flash[:notice] = "Das Patenschats-Gesuch wurde erfolgreich erstellt."
-        else
-          redirect_to :controller => "billboards", :action => "dialog", :id => @dialog.parent
-        end
+        
       else
           deny_access_to_save_object @dialog.id, "/continue_creating_dialog"
           flash[:notice] = "Nach der Anmeldung wird das Patenschats-Gesuch erstellt."
@@ -42,7 +39,7 @@ class DialogsController < ApplicationController
       @dialog.user = current_user
       
       dialog_old = Dialog.where(:user_id => current_user.id).first
-      if (Dialog.exists? dialog_old) && !@dialog.parent
+      if (Dialog.exists? dialog_old)
         flash[:notice] = "Du hast bereits ein Patenschats-Gesuch auf dieser Litfaßsäule erstellt!"
         redirect_to billboard_path(@dialog.billboard)
         return
@@ -51,7 +48,7 @@ class DialogsController < ApplicationController
       if(@dialog.save) 
         #Remove any stored object
         clear_stored_object
-        redirect_to billboard_path(@dialog.billboard)
+        redirect_to :controller=>"billboards", :action=>"dialog", :id=> @dialog.id
         flash[:notice] = "Das Patenschats-Gesuch wurde erfolgreich erstellt."
       else
         flash[:error] = "Das Patenschats-Gesuch konnte nicht erstellt werden."
