@@ -1,38 +1,16 @@
 module BillboardsHelper
   
-    def dialog_sent?
+    def dialog_sent? billboard_id
       
       if user_signed_in?
-        dialog_old = Dialog.where(:user_id => current_user.id).first
+        dialog_old = Dialog.where(:user_id => current_user.id, :billboard_id => billboard_id).first
         if Dialog.exists? dialog_old
-          return true
+          return dialog_old
         end
       end
       
-      return false
+      return nil
       
     end
-    
-    def get_dialog_partner dialog_id
-        dialog = Dialog.find(dialog_id)
-        if dialog
-          if !dialog.parent
-            dialog_partner = Dialog.where(:parent => dialog_id).first
-            return User.find(dialog_partner.user_id).name
-          else
-            return User.find(dialog.parent).name
-          end
-        end
-    end
-    
-    def dialog_closed? dialog_id
-        
-      dialog = Dialog.where(:parent => dialog_id).first
-      if Dialog.exists? dialog
-        return true
-      end
-      
-      return false
-    
-    end
+
 end

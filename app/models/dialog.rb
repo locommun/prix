@@ -1,5 +1,5 @@
 class Dialog < ActiveRecord::Base
-  attr_accessible :billboard_id, :godfather_id, :text, :user_id
+  attr_accessible :billboard_id, :godfather_id, :text, :user_id, :billboard, :user
   
   
   belongs_to :billboard

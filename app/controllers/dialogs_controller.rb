@@ -8,7 +8,7 @@ class DialogsController < ApplicationController
     
     if user_signed_in?
       
-      dialog_old = Dialog.where(:user_id => current_user.id).first
+      dialog_old = Dialog.where(:user_id => current_user.id, :billboard_id => @dialog.billboard.id).first
       if (Dialog.exists? dialog_old)
         
         flash[:notice] = "Du hast bereits ein Patenschats-Gesuch auf dieser Litfaßsäule erstellt!"
@@ -38,7 +38,7 @@ class DialogsController < ApplicationController
       @dialog = Dialog.find(get_stored_object)
       @dialog.user = current_user
       
-      dialog_old = Dialog.where(:user_id => current_user.id).first
+      dialog_old = Dialog.where(:user_id => current_user.id, :billboard_id => @dialog.billboard.id).first
       if (Dialog.exists? dialog_old)
         flash[:notice] = "Du hast bereits ein Patenschats-Gesuch auf dieser Litfaßsäule erstellt!"
         redirect_to billboard_path(@dialog.billboard)

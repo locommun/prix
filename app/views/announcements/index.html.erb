@@ -11,10 +11,12 @@
 	<table class="table table-hover">
 		<%current_user.dialogs.each do |dialog|%>
 			<tr>
-				<%if dialog.godfather_id && dialog.godfather_id > 0 %>
-					<td><%=link_to dialog.billboard.name+"("+User.find(dialog.godfather_id).name+")", :controller => "billboards", :action => "dialog", :id => dialog.id%></td>
-				<%else%>
-					<td><%=link_to dialog.billboard.name+"(Noch kein Pate gefunden)", :controller => "billboards", :action => "dialog", :id => dialog.id%></td>
+				<%if dialog.billboard %>
+					<%if dialog.godfather_id && dialog.godfather_id > 0 %>
+						<td><%=link_to dialog.billboard.name + "(" + User.find(dialog.godfather_id).name + ")", :controller => "billboards", :action => "dialog", :id => dialog.id%></td>
+					<%else%>
+						<td><%=link_to dialog.billboard.name + "(Noch kein Pate gefunden)", :controller => "billboards", :action => "dialog", :id => dialog.id%></td>
+					<%end%>
 				<%end%>
 			</tr>
 		<%end%>

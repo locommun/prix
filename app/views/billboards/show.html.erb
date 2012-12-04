@@ -47,8 +47,9 @@
 				</p>
 			</div>
 			
-			<% if (!current_user || !@billboard.is_activated?(current_user)) %>
-				<% if !dialog_sent?%>
+			<% if (!current_user || !@billboard.is_activated?(current_user) ) %>
+				<%old_dialog = dialog_sent? @billboard.id%>
+				<% if !old_dialog %>
 					<div class="well" id="billboard-controlls">
 	
 						<h3>Patensuche</h3>
@@ -65,7 +66,14 @@
 						<% end %>
 		
 					</div>
+				<%else%>
+					<div class="well" id="billboard-controlls">
+						<div class="well">
+							<b><%= link_to  "Dein Paten-Gesuch" , :controller => "billboards", :action => "dialog", :id => old_dialog.id %></b>
+						</div>
+					</div>
 				<%end%>
+				
 			<%else%>
 				<div class="well" id="billboard-controlls">
 					<h3>Paten-Gesuche</h3>
