@@ -46,7 +46,40 @@
 					<%= link_to 'Zurück', billboards_path ,:class => "btn"%>
 				</p>
 			</div>
+			
+			<% if (!current_user || !@billboard.is_activated?(current_user)) %>
+				<% if !dialog_sent?%>
+					<div class="well" id="billboard-controlls">
+	
+						<h3>Patensuche</h3>
+						<p>Suche einen Paten auf der Litfaßsäule. <a href="/billboards/description#pate"><span class="label label-demestoa">?</span></a></p> 
+						<%= simple_form_for(@billboard.dialogs.build) do |f| %>
+						
+						  <div class="form-inputs">
+						    <%= f.input :text ,:label => "Stelle dich kurz vor:", :required => false , :input_html => {:rows => 7 }%>
+						  	<%= f.input :billboard_id , :as => :hidden %>
+						  </div>
+						
+						  	<%= f.submit "Abschicken" , :class => "btn btn-primary"%>
+						  
+						<% end %>
+		
+					</div>
+				<%end%>
+			<%else%>
+				<div class="well" id="billboard-controlls">
+					<h3>Paten-Gesuche</h3>
+						<% @billboard.dialogs.each do |dialog| %>
+							<%if !dialog.parent && !dialog_closed?(dialog.id)%>
+								<div class="well">
+									<b><%= link_to  dialog.user.name , :controller => "billboards", :action => "dialog", :id => dialog.id %></b>
+								</div>
+							<%end%>
+						<%end%>
+				</div>
+			<%end%>
 		</div>
+
 		<div class="per3">
 			<% @billboard.announcements.each do |announcement| %>
 			<div class="span3">

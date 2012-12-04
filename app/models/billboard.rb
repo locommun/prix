@@ -3,6 +3,8 @@ class Billboard < ActiveRecord::Base
   attr_accessible :description, :gmaps, :latitude, :longitude, :name, :user, :key
   has_many :announcements
   belongs_to :user
+  has_many :dialogs
+  
 	# where do we specify the database field's length? does rails infer the length from the validator?
 	validates :name, :length => {:minimum => 3, :maximum => 30}
 	validates_numericality_of :latitude, {:minimum => 0, :maximum => 90}

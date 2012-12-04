@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   has_many :announcements
   has_many :comments
   has_many :billboards
+  has_many :dialogs
   
   def activate_billboard billboard
     msg = "Diese Litfaßsäule existiert nicht."

@@ -1,4 +1,21 @@
     <div class="row"> 	
+	    
+	    <%if current_user && !current_user.dialogs.empty?%>
+		    <div class="well">
+		    	Patenschaften/Paten:
+		    	<% last_dialog_parent = -1 %>
+		    	<ul>
+		    	<% current_user.dialogs.each do |dialog| %>
+			    	<%if !dialog.parent || last_dialog_parent != dialog.parent%>
+			    		<% last_dialog = dialog %>
+			    		<li><b><%= link_to dialog.billboard.name, :controller => "billboards", :action => "dialog", :id => (dialog.parent) ? dialog.parent : dialog.id %></b></li>
+			    	<%end%>
+			    	<%last_dialog_parent = dialog.parent%>
+		    	<%end%>
+		    	</ul>
+		    </div>
+	    <%end%>
+	    
 	    <div class="span12 center-content">
 	    	<ul class="thumbnails">
               

@@ -1,0 +1,32 @@
+
+<div class="well" id="billboard-controlls">
+
+	<h1>Paten-Gesuch von <%= @dialog.user.name %></h1>
+
+	<p><%= @dialog.text %></p>
+	 
+</div>
+
+<% @dialog.billboard.dialogs.where(:parent => @dialog.id).each do |dialog| %>
+	<div class="well">
+			<strong><Anonym><%= dialog.user.name %>:</strong> <%= dialog.text %>
+	</div>
+<%end%>
+
+
+	<div class="well">	
+		<a href="/billboards/description#pate">Mehr Informationen zum Thema Patenschaft</a>
+		<hr />
+		<%= simple_form_for(@dialog.billboard.dialogs.build) do |f| %>
+		
+		  <div class="form-inputs">
+		    <%= f.input :text ,:label => (dialog_closed? @dialog.id) ? "Schreibe eine Nachricht:" : "Nehme die Patenschaft an und schreibe eine Nachricht:", :required => false , :input_html => {:rows => 7 }%>
+		  	
+		  	<%= f.input :billboard_id , :as => :hidden %>
+		  	<%= f.input :parent, :as => :hidden, :input_html => { :value => @dialog.id }%>
+		  </div>
+		
+		  	<%= f.submit (dialog_closed? @dialog.id) ? "Abschicken" : "Patenschaft annehmen" , :class => "btn btn-primary"%>
+		  
+		<% end %>
+	</div>

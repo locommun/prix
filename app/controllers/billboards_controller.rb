@@ -20,6 +20,10 @@ class BillboardsController < ApplicationController
 
   end
 
+  def dialog
+    @dialog = Dialog.find(params[:id])
+  end
+
   def activate
     key = params[:key]
     billboard = Billboard.where(:key => key).first

@@ -1,5 +1,7 @@
 Demestoa::Application.routes.draw do
   
+  resources :dialogs
+
   resources :comments
 
   devise_for :users
@@ -8,6 +10,7 @@ Demestoa::Application.routes.draw do
     get 'activate', :on => :collection
     get 'description', :on => :collection
     get 'request_activate', :on => :member
+    get 'dialog', :on => :collection
   end
   resources :announcements
   
@@ -16,6 +19,9 @@ Demestoa::Application.routes.draw do
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
+  
+  match "continue_creating_dialog" => 'dialogs#finalize'
+  match "dia_chat_path" => 'billboards#dialog'
  
   # The priority is based upon order of creation:
   # first created -> highest priority.
