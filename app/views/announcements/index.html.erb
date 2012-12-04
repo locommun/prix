@@ -1,0 +1,38 @@
+
+<div class="well" id="billboard-controlls">
+	<h1><%= current_user.name %></h1>
+</div>
+
+
+
+<h3>Litfaßsäulen:</h3>
+
+<% Billboard.all.each do |billboard| %>
+	<%if billboard.is_activated?(current_user)%>
+		<div class="well span3">
+			<h4><%= billboard.name %></h4>
+			
+			<table class="table table-hover">
+				<tr>
+					<td><b>Eigene Anzeigen:</b></td>
+				</tr>
+				<% current_user.announcements.where(:billboard_id=>billboard.id).each do |announcement| %>
+					 <tr>
+					 	<td><%= link_to announcement.name, announcement %></td>
+					 </tr>
+				<%end%>
+				<tr>
+					<td><b>Fremde Anzeigen:</b></td>
+				</tr>
+				<% billboard.announcements.each do |announcement| %>
+					<% if (Comment.exists? Comment.where(:announcement_id => announcement.id).first) && announcement.user != current_user %>
+						 <tr>
+						 	<td><%= link_to announcement.name, announcement %></td>
+						 </tr>
+					 <%end%>
+				<%end%>
+			</table>
+			
+		</div>
+	<%end%>
+<%end%>

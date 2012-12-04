@@ -5,7 +5,10 @@ class AnnouncementsController < ApplicationController
   # GET /announcements
   # GET /announcements.json
   def index
-   redirect_to root_path
+    if ! user_signed_in?
+      redirect_to root_path
+    end
+   
   end
 
   # GET /announcements/1
