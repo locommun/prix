@@ -79,7 +79,7 @@
 					<h3>Paten-Gesuche</h3>
 						<%counter=0%>
 						<% @billboard.dialogs.each do |dialog| %>
-							<%if !dialog.godfather_id  || !(dialog.godfather_id > 0)%>
+							<%if !dialog.godfather %>
 								<div class="well">
 									<b><%= link_to  dialog.user.name , :controller => "billboards", :action => "dialog", :id => dialog.id %></b>
 								</div>
