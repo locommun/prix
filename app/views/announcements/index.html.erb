@@ -5,15 +5,15 @@
 	<h1><%= current_user.name %></h1>
 </div>
 
-
+<%if !current_user.dialogs.empty?%>
 <div class="well span5">
 	<h3>Paten</h3>
 	<table class="table table-hover">
 		<%current_user.dialogs.each do |dialog|%>
 			<tr>
 				<%if dialog.billboard %>
-					<%if dialog.godfather_id && dialog.godfather_id > 0 %>
-						<td><%=link_to dialog.billboard.name + "(" + User.find(dialog.godfather_id).name + ")", :controller => "billboards", :action => "dialog", :id => dialog.id%></td>
+					<%if dialog.godfather %>
+						<td><%=link_to dialog.billboard.name + "(" + dialog.godfather.name + ")", :controller => "billboards", :action => "dialog", :id => dialog.id%></td>
 					<%else%>
 						<td><%=link_to dialog.billboard.name + "(Noch kein Pate gefunden)", :controller => "billboards", :action => "dialog", :id => dialog.id%></td>
 					<%end%>
@@ -22,21 +22,22 @@
 		<%end%>
 	</table>
 </div>
+<%end%>
 
-
+<%if !@my_pates.empty?%>
 <div class="well span5">
 <h3>Patenschaften</h3>
 	<table class="table table-hover">
-		<%Dialog.all.each do |dialog|%>
-			<%if dialog.godfather_id == current_user.id %>
+		<%@my_pates.each do |dialog|%>
 				<tr>
-					<td><%=link_to dialog.billboard.name+"("+User.find(dialog.user_id).name+")", :controller => "billboards", :action => "dialog", :id => dialog.id%></td>
+					<td><%=link_to dialog.billboard.name+"("+dialog.user.name+")", :controller => "billboards", :action => "dialog", :id => dialog.id%></td>
 				</tr>
-			<%end%>
 		<%end%>
 	</table>
 </div>
+<%end%>
 
+<div class="span12">
 	<h3>Litfaßsäulen:</h3>
 	
 	<% Billboard.all.each do |billboard| %>
@@ -68,5 +69,5 @@
 			</div>
 		<%end%>
 	<%end%>
-	
+	</div>
 </div>

@@ -5,10 +5,10 @@
 
 	<p><%= @dialog.text %></p>
 	 
-	 <%if user_signed_in? && @dialog.user != current_user && @dialog.godfather_id != current_user.id && !(@dialog.godfather_id >0)%>
-	 	<a class="btn btn-primary"><%= link_to "Patenschaft annehmen", :controller => "billboards", :action => "dialog_accept", :id => @dialog.id%></a>
-	 <%elsif @dialog.godfather_id && @dialog.godfather_id > 0%>
-	 	<h3>Die Patenschaft wurde von <%=User.find(@dialog.godfather_id).name%> angenommen.</h3>
+	 <%if user_signed_in? && @dialog.user != current_user && @dialog.godfather != current_user && !(@dialog.godfather)%>
+	 	<%= link_to "Patenschaft annehmen", {:controller => "billboards", :action => "dialog_accept", :id => @dialog.id } , :class=>"btn btn-primary" %>
+	 <%elsif @dialog.godfather %>
+	 	<h3>Die Patenschaft wurde von <%= @dialog.godfather.name%> angenommen.</h3>
 	 <%end%>
 </div>
 

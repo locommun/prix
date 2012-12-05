@@ -28,7 +28,7 @@ class BillboardsController < ApplicationController
   def dialog_accept
     if user_signed_in?
       @dialog = Dialog.find(params[:id])
-      @dialog.godfather_id = current_user.id  
+      @dialog.godfather = current_user  
       @dialog.save
     else
       flash[:notice] = "Du musst dich zuerst einloggen!"

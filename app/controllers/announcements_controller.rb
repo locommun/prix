@@ -7,8 +7,9 @@ class AnnouncementsController < ApplicationController
   def index
     if ! user_signed_in?
       redirect_to root_path
+    else
+      @my_pates = Dialog.where(:godfather_id => current_user.id)
     end
-   
   end
 
   # GET /announcements/1
@@ -16,7 +17,7 @@ class AnnouncementsController < ApplicationController
   def show
     @announcement = Announcement.find(params[:id])
     
-    respond_to do |format|
+    respond_to do |format|Billboard.all
       format.html # show.html.erb
       format.json { render json: @announcement }
       
