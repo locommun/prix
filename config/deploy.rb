@@ -9,7 +9,7 @@ require "bundler/capistrano"
 
 set :repository,  "https://github.com/mxm/prix.git"
 set :scm, "git"
-set :branch, "master"
+set :branch, "deploy"
 set :deploy_via, :remote_cache
 
 set :user, "deploy"
