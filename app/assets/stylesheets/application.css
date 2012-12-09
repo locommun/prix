@@ -21,9 +21,15 @@
 }
 
 .map_container {
+
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #ffffff;
+}
+
+#map {
+	width:800px;
+	height:200px;
 }
 
 #main-container {
@@ -94,10 +100,18 @@
 
 .center-content {
 	text-align: center;
-
+	display:block;
 }
 
 img.float-right { width:300px;  float: right; }
+
+#div-with-space {
+	 margin-top: 20px
+}
+
+#float-right{
+	float: right;
+}
 
 
 .break-word {

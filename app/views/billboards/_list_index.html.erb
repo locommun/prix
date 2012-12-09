@@ -1,14 +1,19 @@
 <%if @near_billboards %>
-	<table class="table table-hover">
 	<% @near_billboards.each do |billboard| %>
-	 <tr>
-	 	<td><%= link_to billboard.name, billboard %></td>
-	 	<% if request.location %>
+		<div class="well span3">
+			Events auf der Litfaßsäule <b><%= link_to billboard.name, billboard %></b>:
+			<br/><br />
+			<table class="table table-bordered">
+				<% billboard.announcements[0..3].each do |announcement|%>
+					<tr>
+						<td><b><%= link_to announcement.name, announcement %></b></td>
+					</tr>
+				<%end%>
+			</table>
+			<% if request.location %>
 	 		<%# <td><%= Geocoder::Calculations.distance_between([request.location.latitude,request.location.longitude],[billboard.latitude,billboard.longitude]).round(1) > km</td>%>
-	 	<%else%>
-	 		<td>?</td>
-	 	<%end%>
-	 </tr>
+	 		<%else%>
+	 		<%end%>
+		</div>
 	<%end%>
-	</table>
 <%end%>

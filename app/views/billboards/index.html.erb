@@ -1,64 +1,69 @@
     <div class="row">	    
-	    
-	    <div class="span12 center-content">
-	    	<ul class="thumbnails">
-              
-              <li class="span4">
-                <div class="thumbnail">
-                  <%= image_tag('comic4.jpg' , :class =>'span4')%>
-                  <div class="caption">
-                    <h4>Lust mit Anderen etwas zu unternehmen?</h4>
-                    
-                    <a href="/billboards/description" class="btn btn-primary visible-phone">mehr dazu</a>
-                  
-                  </div>
-                </div>
-              </li>
-              
-              <li class="span4 hidden-phone">
-                <div class="thumbnail">
-                  <%= image_tag('comic2.jpg' , :class =>'span4')%>
-                  <div class="caption">
-                     <h4>Hole den Aktivierungscode an der Litfaßsäule.</h4>
-                    </div>
-                </div>
-              </li>
-              
-              <li class="span4 hidden-phone">
-                <div class="thumbnail">
-                  <%= image_tag('comic3.jpg' , :class =>'span4')%>
-                  <div class="caption">
-                    <h4>...und mache mit!</h4>
-					<a href="/billboards/description" class="btn btn-primary">mehr dazu</a>
-                    </div>
-                </div>
-              </li>
-              
-            </ul>
-	    </div>  
-	</div>	
-    <div class="row"> 	  	      	
-	    <div class="hidden-phone center-content" id="hidden-map">
-	    	<%= render 'map_index' %></br>	
-	    	<button id="hide-map-button" class="btn btn-primary"><i class="icon-chevron-up icon-white"></i>Verstecke Karte</button>
-	    </div>  	      	
-	    <div class="visible-phone center-content" id="show-map-link">
-	    	<button id="show-map-button"  class="btn btn-primary"><i class="icon-chevron-down icon-white"></i>Zeige Karte</button>
+	    <div class="center-content">
+			<h2>Mach mal was Lokales! <a href="/billboards/description"><span class="badge badge-warning">mehr dazu</span></a></h2>	
+		</div>
+		<div class="span4">			
+	        <div class=" span3">
+	          <%= image_tag('comic2-transparent.gif' , :class =>'span3')%>
+	        </div>
+	        <div class="span4">
+	          	<div class="well span3 center-content">
+	          		<span class="badge badge-info">1</span> 
+	                 <div><h4>Event finden</h4></div>               
+	            </div>
+	        </div>      
 	    </div>
+	  
+	  <div class="span4">
+	    <div class="hidden-phone span3">
+	      <%= image_tag('comic3-transparent.gif' , :class =>'span3')%>
+	    </div>
+		 <div class="span4">
+		 	<div class="well span3 center-content">
+	          	<span class="badge badge-info">2</span>
+	             <div><h4>Online Informieren oder Organisieren</h4></div>
+	     	</div>
+	     </div>
+	   </div>
+	
+		<div class="span4">
+	        <div class="hidden-phone span3">
+	          <%= image_tag('comic4-transparent.gif' , :class =>'span3')%>
+	        </div>
+	        <div class="span4">
+	        	<div class="well span3 center-content">
+	              	<span class="badge badge-info">3</span>
+	                <div><h4>Event starten</b></h4></div>
+				</div>
+	        </div>
+	    </div>
+	</div>	
+	
+    <div class="row"> 	
+    	<div class="span12 center-content"><h3>Litfaßsäulen in deiner Nähe:</h3></div>  
+    	
+    	<div class="span12">	      	
+		    <div class="hidden-phone center-content" id="hidden-map">
+		    	<%= render 'map_index' %></br>	
+		    	<button id="hide-map-button" class="btn btn-primary"><i class="icon-chevron-up icon-white"></i>Verstecke Karte</button>
+		    </div>  	      	
+		    <div class="visible-phone center-content" id="show-map-link">
+		    	<button id="show-map-button"  class="btn btn-primary"><i class="icon-chevron-down icon-white"></i>Zeige Karte</button>
+		    </div>
+	    </div>
+	    
     </div>
-    <br />
- 	
+ 	<br />
  	<div class="row">
- 		<div class="span6">
- 			<div class="well">
- 			<h3>Litfaßsäulen in deiner Nähe:</h3>
+ 		<div class="span12">
  			<%= render 'list_index' %>
- 			</div>
  		</div>
-		<div class="span6">
+ 		
+ 		<div class="span12">
 			<div class="well">
-	 		<h3>Litfaßsäule freischalten</h3>
-		
+	 		<h3>Litfaßsäule beitreten:</h3>
+	 		<p>Ohne die Freischaltung einer Litfaßsäule kannst du auf dieser nur Anzeigen betrachten. 
+	 			Wenn du selber Anzeigen erstellen, oder bei Anzeigen mitmachen willst, musst du zu der entsprechenden Litfaßsäule gehen und den Freischalt-Code holen.</p>
 			<form class="form-inline" action="billboards/activate">
 				<input type="text"  name="key"  value="<%= params["code"]%>" placeholder="Code...">
 				<button type="submit" class="btn btn-primary">
