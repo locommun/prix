@@ -23,7 +23,7 @@
           
           <ul class="nav pull-right">
           	<% if user_signed_in? %>
-          		<li><%= link_to current_user.email , :controller => "announcements", :action => "index" %></li>
+
 			 	<li><%= link_to 'Abmelden', destroy_user_session_path %></li>
 			 <% else %>
 			 	<li><%= link_to 'Registrieren', new_user_registration_path %></li>
