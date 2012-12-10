@@ -1,4 +1,5 @@
 <%if @near_billboards %>
+	<h3 class="span10" style="text-align:center">Events</h3>
 	<% @near_billboards.each do |billboard| %>
 		<div class="well span3">
 			Events auf der Litfaßsäule <b><%= link_to billboard.name, billboard %></b>:
