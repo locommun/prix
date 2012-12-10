@@ -118,6 +118,37 @@ img.float-right { width:300px;  float: right; }
   word-wrap: break-word;
 }
 
+/*
+ * Div Arrow
+ */
+
+.right_arrow {
+	left:20px;
+	width:270px;
+	height:80px;
+	position:relative;
+}
+.right_arrow .body {
+	width:220px;
+	text-align:center;
+	height:80px;
+	line-height:50px;
+	background:white;
+}
+ 
+.right_arrow .arrow {
+	position:absolute;
+	left:220px;
+	height:0;
+	top:0;
+	border:40px solid #AFD0E9;
+	border-left:10px solid white;
+}
+
+h4#center {
+  float: center; /* If you want it to be centered */
+  padding-top: 10%;
+}
 
 /*
  *  Bootstrap fix
