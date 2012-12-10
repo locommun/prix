@@ -24,4 +24,5 @@ class Billboard < ActiveRecord::Base
   def is_activated? user
     self.user == user ||  BillboardActivation.exists?(:user_id => user.id, :billboard_id => self.id)
   end
+  
 end

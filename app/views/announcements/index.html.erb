@@ -6,68 +6,47 @@
 </div>
 
 <%if !current_user.dialogs.empty?%>
-<div class="well span5">
-	<h3>Paten</h3>
-	<table class="table table-hover">
-		<%current_user.dialogs.each do |dialog|%>
-			<tr>
-				<%if dialog.billboard %>
-					<%if dialog.godfather %>
-						<td><%=link_to dialog.billboard.name + "(" + dialog.godfather.name + ")", :controller => "billboards", :action => "dialog", :id => dialog.id%></td>
-					<%else%>
-						<td><%=link_to dialog.billboard.name + "(Noch kein Pate gefunden)", :controller => "billboards", :action => "dialog", :id => dialog.id%></td>
+	<div class="well span5">
+		<h3>Paten</h3>
+		<table class="table table-hover">
+			<%current_user.dialogs.each do |dialog|%>
+				<tr>
+					<%if dialog.billboard %>
+						<%if dialog.godfather %>
+							<td><%=link_to dialog.billboard.name + "(" + dialog.godfather.name + ")", :controller => "billboards", :action => "dialog", :id => dialog.id%></td>
+						<%else%>
+							<td><%=link_to dialog.billboard.name + "(Noch kein Pate gefunden)", :controller => "billboards", :action => "dialog", :id => dialog.id%></td>
+						<%end%>
 					<%end%>
-				<%end%>
-			</tr>
-		<%end%>
-	</table>
-</div>
+				</tr>
+			<%end%>
+		</table>
+	</div>
 <%end%>
 
 <%if !@my_pates.empty?%>
-<div class="well span5">
-<h3>Patenschaften</h3>
-	<table class="table table-hover">
-		<%@my_pates.each do |dialog|%>
-				<tr>
-					<td><%=link_to dialog.billboard.name+"("+dialog.user.name+")", :controller => "billboards", :action => "dialog", :id => dialog.id%></td>
-				</tr>
-		<%end%>
-	</table>
-</div>
+	<div class="well span5">
+	<h3>Patenschaften</h3>
+		<table class="table table-hover">
+			<%@my_pates.each do |dialog|%>
+					<tr>
+						<td><%=link_to dialog.billboard.name+"("+dialog.user.name+")", :controller => "billboards", :action => "dialog", :id => dialog.id%></td>
+					</tr>
+			<%end%>
+		</table>
+	</div>
 <%end%>
 
 <div class="span12">
 	<h3>Litfaßsäulen:</h3>
 	
-	<% Billboard.all.each do |billboard| %>
-		<%if billboard.is_activated?(current_user)%>
-			<div class="well span3">
-				<h4><%= link_to billboard.name, billboard %></h4>
-				
-				<table class="table table-hover">
-					<tr>
-						<td><b>Eigene Anzeigen:</b></td>
-					</tr>
-					<% current_user.announcements.where(:billboard_id=>billboard.id).each do |announcement| %>
-						 <tr>
-						 	<td><%= link_to announcement.name, announcement %></td>
-						 </tr>
-					<%end%>
-					<tr>
-						<td><b>Fremde Anzeigen:</b></td>
-					</tr>
-					<% billboard.announcements.each do |announcement| %>
-						<% if (Comment.exists? Comment.where(:announcement_id => announcement.id).first) && announcement.user != current_user %>
-							 <tr>
-							 	<td><%= link_to announcement.name, announcement %></td>
-							 </tr>
-						 <%end%>
-					<%end%>
-				</table>
-				
-			</div>
-		<%end%>
+	<% current_user.BillboardActivations.each do |activation|%>
+		<%= render 'billboard' , :billboard => activation.billboard %>
 	<%end%>
+	
+	<% current_user.billboards.each do |billboard| %>
+		<%= render 'billboard' ,:billboard => billboard %>
+	<%end%>
+	
 	</div>
 </div>

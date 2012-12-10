@@ -43,6 +43,9 @@ gem "rqrcode"
 #PDF - requires wkhtmltopdf installed
 gem 'wicked_pdf'
 
+#MetaWhere
+#gem "meta_where"
+
 #ActiveAdmin
 
   gem 'activeadmin'
