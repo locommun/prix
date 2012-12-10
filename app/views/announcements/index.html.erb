@@ -41,11 +41,63 @@
 	<h3>Litfaßsäulen:</h3>
 	
 	<% current_user.BillboardActivations.each do |activation|%>
-		<%= render 'billboard' , :billboard => activation.billboard %>
+
+		<div class="well span3">
+		    <h4><%= link_to activation.billboard.name, activation.billboard %></h4>
+		    
+		    <table class="table table-hover">
+		     <% if Announcement.exists? current_user.announcements(activation.billboard).first %>
+			      <tr>
+			        <td><b>Meine Anzeigen:</b></td>
+			      </tr>
+			      <% current_user.announcements(activation.billboard).each do |announcement| %>
+			         <tr>
+			          <td><%= link_to announcement.name, announcement %></td>
+			         </tr>
+			      <%end%>
+		      <%end%>
+		      <% if Announcement.exists? current_user.commented_announcements(activation.billboard).first %>
+			      <tr>
+			        <td><b>Fremde Anzeigen:</b></td>
+			      </tr>
+			      <% current_user.commented_announcements(activation.billboard).each do |announcement| %>
+			         <tr>
+			          <td><%= link_to announcement.name, announcement %></td>
+			         </tr>
+			      <%end%>
+			  <%end%>
+		    </table>       
+		</div>		
+
 	<%end%>
 	
 	<% current_user.billboards.each do |billboard| %>
-		<%= render 'billboard' ,:billboard => billboard %>
+		<div class="well span3">
+		    <h4><%= link_to billboard.name, billboard %></h4>
+		    
+		    <table class="table table-hover">
+		     <% if Announcement.exists? current_user.announcements(billboard).first %>
+			      <tr>
+			        <td><b>Meine Anzeigen:</b></td>
+			      </tr>
+			      <% current_user.announcements(billboard).each do |announcement| %>
+			         <tr>
+			          <td><%= link_to announcement.name, announcement %></td>
+			         </tr>
+			      <%end%>
+		      <%end%>
+		      <% if Announcement.exists? current_user.commented_announcements(billboard).first %>
+			      <tr>
+			        <td><b>Fremde Anzeigen:</b></td>
+			      </tr>
+			      <% current_user.commented_announcements(billboard).each do |announcement| %>
+			         <tr>
+			          <td><%= link_to announcement.name, announcement %></td>
+			         </tr>
+			      <%end%>
+			  <%end%>
+		    </table>       
+		</div>
 	<%end%>
 	
 	</div>
