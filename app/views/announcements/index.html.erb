@@ -40,11 +40,11 @@
 <div class="span12">
 	
 	<% current_user.BillboardActivations.each do |activation|%>
-		
+		<%= render 'billboard' ,:billboard => activation.billboard %>
 	<%end%>
 	
 	<% current_user.billboards.each do |billboard| %>
-		
+		<%= render 'billboard' ,:billboard => billboard %>
 	<%end%>
 	
 	</div>
