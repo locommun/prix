@@ -1,0 +1,17 @@
+<div class="well" id="billboard-controlls">
+	<h3>Mitmachliste:</h3>
+		
+		<% @announcement.userjoins.each do |userjoin| %>
+				<b><%= userjoin.user.name %></b>,
+		<%end%>
+		<hr/>
+		
+		<%if current_user && !(@announcement.joined? current_user) %>
+			<%= simple_form_for(@announcement.userjoins.build) do |f| %>		
+			  <div class="form-inputs">
+			  	<%= f.input :announcement_id , :as => :hidden %>
+			  </div>
+			  	<%= f.submit "Mitmachen" , :class => "btn btn-primary"%>	  
+			<% end %>
+		<%end%>	
+</div>
