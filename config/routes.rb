@@ -16,7 +16,10 @@ Demestoa::Application.routes.draw do
     get 'dialog_accept', :on => :collection
     
   end
+  
   resources :announcements
+  resources :userjoins
+  resources :bringthings
   
   resources :activateBillboards
   

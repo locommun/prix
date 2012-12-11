@@ -1,43 +1,57 @@
-<div class="well" id="billboard-controlls">
-<h1><%= @announcement.name %></h1>
-<p><%= @announcement.description %></p>
-</div>
-
-<% @announcement.comments.each do |comment| %>
-	<div class="well">
-		<% if comment.user %>
-			<strong><Anonym><%= comment.user.name %>:</strong> <%= comment.text %>
-		<%else%>
-			<strong>Anonym:</strong> <%= comment.text %>
-		<%end%>
-	</div>
-<%end%>
-
-
-	<div class="well">	
-		<%= simple_form_for(@announcement.comments.build) do |f| %>
-		
-		  <div class="form-inputs">
-		    <%= f.input :text ,:label => "Schreibe eine Nachricht:", :required => false , :input_html => {:rows => 5 }%>
-		  	<%= f.input :announcement_id , :as => :hidden %>
-		  </div>
-		
-		  	<%= f.submit "Nachricht abschicken" , :class => "btn btn-primary"%>
-		  
-		<% end %>
-	</div>
-
-<%if (current_user && @announcement.billboard.is_activated?(current_user) )%>
-
-	<%=link_to (raw ("<i  class=\"icon-print icon-white \"></i> Flyer drucken")), announcement_path(:id => @announcement.id, :format => :pdf) ,:class => "btn btn-primary" %>
+<div class="row">
 	
-<%end%>
+	<div class="span12">
+		<%if (current_user && @announcement.billboard.is_activated?(current_user) )%>
+			<%= link_to (raw ("<i  class=\"icon-print icon-white \"></i> Flyer drucken")), announcement_path(:id => @announcement.id, :format => :pdf) ,:class => "btn btn-primary" %>
+		<%end%>
+		<%if current_user && @announcement.user == current_user%>
+			<%= link_to 'Bearbeiten', edit_announcement_path(@announcement) , :class => "btn"%>
+		<%end%>
+		<%= link_to 'Zur Litfaßsäule', billboard_path(@announcement.billboard) ,  :class =>"btn"%>
+	</div>		
+	<div>
+		<div class="span9">
+	
+			<div class="well" id="billboard-controlls">
+				<h1><%= @announcement.name %></h1>
+				<p>
+					<%= @announcement.description %>
+				</p>
+			</div>
+			
+			<div>
+				<% @announcement.comments.each do |comment| %>
+					<div class="alert alert-info">
+						<% if comment.user %>
+						<strong>
+						<Anonym>
+							<%= comment.user.name %>:
+						</strong> <%= comment.text %>
+						<%else%>
+						<strong>Anonym:</strong> <%= comment.text %>
+						<%end%>
+					</div>
+				<%end%>
+			</div>
 
-
-<%if current_user && @announcement.user == current_user%>
-
-	<%= link_to 'Editieren', edit_announcement_path(@announcement) , :class => "btn"%>
-
-<%end%>
-
-<%= link_to 'Zurück', billboard_path(@announcement.billboard) ,  :class =>"btn"%>
+		</div>
+			
+		<div class="span3">
+	
+				<%=render 'comment'%>
+				
+				<%if @announcement.uj %>
+					<%=render 'userjoin'%>
+				<%end%>
+				<%if @announcement.bt %>
+					<%=render 'bringthing'%>
+				<%end%>
+				<%if @announcement.longitude && @announcement.latitude  %>
+					
+					<%=render 'location'%>
+				<%end%>
+				
+		</div>
+		
+	</div>
+</div>

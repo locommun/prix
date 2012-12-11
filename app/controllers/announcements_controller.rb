@@ -16,7 +16,7 @@ class AnnouncementsController < ApplicationController
   # GET /announcements/1.json
   def show
     @announcement = Announcement.find(params[:id])
-    
+    @json = @announcement.to_gmaps4rails
     respond_to do |format|Billboard.all
       format.html # show.html.erb
       format.json { render json: @announcement }
@@ -32,6 +32,8 @@ class AnnouncementsController < ApplicationController
   # GET /announcements/new.json
   def new
     @announcement = Announcement.new
+    @json = @announcement.to_gmaps4rails
+    
     @announcement.billboard_id = params[:billboard_id] 
     if current_user && @announcement.billboard.is_activated?(current_user)
         respond_to do |format|
@@ -49,6 +51,7 @@ class AnnouncementsController < ApplicationController
   # GET /announcements/1/edit
   def edit
     @announcement = Announcement.find(params[:id])
+    @json = @announcement.to_gmaps4rails
   end
 
   # POST /announcements
@@ -57,6 +60,7 @@ class AnnouncementsController < ApplicationController
     @announcement = Announcement.new(params[:announcement])
     if current_user && @announcement.billboard.is_activated?(current_user)
       @announcement.user = current_user
+      @announcement.gmaps = true
         respond_to do |format|
           if @announcement.save
             format.html { redirect_to @announcement, notice: 'Announcement was successfully created.' }
@@ -73,6 +77,8 @@ class AnnouncementsController < ApplicationController
   # PUT /announcements/1.json
   def update
     @announcement = Announcement.find(params[:id])
+    @json = @announcement.to_gmaps4rails
+    @announcement.gmaps = true
     if(@announcement.user == current_user)
       respond_to do |format|
         if @announcement.update_attributes(params[:announcement])
