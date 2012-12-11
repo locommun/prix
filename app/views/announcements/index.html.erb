@@ -42,11 +42,11 @@
 	<div class="span12">
 		
 		<% current_user.billboards.each do |billboard| %>
-			<%= render 'billboard' ,:billboard => billboard %>
+			<%= render :partial => 'billboard' , :locals => {:billboard => billboard} %>
 		<%end%>
 		
 		<% current_user.BillboardActivations.each do |activation|%>
-			<%= render 'billboard' ,:billboard => activation.billboard %>
+			<%= render :partial => 'billboard' , :locals => {:billboard => activation.billboard} %>
 		<%end%>
 
 	</div>
