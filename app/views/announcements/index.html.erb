@@ -48,7 +48,7 @@
 		<%end%>
 		
 		<% current_user.BillboardActivations.each do |activation|%>
-			<% if Billboard.exists? activation.billboard %>
+			<% if (Billboard.exists? activation.billboard) && activation.billboard.user != current_user%>
 				<%= render :partial => 'billboard' , :locals => {:billboard => activation.billboard} %>
 			<%end%>
 		<%end%>
