@@ -3,6 +3,8 @@
 
 <div class="well" id="billboard-controlls">
 	<h1><%= current_user.name %></h1>
+	<% html= glyphicons("icon-cog")%>
+	<%= link_to html.html_safe+" Benutzerprofil bearbeiten", edit_user_registration_path , :class => "btn" %>
 </div>
 
 <%if !current_user.dialogs.empty?%>
@@ -37,15 +39,15 @@
 	</div>
 <%end%>
 
-<div class="span12">
-	
-	<% current_user.BillboardActivations.each do |activation|%>
+	<div class="span12">
 		
-	<%end%>
-	
-	<% current_user.billboards.each do |billboard| %>
+		<% current_user.billboards.each do |billboard| %>
+			<%= render 'billboard' ,:billboard => billboard %>
+		<%end%>
 		
-	<%end%>
-	
+		<% current_user.BillboardActivations.each do |activation|%>
+			<%= render 'billboard' ,:billboard => activation.billboard %>
+		<%end%>
+
 	</div>
 </div>

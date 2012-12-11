@@ -12,6 +12,14 @@ module ApplicationHelper
     end
   end
   
+  # Glyph Icons Helpers 
+  def glyphicons(name)
+    "<i class=\"" + name + "\"></i>".html_safe
+  end
+  
+  def glyphicons_inv(name)
+    "<i class=\"" + name + " icon-white\"></i>".html_safe
+  end
   
   # Usage in Template 
   # <%= qrcode "www.google.de" %>
