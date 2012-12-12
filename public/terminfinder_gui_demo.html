@@ -1,0 +1,26 @@
+<!doctype html>
+
+<html>
+	<head>
+		<link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.9.1/themes/smoothness/jquery-ui.css" />
+		<link rel="stylesheet" media="all" type="text/css" href="http://trentrichardson.com/examples/timepicker/jquery-ui-timepicker-addon.css" />
+
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/ui/1.9.1/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="http://trentrichardson.com/examples/timepicker/jquery-ui-timepicker-addon.js"></script>
+		<script>
+			var i = 1;
+			function pickDate(){
+				$("#dates").append("<p><input type=\"text\" id=\"date"+i+"\"/><input type=\"text\" id=\"time"+i+"\"/></p>");
+				$("#date"+i).datetimepicker( { altField: '#time'+i }).focus();
+				i++;
+			}
+		</script>
+	</head>
+	<body>
+		<a href="javascript:void(0);" onclick="pickDate()">Neuer Termin</a>
+		<div id="dates">
+
+		</div>
+	</body>
+</html>
