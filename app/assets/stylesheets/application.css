@@ -116,6 +116,7 @@ img.float-right { width:300px;  float: right; }
 
 .break-word {
   word-wrap: break-word;
+  table-layout: fixed;
 }
 
 /*
@@ -146,7 +147,6 @@ img.float-right { width:300px;  float: right; }
 }
 
 h4#center {
-  float: center; /* If you want it to be centered */
   padding-top: 10%;
 }
 
@@ -156,4 +156,21 @@ h4#center {
 
 div.per3 > div:nth-child(3n+1) {
   clear: left;
+}
+
+
+/*
+ *  Announcements
+ * 
+ * 
+ * 
+ */
+
+#comment-form-input {
+	width:95%;
+	
+}
+
+#navigation-announcemnet{
+	padding-bottom: 5px;
 }

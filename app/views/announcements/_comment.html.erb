@@ -1,9 +1,9 @@
-<div class="well" id="billboard-controlls">
-	<h3>Schreibe eine Nachricht:</h3>
+<div class="well comment-form">
+	<h4>Schreibe eine Nachricht:</h4>
 	<%= simple_form_for(@announcement.comments.build) do |f| %>
 
 	<div class="form-inputs">
-		<%= f.input :text ,:label => false, :required => false , :input_html => {:rows => 3, :style=> 'width: 100px'}%>
+		<%= f.input :text ,:label => false, :required => false , :input_html => {:rows => 3 ,:id => "comment-form-input"}%>
 		<%= f.input :announcement_id , :as => :hidden %>
 	</div>
 

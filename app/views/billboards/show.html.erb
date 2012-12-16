@@ -10,7 +10,7 @@
 
 	<div class="row">
 		<div class="span3">
-			<div class="well" id="billboard-controlls">
+			<div class="billboard-controlls well">
 				<h2><%= @billboard.name %></h2>
 				<p>
 					<%= @billboard.description %>
@@ -18,14 +18,13 @@
 				<%= gmaps({
 				"map_options" => { "container_class" => "minimap_container", "id" =>  "minimap","auto_adjust" => true , "zoom" => 14,"auto_zoom" => false},
 				"markers" => {"data" => @json}
-				}) %> <p>
+				}) %> 
 				<p style="font-size:xx-small;">
 					<b>Lat:</b>
-					<%= @billboard.latitude %></span>
+					<%= @billboard.latitude %></p>
 				<p style="font-size:xx-small;">
 					<b>Long:</b>
 					<%= @billboard.longitude %>
-					</span>
 				</p>
 				<p>
 					<strong> <%= link_to  (raw ("<i  class=\"icon-file icon-white\"></i> Neue Anzeige")) , new_announcement_path(:billboard_id => @billboard.id) ,:class => "btn btn-primary"%> </strong>
@@ -50,7 +49,7 @@
 			<% if (!current_user || !@billboard.is_activated?(current_user) ) %>
 				<%old_dialog = dialog_sent? @billboard.id%>
 				<% if !old_dialog %>
-					<div class="well" id="billboard-controlls">
+					<div class="billboard-controlls well">
 	
 						<h3>Patensuche</h3>
 						<p>Suche einen Paten auf der Litfaßsäule. <a href="/billboards/description#pate"><span class="label label-demestoa">?</span></a></p> 
@@ -67,7 +66,7 @@
 		
 					</div>
 				<%else%>
-					<div class="well" id="billboard-controlls">
+					<div class="billboard-controlls well">
 						<div class="well">
 							<b><%= link_to  "Dein Paten-Gesuch" , :controller => "billboards", :action => "dialog", :id => old_dialog.id %></b>
 						</div>
@@ -75,7 +74,7 @@
 				<%end%>
 				
 			<%else%>
-				<div class="well" id="billboard-controlls">
+				<div class="billboard-controlls well">
 					<h3>Paten-Gesuche</h3>
 						<%counter=0%>
 						<% @billboard.dialogs.each do |dialog| %>

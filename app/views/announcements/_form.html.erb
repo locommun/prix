@@ -9,7 +9,7 @@
 		<h4>Module aktivieren:</h4>
 		<%= f.input :uj , :label => false,:inline_label => 'Mitmachliste'%>
 		<%= f.input :bt , :label => false,:inline_label => 'Mitbringliste'%>
-		Event-Standort(wird nur angezeigt, wenn angegeben):
+		Standort der Aktivität (wird nur angezeigt, wenn angegeben):
 		<% if request.location %>
 		  <%= gmaps({ 
 			"map_options" => {  "center_longitude" => request.location.longitude,"center_latitude" => request.location.latitude, "zoom" => 12, "auto_adjust" => true},
