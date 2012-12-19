@@ -56,7 +56,7 @@
 						<%= simple_form_for(@billboard.dialogs.build) do |f| %>
 						
 						  <div class="form-inputs">
-						    <%= f.input :text ,:label => "Stelle dich kurz vor:", :required => false , :input_html => {:rows => 7 }%>
+						    <%= f.input :text ,:label => "Stelle dich kurz vor:", :required => false , :input_html => {:rows => 7 , :style => "width:95%;"}%>
 						  	<%= f.input :billboard_id , :as => :hidden %>
 						  </div>
 						
