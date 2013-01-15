@@ -1,4 +1,4 @@
-Demestoa::Application.routes.draw do
+Locommun::Application.routes.draw do
   
   resources :dialogs do
     get 'dialogcomment', :on => :collection

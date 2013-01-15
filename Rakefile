@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Demestoa::Application.load_tasks
+Locommun::Application.load_tasks
