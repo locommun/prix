@@ -7,17 +7,17 @@
 	<div class="span12">
 	<ul class="thumbnails">
 		<li class="span4">
-			<div class="thumbnail">
+			<div class="thumbnail fixed-title-thumb">
 				<%= image_tag('activity.jpg')%>
 
 				<div class="caption">
+					<div class="center-content">
 					<h4>Mach was Lokales</h4><hr />
-					<p>
-						Finde Events, Veranstalltungen oder verschiedensten Aktivitäten.
-					</p>
-					<br />
-					<br /><br />
+
 					<%= link_to "Was Lokales machen", find_announcement_path(:where), :class=> "btn btn-primary" %>
+					<hr />
+					</div>
+					Finde Events, Veranstalltungen oder verschiedensten Aktivitäten.
 					
 				</div>
 
@@ -25,23 +25,31 @@
 		</li>
 
 		<li class="span4">
-			<div class="thumbnail">
+			<div class="thumbnail fixed-title-thumb">
 				<%= image_tag('sheep.jpg')%>
 
-				<div class="caption">
+				<div class="caption" >
+					<div class="center-content">
 					<h4>Suche Gemeinschaften</h4><hr />
+					<%= link_to "Gemeinschaft suchen", find_billboard_path(:where), :class=> "btn btn-primary" %>
+					<hr />
+					</div>
+					
 					<p>
-						Finde interessante <a href="/billboards/description#community">Gemeinschaften</a>. <br /><br/>
-						
-						Bei einer Gemeinschaft kannst du zum Beispiel:
-						<ul>
-							<li>jegliche Art von Aktivität einstellen</li>
-							<li>einen <a href="/billboards/description#pate">Paten</a> suchen</li>
-							<li>eine <a href="/billboards/description#pate">Patenschaft</a> annehmen</li>
-						</ul>
+					Finde interessante <a href="/billboards/description#community">Gemeinschaften</a>.
+					</p>
+					<p>
+					Bei einer Gemeinschaft kannst du:
+					</p>
+					<ul>
+						<li>jegliche Art von Aktivität einstellen</li>
+						<li>einen <a href="/billboards/description#pate">Paten</a> suchen</li>
+						<li>eine <a href="/billboards/description#pate">Patenschaft</a> annehmen</li>
+					</ul>
 
 					</p><br />
-					<%= link_to "Gemeinschaft suchen", find_billboard_path(:where), :class=> "btn btn-primary" %>
+					
+
 				</div>
 
 			</div>
@@ -49,18 +57,24 @@
 
 
 		<li class="span4">
-			<div class="thumbnail">
+			<div class="thumbnail fixed-title-thumb">
 				<%= image_tag('sheep.jpg')%>
 
 				<div class="caption">
-					<h4>Gründe eine Gemeinschaft</h4><hr />
+					<div class="center-content">
+						<h4>Gründe eine Gemeinschaft</h4><hr />
+						<a href="/billboards/new" class="btn btn-primary">Gemeinschaft gründen</a>
+						<hr />
+					</div>
+					
 					<p>
-						Gibt es in deiner Nachbarschaft noch keine passende <a href="/billboards/description#community">Gemeinschaft</a>? <br /><br />
+						Gibt es in deiner Nachbarschaft noch keine passende <a href="/billboards/description#community">Gemeinschaft</a>? 
+					</p>
+					<p>
 						Gründe doch eine neue <a href="/billboards/description#community">Gemeinschaft</a>!
 					</p>
-					<br />
-					<br /><br />
-					<a href="/billboards/new" class="btn btn-primary">Gemeinschaft gründen</a>
+					
+					
 				</div>
 
 			</div>

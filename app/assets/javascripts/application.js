@@ -15,7 +15,9 @@
 //= require_tree .
 
 $(document).ready(function(){
-
+ 
+   
+    
 	// Hide Map
 	$('#hide-map-button').click(function() {
 	  $('#hidden-map').hide();
