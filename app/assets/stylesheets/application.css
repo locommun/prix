@@ -159,6 +159,7 @@ div.per3 > div:nth-child(3n+1) {
 }
 
 
+
 /*
  *  Announcements
  * 
@@ -182,3 +183,5 @@ div.per3 > div:nth-child(3n+1) {
 #title_thumb {
 	height: 550px;
 }
+
+

@@ -14,8 +14,25 @@
 //= require jquery_ujs
 //= require_tree .
 
-$(document).ready(function(){
+function equalHeight(group) {    
+    tallest = 0;    
+    group.each(function() {   
+        thisHeight = $(this).height();       
+        if(thisHeight > tallest) {          
+            tallest = thisHeight;       
+        }    
+    });    
+    group.each(function() { $(this).height(tallest); });
+} 
 
+$(window).load(function(){
+	 equalHeight($(".thumbnail")); 
+});
+
+$(document).ready(function(){
+ 
+   
+    
 	// Hide Map
 	$('#hide-map-button').click(function() {
 	  $('#hidden-map').hide();
