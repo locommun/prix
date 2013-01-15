@@ -26,7 +26,6 @@
 				<li><%= link_to current_user.email , announcements_path %></li>
 			 	<li><%= link_to 'Abmelden', destroy_user_session_path %></li>
 			 <% else %>
-			 	<li><%= link_to 'Registrieren', new_user_registration_path %></li>
 			 	<li> <%= link_to 'Anmelden', new_user_session_path %></li>
 			 <% end %>
           </ul>
