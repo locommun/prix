@@ -45,6 +45,28 @@
 				</p>
 			</div>
 			
+			
+		</div>
+
+		<div class="span6">
+			<div class="row per3">
+
+			<% @billboard.announcements.each do |announcement| %>
+			<div class="span3">
+				<div class="well break-word ">
+					<h3><%= link_to  announcement.name , announcement %></h3>
+					<p>
+						<%= announcement.description[0..150] %>
+						</br>
+						<%= link_to  'mehr' , announcement %>
+					</p>
+				</div>
+			</div>
+			<%end%>
+			</div>
+		</div>
+		
+		<div class="span3">
 			<% if (!current_user || !@billboard.is_activated?(current_user) ) %>
 			
 				<div class="billboard-controlls well">
@@ -82,7 +104,7 @@
 					</div>
 				<%else%>
 					<div class="billboard-controlls well">
-						<div>
+						<div class="well">
 							<b><%= link_to  "Dein Paten-Gesuch" , :controller => "billboards", :action => "dialog", :id => old_dialog.id %></b>
 						</div>
 					</div>
@@ -107,22 +129,5 @@
 				</div>
 			<%end%>
 		</div>
-
-		<div class="span9">
-			<div class="row per3">
-
-			<% @billboard.announcements.each do |announcement| %>
-			<div class="span3">
-				<div class="well break-word ">
-					<h3><%= link_to  announcement.name , announcement %></h3>
-					<p>
-						<%= announcement.description[0..150] %>
-						</br>
-						<%= link_to  'mehr' , announcement %>
-					</p>
-				</div>
-			</div>
-			<%end%>
-			</div>
-		</div>
+		
 	</div>
