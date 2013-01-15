@@ -1,46 +1,49 @@
 
 <div class="row">
-
-<div class="billboard-controlls well">
-	<h1><%= current_user.name %></h1>
-	<% html= glyphicons("icon-cog")%>
-	<%= link_to html.html_safe+" Benutzerprofil bearbeiten", edit_user_registration_path , :class => "btn" %>
-</div>
-
-<%if !current_user.dialogs.empty?%>
-	<div class="well span5">
-		<h3>Paten</h3>
-		<table class="table table-hover">
-			<%current_user.dialogs.each do |dialog|%>
-				<tr>
-					<%if dialog.billboard %>
-						<%if dialog.godfather %>
-							<td><%=link_to dialog.billboard.name + "(" + dialog.godfather.name + ")", :controller => "billboards", :action => "dialog", :id => dialog.id%></td>
-						<%else%>
-							<td><%=link_to dialog.billboard.name + "(Noch kein Pate gefunden)", :controller => "billboards", :action => "dialog", :id => dialog.id%></td>
-						<%end%>
-					<%end%>
-				</tr>
-			<%end%>
-		</table>
-	</div>
-<%end%>
-
-<%if !@my_pates.empty?%>
-	<div class="well span5">
-	<h3>Patenschaften</h3>
-		<table class="table table-hover">
-			<%@my_pates.each do |dialog|%>
-					<tr>
-						<td><%=link_to dialog.billboard.name+"("+dialog.user.name+")", :controller => "billboards", :action => "dialog", :id => dialog.id%></td>
-					</tr>
-			<%end%>
-		</table>
-	</div>
-<%end%>
-
 	<div class="span12">
-		
+		<div class="billboard-controlls well">
+			<h1><%= current_user.name %></h1>
+			<% html= glyphicons("icon-cog")%>
+			<%= link_to html.html_safe+" Benutzerprofil bearbeiten", edit_user_registration_path , :class => "btn" %>
+		</div>
+	</div>
+	<%if !current_user.dialogs.empty?%>
+	<div class="span12">
+		<div class="well">
+			<h3>Paten</h3>
+			<table class="table table-hover">
+				<%current_user.dialogs.each do |dialog|%>
+					<tr>
+						<%if dialog.billboard %>
+							<%if dialog.godfather %>
+								<td><%=link_to dialog.billboard.name + "(" + dialog.godfather.name + ")", :controller => "billboards", :action => "dialog", :id => dialog.id%></td>
+							<%else%>
+								<td><%=link_to dialog.billboard.name + "(Noch kein Pate gefunden)", :controller => "billboards", :action => "dialog", :id => dialog.id%></td>
+							<%end%>
+						<%end%>
+					</tr>
+				<%end%>
+			</table>
+		</div>
+		</div>
+	<%end%>
+	
+	<%if !@my_pates.empty?%>
+	<div class="span12">
+		<div class="well">
+		<h3>Patenschaften</h3>
+			<table class="table table-hover">
+				<%@my_pates.each do |dialog|%>
+						<tr>
+							<td><%=link_to dialog.billboard.name+"("+dialog.user.name+")", :controller => "billboards", :action => "dialog", :id => dialog.id%></td>
+						</tr>
+				<%end%>
+			</table>
+		</div>
+	</div>
+	<%end%>
+	
+	
 		<% current_user.billboards.each do |billboard| %>
 			<% if Billboard.exists? billboard %>
 				<%= render :partial => 'billboard' , :locals => {:billboard => billboard} %>
@@ -53,7 +56,10 @@
 			<%end%>
 		<%end%>
 
+
+	<div class="span12">
+	<%= link_to (raw ("<i  class=\"icon-chevron-left icon-white\"></i> Zur Startseite")), billboards_path , :class => "btn btn-primary"  %>
 	</div>
 </div>
 
-<%= link_to (raw ("<i  class=\"icon-chevron-left icon-white\"></i> Zur Startseite")), billboards_path , :class => "btn btn-primary"  %>
+
