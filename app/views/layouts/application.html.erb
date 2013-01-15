@@ -2,7 +2,7 @@
 <html>
     
 <head>
-  <title>Demestoa</title>
+  <title>Locommun.eu</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
@@ -19,14 +19,13 @@
       <div class="navbar-inner">
         <div class="container">
           
-          <a class="brand" href="/">Demestoa</a><a href="/billboards/description#alpha"><span class="label label-demestoa">Alpha</span></a>
+          <a class="brand" href="/">Locommun.eu</a><a href="/billboards/description#alpha"><span class="label label-demestoa">Alpha</span></a>
           
           <ul class="nav pull-right">
           	<% if user_signed_in? %>
 				<li><%= link_to current_user.email , announcements_path %></li>
 			 	<li><%= link_to 'Abmelden', destroy_user_session_path %></li>
 			 <% else %>
-			 	<li><%= link_to 'Registrieren', new_user_registration_path %></li>
 			 	<li> <%= link_to 'Anmelden', new_user_session_path %></li>
 			 <% end %>
           </ul>

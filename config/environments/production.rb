@@ -1,4 +1,4 @@
-Demestoa::Application.configure do
+Locommun::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
@@ -66,7 +66,7 @@ Demestoa::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   # mail
-  config.action_mailer.default_url_options = { :host => "demestoa.spline.de" }
+  config.action_mailer.default_url_options = { :host => "locommun.eu" }
   config.action_mailer.raise_delivery_errors = true
   ActionMailer::Base.delivery_method = :sendmail
   ActionMailer::Base.sendmail_settings = {
