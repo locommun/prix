@@ -34,25 +34,30 @@
       </div>
     </div>
 
-    <div class="container" id="main-container">
-		<% flash.each do |type, msg| -%>
-					<div class="row">
-						<div class="span12">
-							<a class="close" data-dismiss="alert">×</a>
-							<p class="alert alert-<%= bootstrap_notice_mapper(type)%>" >
-								<%= msg %>
-							</p>
+		
+	    <div class="container" id="main-container">
+			<% flash.each do |type, msg| -%>
+						<div class="row">
+							<div class="span12">
+								<a class="close" data-dismiss="alert">×</a>
+								<p class="alert alert-<%= bootstrap_notice_mapper(type)%>" >
+									<%= msg %>
+								</p>
+							</div>
 						</div>
-					</div>
-		<%end%>
-     	<%= yield %>
-    </div> <!-- /container -->
+			<%end%>
+
+	     	<%= yield %>
+
+	    </div> <!-- /container -->
+
 <hr />
 
 	<footer class="center-content">
 			<%= yield :scripts %>
     <a href="/billboards/description">FAQ</a> | 
-	<%= link_to "Impressum","http://www.mi.fu-berlin.de/fb/impressum/index.html" %>
+	<%= link_to "Impressum","http://www.mi.fu-berlin.de/fb/impressum/index.html" %> |
+	<a href="/billboards/contact">Kontakt</a>
 	</footer>
   <span style="height:10px;">&nbsp;</span>
 

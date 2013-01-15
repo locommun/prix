@@ -1,0 +1,28 @@
+
+<div class="row">
+	<div class="span12">
+		<%= render 'partial/header' %>
+	</div>
+	
+	<div class="span12">
+		<div class="well">
+			<b>Land:</b> <%=@query["country"]%> | 
+			<b>Wo:</b> <%=@query["where"]%> | 
+			<b>Umkreis:</b> <%=@query["around"]%> km
+			(<%= link_to 'ändern' , previous_wizard_path %>)
+		</div>
+	</div>
+	
+	<% @announcements.each do |announcement| %>
+		<div class="span3">
+			<div class="well break-word ">
+				<h3><%= link_to  announcement.name , next_wizard_path(:announcement_id => announcement.id) %></h3>
+				<p>
+					<%= announcement.description[0..150] %>
+					</br>
+					<%= link_to  'mehr' , announcement %>
+				</p>
+			</div>
+		</div>
+	<%end%>
+</div>

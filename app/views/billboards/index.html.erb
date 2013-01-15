@@ -4,7 +4,7 @@
 </div>
 
 <div class="row">
-
+	<div class="span12">
 	<ul class="thumbnails">
 		<li class="span4">
 			<div class="thumbnail">
@@ -17,7 +17,8 @@
 					</p>
 					<br />
 					<br /><br />
-					<a href="/billboards/search_activity" class="btn btn-primary">Was Lokales machen</a>
+					<%= link_to "Was Lokales machen", find_announcement_path(:where), :class=> "btn btn-primary" %>
+					
 				</div>
 
 			</div>
@@ -40,7 +41,7 @@
 						</ul>
 
 					</p><br />
-					<a href="/billboards/search_billboard" class="btn btn-primary">Gemeinschaft suchen</a>
+					<%= link_to "Gemeinschaft suchen", find_billboard_path(:where), :class=> "btn btn-primary" %>
 				</div>
 
 			</div>
@@ -68,5 +69,4 @@
 	</ul>
 
 </div>
-
 </div>

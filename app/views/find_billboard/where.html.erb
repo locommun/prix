@@ -1,0 +1,23 @@
+<div class="row">
+	<div class="span12">
+		<%= render 'partial/header' %>
+	</div>
+	
+	<div class="span12">
+			<div class="well">
+				<%= simple_form_for :bb, :url => next_wizard_path, :method => :get do |f| %>
+					<%= f.input :country, :selected => (@query["country"]) ,:label => "Land", :collection => ['Deutschland'] %>
+	  				<%= f.input :where, :label => "Wo", :input_html => { :value =>  (@query['where'])} %>
+	  				<%= f.input :around, :selected => (@query['around']) , :collection => [1,2,3,4,5,6,7,8,9,10,20,30,40,50] , :label => "Umkreis (km)"%>
+	  				
+	  				<button class="btn btn-primary">Weiter <i  class="icon-chevron-right icon-white"></i></button>
+
+				<% end %>
+	
+			</div>
+			
+			<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i> Zur Startseite")), billboards_path , :class => "btn"  %>
+	
+	</div>
+
+</div>

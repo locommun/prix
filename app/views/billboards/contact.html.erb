@@ -1,0 +1,18 @@
+<div class="span12">
+		<div class="well">
+			
+			<h3>Kontakt</h3>
+			
+			<%= simple_form_for :contact,  :method => :get do |f| %>
+				<%= f.input :email, :label => "E-Mail" %>
+  				<%= f.input :text,:as => :text, :label => "Text"%>
+  				
+  				<button class="btn btn-primary">Absenden </button>
+
+			<% end %>
+
+		</div>
+		
+		<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i> Zur Startseite")), billboards_path , :class => "btn"  %>
+
+</div>

@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/schneems/wicked.git
+  revision: c129e96b092656ca4f30790b468778de12633993
+  specs:
+    wicked (0.3.4)
+      activesupport (>= 3.0.7)
+      rails (>= 3.0.7)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -225,5 +233,6 @@ DEPENDENCIES
   therubyrhino
   uglifier (>= 1.0.3)
   unicorn (~> 4.4.0)
+  wicked!
   wicked_pdf
   wkhtmltopdf-binary (~> 0.9.9.1)

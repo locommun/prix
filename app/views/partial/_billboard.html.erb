@@ -1,0 +1,128 @@
+
+	<% if (!user_signed_in?) && session.has_key?(:billboard)  && session[:billboard] == @billboard.id%>
+		<div class="alert alert-info ">
+			Du hast einen <b><i class="icon-qrcode"></i> Aktivierungscode</b> eingescannt oder eingetippt! Um dich für diese Litfaßsäule freizuschalten, musst du dich <b><%= link_to 'anmelden', new_user_session_path %></b> oder
+			<%= link_to 'registrieren', new_user_registration_path%>, falls du noch keinen Benutzeraccount hast.
+
+			</div >
+	<%end%>
+
+	<div class="row">
+		<div class="span3">
+			<div class="billboard-controlls well">
+				<h2><%= @billboard.name %></h2>
+				<p>
+					<%= @billboard.description %>
+				</p>
+				<%= gmaps({
+				"map_options" => { "container_class" => "minimap_container", "id" =>  "minimap","auto_adjust" => true , "zoom" => 14,"auto_zoom" => false},
+				"markers" => {"data" => @json}
+				}) %> 
+				<p style="font-size:xx-small;">
+					<b>Lat:</b>
+					<%= @billboard.latitude %></p>
+				<p style="font-size:xx-small;">
+					<b>Long:</b>
+					<%= @billboard.longitude %>
+				</p>
+				<p>
+					<strong> <%= link_to  (raw ("<i  class=\"icon-file icon-white\"></i> Neue Anzeige")) , new_announcement_path(:billboard_id => @billboard.id) ,:class => "btn btn-primary"%> </strong>
+				</p>
+				<p>
+					<% if @billboard.user == current_user %>
+
+					<%= link_to (raw ("<i  class=\"icon-print \"></i> Aushang drucken")), billboard_path(:id => @billboard.id, :format => :pdf) ,:class => "btn" %>
+
+					<%end%>
+				</p>
+				<p>
+					<%if current_user && @billboard.user == current_user%>
+					<%= link_to 'Editieren', edit_billboard_path(@billboard) ,:class => "btn"%>
+					<%end%>
+				</p>
+				<p>
+					<%= link_to 'Zurück', billboards_path ,:class => "btn"%>
+				</p>
+			</div>
+			
+			<% if (!current_user || !@billboard.is_activated?(current_user) ) %>
+			
+				<div class="billboard-controlls well">
+		 		<h3>Litfaßsäule beitreten:</h3>
+		 		<p>
+		 			Um selber Aktivitäten anzukündigen, kannst du dieser Gemeinschaft beitreten.
+		 			Dazu musst du zu dem Aushang der Gemeinschaft gehen und entweder mit einem Smartphone den QR-Code einscannen,
+		 			oder den Freischalt-Code notieren und hier eingeben. Den Auhang findest du mithilfe der Karte.
+		 		</p>
+				<form class="form-inline" action="billboards/activate">
+					<input type="text"  name="key"  value="<%= params["code"]%>" placeholder="Code...">
+					<button type="submit" class="btn btn-primary">
+						beitreten
+					</button>
+				</form>	 
+				</div>
+			
+				<%old_dialog = dialog_sent? @billboard.id%>
+				<% if !old_dialog %>
+					<div class="billboard-controlls well">
+	
+						<h3>Patensuche</h3>
+						<p>Suche einen Paten auf der Litfaßsäule. <a href="/billboards/description#pate"><span class="label label-demestoa">?</span></a></p> 
+						<%= simple_form_for(@billboard.dialogs.build) do |f| %>
+						
+						  <div class="form-inputs">
+						    <%= f.input :text ,:label => "Stelle dich kurz vor:", :required => false , :input_html => {:rows => 7 , :style => "width:95%;"}%>
+						  	<%= f.input :billboard_id , :as => :hidden %>
+						  </div>
+						
+						  	<%= f.submit "Abschicken" , :class => "btn btn-primary"%>
+						  
+						<% end %>
+		
+					</div>
+				<%else%>
+					<div class="billboard-controlls well">
+						<div>
+							<b><%= link_to  "Dein Paten-Gesuch" , :controller => "billboards", :action => "dialog", :id => old_dialog.id %></b>
+						</div>
+					</div>
+				<%end%>
+				
+			<%else%>
+				<div class="billboard-controlls well">
+					<h3>Paten-Gesuche</h3>
+						<%counter=0%>
+						<% @billboard.dialogs.each do |dialog| %>
+							<%if !dialog.godfather %>
+								<div class="well">
+									<b><%= link_to  dialog.user.name , :controller => "billboards", :action => "dialog", :id => dialog.id %></b>
+								</div>
+								<%counter=counter+1%>
+							<%end%>
+						<%end%>
+						
+						<%if counter == 0%>
+							<b>Keine Gesuche</b>
+						<%end%>
+				</div>
+			<%end%>
+		</div>
+
+		<div class="span9">
+			<div class="row per3">
+
+			<% @billboard.announcements.each do |announcement| %>
+			<div class="span3">
+				<div class="well break-word ">
+					<h3><%= link_to  announcement.name , announcement %></h3>
+					<p>
+						<%= announcement.description[0..150] %>
+						</br>
+						<%= link_to  'mehr' , announcement %>
+					</p>
+				</div>
+			</div>
+			<%end%>
+			</div>
+		</div>
+	</div>

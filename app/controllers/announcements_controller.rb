@@ -16,7 +16,7 @@ class AnnouncementsController < ApplicationController
   # GET /announcements/1.json
   def show
     @announcement = Announcement.find(params[:id])
-    @json = @announcement.to_gmaps4rails
+    show_announcement @announcement
     respond_to do |format|Billboard.all
       format.html # show.html.erb
       format.json { render json: @announcement }

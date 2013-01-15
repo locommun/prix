@@ -3,6 +3,7 @@ Locommun::Application.routes.draw do
   resources :dialogs do
     get 'dialogcomment', :on => :collection
   end
+  
   resources :dialogcomments
   resources :comments
 
@@ -11,6 +12,7 @@ Locommun::Application.routes.draw do
   resources :billboards do 
     get 'activate', :on => :collection
     get 'description', :on => :collection
+    get 'contact', :on => :collection
     get 'request_activate', :on => :member
     get 'dialog', :on => :collection
     get 'dialog_accept', :on => :collection
@@ -36,6 +38,12 @@ Locommun::Application.routes.draw do
   
   match "continue_creating_dialog" => 'dialogs#finalize'
   match "dia_chat_path" => 'billboards#dialog'
+  
+  #Wizards
+  resources :find_announcement
+  resources :find_billboard
+  
+  
  
   # The priority is based upon order of creation:
   # first created -> highest priority.

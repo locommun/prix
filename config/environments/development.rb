@@ -36,4 +36,15 @@ Locommun::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
   config.middleware.use('SpoofIp', '91.64.53.52')
+  
+   # Mailer config
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address              => "",
+    :port                 => 587,
+    :domain               => '',
+    :user_name            => '',
+    :password             => '',
+    :authentication       => 'login',
+    :enable_starttls_auto => true  }
 end

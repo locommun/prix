@@ -1,0 +1,39 @@
+
+<ul class="breadcrumb">
+
+	<% wizard_steps.each_with_index do |s, index| %>
+	
+		<% if step == s%>
+
+			<li class="active"> 
+				<%= (index+1).to_s %>. <%= t('wizard.'+controller_name+'.'+s.to_s)%> 
+				<i class="icon-pencil"></i>
+				<% if s != wizard_steps.last %>
+					<span class="divider hidden-phone">|</span>
+				<% end %>
+			</li> 
+			<br class="visible-phone"/>
+		
+		<% elsif past_step?(s) %>
+		
+			<li> 
+				<%= link_to (index+1).to_s+". " + t('wizard.'+controller_name+'.'+s.to_s), wizard_path(s) %>
+				<span class="divider hidden-phone">|</span>
+			</li> 
+			<br class="visible-phone"/>
+		
+		<% elsif future_step?(s)%>
+		
+			<li> 
+				<%= (index+1).to_s %>. <%= t('wizard.'+controller_name+'.'+s.to_s)%> 
+				<% if s != wizard_steps.last %>
+					<span class="divider hidden-phone">|</span>
+				<% end %>
+			</li> 
+			<br class="visible-phone"/>
+			
+		<%end%>
+	
+	<% end %>
+
+</ul>

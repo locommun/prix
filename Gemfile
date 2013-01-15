@@ -43,6 +43,9 @@ gem "rqrcode"
 #PDF - requires wkhtmltopdf installed
 gem 'wicked_pdf'
 
+# Building Wizards
+gem 'wicked' , :git => "git://github.com/schneems/wicked.git"
+
 #MetaWhere
 #gem "meta_where"
 

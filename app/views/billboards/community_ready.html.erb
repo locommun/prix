@@ -1,10 +1,12 @@
 <div class="row">
+	<div class="span12">
 	<ul class="breadcrumb">
 	    <p><li> <%= link_to "1. Erstellen", { :action => "edit", :id => @billboard.id}%></li></p>
 	    <p><li > <%= link_to "2. Ausdrucken", { :action => "print", :id => @billboard.id}%></li></p>
 		<p><li> <%= link_to "3. Aufhängen", { :action => "hang_up", :id => @billboard.id}%> </li></p>
 		<p><li class="active"> 4. Fertig <i class="icon-pencil"></i></li></p>
 	</ul>
+	</div>
 
 	<div class="span3 hidden-phone">
 		<div class="well">
