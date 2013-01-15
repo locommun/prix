@@ -1,0 +1,32 @@
+<div class="row">
+	<ul class="breadcrumb">
+	    <p><li> <%= link_to "1. Erstellen", { :action => "edit", :id => @billboard.id}%></li></p>
+	    <p><li > <%= link_to "2. Ausdrucken", { :action => "print", :id => @billboard.id}%></li></p>
+		<p><li> <%= link_to "3. Aufhängen", { :action => "hang_up", :id => @billboard.id}%> </li></p>
+		<p><li class="active"> 4. Fertig <i class="icon-pencil"></i></li></p>
+	</ul>
+
+	<div class="span3 hidden-phone">
+		<div class="well">
+			
+			<p><b>Name:</b> <%=@billboard.name%></p>
+			<p><b>Lagebeschreibung:</b> <%=@billboard.description%></p>
+			 
+		</div>
+	</div>
+	
+	<div class="span9">
+		<div class="well">
+		
+			<h4>Gratulation, du hast die Gemeinschaft erfolgreich erstellt!</h4>
+			
+			<p>
+				Du kannst als Ersteller der Gemeinschaft jederzeit etwas ändern oder auch den Aushang erneut ausdrucken.
+				Sobald du den Aushang aufgehängt hast, können deine Nachbarn der Gemeinschaft beitreten und selber Aktivitäten veranstallten.
+				
+			</p>
+		</div>
+	</div>
+</div>
+<%= link_to (raw ("<i  class=\"icon-chevron-left icon-white\"></i> Zurück")), { :action => "hang_up", :id => @billboard.id} , :class => "btn btn-primary"  %>
+<%= link_to (raw ("Zur Gemeinschaft <i  class=\"icon-chevron-right icon-white\"></i>")), { :action => "show", :id => @billboard.id} , :class => "btn btn-primary"  %>

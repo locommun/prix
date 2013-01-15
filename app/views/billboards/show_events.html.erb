@@ -1,0 +1,35 @@
+<div class="row">
+		
+	<ul class="breadcrumb span12">
+	    <p><li><%= link_to "1. Was und Wo", :action => "search_activity"%></li></p>
+	    <p><li class="active">2. Aussuchen<i class="icon-pencil"></i></li></p>
+		<p><li>3. Mitmachen</li></p>
+	</ul>
+
+	<div class="span3">
+		<div class="well">
+			
+			<p><b>Was:</b> <%=params["what"]%></p>
+			<p><b>Wo:</b> <%=params["where"]%></p>
+			<p><b>Umkreis:</b> <%=params["around"]%></p>
+		</div>
+	</div>
+	
+	<div class="span9">
+		<% @announcements.each do |announcement| %>
+			<div class="span3">
+				<div class="well break-word ">
+					<h3><%= link_to  announcement.name , announcement %></h3>
+					<p>
+						<%= announcement.description[0..150] %>
+						</br>
+						<%= link_to  'mehr' , announcement %>
+					</p>
+				</div>
+			</div>
+		<%end%>
+	</div>
+
+</div>
+
+<%= link_to (raw ("<i  class=\"icon-chevron-left icon-white\"></i> Zurück")), { :action => "search_activity"} , :class => "btn btn-primary"  %>

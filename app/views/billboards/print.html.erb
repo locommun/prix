@@ -1,0 +1,38 @@
+
+
+<div class="row">
+<ul class="breadcrumb">
+    <p><li><%= link_to "1. Erstellen", { :action => "edit", :id => @billboard.id}%></li></p>
+    <p><li class="active">2. Ausdrucken <i class="icon-pencil"></i></li></p>
+	<p><li>3. Aufhängen</li></p>
+	<p><li>4. Fertig</li></p>
+</ul>
+
+	<div class="span3 hidden-phone">
+		<div class="well">
+			
+			<p><b>Name:</b> <%=@billboard.name%></p>
+			<p><b>Lagebeschreibung:</b> <%=@billboard.description%></p>
+			 
+		</div>
+	</div>
+	<div class="span9">
+		<div class="well">
+		
+			Der Aushang der Gemeinschaft muss nun <b>ausgedruckt</b> werden:
+			
+			<br /><br />
+				<%= link_to (raw ("<i  class=\"icon-print \"></i> Aushang drucken")), billboard_path(:id => @billboard.id, :format => :pdf) ,:class => "btn" %>
+			<br /><br />
+			
+			<p>
+				<i class="icon-info-sign"></i> <em>Wenn du momentan den Aushang nicht ausdrucken kannst, ist dies auch später noch möglich. 
+				Wenn der Aushang allerdings nicht ausgedruckt und an der angegebenen Stelle plaziert wird, kann niemand deiner neuen Gemeinschaft beitreten!</em>
+			</p>
+			
+		</div>
+	</div>
+</div>
+
+<%= link_to (raw ("<i  class=\"icon-chevron-left icon-white\"></i> Zurück")), { :action => "edit", :id => @billboard.id} , :class => "btn btn-primary"  %>
+<%= link_to (raw ("Weiter <i  class=\"icon-chevron-right icon-white\"></i>")), { :action => "hang_up", :id => @billboard.id } , :class => "btn btn-primary" %>

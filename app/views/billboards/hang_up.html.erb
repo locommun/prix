@@ -1,0 +1,40 @@
+
+<div class="row">
+	<ul class="breadcrumb">
+	    <p><li><%= link_to "1. Erstellen", { :action => "edit", :id => @billboard.id}%></li></p>
+	    <p><li > <%= link_to "2. Ausdrucken", { :action => "print", :id => @billboard.id}%> </li></p>
+		<p><li class="active"> 3. Aufhängen <i class="icon-pencil"></i></li></p>
+		<p><li>4. Fertig</li></p>
+	</ul>
+	
+	
+		<div class="span3 hidden-phone">
+			<div class="well">
+				
+				<p><b>Name:</b> <%=@billboard.name%></p>
+				<p><b>Lagebeschreibung:</b> <%=@billboard.description%></p>
+				 
+			</div>
+		</div>
+		
+		<div class="span9">
+			<div class="well">
+			
+				<p><b>Aushang aufhängen:</b></p>
+				
+				<p>Nehme dazu den ausgedruckten Aushang und plaziere diesen so, dass man diesen mit Hilfe der Lagebeschreibung finden kann.</p>
+				
+			    <blockquote>
+			    	<p><%=@billboard.description%></p>
+			    </blockquote>
+				
+				<p>
+					<i class="icon-info-sign"></i> <em>Wenn du die Lagebeschreibung nochmals anpassen willst, gehe zurück und formuliere diese so, dass man den Aushang gut finden kann.</em>
+				</p>
+				
+			</div>
+		</div>
+</div>
+
+<%= link_to (raw ("<i  class=\"icon-chevron-left icon-white\"></i> Zurück")), { :action => "print", :id => @billboard.id} , :class => "btn btn-primary"  %>
+<%= link_to (raw ("Weiter <i  class=\"icon-chevron-right icon-white\"></i>")), { :action => "community_ready", :id => @billboard.id} , :class => "btn btn-primary"  %>

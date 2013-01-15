@@ -2,23 +2,78 @@
 # encoding: utf-8
 class BillboardsController < ApplicationController
   def index
-    @billboards = Billboard.all
-   
-    @user_longitude = 13.29020 #request.location.longitude
-    @user_latitude= 52.45779 #request.location.latitude
-    @near_billboards = Billboard.near([@user_latitude, @user_longitude], 20)
-    
-    @json = Billboard.all.to_gmaps4rails
 
-    respond_to do |format|
-      format.html  # index.html.erb
-      format.json  { render :json => @billboards }
-    end
   end
 
   def description
 
   end
+  
+  def search_activity
+    #@user_longitude = 13.29020 #request.location.longitude
+    #@user_latitude= 52.45779 #request.location.latitude
+    #@near_billboards = Billboard.all#Billboard.near([@user_latitude, @user_longitude], 20)
+    
+    #@json = Billboard.all.to_gmaps4rails
+
+    if params[:what] || params[:where]
+      redirect_to show_events_billboards_path(:what =>  params[:what], :where =>  params[:where], :around =>  params[:around])
+    elsif params[:around]
+      flash[:notice] = "Du musst eine Postleitzahl eingeben um in einem Umkreis zu suchen"
+    end
+    
+  end
+  
+  def search_billboard
+
+    if params[:what] || params[:where]
+      redirect_to show_billboards_billboards_path(:what =>  params[:what], :where =>  params[:where], :around =>  params[:around])
+    elsif params[:around]
+      flash[:notice] = "Du musst eine Postleitzahl eingeben um in einem Umkreis zu suchen"
+    end
+  end
+  
+   def show_billboards
+     
+    @user_longitude = 13.29020 #request.location.longitude
+    @user_latitude= 52.45779 #request.location.latitude
+    #@near_billboards = Billboard.all#Billboard.near([@user_latitude, @user_longitude], 20)
+     
+    if params[:what]!="" || params[:where]!=""
+      @near_billboards = Billboard.where("name = ? OR description = ?", params[:what],params[:what])
+    else
+      @near_billboards = Billboard.all
+    end
+    
+     @json = Billboard.all.to_gmaps4rails
+    
+  end
+  
+  def show_events
+    if params[:what]!="" || params[:where]!=""
+      @announcements = Announcement.where("name = ? OR description = ?", params[:what],params[:what])
+    else
+      @announcements = Announcement.all
+    end
+    
+  end
+  
+  def print
+    @billboard = Billboard.find(params[:id])
+
+  end
+  
+  def hang_up
+    @billboard = Billboard.find(params[:id])
+    
+  end
+  
+    
+  def community_ready
+    @billboard = Billboard.find(params[:id])
+    
+  end
+
 
   def dialog
 
@@ -55,42 +110,48 @@ class BillboardsController < ApplicationController
   end
 
   def new
-    @billboard = Billboard.new
+    if current_user
+       @billboard = Billboard.new
 
-    @json = @billboard.to_gmaps4rails
-    respond_to do |format|
-      format.html  # new.html.erb
-      format.json  { render :json => @billboard }
+      @json = @billboard.to_gmaps4rails
+      respond_to do |format|
+        format.html  # new.html.erb
+        format.json  { render :json => @billboard }
+      end
+     else
+        redirect_to edit_user_registration_path, :notice => 'Du musst dich davor anmelden.'
     end
+   
   end
 
   def create
     @billboard = Billboard.new(params[:billboard])
     if current_user
       @billboard.user = current_user
-    end
 
-    #TODO: check for correktness
-    key = SecureRandom.hex(8)
-    while Billboard.where(:key => key).first
+      #TODO: check for correktness
       key = SecureRandom.hex(8)
-    end
-    @billboard.key = key
-
-    @billboard.gmaps = true
-    respond_to do |format|
-      if @billboard.save
-        format.html  { redirect_to(@billboard,
-                    :notice => 'Erfolgreich erstellt.') }
-        format.json  { render :json => @billboard,
-                    :status => :created, :location => @billboard }
-      else
-        @json = @billboard.to_gmaps4rails
-        format.html  { render :action => "new" }
-        format.json  { render :json => @billboard.errors,
-                    :status => :unprocessable_entity }
+      while Billboard.where(:key => key).first
+        key = SecureRandom.hex(8)
       end
-    end
+      @billboard.key = key
+  
+      @billboard.gmaps = true
+      respond_to do |format|
+        if @billboard.save
+          format.html  { redirect_to(print_billboards_path(:id => @billboard.id)) }
+          format.json  { render :json => @billboard,
+                      :status => :created, :location => print_billboards_path(:id => @billboard.id) }
+        else
+          @json = @billboard.to_gmaps4rails
+          format.html  { render :action => "new" }
+          format.json  { render :json => @billboard.errors,
+                      :status => :unprocessable_entity }
+        end
+      end
+     else
+        redirect_to edit_user_registration_path, :notice => 'Du musst dich davor anmelden.'
+     end
   end
 
   def show
@@ -115,8 +176,7 @@ class BillboardsController < ApplicationController
 
     respond_to do |format|
       if @billboard.update_attributes(params[:billboard])
-        format.html  { redirect_to(@billboard,
-                    :notice => 'Änderungen gespeichert') }
+        format.html  { redirect_to(print_billboards_path(:id => @billboard.id)) }
         format.json  { head :no_content }
       else
         format.html  { render :action => "edit" }

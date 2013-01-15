@@ -1,0 +1,36 @@
+<div class="row">
+		
+	<ul class="breadcrumb span12">
+	    <p><li><%= link_to "1. Was und Wo", :action => "search_billboard"%></li></p>
+	    <p><li class="active">2. Aussuchen<i class="icon-pencil"></i></li></p>
+		<p><li>3. Mitmachen</li></p>
+	</ul>
+	<div class="span12">
+		<div class="span3">
+			<div class="well">
+				
+				<p><b>Was:</b> <%=params["what"]%></p>
+				<p><b>Wo:</b> <%=params["where"]%></p>
+				<p><b>Umkreis:</b> <%=params["around"]%></p>
+			</div>
+		</div>
+		<div class="span8">
+		      	
+		    <div class="hidden-phone center-content" id="hidden-map">
+		    	<button id="hide-map-button" class="btn btn-primary"><i class="icon-chevron-up icon-white"></i>Verstecke Karte</button>
+		    	<%= render 'map_index' %></br>	
+		    	
+		    </div>  	      	
+		    <div class="visible-phone center-content" id="show-map-link">
+		    	<button id="show-map-button"  class="btn btn-primary"><i class="icon-chevron-down icon-white"></i>Zeige Karte</button>
+		    </div>
+			<br />
+			<div>
+				<%= render 'list_index' %>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<%= link_to (raw ("<i  class=\"icon-chevron-left icon-white\"></i> Zurück")), { :action => "search_billboard"} , :class => "btn btn-primary"  %>

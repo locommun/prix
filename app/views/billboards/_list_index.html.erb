@@ -1,7 +1,7 @@
 <%if @near_billboards %>
 	<% @near_billboards.each do |billboard| %>
 		<div class="well span3">
-			<b> Aktivitäten</b> auf der Litfaßsäule <b><%= link_to billboard.name, billboard %></b>:
+			Gemeinschaft <b><%= link_to billboard.name, billboard %></b>:
 			<br/><br />
 			<table class="table table-bordered break-word">
 				<% billboard.announcements[0..3].each do |announcement|%>

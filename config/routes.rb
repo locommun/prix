@@ -14,6 +14,13 @@ Demestoa::Application.routes.draw do
     get 'request_activate', :on => :member
     get 'dialog', :on => :collection
     get 'dialog_accept', :on => :collection
+    get 'search_activity', :on => :collection
+    get 'print', :on => :collection
+    get 'hang_up', :on => :collection
+    get 'community_ready', :on => :collection
+    get 'show_events', :on => :collection
+    get 'search_billboard', :on => :collection
+    get 'show_billboards', :on => :collection
     
   end
   

@@ -1,5 +1,6 @@
 
 de:
+
 # Devise
   devise:
     links:
@@ -176,9 +177,9 @@ de:
     select:
       prompt: Bitte wählen
     submit:
-      create: ! '%{model} erstellen'
-      submit: ! '%{model} speichern'
-      update: ! '%{model} aktualisieren'
+      create: ! 'Weiter'
+      submit: ! 'speichern'
+      update: ! 'Weiter'
   number:
     currency:
       format:

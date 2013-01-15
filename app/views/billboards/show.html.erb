@@ -7,6 +7,8 @@
 
 			</div >
 	<%end%>
+	
+	<%= render 'joinin' %>
 
 	<div class="row">
 		<div class="span3">
@@ -47,6 +49,22 @@
 			</div>
 			
 			<% if (!current_user || !@billboard.is_activated?(current_user) ) %>
+			
+				<div class="billboard-controlls well">
+		 		<h3>Litfaßsäule beitreten:</h3>
+		 		<p>
+		 			Um selber Aktivitäten anzukündigen, kannst du dieser Gemeinschaft beitreten.
+		 			Dazu musst du zu dem Aushang der Gemeinschaft gehen und entweder mit einem Smartphone den QR-Code einscannen,
+		 			oder den Freischalt-Code notieren und hier eingeben. Den Auhang findest du mithilfe der Karte.
+		 		</p>
+				<form class="form-inline" action="billboards/activate">
+					<input type="text"  name="key"  value="<%= params["code"]%>" placeholder="Code...">
+					<button type="submit" class="btn btn-primary">
+						beitreten
+					</button>
+				</form>	 
+				</div>
+			
 				<%old_dialog = dialog_sent? @billboard.id%>
 				<% if !old_dialog %>
 					<div class="billboard-controlls well">

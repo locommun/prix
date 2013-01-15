@@ -1,89 +1,72 @@
-    <div class="center-content">
-			<h2>Mach mal was Lokales! <a href="/billboards/description"><span class="badge badge-warning">mehr dazu</span></a></h2>	
-		</div>
-    <div class="row">	    
-	   
-		<div class="span4">	
-					
-	        <div class=" span3">
-	          <%= image_tag('comic2-transparent.gif' , :class =>'span3')%>
-	        </div>
-	        
-	        <div class="span3">
-	        	<div class="right_arrow">
-		          	<div class="body">
-		                 <h4 id="center"><a href="/billboards#events">Aktivität finden</a></h4>           
-		            </div>
-		            <div class="arrow"></div>
-	            </div>
-	        </div>      
-	    </div>
-	  
-	  <div class="span4">
-	    <div class="hidden-phone span3">
-	      <%= image_tag('comic3-transparent.gif' , :class =>'span3')%>
-	    </div>
-	    
-		 <div class="span3">
-	             <div class="right_arrow">
-		          	<div class="body">
-		                 <h4 id="center"><a href="/billboards/description#howto">Online informieren oder organisieren</a></h4>           
-		            </div>
-		            <div class="arrow"></div>
-	            </div>
-	     	</div>
-	   </div>
-	
-		<div class="span4">
-	        <div class="hidden-phone span3">
-	          <%= image_tag('comic4-transparent.gif' , :class =>'span3')%>
-	        </div>
-	        <div class="span3">
-	             <div class="right_arrow">
-		          	<div class="body">
-		                 <h4 id="center">Aktivität starten</b></h4>          
-		            </div>
-		            <div class="arrow"></div>
-	            </div>
-	     	</div>
-	    </div>
-	</div>	
+<div class="center-content">
+	<h2>Mach mal was Lokales! </h2>
 	<br />
-    <div class="row"> 	   	
-    	<div class="span12">	      	
-		    <div class="hidden-phone center-content" id="hidden-map">
-		    	<h3>Litfaßsäulen in deiner Nähe:</h3> 
-		    	<%= render 'map_index' %></br>	
-		    	<button id="hide-map-button" class="btn btn-primary"><i class="icon-chevron-up icon-white"></i>Verstecke Karte</button>
-		    </div>  	      	
-		    <div class="visible-phone center-content" id="show-map-link">
-		    	<button id="show-map-button"  class="btn btn-primary"><i class="icon-chevron-down icon-white"></i>Zeige Karte</button>
-		    </div>
-	    </div>
-	    
-    </div>
- 	<br />
- 	<div class="row">
- 		<a name="events"></a>
- 		<div class="span12">
- 			<%= render 'list_index' %>
- 		</div>
- 		
- 		<div class="span12">
-			<div class="well">
-	 		<h3>Litfaßsäule beitreten:</h3>
-	 		<p>
-	 			Um selber Aktivitäten anzukündigen, kannst du einer Litfaßsäule beitreten.
-	 			Dazu musst du zu der entsprechenden Litfaßsäule gehen und entweder mit einem Smartphone den QR-Code einscannen,
-	 			 oder den Freischalt-Code notieren und hier eingeben.
-	 		</p>
-			<form class="form-inline" action="billboards/activate">
-				<input type="text"  name="key"  value="<%= params["code"]%>" placeholder="Code...">
-				<button type="submit" class="btn btn-primary">
-					beitreten
-				</button>
-			</form>	 
-			</div>
-	    </div>   
+</div>
 
-	</div>
+<div class="row">
+
+	<ul class="thumbnails">
+		<li class="span4">
+			<div class="thumbnail">
+				<%= image_tag('activity.jpg')%>
+
+				<div class="caption">
+					<h4>Mach was Lokales</h4><hr />
+					<p>
+						Finde Events, Veranstalltungen oder verschiedensten Aktivitäten.
+					</p>
+					<br />
+					<br /><br />
+					<a href="/billboards/search_activity" class="btn btn-primary">Was Lokales machen</a>
+				</div>
+
+			</div>
+		</li>
+
+		<li class="span4">
+			<div class="thumbnail">
+				<%= image_tag('sheep.jpg')%>
+
+				<div class="caption">
+					<h4>Suche Gemeinschaften</h4><hr />
+					<p>
+						Finde interessante <a href="/billboards/description#community">Gemeinschaften</a>. <br /><br/>
+						
+						Bei einer Gemeinschaft kannst du zum Beispiel:
+						<ul>
+							<li>jegliche Art von Aktivität einstellen</li>
+							<li>einen <a href="/billboards/description#pate">Paten</a> suchen</li>
+							<li>eine <a href="/billboards/description#pate">Patenschaft</a> annehmen</li>
+						</ul>
+
+					</p><br />
+					<a href="/billboards/search_billboard" class="btn btn-primary">Gemeinschaft suchen</a>
+				</div>
+
+			</div>
+		</li>
+
+
+		<li class="span4">
+			<div class="thumbnail">
+				<%= image_tag('sheep.jpg')%>
+
+				<div class="caption">
+					<h4>Gründe eine Gemeinschaft</h4><hr />
+					<p>
+						Gibt es in deiner Nachbarschaft noch keine passende <a href="/billboards/description#community">Gemeinschaft</a>? <br /><br />
+						Gründe doch eine neue <a href="/billboards/description#community">Gemeinschaft</a>!
+					</p>
+					<br />
+					<br /><br />
+					<a href="/billboards/new" class="btn btn-primary">Gemeinschaft gründen</a>
+				</div>
+
+			</div>
+		</li>
+		
+	</ul>
+
+</div>
+
+</div>

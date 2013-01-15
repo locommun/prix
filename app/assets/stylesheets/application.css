@@ -29,7 +29,7 @@
 
 #map {
 	width:800px;
-	height:200px;
+	height:400px;
 }
 
 #main-container {
@@ -173,4 +173,12 @@ div.per3 > div:nth-child(3n+1) {
 
 #navigation-announcemnet{
 	padding-bottom: 5px;
+}
+
+/*
+ * Thumbnails
+ * 
+ */
+#title_thumb {
+	height: 550px;
 }
