@@ -1,17 +1,45 @@
-<div class="well">
-<h2>Anmelden</h2>
-
-<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div class="inputs">
-    <%= f.input :email, :required => false , :label => "E-Mail"%>
-    <%= f.input :password, :required => false , :label => "Passwort"%>
-    <%= f.input :remember_me,  :label => "Eingeloggt bleiben" ,:as => :boolean if devise_mapping.rememberable? %>
-  </div>
-
-  <div class="actions">
-    <%= f.button :submit, "Anmelden" %>
-  </div>
-<% end %>
-
-<%= render "links" %>
+<div class="row">
+	<div class="span1"></div>
+	<div class="span5">
+		<div class="well">
+		<h2>Anmelden</h2>
+		
+		<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+		  <div class="inputs">
+		    <%= f.input :email, :required => false , :label => "E-Mail"%>
+		    <%= f.input :password, :required => false , :label => "Passwort"%>
+		    <%= f.input :remember_me,  :label => "Eingeloggt bleiben" ,:wrapper => :checkbox, :as => :boolean if devise_mapping.rememberable? %>
+		  </div>
+		
+		  <div class="actions">
+		    <%= f.button :submit, "Anmelden" ,:class => "btn btn-primary"%>
+		  </div>
+		<% end %>
+		
+		<%= render "links" %>
+		</div>
+	</div>
+	
+	<div class="span5">
+		<div class="well">
+		<h2>Registrieren</h2>
+		
+		<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+		  <%= f.error_notification %>
+		
+		  <div class="inputs">
+		  	<%= f.input :name, :required => true, :autofocus => true  , :label => "Name"%>
+		    <%= f.input :email, :required => true  , :label => "E-Mail"%>
+		    <%= f.input :password, :required => true , :label => "Passwort"%>
+		    <%= f.input :password_confirmation, :required => true , :label => "Passwort bestätigen"%>
+		  </div>
+		
+		  <div class="actions">
+		    <%= f.button :submit, "Registrieren" %>
+		  </div>
+		<% end %>
+		
+		</div>
+	</div>	
+	<div class="span1"></div>
 </div>
