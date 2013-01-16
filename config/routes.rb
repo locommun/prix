@@ -23,7 +23,7 @@ Locommun::Application.routes.draw do
     get 'show_events', :on => :collection
     get 'search_billboard', :on => :collection
     get 'show_billboards', :on => :collection
-    
+    get 'print_pdf', :on => :collection
   end
   
   resources :announcements
@@ -42,6 +42,7 @@ Locommun::Application.routes.draw do
   #Wizards
   resources :find_announcement
   resources :find_billboard
+  resources :create_billboard
   
   
  

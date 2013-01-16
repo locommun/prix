@@ -52,7 +52,7 @@ class ApplicationController < ActionController::Base
      @json = announcement.to_gmaps4rails
   end
   
-    def show_billboard billboard
+  def show_billboard billboard
      @json = billboard.to_gmaps4rails
   end
   

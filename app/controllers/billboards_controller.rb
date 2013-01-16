@@ -2,81 +2,28 @@
 # encoding: utf-8
 class BillboardsController < ApplicationController
   def index
-
-  end
-
-  def description
-
-  end
-  
-  def search_activity
+         
     #@user_longitude = 13.29020 #request.location.longitude
     #@user_latitude= 52.45779 #request.location.latitude
     #@near_billboards = Billboard.all#Billboard.near([@user_latitude, @user_longitude], 20)
-    
-    #@json = Billboard.all.to_gmaps4rails
+  end
 
-    if params[:what] || params[:where]
-      redirect_to show_events_billboards_path(:what =>  params[:what], :where =>  params[:where], :around =>  params[:around])
-    elsif params[:around]
-      flash[:notice] = "Du musst eine Postleitzahl eingeben um in einem Umkreis zu suchen"
-    end
-    
-  end
-  
-  def search_billboard
-
-    if params[:what] || params[:where]
-      redirect_to show_billboards_billboards_path(:what =>  params[:what], :where =>  params[:where], :around =>  params[:around])
-    elsif params[:around]
-      flash[:notice] = "Du musst eine Postleitzahl eingeben um in einem Umkreis zu suchen"
-    end
-  end
-  
-   def show_billboards
-     
-    @user_longitude = 13.29020 #request.location.longitude
-    @user_latitude= 52.45779 #request.location.latitude
-    #@near_billboards = Billboard.all#Billboard.near([@user_latitude, @user_longitude], 20)
-     
-    if params[:what]!="" || params[:where]!=""
-      @near_billboards = Billboard.where("name = ? OR description = ?", params[:what],params[:what])
-    else
-      @near_billboards = Billboard.all
-    end
-    
-     @json = Billboard.all.to_gmaps4rails
-    
-  end
-  
-  def show_events
-    if params[:what]!="" || params[:where]!=""
-      @announcements = Announcement.where("name = ? OR description = ?", params[:what],params[:what])
-    else
-      @announcements = Announcement.all
-    end
-    
+  def description
   end
   
   def print
     @billboard = Billboard.find(params[:id])
-
   end
   
   def hang_up
     @billboard = Billboard.find(params[:id])
-    
   end
   
-    
   def community_ready
     @billboard = Billboard.find(params[:id])
-    
   end
 
-
   def dialog
-
     @dialog = Dialog.find(params[:id])
   end
   
@@ -166,6 +113,7 @@ class BillboardsController < ApplicationController
     end
   end
 
+
   def edit
     @billboard = Billboard.find(params[:id])
     @json = @billboard.to_gmaps4rails
@@ -192,7 +140,6 @@ class BillboardsController < ApplicationController
   end
 
   def contact
-    
   end
   
   def contact_send

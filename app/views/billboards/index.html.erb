@@ -5,82 +5,77 @@
 
 <div class="row">
 	<div class="span12">
-	<ul class="thumbnails">
-		<li class="span4">
-			<div class="thumbnail fixed-title-thumb">
-				<%= image_tag('activity.jpg')%>
-
-				<div class="caption">
-					<div class="center-content">
-					<h4>Mach was Lokales</h4><hr />
-
-					<%= link_to "Was Lokales machen", find_announcement_path(:where), :class=> "btn btn-primary" %>
-					<hr />
+		<ul class="thumbnails">
+			
+			<li class="span4">
+				<div class="thumbnail fixed-title-thumb">
+					<%= image_tag('http://placehold.it/710x533&text=Locommun')%>
+					<div class="caption">
+						<div class="center-content">
+							<h4> <i  class="icon-eye-open"></i> Finde lokale Aktivitäten</h4>
+							<hr />
+							<%= link_to "Lokale Aktivität finden", find_announcement_path(:where), :class=> "btn btn-primary" %>
+							<hr />
+						</div>
+						Finde Events, Veranstalltungen oder verschiedenste Arten von Aktivitäten.
 					</div>
-					Finde Events, Veranstalltungen oder verschiedensten Aktivitäten.
-					
 				</div>
+			</li>
 
-			</div>
-		</li>
-
-		<li class="span4">
-			<div class="thumbnail fixed-title-thumb">
-				<%= image_tag('sheep.jpg')%>
-
-				<div class="caption" >
-					<div class="center-content">
-					<h4>Suche Gemeinschaften</h4><hr />
-					<%= link_to "Gemeinschaft suchen", find_billboard_path(:where), :class=> "btn btn-primary" %>
-					<hr />
+			<li class="span4">
+				<div class="thumbnail fixed-title-thumb">
+					<%= image_tag('http://placehold.it/710x533&text=Locommun')%>
+					<div class="caption" >
+						<div class="center-content">
+							<h4><i  class="icon-search"></i> Suche Gemeinschaften</h4>
+							<hr />
+							<%= link_to "Gemeinschaft suchen", find_billboard_path(:where), :class=> "btn btn-primary" %>
+							<hr />
+						</div>
+						<p>
+							Finde interessante <a href="/billboards/description#community">Gemeinschaften</a>.
+						</p>
+						<p>
+							Bei einer Gemeinschaft kannst du:
+						</p>
+						<ul>
+							<li>
+								jegliche Art von Aktivität einstellen
+							</li>
+							<li>
+								einen <a href="/billboards/description#pate">Paten</a> suchen
+							</li>
+							<li>
+								eine <a href="/billboards/description#pate">Patenschaft</a> annehmen
+							</li>
+						</ul>
+						</p>
+						<br />
 					</div>
-					
-					<p>
-					Finde interessante <a href="/billboards/description#community">Gemeinschaften</a>.
-					</p>
-					<p>
-					Bei einer Gemeinschaft kannst du:
-					</p>
-					<ul>
-						<li>jegliche Art von Aktivität einstellen</li>
-						<li>einen <a href="/billboards/description#pate">Paten</a> suchen</li>
-						<li>eine <a href="/billboards/description#pate">Patenschaft</a> annehmen</li>
-					</ul>
-
-					</p><br />
-					
-
 				</div>
+			</li>
 
-			</div>
-		</li>
-
-
-		<li class="span4">
-			<div class="thumbnail fixed-title-thumb">
-				<%= image_tag('sheep.jpg')%>
-
-				<div class="caption">
-					<div class="center-content">
-						<h4>Gründe eine Gemeinschaft</h4><hr />
-						<a href="/billboards/new" class="btn btn-primary">Gemeinschaft gründen</a>
-						<hr />
+			<li class="span4">
+				<div class="thumbnail fixed-title-thumb">
+					<%= image_tag('http://placehold.it/710x533&text=Locommun')%>
+					<div class="caption">
+						<div class="center-content">
+							<h4><i  class="icon-plus"></i> Gründe eine Gemeinschaft</h4>
+							<hr />
+							<a href="/billboards/new" class="btn btn-primary">Gemeinschaft gründen</a>
+							<%= link_to "Gemeinschaft gründen", create_billboard_path(:detail), :class=> "btn btn-primary" %>
+							<hr />
+						</div>
+						<p>
+							Gibt es in deiner Nachbarschaft noch keine passende <a href="/billboards/description#community">Gemeinschaft</a>?
+						</p>
+						<p>
+							Gründe doch eine neue <a href="/billboards/description#community">Gemeinschaft</a>!
+						</p>
 					</div>
-					
-					<p>
-						Gibt es in deiner Nachbarschaft noch keine passende <a href="/billboards/description#community">Gemeinschaft</a>? 
-					</p>
-					<p>
-						Gründe doch eine neue <a href="/billboards/description#community">Gemeinschaft</a>!
-					</p>
-					
-					
 				</div>
-
-			</div>
-		</li>
-		
-	</ul>
-
-</div>
+			</li>
+			
+		</ul>
+	</div>
 </div>

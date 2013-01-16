@@ -10,8 +10,8 @@ steps :where, :choose , :join
     case step
       when :where
         @query= {'where' => "", 'country' => 1 , 'around' => 10}
-        if session['bb']
-          @query = session['bb']
+        if session['community']
+          @query = session['community']
         end
         
       when :join
@@ -19,12 +19,12 @@ steps :where, :choose , :join
         show_billboard @billboard
      when :choose
         
-        if params[:bb]
-          @query = params[:bb] 
-          session[:bb] =  @query
+        if params[:community]
+          @query = params[:community] 
+          session[:community] =  @query
         else
-          if session[:bb]
-            @query = session[:bb]
+          if session[:community]
+            @query = session[:community]
           else
             redirect_to wizard_path(:where)
           end

@@ -3,6 +3,10 @@ de:
 
 #Wizards
   wizard:
+    create_billboard:
+      detail: "Allgemein"
+      print: "Ausdrucken und aufhängen"
+      ready: "Fertig"
     find_billboard:
       where: "Was und Wo"
       choose: "Auswählen"

@@ -33,7 +33,7 @@
 }
 
 #main-container {
-    margin-top: 60px;
+    margin-top: 100px;
 }
 
 #minimap {
@@ -97,7 +97,7 @@
 		width:700px !important;
 	}
 	.fixed-title-thumb {
-		height:510px !important;;
+		height:510px !important;
 	}
  }
 

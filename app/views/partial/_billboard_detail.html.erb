@@ -1,9 +1,10 @@
-<%= simple_form_for(@billboard, :html => {:class => 'form-inline' }) do |f| %>
-	
+
+<%= simple_form_for :community_create, :url => next_wizard_path, :method => :get do |f| %>
+
 	<%= f.error_notification %>
 	
-	<%= f.input :name , :label => "Name der Gemeinschaft:"%>
-	<%= f.input :description , :input_html => { :cols => 50, :rows => 5 }, :label => "Lagebeschreibung:", :hint => "Wo wird der Aushang der Gemeinschaft angebracht? Es ist sinnvoll eine möglichst genaue Lagebeschreibung anzugeben, damit der Aushang gefunden werden kann und deine Nachbarn der Gemeinschaft beitreten können. Am Besten eine Straße und Hausnummer angeben." %> <br />
+	<%= f.input :name , :label => "Name der Gemeinschaft:", :input_html => { :value =>  (@query['name'])}%>
+	<%= f.input :description , :input_html => { :cols => 50, :rows => 5 },:input_html => { :value =>  (@query['description'])}, :label => "Lagebeschreibung:", :hint => "Wo wird der Aushang der Gemeinschaft angebracht? Es ist sinnvoll eine möglichst genaue Lagebeschreibung anzugeben, damit der Aushang gefunden werden kann und deine Nachbarn der Gemeinschaft beitreten können. Am Besten eine Straße und Hausnummer angeben." %> <br />
 
 	<b>Gebe den Ort des Aushangs auf folgender Karte möglichst genau an:</b> </br></br>
 	
@@ -65,13 +66,13 @@
         }
     </script>
   <% end %></br>
-	<%= f.input :latitude, :readonly => true, :as=>:hidden , :input_html => {:id => "billboard_latitude"}%>
-	<%= f.input :longitude,:readonly => true, :as=>:hidden, :input_html => {:id => "billboard_longitude"}%>
+	<%= f.input :latitude, :readonly => true,  :input_html => {:id => "billboard_latitude", :value =>  (@query['latitude']) }%>
+	<%= f.input :longitude,:readonly => true,  :input_html => {:id => "billboard_longitude", :value =>  (@query['longitude'])}%>
 	
 	<br />
 	
-	
-	<%= f.button :submit, :class => "btn btn-primary", :label => "speichern" %>
+	<button class="btn btn-primary">Weiter <i  class="icon-chevron-right icon-white"></i></button>
+
 <% end %>
 
 

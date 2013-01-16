@@ -5,7 +5,7 @@
 	
 	<div class="span12">
 			<div class="well">
-				<%= simple_form_for :bb, :url => next_wizard_path, :method => :get do |f| %>
+				<%= simple_form_for :community, :url => next_wizard_path, :method => :get do |f| %>
 					<%= f.input :country, :selected => (@query["country"]) ,:label => "Land", :collection => ['Deutschland'] %>
 	  				<%= f.input :where, :label => "Wo", :input_html => { :value =>  (@query['where'])} %>
 	  				<%= f.input :around, :selected => (@query['around']) , :collection => [1,2,3,4,5,6,7,8,9,10,20,30,40,50] , :label => "Umkreis (km)"%>
