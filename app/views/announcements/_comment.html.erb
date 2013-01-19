@@ -3,6 +3,9 @@
 	<%= simple_form_for(@announcement.comments.build) do |f| %>
 
 	<div class="form-inputs">
+
+		<%= f.input :private, :label => "Private Nachricht", :hint => "Private Nachrichten sind nur für freigeschaltete Nutzer sichtbar" %>
+
 		<%= f.input :text ,:label => false, :required => false , :input_html => {:rows => 3 ,:id => "comment-form-input"}%>
 		<%= f.input :announcement_id , :as => :hidden %>
 	</div>

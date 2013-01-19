@@ -19,14 +19,14 @@
       <div class="navbar-inner">
         <div class="container">
           
-          <a class="brand" href="/"><%= image_tag('logo.png')%></a><a href="/billboards/description#alpha"><span class="label label-demestoa">Alpha</span></a>
+          <a class="brand" href="/">Locommun</a><a href="/billboards/description#beta"><span class="label label-demestoa">Beta</span></a>
           
           <ul class="nav pull-right">
           	<% if user_signed_in? %>
-				<li><%= link_to current_user.email , announcements_path %></li>
+				<li><%= link_to (raw ("<i  class=\"icon-home icon-white\"></i> "))+current_user.email , announcements_path %></li>
 			 	<li><%= link_to 'Abmelden', destroy_user_session_path %></li>
 			 <% else %>
-			 	<li> <%= link_to 'Anmelden', new_user_session_path %></li>
+			 	<li> <%= link_to (raw ("<i  class=\"icon-user icon-white\"></i> Anmelden")), new_user_session_path %></li>
 			 <% end %>
           </ul>
          

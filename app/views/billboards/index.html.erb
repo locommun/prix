@@ -9,25 +9,36 @@
 			
 			<li class="span4">
 				<div class="thumbnail fixed-title-thumb">
-					<%= image_tag('http://placehold.it/710x533&text=Locommun')%>
+					
+						<div class="center-content">
+							<h4>Finde lokale Aktivitäten</h4>
+						</div>
+
+					<%= link_to image_tag('activity.png',:class => 'transparent'), find_announcement_path(:where)%>
+					
 					<div class="caption">
 						<div class="center-content">
-							<h4> <i  class="icon-eye-open"></i> Finde lokale Aktivitäten</h4>
 							<hr />
 							<%= link_to "Lokale Aktivität finden", find_announcement_path(:where), :class=> "btn btn-primary" %>
 							<hr />
 						</div>
 						Finde Events, Veranstalltungen oder verschiedenste Arten von Aktivitäten.
 					</div>
+					
 				</div>
 			</li>
 
 			<li class="span4">
 				<div class="thumbnail fixed-title-thumb">
-					<%= image_tag('http://placehold.it/710x533&text=Locommun')%>
+
+						<div class="center-content">
+							<h4>Suche Gemeinschaften</h4>
+						</div>
+
+					<%= link_to image_tag('find.png',:class => 'transparent'), find_billboard_path(:where)%>
 					<div class="caption" >
 						<div class="center-content">
-							<h4><i  class="icon-search"></i> Suche Gemeinschaften</h4>
+
 							<hr />
 							<%= link_to "Gemeinschaft suchen", find_billboard_path(:where), :class=> "btn btn-primary" %>
 							<hr />
@@ -35,9 +46,8 @@
 						<p>
 							Finde interessante <a href="/billboards/description#community">Gemeinschaften</a>.
 						</p>
-						<p>
+
 							Bei einer Gemeinschaft kannst du:
-						</p>
 						<ul>
 							<li>
 								jegliche Art von Aktivität einstellen
@@ -57,10 +67,15 @@
 
 			<li class="span4">
 				<div class="thumbnail fixed-title-thumb">
-					<%= image_tag('http://placehold.it/710x533&text=Locommun')%>
+
+						<div class="center-content">
+							<h4>Gründe eine Gemeinschaft</h4>
+						</div>
+						
+					<%= link_to image_tag('create.png',:class => 'transparent'), create_billboard_path(:detail)%>
 					<div class="caption">
 						<div class="center-content">
-							<h4><i  class="icon-plus"></i> Gründe eine Gemeinschaft</h4>
+
 							<hr />
 							<a href="/billboards/new" class="btn btn-primary">Gemeinschaft gründen</a>
 							<%= link_to "Gemeinschaft gründen", create_billboard_path(:detail), :class=> "btn btn-primary" %>

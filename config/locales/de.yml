@@ -4,14 +4,17 @@ de:
 #Wizards
   wizard:
     create_billboard:
+      title: "Gemeinschaft gründen"
       detail: "Allgemein"
       print: "Ausdrucken und aufhängen"
       ready: "Fertig"
     find_billboard:
+      title: "Gemeinschaft suchen"
       where: "Was und Wo"
       choose: "Auswählen"
       join: "Mitmachen"
     find_announcement:
+      title: "Aktivität finden"
       where: "Was und Wo"
       choose: "Auswählen"
       join: "Mitmachen"

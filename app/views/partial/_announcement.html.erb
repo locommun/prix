@@ -27,16 +27,18 @@
 			
 			<div>
 				<% @announcement.comments.each do |comment| %>
-					<div class="alert alert-info">
-						<% if comment.user %>
-						<strong>
-						<Anonym>
-							<%= comment.user.name %>:
-						</strong> <%= comment.text %>
-						<%else%>
-						<strong>Anonym:</strong> <%= comment.text %>
-						<%end%>
-					</div>
+					<% if (!comment.private) || (current_user && comment.private && @announcement.billboard.is_activated?(current_user)) %>
+						<div class="alert alert-info">
+							<% if comment.user %>
+							<strong>
+							<Anonym>
+								<%= comment.user.name %>:
+							</strong> <%= comment.text %>
+							<%else%>
+							<strong>Anonym:</strong> <%= comment.text %>
+							<%end%>
+						</div>
+					<%end%>
 				<%end%>
 			</div>
 			<%=render '/announcements/comment'%>

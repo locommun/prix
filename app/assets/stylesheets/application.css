@@ -113,6 +113,10 @@
 
 img.float-right { width:300px;  float: right; }
 
+img.transparent {
+	opacity: 0.5;
+}
+
 #div-with-space {
 	 margin-top: 20px
 }

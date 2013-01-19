@@ -47,8 +47,7 @@ steps :detail , :print , :ready
             redirect_to wizard_path(:detail)
           end
         end
-             
-        
+          
     end
     render_wizard
   end
