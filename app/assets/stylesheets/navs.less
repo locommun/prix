@@ -103,7 +103,7 @@
 
 // Give the tabs something to sit on
 .nav-tabs {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;  
 }
 // Make the list-items overlay the bottom border
 .nav-tabs > li {
@@ -111,13 +111,17 @@
 }
 // Actual tabs (as links)
 .nav-tabs > li > a {
+  color: @black;
   padding-top: 8px;
   padding-bottom: 8px;
   line-height: @baseLineHeight;
   border: 1px solid transparent;
   .border-radius(4px 4px 0 0);
+    background-color: @white;
   &:hover {
     border-color: @grayLighter @grayLighter #ddd;
+    background-color: @linkColor;
+    color: @white;
   }
 }
 // Active state, and it's :hover to override normal :hover
@@ -172,7 +176,7 @@
   .border-radius(0);
 }
 .nav-tabs.nav-stacked > li:first-child > a {
-  .border-top-radius(4px);
+  .border-top-radius(0px);
 }
 .nav-tabs.nav-stacked > li:last-child > a {
   .border-bottom-radius(4px);

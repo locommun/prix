@@ -31,10 +31,25 @@ class AnnouncementsController < ApplicationController
   # GET /announcements/new
   # GET /announcements/new.json
   def new
-    @announcement = Announcement.new
-    @json = @announcement.to_gmaps4rails
     
-    @announcement.billboard_id = params[:billboard_id] 
+    @announcement = Announcement.new
+    
+    if get_stored_object
+      @billboard = Billboard.find(get_stored_object)
+      @announcement.billboard_id = get_stored_object
+      
+    else
+      @billboard = Billboard.find(params[:billboard_id])
+      @announcement.billboard_id = params[:billboard_id] 
+    end
+    
+    if !user_signed_in?
+      deny_access_to_save_object @billboard
+      return
+    end
+    
+    @json = @announcement.to_gmaps4rails
+
     if current_user && @announcement.billboard.is_activated?(current_user)
         respond_to do |format|
           format.html # new.html.erb
@@ -42,8 +57,7 @@ class AnnouncementsController < ApplicationController
         end
       else
        respond_to do |format|
-           format.html  { redirect_to(request_activate_billboard_path(@announcement.billboard),
-                        :notice => 'Du bist leider noch nicht für diese Littfaßsäule freigeschalten oder nicht eingeloggt!') }
+           format.html  { redirect_to(request_activate_billboard_path(@announcement.billboard)) }
        end
       end
   end
@@ -58,12 +72,14 @@ class AnnouncementsController < ApplicationController
   # POST /announcements.json
   def create
     @announcement = Announcement.new(params[:announcement])
+    @billboard = @announcement.billboard
+     
     if current_user && @announcement.billboard.is_activated?(current_user)
       @announcement.user = current_user
       @announcement.gmaps = true
         respond_to do |format|
           if @announcement.save
-            format.html { redirect_to @announcement, notice: 'Announcement was successfully created.' }
+            format.html { redirect_to @announcement, notice: 'Anzeige wurde erfolgreich erstellt.' }
             format.json { render json: @announcement, status: :created, location: @announcement }
           else
             @json = @announcement.to_gmaps4rails
@@ -83,7 +99,7 @@ class AnnouncementsController < ApplicationController
     if(@announcement.user == current_user)
       respond_to do |format|
         if @announcement.update_attributes(params[:announcement])
-          format.html { redirect_to @announcement, notice: 'Announcement was successfully updated.' }
+          format.html { redirect_to @announcement, notice: 'Anzeige wurde erfolgreich geändert.' }
           format.json { head :no_content }
         else
           format.html { render action: "edit" }

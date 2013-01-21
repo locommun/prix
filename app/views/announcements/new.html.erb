@@ -1,8 +1,12 @@
 
-<div class="well">
-<h1>Neue Anzeige</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Abbrechen', billboard_path(@announcement.billboard) %>
+<div class="row">
+	<div class="span12">
+		<div class="well">
+		<h1>Neuer Aushang bei <%= @announcement.billboard.name%></h1>
+		
+		<%= render 'form' %>
+		
+		</div>
+		<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i> Abbrechen")), billboard_path(@announcement.billboard) , :class => "btn"  %>
+	</div>
 </div>

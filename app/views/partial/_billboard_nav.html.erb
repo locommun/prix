@@ -1,0 +1,70 @@
+<div class="span3">
+	<div class="billboard-controlls well" id="billboard-nav-well">
+		<h2><%= @billboard.name %></h2>
+		<p>
+			<%= @billboard.description %>
+		</p>
+		<%= gmaps({
+		"map_options" => { "container_class" => "minimap_container", "id" =>  "minimap","auto_adjust" => true , "zoom" => 14,"auto_zoom" => false},
+		"markers" => {"data" => @json}
+		}) %> 
+		<p style="font-size:xx-small;">
+			<b>Lat:</b>
+			<%= @billboard.latitude %></p>
+		<p style="font-size:xx-small;">
+			<b>Long:</b>
+			<%= @billboard.longitude %>
+		</p>
+	</div>
+	<!--Billboard Navigation -->
+		
+	    <ul class="nav nav-tabs nav-stacked">
+	    	<!--New Announcement-->
+	    	<li>
+	    		<a href="<%=url_for new_announcement_path(:billboard_id => @billboard.id) %>" class="nav-color">
+       				<strong> <i class="icon-file"></i> Neuer Aushang <i class="icon-chevron-right pull-right transparent"></i> </strong>
+    			</a>
+    		</li>
+    		<!--Print-->
+    		<% if @billboard.user == current_user %>
+	    		<li>
+		    		<a href="<%=url_for billboard_path(:id => @billboard.id, :format => :pdf) %>">	
+						<i  class="icon-print"></i> Aushang drucken <i class="icon-chevron-right pull-right transparent"></i> 
+	    			</a>
+	    		</li>
+			<%end%>
+			<!--Edit-->
+    		<%if current_user && @billboard.user == current_user%>
+	    		<li>
+		    		<a href="<%=url_for edit_billboard_path(@billboard) %>">							
+						<i  class="icon-edit"></i> Bearbeiten <i class="icon-chevron-right pull-right transparent"></i> 
+	    			</a>
+	    		</li>
+			<%end%>
+			<!--Activate-->
+			<% if (!current_user || !@billboard.is_activated?(current_user) ) %>
+	    		<li>
+		    		<a href="<%=url_for activate_form_billboard_path(@billboard) %>">							
+						<i  class="icon-qrcode"></i> Gemeinschaft freischalten <i class="icon-chevron-right pull-right transparent"></i> 
+	    			</a>
+	    		</li>
+			<%end%>
+			<!--Godfather-->
+			<% if (!current_user || !@billboard.is_activated?(current_user) ) %>
+				<%old_dialog = dialog_sent? @billboard.id%>
+				<% if !old_dialog %>
+		    		<li>
+			    		<a href="<%=url_for godfather_form_billboard_path(@billboard) %>">							
+							<i  class="icon-search"></i> Pate suchen <i class="icon-chevron-right pull-right transparent"></i> 
+		    			</a>
+		    		</li>
+				<%end%>
+			<%end%>
+			<!--Startpage-->
+	    		<li>
+		    		<a href="<%=url_for billboards_path %>">							
+						<i  class="icon-chevron-left"></i> Zur Startseite 
+	    			</a>
+	    		</li>
+	    </ul>
+</div>

@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
       if get_stored_location
         store_location = get_stored_location
         clear_stored_location
-        (store_location.nil?) ?  dashboard_path : store_location.to_s
+        (store_location.nil?) ?  billboards_path : store_location.to_s
       else
          root_path
       end

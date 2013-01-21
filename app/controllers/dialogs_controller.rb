@@ -42,6 +42,7 @@ class DialogsController < ApplicationController
       if (Dialog.exists? dialog_old)
         flash[:notice] = "Du hast bereits ein Patenschats-Gesuch auf dieser Litfaßsäule erstellt!"
         redirect_to billboard_path(@dialog.billboard)
+        @dialog.delete # delete the dialog object if the user already created one
         return
       end
       

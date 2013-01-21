@@ -131,6 +131,10 @@ img.transparent {
   table-layout: fixed;
 }
 
+i.transparent {
+	opacity: 0.25;
+}
+
 /*
  * Div Arrow
  */
@@ -187,6 +191,10 @@ div.per3 > div:nth-child(3n+1) {
 #navigation-announcemnet{
 	padding-bottom: 5px;
 }
+
+
+
+
 
 /*
  * Thumbnails

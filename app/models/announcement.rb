@@ -1,6 +1,6 @@
 class Announcement < ActiveRecord::Base
   
-  attr_accessible :description, :name, :billboard_id, :user, :gmaps, :latitude, :longitude, :uj, :bt
+  attr_accessible :description, :name, :billboard_id, :user, :gmaps, :latitude, :longitude, :uj, :bt, :billboard
   
   belongs_to :billboard
   belongs_to :user

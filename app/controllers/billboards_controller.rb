@@ -11,6 +11,16 @@ class BillboardsController < ApplicationController
   def description
   end
   
+  def godfather_form
+    @billboard = Billboard.find(params[:id])
+    show_billboard @billboard
+  end
+  
+  def activate_form
+    @billboard = Billboard.find(params[:id])
+    show_billboard @billboard
+  end
+  
   def print
     @billboard = Billboard.find(params[:id])
   end
@@ -136,7 +146,8 @@ class BillboardsController < ApplicationController
 
   def request_activate
     @billboard = Billboard.find(params[:id])
-    @json = @billboard.to_gmaps4rails
+    show_billboard @billboard
+    @json2 = @billboard.to_gmaps4rails
   end
 
   def contact

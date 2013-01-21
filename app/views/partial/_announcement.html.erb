@@ -1,30 +1,23 @@
 <div class= "row">
 	<div class="span12" id="navigation-announcemnet">
-		<%= link_to 'Zur Startseite', billboards_path ,  :class =>"btn"%>
-		<%= link_to 'Zur Gemeinschaft', billboard_path(@announcement.billboard) ,  :class =>"btn"%>
+		<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i> Zur Startseite")), billboards_path ,  :class =>"btn"%>
+		<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i> Zur Gemeinschaft")), billboard_path(@announcement.billboard) ,  :class =>"btn"%>
 		<%if (current_user && @announcement.billboard.is_activated?(current_user) )%>
 					<%= link_to (raw ("<i  class=\"icon-print icon-white \"></i> Flyer drucken")), announcement_path(:id => @announcement.id, :format => :pdf) ,:class => "btn btn-primary" %>
 				<%end%>
 		<%if current_user && @announcement.user == current_user%>
-			<%= link_to 'Bearbeiten', edit_announcement_path(@announcement) , :class => "btn"%>
+			<%= link_to (raw ("<i  class=\"icon-edit\"></i> Bearbeiten")), edit_announcement_path(@announcement) , :class => "btn"%>
 		<%end%>
 	</div>
 </div>
 <div class="row">
-	
-	<div class="span6">
-			
-			<div class="well break-word billboard-controlls">
-				
-				
+	<div class="span6">	
+			<div class="well break-word billboard-controlls">			
 				<h1><%= @announcement.name %></h1>
 				<p>
 					<%= @announcement.description %>
 				</p>
-				
-				
 			</div>
-			
 			<div>
 				<% @announcement.comments.each do |comment| %>
 					<% if (!comment.private) || (current_user && comment.private && @announcement.billboard.is_activated?(current_user)) %>
@@ -44,29 +37,17 @@
 			<%=render '/announcements/comment'%>
 		</div>
 		<div class="span3">
-		
-			
-		
-		<%if @announcement.longitude && @announcement.latitude  %>
-			
-			<%=render '/announcements/location' %>
-			
-		<%end%>
+			<%if @announcement.longitude && @announcement.latitude  %>
+				<%=render '/announcements/location' %>
+			<%end%>
 		</div>
 		<div class="span3">	
-		
 			<%if @announcement.uj %>
-				
 				<%=render '/announcements/userjoin'%>
-				
 			<%end%>
 			<%if @announcement.bt %>
-				
 				<%=render '/announcements/bringthing'%>
-				
 			<%end%>
-		
 		</div>
-		
 	</div>
 </div>

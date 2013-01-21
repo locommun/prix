@@ -11,6 +11,8 @@ Locommun::Application.routes.draw do
 
   resources :billboards do 
     get 'activate', :on => :collection
+    get 'activate_form', :on => :member
+    get 'godfather_form', :on => :member
     get 'description', :on => :collection
     get 'contact', :on => :collection
     get 'request_activate', :on => :member
