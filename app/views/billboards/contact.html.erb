@@ -3,7 +3,11 @@
 			
 			<h3>Kontakt</h3>
 			
-			<%= simple_form_for :contact,  :method => :get do |f| %>
+			<p>Wir freuen uns jederzeit über dein Feedback. </p>
+			<p>
+				Schreibe uns deine Anmerkungen, Ideen, usw.:   </p>
+			
+			<%= simple_form_for :contact, :url => url_for(:action => 'contactsend', :controller => 'billboards'), :method => :post do |f| %>
 				<%= f.input :email, :label => "E-Mail" %>
   				<%= f.input :text,:as => :text, :label => "Text"%>
   				

@@ -11,7 +11,7 @@ class DialogsController < ApplicationController
       dialog_old = Dialog.where(:user_id => current_user.id, :billboard_id => @dialog.billboard.id).first
       if (Dialog.exists? dialog_old)
         
-        flash[:notice] = "Du hast bereits ein Patenschats-Gesuch auf dieser Litfaßsäule erstellt!"
+        flash[:notice] = "Du hast bereits ein Patenschats-Gesuch bei dieser Gemeinschaft erstellt!"
         redirect_to billboard_path(@dialog.billboard)
         return
       end
@@ -40,7 +40,7 @@ class DialogsController < ApplicationController
       
       dialog_old = Dialog.where(:user_id => current_user.id, :billboard_id => @dialog.billboard.id).first
       if (Dialog.exists? dialog_old)
-        flash[:notice] = "Du hast bereits ein Patenschats-Gesuch auf dieser Litfaßsäule erstellt!"
+        flash[:notice] = "Du hast bereits ein Patenschats-Gesuch bei dieser Gemeinschaft erstellt!"
         redirect_to billboard_path(@dialog.billboard)
         @dialog.delete # delete the dialog object if the user already created one
         return

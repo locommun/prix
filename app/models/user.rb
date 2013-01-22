@@ -27,13 +27,13 @@ class User < ActiveRecord::Base
   
   
   def activate_billboard billboard
-    msg = "Diese Litfaßsäule existiert nicht."
+    msg = "Diese Gemeinschaft existiert nicht."
     if billboard
        if BillboardActivation.where(:user_id => self.id, :billboard_id => billboard.id).first
             msg = "Bereits aktiviert!"
        else
             BillboardActivation.new(:user_id => self.id, :billboard_id => billboard.id).save
-            msg = "Erfolgreich aktiviert! Du kannst jetzt Anzeigen veröffentlichen."
+            msg = "Erfolgreich aktiviert! Du kannst jetzt Aushänge veröffentlichen."
        end
     end
     return msg

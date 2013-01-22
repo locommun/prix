@@ -112,13 +112,15 @@ class BillboardsController < ApplicationController
   end
 
   def show
-    @billboard = Billboard.find(params[:id])
+    
+    @billboard = Billboard.find(params[:id])  
     show_billboard @billboard
+    
     respond_to do |format|
       format.html  # show.html.erb
       format.json  { render :json => @billboard }
       format.pdf do
-        render :pdf => "demestoa", :no_background => false
+        render :pdf => "locommun", :no_background => false
       end
     end
   end
@@ -150,12 +152,16 @@ class BillboardsController < ApplicationController
     @json2 = @billboard.to_gmaps4rails
   end
 
-  def contact
-  end
   
-  def contact_send
-    @contact = session[:contact]
-    ContactMailer.contact(@contact[:email], @contact[:text]).deliver
+  def contactsend
+    @contact = params[:contact]
+    Contact.contact(@contact[:email], @contact[:text]).deliver
+  
   end
+
+  def contact
+    
+  end
+
 
 end

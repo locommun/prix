@@ -1,11 +1,11 @@
 <div class="span3">
 	<div class="well">
-	    <h4><%= link_to billboard.name, billboard %></h4>
+	    <h4><%= link_to "Gemeinschaft "+billboard.name, billboard %></h4>
 	    
 	    <table class="table table-hover break-word">
 			<%if !current_user.announcements(billboard).empty?%>
 		      <tr>
-		        <td><b>Meine Anzeigen:</b></td>
+		        <td><b>Meine Aushänge:</b></td>
 		      </tr>
 		      <% current_user.announcements(billboard).each do |announcement| %>
 		         <tr>
@@ -15,7 +15,7 @@
 			<%end%>
 			<%if !current_user.commented_announcements(billboard).empty?%>
 		      <tr>
-		        <td><b>Fremde Anzeigen:</b></td>
+		        <td><b>Fremde Aushänge:</b></td>
 		      </tr>
 		      <% current_user.commented_announcements(billboard).each do |announcement| %>
 		         <tr>

@@ -38,6 +38,7 @@ Locommun::Application.configure do
   config.middleware.use('SpoofIp', '91.64.53.52')
   
    # Mailer config
+=begin
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :address              => "",
@@ -47,4 +48,9 @@ Locommun::Application.configure do
     :password             => '',
     :authentication       => 'login',
     :enable_starttls_auto => true  }
+    
+  # Don't care if the mailer can't send
+  # config.action_mailer.raise_delivery_errors = false
+=end
+    
 end

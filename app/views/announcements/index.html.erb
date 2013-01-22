@@ -43,12 +43,13 @@
 	</div>
 	<%end%>
 	
-	
-		<% current_user.billboards.each do |billboard| %>
-			<% if Billboard.exists? billboard %>
-				<%= render :partial => 'billboard' , :locals => {:billboard => billboard} %>
-			<%end%>
+
+	<% current_user.billboards.each do |billboard| %>
+		<% if Billboard.exists? billboard %>
+			<%= render :partial => 'billboard' , :locals => {:billboard => billboard} %>
 		<%end%>
+	<%end%>
+	
 		
 		<% current_user.BillboardActivations.each do |activation|%>
 			<% if (Billboard.exists? activation.billboard) && activation.billboard.user != current_user%>
