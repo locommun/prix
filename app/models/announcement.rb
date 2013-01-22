@@ -1,6 +1,6 @@
 class Announcement < ActiveRecord::Base
-  
-  attr_accessible :description, :name, :billboard_id, :user, :gmaps, :latitude, :longitude, :uj, :bt, :billboard
+  attr_accessor :datetime_type
+  attr_accessible :description, :name, :billboard_id, :user, :gmaps, :latitude, :longitude, :uj, :bt, :billboard, :datetime_type
   
   belongs_to :billboard
   belongs_to :user
@@ -10,7 +10,7 @@ class Announcement < ActiveRecord::Base
   
   has_many :userjoins
   has_many :bringthings
-  
+  has_many :date_time_suggestions
   validates :name, :length => {:minimum => 3, :maximum => 30}
   validates :description, :length => {:minimum => 20}
 

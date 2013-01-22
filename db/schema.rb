@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130119114310) do
+ActiveRecord::Schema.define(:version => 20130122143450) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(:version => 20130119114310) do
   create_table "announcements", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.integer  "billboard_id"
     t.integer  "user_id"
     t.boolean  "uj"
@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(:version => 20130119114310) do
     t.boolean  "gmaps"
     t.float    "latitude"
     t.float    "longitude"
+    t.datetime "datetime"
+    t.boolean  "datetime_module"
   end
 
   create_table "billboard_activations", :force => true do |t|
@@ -94,6 +96,13 @@ ActiveRecord::Schema.define(:version => 20130119114310) do
     t.integer  "announcement_id"
     t.integer  "user_id"
     t.boolean  "private"
+  end
+
+  create_table "date_time_suggestions", :force => true do |t|
+    t.datetime "datetime"
+    t.string   "announcement_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "dialogcomments", :force => true do |t|
@@ -155,5 +164,19 @@ ActiveRecord::Schema.define(:version => 20130119114310) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "votes", :force => true do |t|
+    t.boolean  "vote",          :default => false, :null => false
+    t.integer  "voteable_id",                      :null => false
+    t.string   "voteable_type",                    :null => false
+    t.integer  "voter_id"
+    t.string   "voter_type"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+  end
+
+  add_index "votes", ["voteable_id", "voteable_type"], :name => "index_votes_on_voteable_id_and_voteable_type"
+  add_index "votes", ["voter_id", "voter_type", "voteable_id", "voteable_type"], :name => "fk_one_vote_per_user_per_entity", :unique => true
+  add_index "votes", ["voter_id", "voter_type"], :name => "index_votes_on_voter_id_and_voter_type"
 
 end

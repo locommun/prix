@@ -1,23 +1,26 @@
 <%= simple_form_for(@announcement) do |f| %>
-  
+ 
   <%= f.error_notification %>
   
 	<div class="form-inputs">
 		<%= f.input :name , :label => "Titel"%>
 		<%= f.input :description, :input_html => { :rows => 5 } , :label => "Beschreibung"%>
-				
-		<h4>Module aktivieren:</h4>
+		<%= f.input :datetime_type, :as => :radio_buttons,:label => "Termin", :collection => {
+			"Kein Termin festlegen" => "no_date" , 
+			"Termin-Umfrage schalten" => "date_suggest" , 
+			raw("Termin festlegen: " + select_datetime(@announcement.datetime , :datetime_separator => ' Uhrzeit: ')) => "date_fixed"} %>
+		<span class="control-label">Module aktivieren</span>
 		<%= f.input :uj , :label => false,:inline_label => 'Mitmachliste'%>
 		<%= f.input :bt , :label => false,:inline_label => 'Mitbringliste'%>
-		Standort der Aktivität (wird nur angezeigt, wenn angegeben):
+		<span class="control-label">Standort der Aktivität</span><br/> <i>(wird nur angezeigt, wenn angegeben)</i>
 		<% if request.location %>
 		  <%= gmaps({ 
-			"map_options" => {  "center_longitude" => request.location.longitude,"center_latitude" => request.location.latitude, "zoom" => 12, "auto_adjust" => true},
+			"map_options" => { "container_class" => "map_container map_container_form" , "center_longitude" => request.location.longitude,"center_latitude" => request.location.latitude, "zoom" => 12, "auto_adjust" => true},
 			"markers" => {"data" => @json}
 			}) %> 
 		<%else%>
 			 <%= gmaps({ 
-			"map_options" => {  "zoom" => 1, "auto_adjust" => true , "auto_zoom" => false },
+			"map_options" => { "container_class" => "map_container map_container_form" , "zoom" => 1, "auto_adjust" => true , "auto_zoom" => false },
 			"markers" => {"data" => @json}
 			}) %> 
 		<%end%>

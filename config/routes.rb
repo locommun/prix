@@ -28,7 +28,10 @@ Locommun::Application.routes.draw do
     get 'print_pdf', :on => :collection
   end
   
-  resources :announcements
+  resources :announcements do
+    post 'suggest_date', :on => :member
+    get 'vote_date' , :on => :member
+  end
   resources :userjoins
   resources :bringthings
   

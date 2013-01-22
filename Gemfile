@@ -46,6 +46,9 @@ gem 'wicked_pdf'
 # Building Wizards
 gem 'wicked' , :git => "git://github.com/schneems/wicked.git"
 
+# Voting 
+gem 'thumbs_up'
+
 #MetaWhere
 #gem "meta_where"
 

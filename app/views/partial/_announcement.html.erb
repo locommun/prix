@@ -40,6 +40,12 @@
 			<%if @announcement.longitude && @announcement.latitude  %>
 				<%=render '/announcements/location' %>
 			<%end%>
+			<%if @announcement.datetime %>
+				<%=render '/announcements/datetime' %>
+			<%end%>
+			<%if @announcement.datetime_module %>
+				<%=render '/announcements/datetime_suggestion' %>
+			<%end%>
 		</div>
 		<div class="span3">	
 			<%if @announcement.uj %>

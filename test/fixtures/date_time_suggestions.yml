@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  datetime: 2013-01-22 12:34:29
+  announcement_id: MyString
+
+two:
+  datetime: 2013-01-22 12:34:29
+  announcement_id: MyString

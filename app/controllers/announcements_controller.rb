@@ -47,6 +47,8 @@ class AnnouncementsController < ApplicationController
       deny_access_to_save_object @billboard
       return
     end
+    @announcement.datetime_type = "no_date"
+    @announcement.datetime = DateTime.now
     
     @json = @announcement.to_gmaps4rails
 
@@ -66,6 +68,7 @@ class AnnouncementsController < ApplicationController
   def edit
     @announcement = Announcement.find(params[:id])
     @json = @announcement.to_gmaps4rails
+    setdatetime @announcement
   end
 
   # POST /announcements
@@ -73,7 +76,7 @@ class AnnouncementsController < ApplicationController
   def create
     @announcement = Announcement.new(params[:announcement])
     @billboard = @announcement.billboard
-     
+    setdatetime @announcement
     if current_user && @announcement.billboard.is_activated?(current_user)
       @announcement.user = current_user
       @announcement.gmaps = true
@@ -88,6 +91,21 @@ class AnnouncementsController < ApplicationController
           end
         end
      end
+  end
+
+  def setdatetime announcement
+    case announcement.datetime_type
+    when "no_date"
+      announcement.datetime_module = false
+      announcement.datetime = nil
+    when "date_suggest"
+      announcement.datetime_module = true
+      announcement.datetime = nil
+    when "date_fixed"
+      announcement.datetime_module = false
+      date = params[:date]
+      announcement.datetime = DateTime.new date[:year].to_i,date[:month].to_i,date[:day].to_i,date[:hour].to_i,date[:minute].to_i
+    end
   end
 
   # PUT /announcements/1
@@ -122,5 +140,25 @@ class AnnouncementsController < ApplicationController
     end
     end
   end
+  
+  def suggest_date
+    @announcement = Announcement.find(params[:id])
+    @announcement.date_time_suggestions.create(params[:date_time_suggestion])
+    redirect_to @announcement
+  end
+  
+  def vote_date
+    @announcement = Announcement.find(params[:id])
+    @date_time_suggestion = DateTimeSuggestion.find(params[:date_time_suggestion_id])
+    if !(current_user.voted_on? @date_time_suggestion)
+      if params["vote"] == "up"
+        current_user.vote_for @date_time_suggestion
+      else
+        current_user.vote_against @date_time_suggestion
+      end
+    end
+    redirect_to @announcement
+  end
+  
   
 end

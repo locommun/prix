@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="span1"></div>
 	<div class="span5">
-		<div class="well">
+		<div class="well fixed-login-size">
 		<h2>Anmelden</h2>
 		
 		<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
@@ -21,7 +21,7 @@
 	</div>
 	
 	<div class="span5">
-		<div class="well">
+		<div class="well fixed-login-size">
 		<h2>Registrieren</h2>
 		
 		<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
@@ -35,7 +35,7 @@
 		  </div>
 		
 		  <div class="actions">
-		    <%= f.button :submit, "Registrieren" %>
+		    <%= f.button :submit, "Registrieren" ,:class => "btn btn-primary"%>
 		  </div>
 		<% end %>
 		

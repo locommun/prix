@@ -27,6 +27,11 @@
 	background-color: #ffffff;
 }
 
+.map_container_form {
+
+	margin-left: 0 !important;
+}
+
 #map {
 	width:800px;
 	height:400px;
@@ -74,6 +79,9 @@
 	.fixed-title-thumb {
 		height:auto !important;
 	}
+	.fixed-login-size {
+		height:auto !important;
+	}
 	
  }
  
@@ -85,6 +93,9 @@
 		width:500px !important;
 	}
 	.fixed-title-thumb {
+		height:auto !important;
+	}
+	.fixed-login-size {
 		height:auto !important;
 	}
  }
@@ -174,7 +185,10 @@ div.per3 > div:nth-child(3n+1) {
   clear: left;
 }
 
-
+.control-label {
+	font-size: 15px;
+	font-weight: bold;
+}
 
 /*
  *  Announcements
@@ -193,15 +207,27 @@ div.per3 > div:nth-child(3n+1) {
 }
 
 
+.radio select {
+	width: auto;
+}
+
 
 
 
 /*
- * Thumbnails
+ * Thumbnails -Startseite
  * 
  */
 .fixed-title-thumb {
 	height: 560px;
+}
+
+/*
+ * Login - Höhe 
+ * 
+ */
+.fixed-login-size {
+	height: 450px;
 }
 
 
