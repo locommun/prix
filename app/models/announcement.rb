@@ -1,6 +1,6 @@
 class Announcement < ActiveRecord::Base
   attr_accessor :datetime_type
-  attr_accessible :description, :name, :billboard_id, :user, :gmaps, :latitude, :longitude, :uj, :bt, :billboard, :datetime_type
+  attr_accessible :description, :name, :billboard_id, :user, :gmaps, :latitude, :longitude, :uj, :bt, :billboard, :datetime_type, :location
   
   belongs_to :billboard
   belongs_to :user

@@ -72,6 +72,8 @@
 		    </script>
 		  <% end %></br>
 		  
+		  <%= f.input :location, :input_html => { :rows => 4 } , :label => "Ortsbeschreibung", :hint => "Wo genau findet die Aktivität statt?"%>
+		  
 			<%= f.input :latitude ,:as => :hidden, :input_html => {:id => "billboard_latitude", :readonly => true}%>
 			<%= f.input :longitude,:as => :hidden, :input_html => {:id => "billboard_longitude", :readonly => true}%>
 		
