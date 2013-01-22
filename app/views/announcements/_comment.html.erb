@@ -4,7 +4,7 @@
 
 	<div class="form-inputs">
 
-		<%= f.input :private, :wrapper => :checkbox,:label => raw("<abbr title=\"Private Nachrichten sind nur für freigeschaltete Nutzer sichtbar\">Private Nachricht</abbr>")  %>
+		<%= f.input :private, :wrapper => :checkbox,:label => raw("<abbr title=\"Private Nachrichten sind nur für Nutzer dieser Gemeinschaft sichtbar\">Nur für Gemeinschaft sichtbar</abbr>")  %>
 		<%= f.input :text ,:label => false, :required => false , :input_html => {:rows => 3 ,:id => "comment-form-input"}%>
 		<%= f.input :announcement_id , :as => :hidden %>
 	</div>

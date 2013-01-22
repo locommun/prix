@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
         clear_stored_location
         (store_location.nil?) ?  billboards_path : store_location.to_s
       else
-         root_path
+         announcements_path
       end
   end
   
