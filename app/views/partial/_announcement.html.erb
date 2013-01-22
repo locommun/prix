@@ -40,7 +40,7 @@
 			<%if @announcement.longitude && @announcement.latitude  %>
 				<%=render '/announcements/location' %>
 			<%end%>
-			<%if @announcement.location %>
+			<%if @announcement.location != "" %>
 				<div class="billboard-controlls well">
 					<h4>Ortsbeschreibung:</h4> 
 					<%=@announcement.location%>
