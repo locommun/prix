@@ -128,6 +128,10 @@ img.transparent {
 	opacity: 0.5;
 }
 
+img.transparent:hover {
+	opacity: 1;
+}
+
 #div-with-space {
 	 margin-top: 20px
 }
@@ -182,6 +186,10 @@ h4#center {
  */
 
 div.per3 > div:nth-child(3n+1) {
+  clear: left;
+}
+
+div.per2 > div:nth-child(2n+1) {
   clear: left;
 }
 

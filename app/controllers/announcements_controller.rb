@@ -68,6 +68,7 @@ class AnnouncementsController < ApplicationController
   def edit
     @announcement = Announcement.find(params[:id])
     @json = @announcement.to_gmaps4rails
+    @billboard = @announcement.billboard
     setdatetime @announcement
   end
 
@@ -86,6 +87,9 @@ class AnnouncementsController < ApplicationController
             format.json { render json: @announcement, status: :created, location: @announcement }
           else
             @json = @announcement.to_gmaps4rails
+            if !@announcement.datetime
+              @announcement.datetime = DateTime.now
+            end
             format.html { render action: "new" }
             format.json { render json: @announcement.errors, status: :unprocessable_entity }
           end
@@ -113,6 +117,7 @@ class AnnouncementsController < ApplicationController
   def update
     @announcement = Announcement.find(params[:id])
     @json = @announcement.to_gmaps4rails
+    @billboard = @announcement.billboard
     @announcement.gmaps = true
     if(@announcement.user == current_user)
       respond_to do |format|
@@ -156,6 +161,17 @@ class AnnouncementsController < ApplicationController
       else
         current_user.vote_against @date_time_suggestion
       end
+    end
+    redirect_to @announcement
+  end
+  
+   def pick_date
+    @announcement = Announcement.find(params[:id])
+    @date_time_suggestion = DateTimeSuggestion.find(params[:date_time_suggestion_id])
+    if @announcement.user == current_user
+      @announcement.datetime = @date_time_suggestion.datetime
+      @announcement.datetime_module = false
+      @announcement.save
     end
     redirect_to @announcement
   end

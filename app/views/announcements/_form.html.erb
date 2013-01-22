@@ -75,7 +75,7 @@
 			<%= f.input :latitude ,:as => :hidden, :input_html => {:id => "billboard_latitude", :readonly => true}%>
 			<%= f.input :longitude,:as => :hidden, :input_html => {:id => "billboard_longitude", :readonly => true}%>
 		
-		<%= f.input :billboard_id , :as => :hidden, :input_html => {:value => params['billboard_id']} %>
+		<%= f.input :billboard_id , :as => :hidden, :input_html => {:value => @billboard.id} %>
 		<br />
 	</div>
   
