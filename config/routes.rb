@@ -10,22 +10,32 @@ Locommun::Application.routes.draw do
   devise_for :users
 
   resources :billboards do 
-    get 'activate', :on => :collection
-    get 'activate_form', :on => :member
-    get 'godfather_form', :on => :member
-    get 'description', :on => :collection
-    get 'contact', :on => :collection
-    get 'request_activate', :on => :member
-    get 'dialog', :on => :collection
-    get 'dialog_accept', :on => :collection
-    get 'search_activity', :on => :collection
-    get 'print', :on => :collection
-    get 'hang_up', :on => :collection
-    get 'community_ready', :on => :collection
-    get 'show_events', :on => :collection
-    get 'search_billboard', :on => :collection
-    get 'show_billboards', :on => :collection
-    get 'print_pdf', :on => :collection
+    
+    member do
+      
+      get 'print_notice'    
+      get 'request_activate'
+      get 'activate_form'
+      get 'godfather_form'
+    end
+    
+    collection do
+      post 'contactsend'
+      get 'hang_up'
+      get 'community_ready'
+      get 'show_events'
+      get 'search_billboard'
+      get 'show_billboards'
+      get 'print_pdf'
+      get 'dialog'
+      get 'dialog_accept'
+      get 'search_activity'
+      get 'print'
+      get 'description'
+      get 'contact'   
+      get 'activate'
+    end
+ 
   end
   
   resources :announcements

@@ -1,7 +1,7 @@
 
 	<% if (!user_signed_in?) && session.has_key?(:billboard)  && session[:billboard] == @billboard.id%>
 		<div class="alert alert-info ">
-			Du hast einen <b><i class="icon-qrcode"></i> Aktivierungscode</b> eingescannt oder eingetippt! Um dich für diese Litfaßsäule freizuschalten, musst du dich <b><%= link_to 'anmelden', new_user_session_path %></b> oder
+			Du hast einen <b><i class="icon-qrcode"></i> Aktivierungscode</b> eingescannt oder eingetippt! Um dich für diese Gemeinschaft freizuschalten, musst du dich <b><%= link_to 'anmelden', new_user_session_path %></b> oder
 			<%= link_to 'registrieren', new_user_registration_path%>, falls du noch keinen Benutzeraccount hast.
 
 			</div >

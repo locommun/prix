@@ -7,7 +7,8 @@ de:
       title: "Gemeinschaft gründen"
       detail: "Allgemein"
       print: "Ausdrucken und aufhängen"
-      ready: "Fertig"
+      ready: "Überprüfen"
+      save:  "Fertig"
     find_billboard:
       title: "Gemeinschaft suchen"
       where: "Was und Wo"

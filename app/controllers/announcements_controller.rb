@@ -79,7 +79,7 @@ class AnnouncementsController < ApplicationController
       @announcement.gmaps = true
         respond_to do |format|
           if @announcement.save
-            format.html { redirect_to @announcement, notice: 'Anzeige wurde erfolgreich erstellt.' }
+            format.html { redirect_to @announcement, notice: 'Aushang wurde erfolgreich erstellt.' }
             format.json { render json: @announcement, status: :created, location: @announcement }
           else
             @json = @announcement.to_gmaps4rails
@@ -99,7 +99,7 @@ class AnnouncementsController < ApplicationController
     if(@announcement.user == current_user)
       respond_to do |format|
         if @announcement.update_attributes(params[:announcement])
-          format.html { redirect_to @announcement, notice: 'Anzeige wurde erfolgreich geändert.' }
+          format.html { redirect_to @announcement, notice: 'Aushang wurde erfolgreich geändert.' }
           format.json { head :no_content }
         else
           format.html { render action: "edit" }
