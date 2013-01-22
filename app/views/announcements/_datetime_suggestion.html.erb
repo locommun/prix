@@ -1,7 +1,7 @@
 <div class="billboard-controlls well break-word">
   <h4>Terminvorschläge:</h4>
   <hr/>
-  <% if @announcement.date_time_suggestions.count %>
+  <% if @announcement.date_time_suggestions.count == 0%>
   	Keine Terminvorschläge vorhanden
   <%end%>
   <% @announcement.date_time_suggestions.sort_by { |suggestion| suggestion.plusminus }.reverse.each do |suggestion|%>
@@ -10,13 +10,17 @@
 	  		
   			<br>
 			<div align="right">
-	  		<nobr><i class="icon-thumbs-up icon-white"></i> <%= suggestion.votes_for%> <i class="icon-thumbs-down icon-white"></i> <%= suggestion.votes_against%></nobr>
+			<% if @announcement.user == current_user %>
+				<%= link_to raw("<i class=\"icon-time icon-white\"></i> Festlegen"),
+			 pick_date_announcement_path(@announcement,{"date_time_suggestion_id" => suggestion.id}), :class => "btn btn-mini btn-primary", :title => "Termin festlegen"%>
+			<%end%>
+				
 	  		<% disabled= current_user.voted_on? suggestion%>
 	  			<nobr>
-			<%= link_to raw("<i class=\"icon-thumbs-up icon-white\"></i>"),
-			 vote_date_announcement_path(@announcement,{"date_time_suggestion_id" => suggestion.id, "vote" => "up"}), :class => "btn btn-mini btn-success" + (disabled ? " disabled" : "")%>
-			<%= link_to raw("<i class=\"icon-thumbs-down icon-white\"></i>"),
-			 vote_date_announcement_path(@announcement,{"date_time_suggestion_id" => suggestion.id, "vote" => "down"}), :class => "btn btn-mini btn-danger" + (disabled ? " disabled" : "")%>
+			<%= link_to raw("<i class=\"icon-thumbs-up icon-white\"></i> "+ suggestion.votes_for.to_s),
+			 vote_date_announcement_path(@announcement,{"date_time_suggestion_id" => suggestion.id, "vote" => "up"}), :class => "btn btn-mini btn-success" + (disabled ? " disabled" : ""), :title => disabled ? suggestion.votes_for.to_s+" Personen können den Termin wahnehmen.":"Ich habe an diesem Termin Zeit"%>
+			<%= link_to raw("<i class=\"icon-thumbs-down icon-white\"></i> "+ suggestion.votes_against.to_s),
+			 vote_date_announcement_path(@announcement,{"date_time_suggestion_id" => suggestion.id, "vote" => "down"}), :class => "btn btn-mini btn-danger" + (disabled ? " disabled" : ""), :title => disabled ? suggestion.votes_for.to_s+" Personen können den Termin nicht wahnehmen.":"Ich habe an diesem Termin keine Zeit"%>
 	 		</nobr>
 	  		</div>
 	  		

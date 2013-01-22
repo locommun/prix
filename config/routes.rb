@@ -41,6 +41,7 @@ Locommun::Application.routes.draw do
   resources :announcements do
     post 'suggest_date', :on => :member
     get 'vote_date' , :on => :member
+    get 'pick_date' , :on => :member
   end
   resources :userjoins
   resources :bringthings
