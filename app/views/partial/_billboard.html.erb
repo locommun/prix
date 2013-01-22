@@ -11,6 +11,16 @@
 		<%=render '/partial/billboard_nav'%>
 
 		<div class="span6">
+			<% if @billboard.announcements.count == 0%>
+				<div class="well">
+					
+					<h3> Keine Aktivitäten </h3>
+					<p>Es gibt im Moment noch keine Aktivitäten in dieser Gemeinschaft. </p>
+				<a href="<%=url_for new_announcement_path(:billboard_id => @billboard.id) %>" class="btn btn-primary btn-large">
+       				 <i class="icon-file icon-white"></i> Neue Aktivität  
+    			</a>
+    			</div>
+			<%end%>
 			<div class="row per2">
 
 			<% @billboard.announcements.each do |announcement| %>

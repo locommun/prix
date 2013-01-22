@@ -2,70 +2,84 @@
 # encoding: utf-8
 class CreateBillboardController < ApplicationController
   
+  before_filter :authenticate_user!
   include Wicked::Wizard
-  
-steps :detail , :print , :ready , :save
 
-
+  steps :detail , :print , :ready , :save
   def show
     case step
-      when :detail
-        
-        @billboard = Billboard.new
-        show_billboard @billboard
-        @query= {'name' => "", 'description' => "" , 'latitude' => "" ,'longitude' => "" }
-        if session['community_create']
-          @query = session['community_create']
-        end
-        
-      when :print
-        
-        if params[:community_create]
-          @query = params[:community_create] 
-          session[:community_create] =  @query
-        else
-          if session[:community_create]
-            @query = session[:community_create]
-          else
-            redirect_to wizard_path(:detail)
-          end
-        end
-                
-        if @query[:name] == "" || @query[:description] == "" || @query[:latitude] == "" || @query[:longitude] == ""
-          flash[:error] = "Bitte Name, Lagebeschreibung und Ort angeben!"
-          redirect_to wizard_path(:detail)
-          return
-        else
-          # To print the billboard we need an object
-          @billboard = Billboard.new
-          @billboard.name = @query[:name]
-          @billboard.description = @query[:description]
-          @billboard.longitude = @query[:latitude]
-          @billboard.latitude = @query[:longitude]
-          
-        end
-        
-      when :ready
-          if session[:community_create]
-            @query = session[:community_create]
-          else
-            redirect_to wizard_path(:detail)
-          end
-          
-      when :save
-          if session[:community_create]
-            @query = session[:community_create]
-          else
-            redirect_to wizard_path(:detail)
-          end
-          # now we save the object
-          @billboard = Billboard.new(:name => @query[:name], :description => @query[:description], :latitude => @query[:latitude], :longitude => @query[:longitude])
-          @billboard.save
-          
-          #redirect_to billboard_path(:id => @billboard.id)
-          #return
+    when :detail
+
+      @billboard = Billboard.new
+       
+
+      if session['billboard_create']
+        @billboard = Billboard.new ActiveSupport::JSON.decode session['billboard_create']
+      end
+      generate_map_json @billboard
+    
+
+    when :ready
+      if session['billboard_create']
+        @billboard = Billboard.new ActiveSupport::JSON.decode session['billboard_create']
+      else
+        redirect_to wizard_path(:detail)
+      return
+      end
+    when :save
+      if session['billboard_create']
+        @billboard = Billboard.new ActiveSupport::JSON.decode session['billboard_create']
+      else
+        redirect_to wizard_path(:detail)
+      return
+      end
+      
+      @billboard.user = current_user
+
+      #TODO: check for correktness
+      key = SecureRandom.hex(8)
+      while Billboard.where(:key => key).first
+        key = SecureRandom.hex(8)
+      end
+      @billboard.key = key
+  
+      @billboard.gmaps = true
+      
+      # now we save the object
+      if @billboard.save
+        session['billboard_create'] = nil
+        redirect_to billboard_path(@billboard)
+      return
+      else
+        redirect_to wizard_path(:detail)
+      return
+      end
     end
     render_wizard
+  end
+
+  def update
+    case step
+    when :print
+
+      if params[:billboard]
+        @billboard = Billboard.new params[:billboard]
+        session['billboard_create'] =  @billboard.to_json
+      else
+        if session['billboard_create']
+          @billboard = Billboard.new ActiveSupport::JSON.decode session['billboard_create']
+        else
+          redirect_to wizard_path(:detail)
+        return
+        end
+      end
+
+      if !(@billboard.valid?)
+        step = :detail
+      end
+    end
+    render_wizard
+
   end
 
 end

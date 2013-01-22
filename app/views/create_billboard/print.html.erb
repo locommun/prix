@@ -4,13 +4,7 @@
 		<%= render 'partial/header' %>
 	</div>
 	
-	<div class="span12">
-		<div class="well">
-			<b>Name:</b> <%=@query["name"]%> | 
-			<b>Beschreibung:</b> <%=@query["description"]%>
-			(<%= link_to 'ändern' , previous_wizard_path %>)
-		</div>
-	</div>
+	<%= render 'info' %>
 	
 	<div class="span12">
 		<div class="well">
@@ -19,14 +13,13 @@
 			
 		    <ol>
 		    	<li>
-		    		<!-- link_to (raw ("<i  class=\"icon-print \"></i> Aushang drucken")), billboard_path(:id => @billboard.id, :billboard => @billboard, :format => :pdf) ,:class => "btn"  -->
-		    		<i  class="icon-print"></i><b> Aushang drucken</b> <br />
-					<i class="icon-info-sign"></i> <em>Wenn du momentan den Aushang nicht ausdrucken kannst, ist dies auch später noch möglich. </em>
+		    		<%= link_to (raw ("<i  class=\"icon-print \"></i> Aushang drucken")), from_session_billboards_path(:format => :pdf) ,:class => "btn" , :target => "_blank" %><br />
+					<em>Wenn du momentan den Aushang nicht ausdrucken kannst, ist dies auch später noch möglich. </em>
 				</li>
 				<br />
 				<li>
 					<b>Aushang aufhängen</b> <br />
-					<i class="icon-info-sign"></i> <em>Nehme dazu den ausgedruckten Aushang und plaziere diesen so, dass man diesen mit Hilfe der Lagebeschreibung finden kann.</em>
+					<em>Nehme dazu den ausgedruckten Aushang und plaziere diesen so, dass man diesen mit Hilfe der Lagebeschreibung finden kann.</em>
 		    	</li>
 		    </ol>
 		    

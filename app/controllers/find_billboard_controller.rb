@@ -16,7 +16,7 @@ steps :where, :choose , :join
         
       when :join
         @billboard = Billboard.find(params[:billboard_id])
-        show_billboard @billboard
+        generate_map_json @billboard
      when :choose
         
         if params[:community]

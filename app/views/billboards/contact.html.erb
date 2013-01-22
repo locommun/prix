@@ -5,15 +5,10 @@
 			
 			<p>Wir freuen uns jederzeit über dein Feedback. </p>
 			<p>
-				Schreibe uns deine Anmerkungen, Ideen, usw.:   </p>
+				Schreibe uns deine Anmerkungen, Ideen, usw. auf <a href="mailto:info@locommun.eu ?subject=feedback">info@locommun.eu </a>
+			</p>
 			
-			<%= simple_form_for :contact, :url => url_for(:action => 'contactsend', :controller => 'billboards'), :method => :post do |f| %>
-				<%= f.input :email, :label => "E-Mail" %>
-  				<%= f.input :text,:as => :text, :label => "Text"%>
-  				
-  				<button class="btn btn-primary">Absenden </button>
-
-			<% end %>
+			
 
 		</div>
 		

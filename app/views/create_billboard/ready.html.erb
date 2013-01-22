@@ -3,13 +3,8 @@
 		<%= render 'partial/header' %>
 	</div>
 	
-	<div class="span12">
-		<div class="well">
-			<b>Name:</b> <%=@query["name"]%> | 
-			<b>Beschreibung:</b> <%=@query["description"]%>
-			(<%= link_to 'ändern' , create_billboard_path(:detail) %>)
-		</div>
-	</div>
+	<%= render 'info' %>
+	
 	
 	<div class="span12">
 		<div class="well">

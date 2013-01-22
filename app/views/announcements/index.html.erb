@@ -42,24 +42,23 @@
 		</div>
 	</div>
 	<%end%>
+</div>
 	
-
-	<% current_user.billboards.each do |billboard| %>
-		<% if Billboard.exists? billboard %>
-			<%= render :partial => 'billboard' , :locals => {:billboard => billboard} %>
-		<%end%>
+	<% @billboards.each do |billboard| %>
+		
+		<%= render :partial => 'billboard' , :locals => {:billboard => billboard} %>
+		
 	<%end%>
 	
-		
-		<% current_user.BillboardActivations.each do |activation|%>
-			<% if (Billboard.exists? activation.billboard) && activation.billboard.user != current_user%>
-				<%= render :partial => 'billboard' , :locals => {:billboard => activation.billboard} %>
-			<%end%>
-		<%end%>
+	
 
 
+	
+
+
+<div class="row">
 	<div class="span12">
-	<%= link_to (raw ("<i  class=\"icon-chevron-left icon-white\"></i> Zur Startseite")), billboards_path , :class => "btn btn-primary"  %>
+	<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i> Zur Startseite")), billboards_path , :class => "btn"  %>
 	</div>
 </div>
 

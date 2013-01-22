@@ -16,7 +16,7 @@ steps :where, :choose , :join
         
       when :join
         @announcement = Announcement.find(params[:announcement_id])
-        show_announcement @announcement
+        generate_map_json @announcement
      when :choose
         
         if params[:activity]

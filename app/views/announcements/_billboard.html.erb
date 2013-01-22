@@ -1,28 +1,46 @@
-<div class="span3">
-	<div class="well">
-	    <h4><%= link_to "Gemeinschaft "+billboard.name, billboard %></h4>
-	    
-	    <table class="table table-hover break-word">
-			<%if !current_user.announcements(billboard).empty?%>
-		      <tr>
-		        <td><b>Meine Aushänge:</b></td>
-		      </tr>
-		      <% current_user.announcements(billboard).each do |announcement| %>
-		         <tr>
-		          <td><%= link_to announcement.name, announcement %></td>
-		         </tr>
-		      <%end%>
-			<%end%>
-			<%if !current_user.commented_announcements(billboard).empty?%>
-		      <tr>
-		        <td><b>Fremde Aushänge:</b></td>
-		      </tr>
-		      <% current_user.commented_announcements(billboard).each do |announcement| %>
-		         <tr>
-		          <td><%= link_to announcement.name, announcement %></td>
-		         </tr>
-		      <%end%>
-		     <%end%>
-	    </table>       
+ 
+<div class="row">
+	<div class="span4">
+		<div class="well billboard-controlls">
+		   <h4>Gemeinschaft <%=billboard.name%></h4>
+		   <%= link_to "Zur Gemeinschaft", billboard , :class =>"btn btn-primary"%>
+		</div>
 	</div>
+	<%if !current_user.announcements(billboard).empty?%>
+	<div class="span4">
+		<div class="well">
+		    <table class="table table-hover break-word">
+				
+			      <tr>
+			        <td><b>Meine Aktivitäten:</b></td>
+			      </tr>
+			      <% current_user.announcements(billboard).each do |announcement| %>
+			         <tr>
+			          <td><%= link_to announcement.name, announcement %></td>
+			         </tr>
+			      <%end%>
+				
+			</table>
+			</div>
+	</div>
+	<%end%>
+	<%if !current_user.commented_announcements(billboard).empty?%>
+	<div class="span4">
+		<div class="well">
+	 <table class="table table-hover break-word">
+				
+			      <tr>
+			        <td><b>Fremde Aktivitäten:</b></td>
+			      </tr>
+			      <% current_user.commented_announcements(billboard).each do |announcement| %>
+			         <tr>
+			          <td><%= link_to announcement.name, announcement %></td>
+			         </tr>
+			      <%end%>
+			     
+		    </table>  
+		    </div>     
+		</div>
+		<%end%>
 </div>
+

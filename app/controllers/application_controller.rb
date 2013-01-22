@@ -48,12 +48,8 @@ class ApplicationController < ActionController::Base
     session[:return_to]
   end
   
-  def show_announcement announcement
-     @json = announcement.to_gmaps4rails
-  end
-  
-  def show_billboard billboard
-     @json = billboard.to_gmaps4rails
+  def generate_map_json object
+     @json = object.to_gmaps4rails
   end
   
 end

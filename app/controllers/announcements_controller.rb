@@ -9,13 +9,16 @@ class AnnouncementsController < ApplicationController
     else
       @my_pates = Dialog.where(:godfather_id => current_user.id)
     end
+    @billboards = current_user.billboards
+    @billboards += current_user.activated_billboards
+    
   end
 
   # GET /announcements/1
   # GET /announcements/1.json
   def show
     @announcement = Announcement.find(params[:id])
-    show_announcement @announcement
+    generate_map_json @announcement
     respond_to do |format|Billboard.all
       format.html # show.html.erb
       format.json { render json: @announcement }
@@ -91,7 +94,7 @@ class AnnouncementsController < ApplicationController
       @announcement.gmaps = true
       respond_to do |format|
         if @announcement.save
-          format.html { redirect_to @announcement, notice: 'Aushang wurde erfolgreich erstellt.' }
+          format.html { redirect_to @announcement, notice: 'Aktivität wurde erfolgreich erstellt.' }
           format.json { render json: @announcement, status: :created, location: @announcement }
         else
           @json = @announcement.to_gmaps4rails
@@ -132,7 +135,7 @@ class AnnouncementsController < ApplicationController
     if(@announcement.user == current_user)
       respond_to do |format|
         if @announcement.save
-          format.html { redirect_to @announcement, notice: 'Aushang wurde erfolgreich geändert.' }
+          format.html { redirect_to @announcement, notice: 'Aktivität wurde erfolgreich geändert.' }
           format.json { head :no_content }
         else
           format.html { render action: "edit" }

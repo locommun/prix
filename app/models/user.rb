@@ -19,7 +19,8 @@ class User < ActiveRecord::Base
   has_many :dialogcomments
   has_many :billboards
   has_many :dialogs
-  has_many :BillboardActivations
+  has_many :billboard_activations, :class_name => "BillboardActivation"
+  has_many :activated_billboards, :through => :billboard_activations , :source => :billboard 
   
   #Announcemnt templates
   has_many :userjoins
@@ -33,7 +34,7 @@ class User < ActiveRecord::Base
             msg = "Bereits aktiviert!"
        else
             BillboardActivation.new(:user_id => self.id, :billboard_id => billboard.id).save
-            msg = "Erfolgreich aktiviert! Du kannst jetzt Aushänge veröffentlichen."
+            msg = "Erfolgreich aktiviert! Du kannst jetzt Aktivitäten erstellen."
        end
     end
     return msg

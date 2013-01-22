@@ -12,8 +12,6 @@ Locommun::Application.routes.draw do
   resources :billboards do 
     
     member do
-      
-      get 'print_notice'    
       get 'request_activate'
       get 'activate_form'
       get 'godfather_form'
@@ -21,19 +19,13 @@ Locommun::Application.routes.draw do
     
     collection do
       post 'contactsend'
-      get 'hang_up'
-      get 'community_ready'
       get 'show_events'
-      get 'search_billboard'
-      get 'show_billboards'
-      get 'print_pdf'
       get 'dialog'
       get 'dialog_accept'
-      get 'search_activity'
-      get 'print'
       get 'description'
       get 'contact'   
       get 'activate'
+      get 'from_session'
     end
  
   end
