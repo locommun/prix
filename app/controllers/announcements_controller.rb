@@ -39,14 +39,14 @@ class AnnouncementsController < ApplicationController
     if get_stored_object
       @billboard = Billboard.find(get_stored_object)
       @announcement.billboard_id = get_stored_object
-
+      clear_stored_object
     else
       @billboard = Billboard.find(params[:billboard_id])
       @announcement.billboard_id = params[:billboard_id]
     end
 
     if !user_signed_in?
-      deny_access_to_save_object @billboard
+      deny_access_to_save_object @billboard.id
     return
     end
     @announcement.datetime_type = "no_date"
