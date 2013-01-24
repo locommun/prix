@@ -10,6 +10,9 @@ class BillboardsController < ApplicationController
 
   def description
   end
+  
+  def sources
+  end
 
   def godfather_form
     @billboard = Billboard.find(params[:id])

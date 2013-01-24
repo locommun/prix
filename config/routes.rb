@@ -26,6 +26,7 @@ Locommun::Application.routes.draw do
       get 'dialog'
       get 'dialog_accept'
       get 'description'
+      get 'sources'
       get 'contact'   
       get 'from_session'
     end

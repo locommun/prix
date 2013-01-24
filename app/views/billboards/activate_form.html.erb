@@ -1,8 +1,11 @@
 <div class="row">
 	<% if @billboard %>
 		<%=render '/partial/billboard_nav'%>
+		<div class="span6">
+	<%else%>
+		<div class="span12">
 	<% end %>
-	<div class="span6">
+	
 		<div class="billboard-controlls well">
 		<h3>
 			Gemeinschaft 
