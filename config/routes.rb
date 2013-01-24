@@ -15,16 +15,18 @@ Locommun::Application.routes.draw do
       get 'request_activate'
       get 'activate_form'
       get 'godfather_form'
+      get 'activate'
     end
     
     collection do
+      get 'activate'
+      get 'activate_form'
       post 'contactsend'
       get 'show_events'
       get 'dialog'
       get 'dialog_accept'
       get 'description'
       get 'contact'   
-      get 'activate'
       get 'from_session'
     end
  

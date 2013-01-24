@@ -1,23 +1,35 @@
 <div class="row">
-
-	<%=render '/partial/billboard_nav'%>
+	<% if @billboard %>
+		<%=render '/partial/billboard_nav'%>
+	<% end %>
 	<div class="span6">
 		<div class="billboard-controlls well">
-		<h3><%= @billboard.name %> beitreten:</h3>
+		<h3>
+			Gemeinschaft 
+			<% if @billboard %>
+				<%= @billboard.name %> 
+			<% end %>
+			beitreten:
+			</h3>
 		<p>
-			Um selber Aktivitäten anzukündigen, kannst du dieser Gemeinschaft beitreten.
-			Dazu musst du zu dem Aushang der Gemeinschaft gehen und entweder mit einem Smartphone den QR-Code einscannen,
-			oder den Freischalt-Code notieren und hier eingeben. Den Aushang findest du mithilfe der Karte.
+			<% if @billboard %>
+				Um selber Aktivitäten anzukündigen, kannst du dieser Gemeinschaft beitreten.
+				Dazu musst du zu dem Aushang der Gemeinschaft gehen und entweder mit einem Smartphone den QR-Code einscannen,
+				oder den Freischalt-Code notieren und hier eingeben. Den Aushang findest du mithilfe der Karte.
+			<% end %>
 		</p>
-		<form class="form-inline" action="billboards/activate">
+		<form class="form-inline" action="activate">
 			<input type="text"  name="key"  value="<%= params["code"]%>" placeholder="Code...">
 			<button type="submit" class="btn btn-primary">
 				beitreten
 			</button>
 		</form>	 
 		</div>
-		<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i> Abbrechen")), billboard_path(@billboard)  , :class => "btn"  %>
-	
+		<% if @billboard %>
+			<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i> Abbrechen")), billboard_path(@billboard)  , :class => "btn"  %>
+		<%else%>
+			<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i> Abbrechen")), billboards_path  , :class => "btn"  %>
+		<%end%>
 	</div>
 	<div class="span3"></div>
 </div>

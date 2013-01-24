@@ -125,7 +125,7 @@
 img.float-right { width:300px;  float: right; }
 
 img.transparent {
-	opacity: 0.7;
+	opacity: 0.6;
 }
 
 img.transparent:hover {

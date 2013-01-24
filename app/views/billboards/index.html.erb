@@ -6,36 +6,36 @@
 <div class="row">
 	<div class="span12">
 		<ul class="thumbnails">
-			
+
 			<li class="span4">
 				<div class="thumbnail fixed-title-thumb">
-					
-						<div class="center-content">
-							<h4>Finde lokale Aktivitäten</h4>
-						</div>
 
-					<%= link_to image_tag('activity.png',:class => 'transparent'), find_announcement_path(:where)%>
-					
+					<div class="center-content">
+						<h4>Finde lokale Aktivitäten</h4>
+					</div>
+
+					<%= link_to image_tag('activity_grad.png',:class => 'transparent'), find_announcement_path(:where)%>
+
 					<div class="caption">
 						<div class="center-content">
 							<hr />
 							<%= link_to "Lokale Aktivität finden", find_announcement_path(:where), :class=> "btn btn-primary" %>
 							<hr />
 						</div>
-						Finde Events, Veranstalltungen oder verschiedenste Arten von Aktivitäten.
+						<h5>Finde Events, Veranstalltungen oder verschiedenste Arten von Aktivitäten.</h5>
 					</div>
-					
+
 				</div>
 			</li>
 
 			<li class="span4">
 				<div class="thumbnail fixed-title-thumb">
 
-						<div class="center-content">
-							<h4>Suche Gemeinschaften</h4>
-						</div>
+					<div class="center-content">
+						<h4>Suche Gemeinschaften</h4>
+					</div>
 
-					<%= link_to image_tag('find.png',:class => 'transparent'), find_billboard_path(:where)%>
+					<%= link_to image_tag('find_grad.png',:class => 'transparent'), find_billboard_path(:where)%>
 					<div class="caption" >
 						<div class="center-content">
 
@@ -44,21 +44,14 @@
 							<hr />
 						</div>
 						<p>
-							Finde interessante <a href="/billboards/description#community">Gemeinschaften</a>.
+							<h5>Finde interessante Gemeinschaften und erstelle Aktivitäten.</h5>
 						</p>
 
-							Bei einer Gemeinschaft kannst du:
-						<ul>
-							<li>
-								jegliche Art von Aktivität einstellen
-							</li>
-							<li>
-								einen <a href="/billboards/description#pate">Paten</a> suchen
-							</li>
-							<li>
-								eine <a href="/billboards/description#pate">Patenschaft</a> annehmen
-							</li>
-						</ul>
+						<p>
+							Du hast schon eine Gemeinschaft gefunden?
+							<a href="<%= url_for(:controller => "billboards", :action => "activate_form") %>"> 
+								<strong>Gemeinschaft freischalten</strong>
+							</a>
 						</p>
 						<br />
 					</div>
@@ -68,11 +61,11 @@
 			<li class="span4">
 				<div class="thumbnail fixed-title-thumb">
 
-						<div class="center-content">
-							<h4>Gründe eine Gemeinschaft</h4>
-						</div>
-						
-					<%= link_to image_tag('create.png',:class => 'transparent'), create_billboard_path(:detail)%>
+					<div class="center-content">
+						<h4>Gründe eine Gemeinschaft</h4>
+					</div>
+
+					<%= link_to image_tag('create_grad.png',:class => 'transparent'), create_billboard_path(:detail)%>
 					<div class="caption">
 						<div class="center-content">
 
@@ -82,15 +75,14 @@
 							<hr />
 						</div>
 						<p>
-							Gibt es in deiner Nachbarschaft noch keine passende <a href="/billboards/description#community">Gemeinschaft</a>?
+							<h5>Gründe doch eine neue Gemeinschaft,</h5>
+							wenn es in deiner Nachbarschaft noch keine passende Gemeinschaft gibt?
 						</p>
-						<p>
-							Gründe doch eine neue <a href="/billboards/description#community">Gemeinschaft</a>!
-						</p>
+
 					</div>
 				</div>
 			</li>
-			
+
 		</ul>
 	</div>
 </div>

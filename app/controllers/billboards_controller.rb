@@ -17,8 +17,11 @@ class BillboardsController < ApplicationController
   end
 
   def activate_form
-    @billboard = Billboard.find(params[:id])
-    generate_map_json @billboard
+    if params[:id]
+      @billboard = Billboard.find(params[:id])
+      generate_map_json @billboard  
+    end
+    
   end
 
   def dialog
@@ -37,21 +40,34 @@ class BillboardsController < ApplicationController
   end
 
   def activate
+
     key = params[:key]
     billboard = Billboard.where(:key => key).first
-
+    
+    if params[:id]
+      @billboard = Billboard.find(params[:id])
+    else
+      @billboard = billboard
+    end
+    
     if Billboard.exists? billboard
       if user_signed_in?
         flash[:notice] = current_user.activate_billboard billboard
       else
         session[:billboard] = billboard.id
       end
+      if billboard != @billboard
+        flash[:alert] = "Du hast die Gemeinschaft " + billboard.name + " freigeschalten, dir aber gerade die Gemeinschaft " + @billboard.name + " angesehen! Du wurdest zu der aktivierten Gemeinschaft weitergeleitet."
+      end
       redirect_to billboard
     else
       flash[:error] = "Ungültiger Aktivierungscode!"
-      redirect_to root_path
+      if Billboard.exists? @billboard
+        redirect_to activate_form_billboard_path @billboard
+      else
+        redirect_to billboards_path
+      end
     end
-
   end
 
   def from_session
