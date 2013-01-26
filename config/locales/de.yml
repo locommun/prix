@@ -1,6 +1,19 @@
 
 de:
 
+#index
+	:slogan: "Mach mal was Lokales!"
+	:find_local_activities "Finde lokale Aktivitäten"
+	:find_events "Finde Events, Veranstalltungen oder verschiedenste Arten von Aktivitäten."
+	:search_for_communities "Suche Gemeinschaften"
+	:search_for_community "Gemeinschaft suchen"
+	:find_communities_create_activities "Finde interessante Gemeinschaften und erstelle Aktivitäten."
+	:already_got_code "Du hast schon einen Freischaltcode einer Gemeinschaft gefunden?"
+	:unlock "Freischalten"
+	:found_new_community "Gründe eine Gemeinschaft"
+	:found_community "Gemeinschaft gründen"
+	:create_new_community "Gründe doch eine neue Gemeinschaft,"
+	:communities_nearby_exist	"wenn es in deiner Nachbarschaft noch keine passende Gemeinschaft gibt?"
 #Wizards
   wizard:
     create_billboard:
