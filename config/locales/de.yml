@@ -2,18 +2,37 @@
 de:
 
 #index
-	:slogan: "Mach mal was Lokales!"
-	:find_local_activities "Finde lokale Aktivitäten"
-	:find_events "Finde Events, Veranstalltungen oder verschiedenste Arten von Aktivitäten."
-	:search_for_communities "Suche Gemeinschaften"
-	:search_for_community "Gemeinschaft suchen"
-	:find_communities_create_activities "Finde interessante Gemeinschaften und erstelle Aktivitäten."
-	:already_got_code "Du hast schon einen Freischaltcode einer Gemeinschaft gefunden?"
-	:unlock "Freischalten"
-	:found_new_community "Gründe eine Gemeinschaft"
-	:found_community "Gemeinschaft gründen"
-	:create_new_community "Gründe doch eine neue Gemeinschaft,"
-	:communities_nearby_exist	"wenn es in deiner Nachbarschaft noch keine passende Gemeinschaft gibt?"
+	slogan: "Mach mal was Lokales!"
+	find_local_activities: "Finde lokale Aktivitäten"
+	find_events: "Finde Events, Veranstalltungen oder verschiedenste Arten von Aktivitäten."
+	search_for_communities: "Suche Gemeinschaften"
+	search_for_community: "Gemeinschaft suchen"
+	find_communities_create_activities: "Finde interessante Gemeinschaften und erstelle Aktivitäten."
+	already_got_code: "Du hast schon einen Freischaltcode einer Gemeinschaft gefunden?"
+	unlock "Freischalten":
+	found_new_community: "Gründe eine Gemeinschaft"
+	found_community: "Gemeinschaft gründen"
+	create_new_community: "Gründe doch eine neue Gemeinschaft,"
+	communities_nearby_exist:	"wenn es in deiner Nachbarschaft noch keine passende Gemeinschaft gibt?"
+#Layout
+	impressum: "Impressum"
+	sources: "Quellen"
+	contact: "Kontakt"
+#Gemeinschaft suchen
+	where: "Wo"
+	radius: "Umkreis (km)"
+	to_homepage: "Zur Startseite"
+	next: "Weiter"
+	country: "Land"
+	modify: "ändern"
+	name: "Name"
+	description: "Beschreibung"
+	latitude: "Lat"
+	longitude: "Long"
+	new_activity: "Neue Aktivität"
+	print_flyer: "Aushang drucken"
+	change: "Bearbeiten"
+	unlock_community: "Gemeinschaft freischalten"
 #Wizards
   wizard:
     create_billboard:
@@ -32,13 +51,13 @@ de:
       where: "Was und Wo"
       choose: "Auswählen"
       join: "Mitmachen"
-
 # Devise
   devise:
     links:
       sign_in: "Anmelden"
       sign_up: "Registrieren"
       forgot_password: "Passwort vergessen?"
+	  sign_out: "Abmelden"
       confirmation_instruction: "Keine Bestätigungsanweisung erhalten?"
       unlock_instruction: "Keine Anweisungen zur Freischaltung erhalten?"
       sign_in_with: "Mit anderem Account anmelden #{provider.to_s.titleize}"

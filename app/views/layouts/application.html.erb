@@ -24,9 +24,9 @@
           <ul class="nav pull-right">
           	<% if user_signed_in? %>
 				<li><%= link_to (raw ("<i  class=\"icon-home icon-white\"></i> "))+current_user.email , announcements_path %></li>
-			 	<li><%= link_to 'Abmelden', destroy_user_session_path %></li>
+			 	<li><%= link_to t(:sign_out), destroy_user_session_path %></li>
 			 <% else %>
-			 	<li> <%= link_to (raw ("<i  class=\"icon-user icon-white\"></i> Anmelden")), new_user_session_path %></li>
+			 	<li> <%= link_to (raw ("<i  class=\"icon-user icon-white\"></i> "+t(:sign_in))), new_user_session_path %></li>
 			 <% end %>
           </ul>
          
@@ -56,9 +56,9 @@
 	<footer class="center-content">
 			<%= yield :scripts %>
     <a href="/billboards/description">FAQ</a> | 
-	<%= link_to "Impressum","http://www.mi.fu-berlin.de/fb/impressum/index.html" %> |
-	<a href="/billboards/sources">Quellen</a> |
-	<a href="/billboards/contact">Kontakt</a>
+	<%= link_to t(:impressum),"http://www.mi.fu-berlin.de/fb/impressum/index.html" %> |
+	<a href="/billboards/sources"><%=t :sources></a> |
+	<a href="/billboards/contact"><%=t :contact></a>
 	</footer>
   <span style="height:10px;">&nbsp;</span>
 

@@ -6,10 +6,10 @@
 	
 	<div class="span12">
 		<div class="well">
-			<b>Land:</b> <%=@query["country"]%> | 
-			<b>Wo:</b> <%=@query["where"]%> | 
-			<b>Umkreis:</b> <%=@query["around"]%> km
-			(<%= link_to 'ändern' , previous_wizard_path %>)
+			<b><=%t :country %>:</b> <%=@query["country"]%> | 
+			<b><=%t :where %>:</b> <%=@query["where"]%> | 
+			<b><=%t :radius %>:</b> <%=@query["around"]%> km
+			(<%= link_to t(:modify) , previous_wizard_path %>)
 		</div>
 	</div>
 	<div class="span12">
@@ -17,8 +17,8 @@
 			<table class="table table-hover">
 				<thead>
 			        <tr>
-			          <th>Name</th>
-			          <th>Beschreibung</th>
+			          <th><%=t :name %></th>
+			          <th><%=t :description %></th>
 			        </tr>
 			      </thead>
 			      <tbody>
