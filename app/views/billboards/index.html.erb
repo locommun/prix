@@ -11,7 +11,7 @@
 				<div class="thumbnail fixed-title-thumb">
 
 					<div class="center-content">
-						<h4><%=t :find_local_activities></h4>
+						<h4><%=t :find_local_activities %></h4>
 					</div>
 
 					<%= link_to image_tag('activity_grad.png',:class => 'transparent'), find_announcement_path(:where)%>
@@ -22,7 +22,7 @@
 							<%= link_to t(:find_local_activities), find_announcement_path(:where), :class=> "btn btn-primary" %>
 							<hr />
 						</div>
-						<h5><%=t :find_events></h5>
+						<h5><%=t :find_events %></h5>
 					</div>
 
 				</div>
@@ -32,7 +32,7 @@
 				<div class="thumbnail fixed-title-thumb">
 
 					<div class="center-content">
-						<h4><%=t :search_for_communities></h4>
+						<h4><%=t :search_for_communities%></h4>
 					</div>
 
 					<%= link_to image_tag('find_grad.png',:class => 'transparent'), find_billboard_path(:where)%>
@@ -40,17 +40,17 @@
 						<div class="center-content">
 
 							<hr />
-							<%= link_to t(:serach_for_community), find_billboard_path(:where), :class=> "btn btn-primary" %>
+							<%= link_to t(:search_for_community), find_billboard_path(:where), :class=> "btn btn-primary" %>
 							<hr />
 						</div>
 						<p>
-							<h5><%=t :find_communities_create_activities></h5>
+							<h5><%=t :find_communities_create_activities%></h5>
 						</p>
 
 						<p>
-							<%=t :already_got_code><br />
+							<%=t :already_got_code%><br />
 							<a href="<%= url_for(:controller => "billboards", :action => "activate_form") %>"> 
-								<strong><%=t :unlock></strong>
+								<strong><%=t :unlock%></strong>
 							</a>
 						</p>
 						<br />
@@ -62,7 +62,7 @@
 				<div class="thumbnail fixed-title-thumb">
 
 					<div class="center-content">
-						<h4><%=t :found_new_community></h4>
+						<h4><%=t :found_new_community%></h4>
 					</div>
 
 					<%= link_to image_tag('create_grad.png',:class => 'transparent'), create_billboard_path(:detail)%>
@@ -75,8 +75,8 @@
 							<hr />
 						</div>
 						<p>
-							<h5><%=t create_new_community></h5>
-							<%=t :communities_nearby_exist>
+							<h5><%=t create_new_community%></h5>
+							<%=t :communities_nearby_exist%>
 						</p>
 
 					</div>
