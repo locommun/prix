@@ -18,6 +18,9 @@ class AnnouncementsController < ApplicationController
   # GET /announcements/1.json
   def show
     @announcement = Announcement.find(params[:id])
+    @billboard = @announcement.billboard
+    @json_billboard = @billboard.to_gmaps4rails
+    
     generate_map_json @announcement
     respond_to do |format|Billboard.all
       format.html # show.html.erb
@@ -26,7 +29,6 @@ class AnnouncementsController < ApplicationController
       format.pdf do
         render :pdf => "flyer", :no_background => false
       end
-
     end
   end
 

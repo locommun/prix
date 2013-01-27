@@ -36,6 +36,7 @@
 			</div>
 			<%=render '/announcements/comment'%>
 		</div>
+		<% if user_signed_in? && @announcement.billboard.is_activated?(current_user) %>
 		<div class="span3">
 			<%if @announcement.longitude && @announcement.latitude  %>
 				<%=render '/announcements/location' %>
@@ -49,7 +50,7 @@
 			<%if @announcement.datetime %>
 				<%=render '/announcements/datetime' %>
 			<%end%>
-			<%if @announcement.datetime_module %>
+			<%if user_signed_in? && @announcement.datetime_module %>
 				<%=render '/announcements/datetime_suggestion' %>
 			<%end%>
 		</div>
@@ -61,5 +62,14 @@
 				<%=render '/announcements/bringthing'%>
 			<%end%>
 		</div>
+		<%else%>
+		<div class="span6">
+			<%=render '/partial/request_activate_text'%>
+			<div class="billboard-controlls well">
+				<%=render '/partial/map'%>
+			</div>
+		</div>
+		<%end%>
+		
 	</div>
 </div>

@@ -3,49 +3,9 @@
 	<%=render '/partial/billboard_nav'%>
 
 		<div class="span9">
-			<div class="well">
-				<% if user_signed_in? %>
-					<h3>Du bist noch nicht für diese Gemeinschaft freigeschalten</h3>
-					<div class="span3">
-						<%=link_to image_tag('comic2-transparent.gif'), activate_form_billboard_path(@billboard)%>
-					</div>
-				<%else%>
-					<h3>Du bist noch nicht angemeldet</h3>
-					<div class="span3">
-					<%=link_to image_tag('comic3-transparent.gif'), new_user_session_path%>
-					</div>
-					<p>Anmelden oder registrieren:</p> 
-					<%= link_to 'Anmelden', new_user_session_path ,:class => "btn btn-primary"%><br /><br />
-				
-					<p>
-						Du musst dich auch für eine Gemeinschaft <b>freischalten</b>, um Aushänge zu erstellen.
-					</p>
-				<%end%>
-				<p>
-					Um dich freizuschalten, musst du zum Aushang der Gemeinschaft gehen und dort den QR-Code einscannen 
-					oder den dort ausgehängten Code abschreiben und unter 
-					<%= link_to 'Gemeinschaft freischalten', activate_form_billboard_path(@billboard) %> eingeben.
-				</p>
-				
-				<p>Du findest den Aushang mit Hilfe der Karte und folgender Wegbeschreibung:</p>
-				
-				<p><b><%= @billboard.description%></b></p>
-				
-				<p>Mehr dazu findest du in den  <a href="/billboards/description">FAQs</a>.</p> <br /><br /><br />
-		</div>	
-		<% if (!current_user || !@billboard.is_activated?(current_user) ) %>
-				<%old_dialog = dialog_sent? @billboard.id%>
-				<% if !old_dialog %>
-					<div class="well">
-						<h3>Du wohnst noch nicht in der Nähe?</h3>
-						<p>
-						Du kannst in der Gemeinschaft einen Paten suchen, der dir zum Beispiel helfen kann Aktivitäten zu erstellen:
-						</p><br />
-						<b><%= link_to  (raw ("<i  class=\"icon-search icon-white\"></i> Pate suchen")) , godfather_form_billboard_path(@billboard) ,:class => "btn btn-primary"%></b>
-					</div>
-				<%end%>
-		<%end%>
-		<br />
+			
+			<%=render '/partial/request_activate_text'%>
+			
 		<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i> Abbrechen")), billboard_path(@billboard) ,:class => "btn"%></br/>
 	</div>
 </div>
