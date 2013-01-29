@@ -51,8 +51,9 @@ class CreateBillboardController < ApplicationController
         redirect_to billboard_path(@billboard)
       return
       else
-        redirect_to wizard_path(:detail)
-      return
+        generate_map_json @billboard
+        render :detail
+        return
       end
     end
     render_wizard
@@ -75,7 +76,9 @@ class CreateBillboardController < ApplicationController
       end
 
       if !(@billboard.valid?)
-        step = :detail
+        generate_map_json @billboard
+        render :detail
+        return
       end
     end
     render_wizard

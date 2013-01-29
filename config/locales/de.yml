@@ -19,6 +19,7 @@ de:
     map:
       lat: "Lat:"
       long: "Long:"
+    for: "für"
   find_announcement:
     where:
       country: "Land"
@@ -76,6 +77,7 @@ de:
     create: "Aktivität erstellen"
     edit: "Aktivität ändern"
     clone: "Aktivität klonen"
+    clone_text: "Du hast eine andere Aktivität als Vorlage verwendet. Bis auf den <strong>Termin</strong> wurden alle Felder übernommen. <strong>Du musst deine Einstellungen für den Termin neu festlegen!</strong>"
     print: "Flyer drucken"
     my_activities: "Meine Aktivitäten:"
     other_activities: "Fremde Aktivitäten:"
@@ -165,7 +167,10 @@ de:
     no_godfather: "Noch kein Pate gefunden"
     godfatherhood: "Patenschaften"
 
-
+#Will-paginate
+  will_paginate:
+    next_label: "Weiter"
+    previous_label: "Zurück"
 
 #Wizards
   wizard:

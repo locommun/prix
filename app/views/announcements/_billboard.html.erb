@@ -14,13 +14,14 @@
 			      <tr>
 
 			        <td><b><%= I18n.t("announcement.my_activities" ) %></b></td>
-			        <td></td>
 
 			      </tr>
 			      <% current_user.announcements(billboard).each do |announcement| %>
 			         <tr>
-			          <td><%= link_to announcement.name, announcement %></td>
-			          <td><%= link_to I18n.t("announcement.clone" ) , new_announcement_path(:billboard_id => announcement.billboard.id,:announcement_id => announcement.id) %></td>
+			          <td>
+			          		<%= link_to announcement.name, announcement %>
+			          		<span class="pull-right"><%= link_to (raw("<i class=\"icon-share\"></i>")) , new_announcement_path(:billboard_id => announcement.billboard.id,:announcement_id => announcement.id), :title => I18n.t("announcement.clone" ) %></span>
+			          </td>
 			         </tr>
 			      <%end%>
 				

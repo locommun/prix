@@ -1,8 +1,7 @@
 
 <%if @announcement.name %>
 	<div class="alert">
-		Du hast eine andere Aktivität als Vorlage verwendet. Bis auf den <strong>Termin</strong> wurden alle Felder übernommen. 
-		<strong>Du musst deine Einstellungen für den Termin neu festlegen!</strong>
+	<%= I18n.t("announcement.clone_text" ) %>
 	</div>
 <% end %>
 
@@ -10,11 +9,11 @@
 <div class="row">
 	<div class="span12">
 		<div class="well">
-		<h1>Neue Aktivität <i>für <%= @announcement.billboard.name%></i></h1>
+		<h1><%= I18n.t("announcement.new" ) %> <i><%= I18n.t("common.for" ) %>  <%= @announcement.billboard.name%></i></h1>
 
 		<%= render 'form' %>
 		
 		</div>
-		<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i> Abbrechen")), billboard_path(@announcement.billboard) , :class => "btn"  %>
+		<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i> " + I18n.t("common.cancel" ))), billboard_path(@announcement.billboard) , :class => "btn"  %>
 	</div>
 </div>
