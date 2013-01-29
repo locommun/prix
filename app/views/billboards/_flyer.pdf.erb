@@ -1,31 +1,37 @@
-<%= wicked_pdf_image_tag('comic2.jpg' ,:class => "float-right") %>
 
-<h3><%= I18n.t("billboard.this_is" ) %></h3>
-</span>
-<h2> <%= @billboard.name%></h2>
+<div class="top-part">
+	<h3><%= I18n.t("billboard.this_is" ) %></h3>
+	<div class="break-word">
+		<h1> <%= @billboard.name%></h1>
+	</div>
+	<div class="upper_space">
+		<h3><%= I18n.t("description.locommun_head")%></h3>
+		<p class="break-word justify-content">
+			<%= I18n.t("description.locommun_text") %>
+		</p>
 
-<br />
-<br />
-<br />
-<h3>Locommun</h3>
-<p class="justify-content">
-	<%= I18n.t("description.locommun_text") %>
-</p>
-
-<h3><%= I18n.t("description.how") %></h3>
-<p class="justify-content">
-	<%= I18n.t("description.how_text") %>
-</p>
-<div class="center-content">
-	<p >
-		Um diese Gemeinschaft freizuschalten, gebe folgenden Aktivierungscode auf <h4>locommun.eu</h4> ein:
-	</p>
-
-	<h3><%= @billboard.key%></h3>
-
-	<p>
-		oder scanne einfach den QR-Code mit deinem Smartphone:
-	</p>
+	</div>
+	
 </div>
+
+<div class="link">
+		<p class="break-word justify-content">
+			<h4><%= I18n.t("flyer.community.activate") %>:</h4>
+		</p>
+		<br/>
+		<h3 ><%= @billboard.key%></h3>
+		<br/>
+		<p class="break-word justify-content">
+			<h4><%= I18n.t("flyer.community.scan") %>:</h4>
+		</p>
+</div>
+
+
+<div class="qrcode1">
 <% qrcode_url= url_for :action => "activate", :key => @billboard.key ,:only_path => false%>
 <%= qrcode qrcode_url  , :level => :l , :size => 6 %>
+<br />
+
+<p class="pull-right">powered by Locommun.eu</p>
+</div>
+

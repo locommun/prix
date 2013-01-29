@@ -37,7 +37,7 @@ de:
     location_hint: "Wo wird der Aushang der Gemeinschaft angebracht? Es ist sinnvoll eine möglichst genaue Lagebeschreibung anzugeben, damit der Aushang gefunden werden kann und deine Nachbarn der Gemeinschaft beitreten können. Am Besten eine Straße und Hausnummer angeben."
     location_map: "Gebe den Ort des Aushangs auf folgender Karte möglichst genau an:"
     print: "Aushang drucken"
-    this_is: "Das ist die Gemeinschaft"
+    this_is: "Das ist der Aushang der Gemeinschaft"
     activate: "Gemeinschaft beitreten"
     search_godfather: "Pate suchen"
     not_activated: "Du bist dieser Gemeinschaft noch nich beigetreten."
@@ -118,7 +118,7 @@ de:
   description:
     title: " FAQs "
     locommun_head:  "Was ist Locommun?"
-    locommun_text: "Das Internet hat die Menschen näher zusammengebracht. Doch was ist mit den Menschen, die ohnehin schon nahe beieinander waren? Welche Bedeutung hat das Internet im Kiez? Wir finden, ziemlich viel. Mit Locommun kannst du dich mit deiner Umgebung vernetzen. Einfach eine Nachricht bei dir im Hausflur, an der nächsten Straßenecke oder beim Kulturverein posten. Ob du Fußball spielen, eine neue Sprache lernen oder einfach nur Leute kennenlernen willst: alles das ist möglich. Mit Locommun können wir uns lokal vernetzen."
+    locommun_text: "Locommun ist ein lokales soziales Netzwerk in welchem sich Gemeinschaften zusammenfinden. Bei einer Gemeinschaft gibt es Aktivitäten, welche über Locommun organisiert werden können. Wenn du dieser Gemeinschaft beitreten willst, kannst auch Du Aktivitäten veranstallten und über Locommun organisieren und andere informieren! "
     how: "Wie geht das?"
     how_text: "Eigentlich funktioniert Locommun nicht anders als die guten alten Aushänge an Pinnwänden, schwarzen Brettern, Litfaßsäulen, oder wie die Dinger noch heißen. Ein Aushang bei Locommun (bei uns heißt das Aktivität) ist digital und analog zugleich. Du erkennst ihn an dem Locommun-Logo und einem QR-Code. Ein QR-Code sieht ähnlich wie ein Barcode aus. Du kannst ihn mit deinem Smartphone abfotografieren und er führt dich dann zur richtigen Seite. Nur wenn du einen QR-Code abfotografiert hast, kannst du auch auf die jeweilige Pinnwand schreiben (wenn du kein Smartphone besitzt geht das auch mit einem Code den du abschreiben kannst). Das klingt kompliziert, aber es ist kinderleicht. Probier's doch einfach mal aus!"
     local: "Nur lokal?"
@@ -129,6 +129,12 @@ de:
     github: "GitHub"
     godfather: "Patenschaft"
     godfather_text: "Wenn du gerade umgezogen bist, bald umziehen wirst, oder einfach so in eine neue Stadt kommst, kannst du dort bei einer beliebigen Gemeinschaft ein Paten-Gesuch erstellen. All Diejenigen, welche bei dieser Gemeinschaft aktiv sind, sehen dieses Paten-Gesuch und können eine Patenschaft mit dir annehmen. Du hast dann die Möglichkeit mit dem Paten zu kommunizieren. Der Pate kann dir bei den verschiedensten Dingen behilflich sein! Also wenn du neu an einen Ort kommst, schau doch einfach mal, ob in deiner nähe eine Gemeinschaft ist, auf der du ein Paten-Gesuch erstellen kannst."
+  flyer:
+    activity:
+      link: "Link zu dieser Aktivität"
+    community:
+      scan: "Oder scanne einfach den QR-Code mit deinem Smartphone"
+      activate: "Um dieser Gemeinschaft beizutreten gebe folgenden Aktivierungscode auf locommun.eu ein"
   contact:
     mail: "Kontakt"  
     feedback: "Wir freuen uns jederzeit über dein Feedback. " 

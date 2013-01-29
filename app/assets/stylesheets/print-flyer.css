@@ -1,5 +1,9 @@
 
 
+div.upper_space {
+	margin-top: 25px;
+}
+
 div.vertical {
 
 	position: absolute;
@@ -34,9 +38,6 @@ div.qrcode2 {
 	top: 893px !important;
 }
 
-div.upper_space {
-	margin-top: 25px;
-}
 
 div.stub{
 	position: absolute;

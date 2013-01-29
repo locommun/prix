@@ -8,7 +8,7 @@
 			<%= @announcement.description[0..500]%>...
 		</p>
 			<p >
-				<strong>Link zu dieser Aktivität:</strong>
+				<strong><%= I18n.t("flyer.activity.link") %>:</strong>
 			</p>
 			<h4 class="break-word"><%= polymorphic_url(@announcement) %></h4>
 		<br />
@@ -24,7 +24,7 @@
 			<%= @announcement.description[0..500]%>...
 		</p>
 			<p >
-				<strong>Link zu dieser Aktivität:</strong>
+				<strong><%= I18n.t("flyer.activity.link") %>:</strong>
 			</p>
 			<h4 class="break-word"><%= polymorphic_url(@announcement) %></h4>
 		<br />
