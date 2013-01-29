@@ -1,8 +1,8 @@
 
 	<% if (!user_signed_in?) && session.has_key?(:billboard)  && session[:billboard] == @billboard.id%>
 		<div class="alert alert-info ">
-			Du hast einen <b><i class="icon-qrcode"></i> Aktivierungscode</b> eingescannt oder eingetippt! Um dich für diese Gemeinschaft freizuschalten, musst du dich <b><%= link_to 'anmelden', new_user_session_path %></b> oder
-			<%= link_to 'registrieren', new_user_registration_path%>, falls du noch keinen Benutzeraccount hast.
+			<%= I18n.t("billboard.activated.wrong_billboard_1") %> <b><i class="icon-qrcode"></i><%= I18n.t("billboard.code") %> </b> <%= I18n.t("billboard.activated.wrong_billboard_2") %> <b><%= link_to I18n.t("common.login" ), new_user_session_path %></b> <%= I18n.t("billboard.activated.wrong_billboard_3") %>
+			<%= link_to I18n.t("common.register"), new_user_registration_path%><%= I18n.t("billboard.activated.wrong_billboard_4") %>
 
 			</div >
 	<%end%>
@@ -14,10 +14,10 @@
 			<% if @billboard.announcements.count == 0%>
 				<div class="well">
 					
-					<h3> Keine Aktivitäten </h3>
-					<p>Es gibt im Moment noch keine Aktivitäten in dieser Gemeinschaft. </p>
+					<h3><%= I18n.t("billboard.no_announcements") %></h3>
+					<p><%= I18n.t("billboard.no_announcements_text") %></p>
 				<a href="<%=url_for new_announcement_path(:billboard_id => @billboard.id) %>" class="btn btn-primary btn-large">
-       				 <i class="icon-file icon-white"></i> Neue Aktivität  
+       				 <i class="icon-file icon-white"></i> <%= I18n.t("announcement.new")%> 
     			</a>
     			</div>
 			<%end%>
@@ -30,7 +30,7 @@
 					<p>
 						<%= announcement.description[0..150] %>
 						</br>
-						<%= link_to  'mehr' , announcement %>
+						<%= link_to  I18n.t("common.more", :default => 'mehr') , announcement %>
 					</p>
 				</div>
 			</div>
@@ -45,14 +45,14 @@
 					
 					<div class="billboard-controlls well">
 						<div class="well">
-							<b><%= link_to  "Dein Paten-Gesuch" , :controller => "billboards", :action => "dialog", :id => old_dialog.id %></b>
+							<b><%= link_to  I18n.t("billboard.godfather_request") , :controller => "billboards", :action => "dialog", :id => old_dialog.id %></b>
 						</div>
 					</div>
 				<%end%>
 			<%end%>
 			<%if user_signed_in? && @billboard.is_activated?(current_user) %>
 				<div class="billboard-controlls well">
-					<h3>Paten-Gesuche</h3>
+					<h3><%= I18n.t("billboard.godfather_requests") %></h3>
 						<%counter=0%>
 						<% @billboard.dialogs.each do |dialog| %>
 							<%if !dialog.godfather && dialog.user%>
@@ -64,7 +64,7 @@
 						<%end%>
 						
 						<%if counter == 0%>
-							<b>Keine Gesuche</b>
+							<b><%= I18n.t("billboard.no_godfather_requests") %></b>
 						<%end%>
 				</div>
 			<%end%>

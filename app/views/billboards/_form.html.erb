@@ -2,10 +2,10 @@
 	
 	<%= f.error_notification %>
 	
-	<%= f.input :name , :label => "Name der Gemeinschaft:"%>
-	<%= f.input :description , :input_html => { :cols => 50, :rows => 5 }, :label => "Lagebeschreibung:", :hint => "Wo wird der Aushang der Gemeinschaft angebracht? Es ist sinnvoll eine möglichst genaue Lagebeschreibung anzugeben, damit der Aushang gefunden werden kann und deine Nachbarn der Gemeinschaft beitreten können. Am Besten eine Straße und Hausnummer angeben." %> <br />
+	<%= f.input :name , :label => I18n.t("billboard.name")%>
+	<%= f.input :description , :input_html => { :cols => 50, :rows => 5 }, :label => I18n.t("billboard.location") , :hint => I18n.t("billboard.location_hint") %> <br />
 
-	<b>Gebe den Ort des Aushangs auf folgender Karte möglichst genau an:</b> </br></br>
+	<b><%= I18n.t("billboard.location_map" %></b> </br></br>
 	
 	<% if request.location %>
 	  <%= gmaps({ 
@@ -71,7 +71,7 @@
 	<br />
 	
 	
-	<%= f.submit "Speichern", :class => "btn btn-primary" %>
+	<%= f.submit I18n.t("common.save"), :class => "btn btn-primary" %>
 <% end %>
 
 

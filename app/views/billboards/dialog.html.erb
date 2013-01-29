@@ -6,35 +6,35 @@
 	<p><%= @dialog.text %></p>
 	 
 	 <%if user_signed_in? && @dialog.user != current_user && @dialog.godfather != current_user && !(@dialog.godfather)%>
-	 	<%= link_to "Patenschaft annehmen", {:controller => "billboards", :action => "dialog_accept", :id => @dialog.id } , :class=>"btn btn-primary" %>
+	 	<%= link_to I18n.t("dialog.accept"), {:controller => "billboards", :action => "dialog_accept", :id => @dialog.id } , :class=>"btn btn-primary" %>
 	 <%elsif @dialog.godfather %>
-	 	<h3>Die Patenschaft wurde von <%= @dialog.godfather.name%> angenommen.</h3>
+	 	<h3><%= I18n.t("dialog.accept_text_1")%> <%= @dialog.godfather.name%> <%= I18n.t("dialog.accept_text_2") %></h3>
 	 <%end%>
 </div>
 
 <% @dialog.dialogcomments.each do |dialogcomment| %>
 	<div class="well">
-			<strong><Anonym><%= dialogcomment.user.name %>:</strong> <%= dialogcomment.text %>
+			<strong><%= dialogcomment.user.name %>:</strong> <%= dialogcomment.text %>
 	</div>
 <%end%>
 
 
 	<div class="well">	
-		<a href="/billboards/description#pate">Mehr Informationen zum Thema Patenschaft</a>
+		<a href="/billboards/description#pate"><%= I18n.t("dialog.more_info_on_godfather" ) %></a>
 		<hr />
 		<%= simple_form_for(@dialog.dialogcomments.build) do |f| %>
 		
 		  <div class="form-inputs">
-		    <%= f.input :text ,:label => "Schreibe eine Nachricht:" , :required => false , :input_html => {:rows => 7 }%>
-		  	
+		     <%= f.input :text ,:label => I18n.t("dialog.write_dialog")  , :required => false , :input_html => {:rows => 7 }%>
+	
 		  	<%= f.input :dialog_id , :as => :hidden%>
 
 		  </div>
 		
-		  	<%= f.submit "Abschicken" , :class => "btn btn-primary"%>
+		  	<%= f.submit I18n.t("common.send") , :class => "btn btn-primary"%>
 		  
 		<% end %>
 	</div>
 	<%if @dialog.billboard%>
-		<%= link_to "Zur Gemeinschaft", billboard_path(:id => @dialog.billboard.id) ,:class => "btn btn-primary" %>
+		<%= link_to I18n.t("common.billboard"), billboard_path(:id => @dialog.billboard.id) ,:class => "btn btn-primary" %>
 	<%end%>

@@ -1,5 +1,5 @@
 <div class="billboard-controlls well">
-	<h4>Mitmachliste:</h4>
+	<h4><%= I18n.t("announcement.userjoin.title") %></h4>
 		
 		<% @announcement.userjoins.each do |userjoin| %>
 				<b><%= userjoin.user.name %></b>,
@@ -11,7 +11,7 @@
 			  <div class="form-inputs">
 			  	<%= f.input :announcement_id , :as => :hidden %>
 			  </div>
-			  	<%= f.submit "Mitmachen" , :class => "btn btn-primary"%>	  
+			  	<%= f.submit I18n.t("announcement.userjoin.button") , :class => "btn btn-primary"%>	  
 			<% end %>
 		<%end%>	
 </div>

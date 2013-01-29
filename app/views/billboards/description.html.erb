@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="well">
-	<h1> FAQs </h1>
+	<h1><%= I18n.t("description.title") %></h1>
 	</div>
 	<div class="span3">
 		
@@ -10,16 +10,10 @@
 	 <div class="span1"></div>
 	 <div class="span8">
 		<div class="well">
-			<h3>Was ist Locommun?</h3>
+			<h3><%= I18n.t("description.locommun_head") %></h3>
 			<p class="justify-content">
-				Das Internet hat die Menschen näher zusammengebracht. Doch was ist mit
-				den Menschen, die ohnehin schon nahe beieinander waren? Welche Bedeutung
-				hat das Internet im Kiez? Wir finden, ziemlich viel. Mit Locommun kannst
-				du dich mit deiner Umgebung vernetzen. Einfach eine Nachricht bei dir im
-				Hausflur, an der nächsten Straßenecke oder beim Kulturverein posten. Ob
-				du Fußball spielen, eine neue Sprache lernen oder einfach nur Leute
-				kennenlernen willst: alles das ist möglich. Mit Locommun können wir uns
-				lokal vernetzen.
+				<%= I18n.t("description.locommun_text") %>
+				
 			</p>
 		</div>
 	</div>
@@ -31,17 +25,9 @@
 	 <div class="span1"></div>
 	 <div class="span8">
 		<div class="well">
-			<h3>Wie geht das?</h3>
+			<h3><%= I18n.t("description.how") %></h3>
 			<p class="justify-content">
-				Eigentlich funktioniert Locommun nicht anders als die guten alten
-				Aushänge an Pinnwänden, schwarzen Brettern, Litfaßsäulen, oder wie die
-				Dinger noch heißen. Ein Aushang bei Locommun (bei uns heißt das Aktivität) ist digital und analog
-				zugleich. Du erkennst ihn an dem Locommun-Logo und einem QR-Code. Ein
-				QR-Code sieht ähnlich wie ein Barcode aus. Du kannst ihn mit deinem
-				Smartphone abfotografieren und er führt dich dann zur richtigen Seite. Nur wenn du einen QR-Code
-				abfotografiert hast, kannst du auch auf die jeweilige Pinnwand schreiben (wenn du kein Smartphone besitzt geht das auch mit einem Code den du abschreiben kannst).
-				Das klingt kompliziert, aber es ist kinderleicht. Probier's doch einfach
-				mal aus!
+				<%= I18n.t("description.how_text") %>
 			</p>
 		</div>
 	</div>
@@ -51,44 +37,29 @@
 	  <div class="span1"></div>
 	 <div class="span8">
 		<div class="well">
-			<h3>Nur lokal?</h3>
+			<h3><%= I18n.t("description.local") %></h3>
 			<p class="justify-content">
-				Das wäre ja langweilig. Natürlich ist es auch möglich, sich zwischen
-				verschiedenen Kiezen, in verschiedenen Städten oder Ländern zu
-				vernetzen. Sucht euch einfach einen Paten vor Ort und schon könnt ihr
-				auch dort Aktivitäten unternehmen. Zum Beispiel vor dem nächsten Urlaub einfach
-				mal vor Ort fragen, was so läuft. Oder umgekehrt: übernehmt eine
-				Patenschaft für jemanden, der neu in der Stadt ist!
+				<%= I18n.t("description.local_text") %>
 			</p>
-			<p> Diese Funktion wird bald zur Verfügung stehen!</p>
 		</div>
 	</div>
 	<div class="span12">
   <div class="well">
-    <h3>Beta</h3><a name="beta"></a>
+    <h3><%= I18n.t("description.beta") %></h3><a name="beta"></a>
     <p class="justify-content">
-    Locommun befindet sich noch in der Beta-Phase. Das bedeutet, dass du dir gerade 
-    eine erste Vorabversion ansiehst. Wir haben aber noch viele Ideen, um Locommun noch 
-    besser zu machen. Deshalb schrauben wir im Hintergrund fleißig weiter. Wenn du uns 
-    beim Arbeiten zuschauen willst, schau' mal auf <a href="https://github.com/locommun/prix">GitHub</a> vorbei. 
-    Wir hoffen, dass dir Locommun schon jetzt gefällt und du bald wieder vorbeikommst.
+    	<%= I18n.t("description.beta_text_1") %>
+    <a href="https://github.com/locommun/prix"><%= I18n.t("description.github", :default => "GitHub") %></a><%= I18n.t("description.beta_text_2") %>
     </p>
   </div>
   </div>
   
   <div class="span12">
   <div class="well">
-    <h3>Patenschaft</h3><a name="pate"></a>
+    <h3><%= I18n.t("description.godfather") %></h3><a name="pate"></a>
     <p class="justify-content">
-    	Wenn du gerade umgezogen bist, bald umziehen wirst, oder einfach so in eine neue Stadt kommst, 
-    	kannst du dort bei einer beliebigen Gemeinschaft ein Paten-Gesuch erstellen.
-    	All Diejenigen, welche bei dieser Gemeinschaft aktiv sind, sehen dieses Paten-Gesuch und können eine Patenschaft mit dir annehmen.
-    	Du hast dann die Möglichkeit mit dem Paten zu kommunizieren.
-    	Der Pate kann dir bei den verschiedensten Dingen behilflich sein!
-    	Also wenn du neu an einen Ort kommst, schau doch einfach mal, ob in deiner nähe eine Gemeinschaft ist, 
-    	auf der du ein Paten-Gesuch erstellen kanns...
+    	<%= I18n.t("description.godfather_text") %>
     </p>
-    <p> Diese Funktion ist gerade im Aufbau!</p>
+    
   </div>
   </div>
   

@@ -1,8 +1,8 @@
 <div class="billboard-controlls well break-word">
-  <h4>Terminvorschläge:</h4>
+  <h4><%= I18n.t("announcement.datetime_suggestion.title") %></h4>
   <hr/>
   <% if @announcement.date_time_suggestions.count == 0%>
-  	Keine Terminvorschläge vorhanden
+  	<%= I18n.t("announcement.datetime_suggestion.no_suggestions") %>
   <%end%>
   <% @announcement.date_time_suggestions.sort_by { |suggestion| suggestion.plusminus }.reverse.each do |suggestion|%>
   	<div class="date-box">
@@ -11,16 +11,16 @@
   			<br>
 			<div align="right">
 			<% if @announcement.user == current_user %>
-				<%= link_to raw("<i class=\"icon-time icon-white\"></i> Festlegen"),
-			 pick_date_announcement_path(@announcement,{"date_time_suggestion_id" => suggestion.id}), :class => "btn btn-mini btn-primary", :title => "Termin festlegen"%>
+				<%= link_to raw("<i class=\"icon-time icon-white\"></i> " + I18n.t("announcement.datetime_suggestion.fix")),
+			 pick_date_announcement_path(@announcement,{"date_time_suggestion_id" => suggestion.id}), :class => "btn btn-mini btn-primary", :title => I18n.t("announcement.datetime_suggestion.fix_hint")%>
 			<%end%>
 				
 	  		<% disabled= current_user.voted_on? suggestion%>
 	  			<nobr>
 			<%= link_to raw("<i class=\"icon-thumbs-up icon-white\"></i> "+ suggestion.votes_for.to_s),
-			 vote_date_announcement_path(@announcement,{"date_time_suggestion_id" => suggestion.id, "vote" => "up"}), :class => "btn btn-mini btn-success" + (disabled ? " disabled" : ""), :title => disabled ? suggestion.votes_for.to_s+" Personen können den Termin wahnehmen.":"Ich habe an diesem Termin Zeit"%>
+			 vote_date_announcement_path(@announcement,{"date_time_suggestion_id" => suggestion.id, "vote" => "up"}), :class => "btn btn-mini btn-success" + (disabled ? " disabled" : ""), :title => disabled ? (suggestion.votes_for.to_s+I18n.t("announcement.datetime_suggestion.persons_can")) : I18n.t("announcement.datetime_suggestion.time")%>
 			<%= link_to raw("<i class=\"icon-thumbs-down icon-white\"></i> "+ suggestion.votes_against.to_s),
-			 vote_date_announcement_path(@announcement,{"date_time_suggestion_id" => suggestion.id, "vote" => "down"}), :class => "btn btn-mini btn-danger" + (disabled ? " disabled" : ""), :title => disabled ? suggestion.votes_for.to_s+" Personen können den Termin nicht wahnehmen.":"Ich habe an diesem Termin keine Zeit"%>
+			 vote_date_announcement_path(@announcement,{"date_time_suggestion_id" => suggestion.id, "vote" => "down"}), :class => "btn btn-mini btn-danger" + (disabled ? " disabled" : ""), :title => disabled ? (suggestion.votes_for.to_s+I18n.t("announcement.datetime_suggestion.persons_cant")) : I18n.t("announcement.datetime_suggestion.no_time")%>
 	 		</nobr>
 	  		</div>
 	  		
@@ -32,9 +32,9 @@
   	</div>
   <%end%>
   <hr/>
-  <span class="control-label">Neuen Termin vorschlagen</span><br/>
+  <span class="control-label"><%= I18n.t("announcement.datetime_suggestion.new" ) %></span><br/>
   <%= simple_form_for :date_time_suggestion, :url => suggest_date_announcement_path do |f| %>
   	<%= f.input :datetime , :as => :datetime , :label => false , :datetime_separator => raw('<br/>')%>
-  	<%= f.submit "Vorschlagen", :class => "btn btn-primary" %>
+  	<%= f.submit I18n.t("announcement.datetime_suggestion.suggest"), :class => "btn btn-primary" %>
   <%end%>
 </div>

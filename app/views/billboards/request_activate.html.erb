@@ -6,6 +6,6 @@
 			
 			<%=render '/partial/request_activate_text'%>
 			
-		<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i> Abbrechen")), billboard_path(@billboard) ,:class => "btn"%></br/>
+		<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i>  " + I18n.t("common.cancel"))), billboard_path(@billboard) ,:class => "btn"%></br/>
 	</div>
 </div>

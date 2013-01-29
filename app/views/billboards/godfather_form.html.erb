@@ -4,21 +4,21 @@
 	<div class="span6">
 		<div class="billboard-controlls well">
 
-			<h3>Patensuche</h3>
-			<p>Suche einen Paten bei der Gemeinschaft. <a href="/billboards/description#pate"><span class="label label-demestoa">?</span></a></p> 
+			<h3><%= I18n.t("godfather_form.title") %></h3>
+			<p><%= I18n.t("godfather_form.text") %> <a href="/billboards/description#pate"><span class="label label-demestoa">?</span></a></p> 
 			<%= simple_form_for(@billboard.dialogs.build) do |f| %>
 			
 			  <div class="form-inputs">
-			    <%= f.input :text ,:label => "Stelle dich kurz vor:", :required => false , :input_html => {:rows => 7 , :style => "width:95%;"}%>
-			  	<%= f.input :billboard_id , :as => :hidden %>
+			     <%= f.input :text ,:label => I18n.t("godfather_form.hint"), :required => false , :input_html => {:rows => 7 , :style => "width:95%;"}%>
+			 	<%= f.input :billboard_id , :as => :hidden %>
 			  </div>
 			
-			  	<%= f.submit "Abschicken" , :class => "btn btn-primary"%>
+			  	<%= f.submit I18n.t("common.send") , :class => "btn btn-primary"%>
 			  
 			<% end %>
 
 		</div>
-		<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i> Abbrechen")), billboard_path(@billboard) , :class => "btn"  %>
+		<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i> " + I18n.t("common.cancel"))), billboard_path(@billboard) , :class => "btn"  %>
 	
 	</div>
 	<div class="span3"></div>

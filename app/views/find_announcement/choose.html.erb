@@ -22,7 +22,7 @@
 						<p>
 							<%= announcement.description[0..150] %>
 							</br>
-							<%= link_to  'mehr' , announcement %>
+							<%= link_to  I18n.t("common.more")  , announcement %>
 						</p>
 					</div>
 				</div>
@@ -33,3 +33,4 @@
 			<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i> Zur Startseite")), billboards_path , :class => "btn"  %>
 	</div>
 </div>
+

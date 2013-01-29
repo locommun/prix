@@ -1,14 +1,14 @@
-<h2>Resend unlock instructions</h2>
+<h2><%= I18n.t("devise.unlocks.resend_unlock_instructions") %></h2>
 
 <%= simple_form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }) do |f| %>
   <%= f.error_notification %>
 
   <div class="inputs">
-    <%= f.input :email, :required => true %>
+    <%= f.input :email, :required => true, :label => I18n.t("devise.registrations.email")%>
   </div>
 
   <div class="actions">
-    <%= f.button :submit, "Resend unlock instructions" %>
+    <%= f.button :submit, I18n.t("devise.unlocks.resend_unlock_instructions") %>
   </div>
 <% end %>
 

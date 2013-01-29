@@ -3,28 +3,27 @@
 <%=link_to image_tag('comic2-transparent.gif',:class=>"span3 pull-right"), activate_form_billboard_path(@billboard)%>
 
 <div class="well">
-			<h4>Du bist noch nicht für diese Gemeinschaft freigeschalten</h4>
+			<h4><%= I18n.t("billboard.not_activated") %></h4>
 		<p>
-			Um dich freizuschalten, musst du zum Aushang der Gemeinschaft gehen und dort den QR-Code einscannen 
-			oder den dort ausgehängten Code abschreiben und unter 
-			<%= link_to 'Gemeinschaft freischalten', activate_form_billboard_path(@billboard) %> eingeben.
+			<%= I18n.t("billboard.how_to.activate_1") %>
+			<%= link_to I18n.t("billboard.activate", :default => 'Gemeinschaft freischalten'), activate_form_billboard_path(@billboard) %> <%= I18n.t("billboard.how_to.activate_2") %>
 		</p>
 		
-		<p>Du findest den Aushang mit Hilfe der Karte und folgender Wegbeschreibung:</p>
+		<p><%= I18n.t("billboard.how_to.find") %></p>
 		
 		<p><b><%= @billboard.description%></b></p>
 		
-		<p>Mehr dazu findest du in den  <a href="/billboards/description">FAQs</a>.</p> 
+		<p><%= I18n.t("billboard.how_to.faq_1")%> <a href="/billboards/description"><%= I18n.t("billboard.how_to.faq_link") %></a><%= I18n.t("billboard.how_to.faq_2")%></p> 
 </div>	
 <% if (!current_user || !@billboard.is_activated?(current_user) ) %>
 		<%old_dialog = dialog_sent? @billboard.id%>
 		<% if !old_dialog %>
 			<div class="well">
-				<h4>Du wohnst noch nicht in der Nähe?</h4>
+				<h4><%= I18n.t("billboard.dont_live_here") %></h4>
 				<p>
-				Du kannst in der Gemeinschaft einen Paten suchen, der dir zum Beispiel helfen kann Aktivitäten zu erstellen:
+				<%= I18n.t("billboard.how_to.search_godfather") %>
 				</p><br />
-				<b><%= link_to  (raw ("<i  class=\"icon-search icon-white\"></i> Pate suchen")) , godfather_form_billboard_path(@billboard) ,:class => "btn btn-primary"%></b>
+				<b><%= link_to  (raw ("<i  class=\"icon-search icon-white\"></i> "+ I18n.t("billboard.search_godfather"))) , godfather_form_billboard_path(@billboard) ,:class => "btn btn-primary"%></b>
 			</div>
 		<%end%>
 <%end%>

@@ -24,9 +24,9 @@
           <ul class="nav pull-right">
           	<% if user_signed_in? %>
 				<li><%= link_to (raw ("<i  class=\"icon-home icon-white\"></i> "))+current_user.email , announcements_path %></li>
-			 	<li><%= link_to 'Abmelden', destroy_user_session_path %></li>
+			 	<li><%= link_to I18n.t("common.sign_out"), destroy_user_session_path %></li>
 			 <% else %>
-			 	<li> <%= link_to (raw ("<i  class=\"icon-user icon-white\"></i> Anmelden")), new_user_session_path %></li>
+			 	<li> <%= link_to (raw ("<i  class=\"icon-user icon-white\"></i> " + I18n.t("devise.sessions.login"))), new_user_session_path %></li>
 			 <% end %>
           </ul>
          
@@ -55,16 +55,12 @@
 
 	<footer class="center-content">
 			<%= yield :scripts %>
-    <a href="/billboards/description">FAQ</a> | 
-	<%= link_to "Impressum","http://www.mi.fu-berlin.de/fb/impressum/index.html" %> |
-	<a href="/billboards/sources">Quellen</a> |
-	<a href="/billboards/contact">Kontakt</a>
+    <a href="/billboards/description"><%= I18n.t("common.faq") %></a> | 
+	<%= link_to I18n.t("common.credits"),"http://www.mi.fu-berlin.de/fb/impressum/index.html" %> |
+	<a href="/billboards/sources"><%= I18n.t("common.sources") %></a> |
+	<a href="/billboards/contact"><%= I18n.t("common.mail") %></a>
 	</footer>
   <span style="height:10px;">&nbsp;</span>
 
 </body>
 </html>
-
-
-
-

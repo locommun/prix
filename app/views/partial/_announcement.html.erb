@@ -1,8 +1,7 @@
 <div class= "row">
-	
+
 	<%=render '/partial/announcement_nav'%>
 	
-
 </div>
 <div class="row">
 	<div class="span6">	
@@ -22,7 +21,7 @@
 								<%= comment.user.name %>:
 							</strong> <%= comment.text %>
 							<%else%>
-							<strong>Anonym:</strong> <%= comment.text %>
+							<strong><%= I18n.t("announcement.comment.anonym" ) %></strong> <%= comment.text %>
 							<%end%>
 						</div>
 					<%end%>
@@ -37,7 +36,7 @@
 			<%end%>
 			<%if @announcement.location != "" && @announcement.location %>
 				<div class="billboard-controlls well">
-					<h4>Ortsbeschreibung:</h4> 
+					<h4><%= I18n.t("announcement.location") %></h4> 
 					<%=@announcement.location%>
 				</div>
 			<%end%>

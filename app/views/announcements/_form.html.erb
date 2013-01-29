@@ -3,16 +3,17 @@
   <%= f.error_notification %>
   
 	<div class="form-inputs">
-		<%= f.input :name , :label => "Titel"%>
-		<%= f.input :description, :input_html => { :rows => 5 } , :label => "Beschreibung"%>
-		<%= f.input :datetime_type, :as => :radio_buttons,:label => "Termin", :collection => {
-			"Kein Termin festlegen" => "no_date" , 
-			"Termin-Umfrage schalten" => "date_suggest" , 
-			raw("Termin festlegen: " + select_datetime(@announcement.datetime , :datetime_separator => ' Uhrzeit: ')) => "date_fixed"} %>
-		<span class="control-label">Module aktivieren</span>
-		<%= f.input :uj , :label => false,:inline_label => 'Mitmachliste'%>
-		<%= f.input :bt , :label => false,:inline_label => 'Mitbringliste'%>
-		<span class="control-label">Standort der Aktivität</span><br/> <i>(wird nur angezeigt, wenn angegeben)</i>
+		<%= f.input :name , :label =>  I18n.t("announcement.name") %>
+		<%= f.input :description, :input_html => { :rows => 5 } , :label => I18n.t("announcement.description")%>
+		<%= f.input :datetime_type, :as => :radio_buttons,:label => I18n.t("announcement.datetime.label"), :collection => {
+			I18n.t("announcement.datetime.no_date") => "no_date" , 
+			I18n.t("announcement.datetime.date_suggest") => "date_suggest" , 
+			raw(I18n.t("announcement.datetime.date_fixed") + select_datetime(@announcement.datetime , :datetime_separator => I18n.t("announcement.datetime.seperator"))) => "date_fixed"} %>
+		<span class="control-label"><%=I18n.t("announcement.modules")%></span>
+
+		<%= f.input :uj , :label => false,:inline_label => I18n.t("announcement.userjoin.title")%>
+		<%= f.input :bt , :label => false,:inline_label => I18n.t("announcement.bringthing.title")%>
+		<span class="control-label"><%=I18n.t("announcement.location")%></span><br/> <i>(<%=I18n.t("announcement.location_hint")%>)</i>
 		
 		<% if @announcement.latitude && @announcement.longitude%>
 			 <%= gmaps({ 
@@ -48,7 +49,7 @@
 		        function updateFormLocation(latLng) {
 		            $('#billboard_latitude').val(latLng.lat());
 		            $('#billboard_longitude').val(latLng.lng());
-		            
+
 		        }
 		        // Add a marker with an open infowindow
 		        function placeMarker(latLng) {
@@ -61,7 +62,7 @@
 		            //Gmaps.map.replaceMarkers(markersArray)
 		            // Set and open infowindow
 		            var infowindow = new google.maps.InfoWindow({
-		               
+
 		            });
 		            infowindow.open(Gmaps.map.serviceObject,marker);
 		            // Listen to drag & drop
@@ -80,16 +81,16 @@
 		        }
 		    </script>
 		  <% end %></br>
-		  
-		  <%= f.input :location, :input_html => { :rows => 4 } , :label => "Ortsbeschreibung", :hint => "Wo genau findet die Aktivität statt?"%>
-		  
+
+		  <%= f.input :location, :input_html => { :rows => 4 } , :label => I18n.t("announcement.location_text"), :hint => I18n.t("announcement.location_text_hint")%>
+
 			<%= f.input :latitude ,:as => :hidden, :input_html => {:id => "billboard_latitude", :readonly => true}%>
 			<%= f.input :longitude,:as => :hidden, :input_html => {:id => "billboard_longitude", :readonly => true}%>
-		
+
 		<%= f.input :billboard_id , :as => :hidden, :input_html => {:value => @billboard.id} %>
 		<br />
 	</div>
   
-  	<%= f.submit "Aktivität speichern", :class => "btn btn-primary" %>
+  	<%= f.submit I18n.t("announcement.create"), :class => "btn btn-primary" %>
   	
 <% end %>

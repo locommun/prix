@@ -1,10 +1,10 @@
 <div class="row">
 <div class="well">
-<h1>Aktivität ändern</h1>
+<h1><%= I18n.t("announcement.edit") %></h1>
 
 <%= render 'form' %>
 
 </div>
 
-<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i> Abbrechen")), @announcement , :class => "btn"  %>
+<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i> "+  I18n.t("common.cancel"))), @announcement , :class => "btn"  %>
 </div>

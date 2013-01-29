@@ -1,44 +1,31 @@
+<%= wicked_pdf_image_tag('comic2.jpg' ,:class => "float-right") %>
 
-		<%= wicked_pdf_image_tag('comic2.jpg' ,:class => "float-right") %>
+<h3><%= I18n.t("billboard.this_is" ) %></h3>
+</span>
+<h2> <%= @billboard.name%></h2>
 
-		<h3>Gemeinschafts-Aushang von</h3>
-		</span>
-		<h2> <%= @billboard.name%></h2>
+<br />
+<br />
+<br />
+<h3>Locommun</h3>
+<p class="justify-content">
+	<%= I18n.t("description.locommun_text") %>
+</p>
 
-		<br />
-		<br />
-		<br />
-		<h3>Locommun</h3>
-		<p class="justify-content">
-			Lern doch mal deine Nachbarn kennen! Mit Locommun kannst du dich lokal vernetzen. Einfach eine Nachricht bei dir im
-			Hausflur, an der nächsten Straßenecke oder beim Kulturverein posten. Ob
-			du Fußball spielen, eine neue Sprache lernen oder einfach nur Leute
-			kennenlernen willst: alle das ist möglich. Mit Locommun können wir uns
-			lokal vernetzen.
-		</p>
+<h3><%= I18n.t("description.how") %></h3>
+<p class="justify-content">
+	<%= I18n.t("description.how_text") %>
+</p>
+<div class="center-content">
+	<p >
+		Um diese Gemeinschaft freizuschalten, gebe folgenden Aktivierungscode auf <h4>locommun.eu</h4> ein:
+	</p>
 
-		<h3>Wie geht das?</h3>
-		<p class="justify-content">
-			Eigentlich funktioniert Locommun nicht anders als die guten alten
-			Aushänge an Pinnwänden, schwarzen Brettern, Litfaßsäulen, oder wie die
-			Dinger noch heißen. Ein Aushang bei Locommun (bei uns heißt das Aktivität) ist digital und analog
-			zugleich. Du erkennst ihn an dem Locommun-Logo und einem QR-Code. Ein
-			QR-Code sieht ähnlich wie ein Barcode aus. Du kannst ihn mit deinem
-			Smartphone abfotografieren und er führt dich dann zur richtigen Seite. Nur wenn du einen QR-Code
-			abfotografiert hast, kannst du auch auf die jeweilige Pinnwand schreiben (wenn du kein Smartphone besitzt geht das auch mit einem Code den du abschreiben kannst).
-			Das klingt kompliziert, aber es ist kinderleicht. Probier's doch einfach
-			mal aus!
-		</p>
-		<div class="center-content">
-			<p >
-				Um diese Gemeinschaft freizuschalten, gebe folgenden Aktivierungscode auf <h4>locommun.eu</h4> ein:
-			</p>
+	<h3><%= @billboard.key%></h3>
 
-			<h3><%= @billboard.key%></h3>
-
-			<p>
-				oder scanne einfach den QR-Code mit deinem Smartphone:
-			</p>
-		</div>
-		<% qrcode_url= url_for :action => "activate", :key => @billboard.key ,:only_path => false%>
-		<%= qrcode qrcode_url  , :level => :l , :size => 6 %>
+	<p>
+		oder scanne einfach den QR-Code mit deinem Smartphone:
+	</p>
+</div>
+<% qrcode_url= url_for :action => "activate", :key => @billboard.key ,:only_path => false%>
+<%= qrcode qrcode_url  , :level => :l , :size => 6 %>
