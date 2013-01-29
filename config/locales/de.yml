@@ -1,5 +1,6 @@
 de:
   common:
+    community: "Gemeinschaft"
     home: "Zur Startseite"
     more: 'mehr'
     change: 'ändern'
@@ -8,6 +9,8 @@ de:
     save: "Speichern"
     send: "Abschicken"
     cancel: "Abbrechen"
+    activate: "beitreten"
+    report: "melden"
     billboard: "Zur Gemeinschaft"
     register: "registrieren"
     login: "anmelden"
@@ -40,10 +43,9 @@ de:
     this_is: "Das ist der Aushang der Gemeinschaft"
     activate: "Gemeinschaft beitreten"
     search_godfather: "Pate suchen"
-    not_activated: "Du bist dieser Gemeinschaft noch nich beigetreten."
+    not_activated: "Du bist dieser Gemeinschaft noch nicht beigetreten."
     how_to: 
-      activate_1 : "Um dich freizuschalten, musst du zum Aushang der Gemeinschaft gehen und dort den QR-Code einscannen oder den dort ausgehängten Code abschreiben und unter "
-      activate_2 : "eingeben."
+      activate_1 : "Um dich freizuschalten musst du zum Aushang der Gemeinschaft gehen und dort den QR-Code einscannen oder den dort ausgehängten Code abschreiben und hier eingeben."
       find: "Du findest den Aushang mit Hilfe der Karte und folgender Wegbeschreibung:"
       faq_1: "Mehr dazu findest du in den "
       faq_link: "FAQs"
@@ -52,7 +54,7 @@ de:
     dont_live_here: "Du wohnst noch nicht in der Nähe?"
     activated:
       wrong_billboard_1: "Du hast einen"
-      wrong_billboard_2: "eingescannt oder eingetippt! Um dich für diese Gemeinschaft freizuschalten, musst du dich"
+      wrong_billboard_2: "eingescannt oder eingetippt! Um dich für diese Gemeinschaft freizuschalten musst du dich"
       wrong_billboard_3: "oder"
       wrong_billboard_4: ", falls du noch keinen Benutzeraccount hast."
     no_announcements:  "Keine Aktivitäten"

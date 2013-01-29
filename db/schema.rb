@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130122191738) do
+ActiveRecord::Schema.define(:version => 20130122143450) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -60,7 +60,6 @@ ActiveRecord::Schema.define(:version => 20130122191738) do
     t.float    "longitude"
     t.datetime "datetime"
     t.boolean  "datetime_module"
-    t.text     "location"
   end
 
   create_table "billboard_activations", :force => true do |t|

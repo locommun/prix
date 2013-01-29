@@ -73,7 +73,7 @@ class AnnouncementsController < ApplicationController
       end
     else
       respond_to do |format|
-        format.html  { redirect_to(request_activate_billboard_path(@announcement.billboard)) }
+        format.html  { redirect_to(activate_form_billboard_path(@announcement.billboard)) }
       end
     end
   end

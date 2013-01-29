@@ -5,33 +5,31 @@
 	<%else%>
 		<div class="span12">
 	<% end %>
-	
+	<% if @billboard %>
+		<%=render '/partial/request_activate_text'%>
+	<%end%>
 		<div class="billboard-controlls well">
 		<h3>
-			Gemeinschaft 
+			<%= I18n.t("common.community") %>
 			<% if @billboard %>
 				<%= @billboard.name %> 
 			<% end %>
-			beitreten:
+			<%= I18n.t("common.activate") %>:
 			</h3>
 		<p>
-			<% if @billboard %>
-				Um selber Aktivitäten anzukündigen, kannst du dieser Gemeinschaft beitreten.
-				Dazu musst du zu dem Aushang der Gemeinschaft gehen und entweder mit einem Smartphone den QR-Code einscannen,
-				oder den Freischalt-Code notieren und hier eingeben. Den Aushang findest du mithilfe der Karte.
-			<% end %>
+
 		</p>
 		<form class="form-inline" action="activate">
 			<input type="text"  name="key"  value="<%= params["code"]%>" placeholder="Code...">
 			<button type="submit" class="btn btn-primary">
-				beitreten
+				<%= I18n.t("common.activate") %>
 			</button>
 		</form>	 
 		</div>
 		<% if @billboard %>
-			<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i> Abbrechen")), billboard_path(@billboard)  , :class => "btn"  %>
+			<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i>" + I18n.t("common.cancel"))), billboard_path(@billboard)  , :class => "btn"  %>
 		<%else%>
-			<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i> Abbrechen")), billboards_path  , :class => "btn"  %>
+			<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i>" + I18n.t("common.cancel"))), billboards_path  , :class => "btn"  %>
 		<%end%>
 	</div>
 	<div class="span3"></div>
