@@ -13,10 +13,12 @@
 				
 			      <tr>
 			        <td><b>Meine Aktivitäten:</b></td>
+			        <td><b>Als Vorlage verwenden</b></td>
 			      </tr>
 			      <% current_user.announcements(billboard).each do |announcement| %>
 			         <tr>
 			          <td><%= link_to announcement.name, announcement %></td>
+			          <td><%= link_to "verwenden", new_announcement_path(:billboard_id => announcement.billboard.id,:announcement_id => announcement.id) %></td>
 			         </tr>
 			      <%end%>
 				

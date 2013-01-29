@@ -52,6 +52,9 @@ gem 'thumbs_up'
 #MetaWhere
 #gem "meta_where"
 
+#Pagination
+gem 'bootstrap-will_paginate'
+
 #ActiveAdmin
 
   gem 'activeadmin'

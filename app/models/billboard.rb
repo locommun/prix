@@ -31,4 +31,6 @@ class Billboard < ActiveRecord::Base
     self.user == user ||  BillboardActivation.exists?(:user_id => user.id, :billboard_id => self.id)
   end
   
+
+  
 end

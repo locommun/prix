@@ -1,4 +1,5 @@
 class Announcement < ActiveRecord::Base
+  include Rails.application.routes.url_helpers
   attr_accessor :datetime_type
   attr_accessible :description, :name, :billboard_id, :user, :gmaps, :latitude, :longitude, :uj, :bt, :billboard, :datetime_type, :location
   
@@ -19,7 +20,15 @@ class Announcement < ActiveRecord::Base
     
   def gmaps4rails_address
       ""
+  end
+  
+  def gmaps4rails_infowindow
+    if self.id
+      head = "<a href=\"#{announcement_path(self)}\"><h3>#{self.name}</h3></a>"
+    else
+      ""
     end
+  end
 
   reverse_geocoded_by :latitude, :longitude
 
@@ -32,5 +41,6 @@ class Announcement < ActiveRecord::Base
   def joined? user
     !(user.userjoins.where(:announcement_id => self.id).empty?)
   end
+  
   
 end

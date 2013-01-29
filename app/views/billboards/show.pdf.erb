@@ -2,67 +2,26 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<%= wicked_pdf_stylesheet_link_tag "print" -%>
+		<%= wicked_pdf_stylesheet_link_tag "print-community" -%>
 		<%= wicked_pdf_stylesheet_link_tag "application" -%>
+		
+		<style>
+			body {
+				height: 1012px;
+				background-position: left top;
+			  	background-image: url( 'file:///<%= asset_pathname('community-flyer.png') %>');
+			  	background-repeat: no-repeat;
+			  	background-size: 100% 100%;
+			  	background-clip:border-box;
+			  	-webkit-background-clip:border-box;  /* Safari */
+			}
+
+		</style>
+		
 	</head>
 
 	<body>
-		<br/>
-		<div class="container">
-			<div class="row">
-
-				<div class="span12">
-					<div class="well ">
-						
-						<%= wicked_pdf_image_tag('comic2.jpg' ,:class => "float-right") %>
-						
-						<h3>Das ist die Gemeinschaft</h3>
-						</span>
-						<h2> <%= @billboard.name%></h2>
-
-						<br />
-						<br />
-						<br />
-						<h3>Locommun</h3>
-						<p class="justify-content">
-							Das Internet hat die Menschen näher zusammengebracht. Doch was ist mit
-							den Menschen, die ohnehin schon nahe beieinander waren? Welche Bedeutung
-							hat das Internet im Kiez? Wir finden, ziemlich viel. Mit Locommun kannst
-							du dich mit deiner Umgebung vernetzen. Einfach eine Nachricht bei dir im
-							Hausflur, an der nächsten Straßenecke oder beim Kulturverein posten. Ob
-							du Fußball spielen, eine neue Sprache lernen oder einfach nur Leute
-							kennenlernen willst: alle das ist möglich. Mit Locommun können wir uns
-							lokal vernetzen.
-						</p>
-						
-						<h3>Wie geht das?</h3>
-						<p class="justify-content">
-							Eigentlich funktioniert Locommun nicht anders als die guten alten
-				Aushänge an Pinnwänden, schwarzen Brettern, Litfaßsäulen, oder wie die
-				Dinger noch heißen. Ein Aushang bei Locommun (bei uns heißt das Aktivität) ist digital und analog
-				zugleich. Du erkennst ihn an dem Locommun-Logo und einem QR-Code. Ein
-				QR-Code sieht ähnlich wie ein Barcode aus. Du kannst ihn mit deinem
-				Smartphone abfotografieren und er führt dich dann zur richtigen Seite. Nur wenn du einen QR-Code
-				abfotografiert hast, kannst du auch auf die jeweilige Pinnwand schreiben (wenn du kein Smartphone besitzt geht das auch mit einem Code den du abschreiben kannst).
-				Das klingt kompliziert, aber es ist kinderleicht. Probier's doch einfach
-				mal aus!
-						</p>
-						<div class="center-content">
-							<p >
-								Um diese Gemeinschaft freizuschalten, gebe folgenden Aktivierungscode auf <h4>locommun.eu</h4> ein:
-							</p>
-
-							<h3><%= @billboard.key%></h3>
-
-							<p>
-								oder scanne einfach den QR-Code mit deinem Smartphone:
-							</p>
-						</div>
-						<% qrcode_url= url_for :action => "activate", :key => @billboard.key ,:only_path => false%>
-						<%= qrcode qrcode_url  , :level => :l , :size => 6 %>
-
-					</div>
-				</div>
-			</div>
-		</div>
+		<%=render 'flyer'%>
+		<%= render 'stubs' %>
 	</body>
 </html>

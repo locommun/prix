@@ -13,17 +13,26 @@
 		<%= f.input :uj , :label => false,:inline_label => 'Mitmachliste'%>
 		<%= f.input :bt , :label => false,:inline_label => 'Mitbringliste'%>
 		<span class="control-label">Standort der Aktivität</span><br/> <i>(wird nur angezeigt, wenn angegeben)</i>
-		<% if request.location %>
-		  <%= gmaps({ 
-			"map_options" => { "container_class" => "map_container map_container_form" , "center_longitude" => request.location.longitude,"center_latitude" => request.location.latitude, "zoom" => 12, "auto_adjust" => true},
-			"markers" => {"data" => @json}
-			}) %> 
-		<%else%>
+		
+		<% if @announcement.latitude && @announcement.longitude%>
 			 <%= gmaps({ 
-			"map_options" => { "container_class" => "map_container map_container_form" , "zoom" => 1, "auto_adjust" => true , "auto_zoom" => false },
-			"markers" => {"data" => @json}
-			}) %> 
-		<%end%>
+					"map_options" => { "container_class" => "map_container map_container_form" , "center_longitude" => @announcement.longitude,
+						"center_latitude" => @announcement.latitude, "zoom" => 12, "auto_adjust" => true},
+					"markers" => {"data" => @json}
+					}) %> 
+		<% else %>
+			<% if request.location %>
+			  <%= gmaps({ 
+				"map_options" => { "container_class" => "map_container map_container_form" , "center_longitude" => request.location.longitude,"center_latitude" => request.location.latitude, "zoom" => 12, "auto_adjust" => true},
+				"markers" => {"data" => @json}
+				}) %> 
+			<%else%>
+				 <%= gmaps({ 
+				"map_options" => { "container_class" => "map_container map_container_form" , "zoom" => 1, "auto_adjust" => true , "auto_zoom" => false },
+				"markers" => {"data" => @json}
+				}) %> 
+			<%end%>
+		<% end %>
 		  <% content_for :scripts do %>
 		    <script type="text/javascript" charset="utf-8">
 		        var markersArray = [];

@@ -1,9 +1,17 @@
 
+<%if @announcement.name %>
+	<div class="alert">
+		Du hast eine andere Aktivität als Vorlage verwendet. Bis auf den <strong>Termin</strong> wurden alle Felder übernommen. 
+		<strong>Du musst deine Einstellungen für den Termin neu festlegen!</strong>
+	</div>
+<% end %>
+
+
 <div class="row">
 	<div class="span12">
 		<div class="well">
 		<h1>Neue Aktivität <i>für <%= @announcement.billboard.name%></i></h1>
-		
+
 		<%= render 'form' %>
 		
 		</div>

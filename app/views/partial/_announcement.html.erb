@@ -1,14 +1,8 @@
 <div class= "row">
-	<div class="span12" id="navigation-announcemnet">
-		<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i> Zur Startseite")), billboards_path ,  :class =>"btn"%>
-		<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i> Zur Gemeinschaft")), billboard_path(@announcement.billboard) ,  :class =>"btn"%>
-		<%if (current_user && @announcement.billboard.is_activated?(current_user) )%>
-					<%= link_to (raw ("<i  class=\"icon-print icon-white \"></i> Flyer drucken")), announcement_path(:id => @announcement.id, :format => :pdf) ,:class => "btn btn-primary" %>
-				<%end%>
-		<%if current_user && @announcement.user == current_user%>
-			<%= link_to (raw ("<i  class=\"icon-edit\"></i> Bearbeiten")), edit_announcement_path(@announcement) , :class => "btn"%>
-		<%end%>
-	</div>
+	
+	<%=render '/partial/announcement_nav'%>
+	
+
 </div>
 <div class="row">
 	<div class="span6">	

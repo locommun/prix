@@ -35,9 +35,19 @@ class AnnouncementsController < ApplicationController
   # GET /announcements/new
   # GET /announcements/new.json
   def new
-
-    @announcement = Announcement.new
-
+    if params[:announcement_id]
+      @announcement_old = Announcement.find(params[:announcement_id])
+      if Announcement.exists? @announcement_old
+        # take the attributes of the old announcements
+        @announcement = Announcement.new(:name => @announcement_old.name, :description => @announcement_old.description, :latitude => @announcement_old.latitude, 
+                                          :longitude => @announcement_old.longitude, :uj => @announcement_old.uj, :bt=> @announcement_old.bt, :location => @announcement_old.location)
+      else
+        @announcement = Announcement.new
+      end
+    else
+      @announcement = Announcement.new
+    end
+    
     if get_stored_object
       @billboard = Billboard.find(get_stored_object)
       @announcement.billboard_id = get_stored_object

@@ -5,24 +5,31 @@
 	</div>
 	
 	<div class="span12">
-		<div class="well">
-			<b>Land:</b> <%=@query["country"]%> | 
-			<b>Wo:</b> <%=@query["where"]%> | 
-			<b>Umkreis:</b> <%=@query["around"]%> km
-			(<%= link_to 'ändern' , previous_wizard_path %>)
-		</div>
+		<%= render 'partial/medium_map' %>
 	</div>
 	
-	<% @announcements.each do |announcement| %>
-		<div class="span3">
-			<div class="well break-word ">
-				<h3><%= link_to  announcement.name , next_wizard_path(:announcement_id => announcement.id) %></h3>
-				<p>
-					<%= announcement.description[0..150] %>
-					</br>
-					<%= link_to  'mehr' , announcement %>
-				</p>
-			</div>
+	<div class="span12"><br />
+		
+		<%= will_paginate @announcements %>
+		
+		<div class="row per4">
+			<% letters = ('A'..'Z').to_a %>
+			<% @announcements.each do |announcement| %>
+				<div class="span3">
+					<div class="well break-word ">
+						<h3><%=image_tag 'http://www.google.com/intl/en_ALL/mapfiles/marker_green'+ letters.delete_at(0).to_s + '.png', :size => "16x16"%>
+							<%= link_to  announcement.name , next_wizard_path(:announcement_id => announcement.id) %></h3>
+						<p>
+							<%= announcement.description[0..150] %>
+							</br>
+							<%= link_to  'mehr' , announcement %>
+						</p>
+					</div>
+				</div>
+			<%end%>
 		</div>
-	<%end%>
+	</div>
+	<div class="span12">
+			<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i> Zur Startseite")), billboards_path , :class => "btn"  %>
+	</div>
 </div>

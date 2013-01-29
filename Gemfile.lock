@@ -57,6 +57,8 @@ GEM
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-java)
+    bootstrap-will_paginate (0.0.7)
+      will_paginate
     bouncy-castle-java (1.5.0146.1)
     bourbon (3.0.1)
       sass (>= 3.2.0)
@@ -210,6 +212,7 @@ GEM
       rack (>= 1.0)
     wicked_pdf (0.9.4)
       rails
+    will_paginate (3.0.3)
     wkhtmltopdf-binary (0.9.9.1)
 
 PLATFORMS
@@ -220,6 +223,7 @@ DEPENDENCIES
   activeadmin
   activerecord-jdbcsqlite3-adapter
   bcrypt-ruby (~> 3.0.0)
+  bootstrap-will_paginate
   capistrano
   capistrano-unicorn
   coffee-rails (~> 3.2.1)

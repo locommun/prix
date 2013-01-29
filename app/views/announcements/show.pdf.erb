@@ -2,10 +2,12 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<%= wicked_pdf_stylesheet_link_tag "print" -%>
+		<%= wicked_pdf_stylesheet_link_tag "print-community" -%>
 		<%= wicked_pdf_stylesheet_link_tag "application" -%>
 		
 		<style>
 			body {
+
 				height: 1012px;
 				background-position: left top;
 			  	background-image: url( 'file:///<%= asset_pathname('flyer.png') %>');
@@ -21,5 +23,6 @@
 
 	<body>
 		<%= render 'flyer' %>
+
 	</body>
 </html>
