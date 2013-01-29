@@ -18,7 +18,7 @@
 				<div class="span3">
 					<div class="well break-word ">
 						<h3><%=image_tag 'http://www.google.com/intl/en_ALL/mapfiles/marker_green'+ letters.delete_at(0).to_s + '.png', :size => "16x16"%>
-							<%= link_to  announcement.name , next_wizard_path(:announcement_id => announcement.id) %></h3>
+							<%= link_to  announcement.name , announcement_path(announcement) %></h3>
 						<p>
 							<%= announcement.description[0..150] %>
 							</br>
