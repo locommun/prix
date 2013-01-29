@@ -1,29 +1,70 @@
-<div class="span12">
-	<div class="well ">
-
-		<div id="billboard-controlls">
-			<h2>Demestoa</h2>
+<!--Place the Text for flyer1 -->
+<div class="vertical">
+		<h3><%= @announcement.billboard.name[0..20] %></h3>
+		<div class="upper_space">
+			<h2> <%= @announcement.name[0..20] %></h2>
 		</div>
-
-		<h2> <%= @announcement.name%></h2>
-		<br />
-		<p class="justify-content">
-			<%= @announcement.description%>
+		<p class="break-word">
+			<%= @announcement.description[0..500]%>...
 		</p>
-		
-		<div class="center-content">
 			<p >
-				Link zu dieser Aktivität:
+				<strong>Link zu dieser Aktivität:</strong>
 			</p>
+			<h4 class="break-word"><%= polymorphic_url(@announcement) %></h4>
+		<br />
+</div>
 
-			<h3><%= polymorphic_url(@announcement) %></h3>
-
+<!--Place the Text for flyer2 -->
+<div class="vertical vertical2">
+		<h2>Locommun</h2>
+		<div class="upper_space">
+			<h2> <%= @announcement.name[0..20] %></h2>
 		</div>
-		
-		<% qrcode_url= polymorphic_url(@announcement) %>
-		<%= qrcode qrcode_url  , :level => :l , :size => 6 %>
-		<hr />
-		powered by Locommun.eu
-	</div>
-	
+		<p class="break-word">
+			<%= @announcement.description[0..500]%>...
+		</p>
+			<p >
+				<strong>Link zu dieser Aktivität:</strong>
+			</p>
+			<h4 class="break-word"><%= polymorphic_url(@announcement) %></h4>
+		<br />
+</div>
+
+<!--Place the powered-by for flyer1 -->
+<p class="powered_by">powered by Locommun.eu</p>
+
+<!--Place the powered-by for flyer2 -->
+<p class="powered_by powered_by2">powered by Locommun.eu</p>
+
+<!--Place the stubs for flyer1 -->
+<div class="stub">
+	<% for i in 1..7%>
+		<% distanz = i*17 %>
+		<p class="break-word" style=" position: relative;  top: <%= distanz %>; ">
+			<small><%= polymorphic_url(@announcement) %></small>
+		</p>
+	<%end%>
+</div>
+
+<!--Place the stubs for flyer2 -->
+<div class="stub stub2">
+	<% for i in 1..7%>
+		<% distanz = i*14 %>
+		<p class="break-word" style=" position: relative;  top: <%= distanz %>; ">
+			<small><%= polymorphic_url(@announcement) %></small>
+		</p>
+	<%end%>
+</div>
+
+<!--Place the QR-Code for flyer1 -->
+<div class="qrcode1">	
+	<% qrcode_url= polymorphic_url(@announcement) %>
+	<%= qrcode qrcode_url  , :level => :l , :size => 3 %>
+</div>
+
+
+<!--Place the QR-Code for flyer2 -->
+<div class="qrcode1 qrcode2">	
+	<% qrcode_url= polymorphic_url(@announcement) %>
+	<%= qrcode qrcode_url  , :level => :l , :size => 3 %>
 </div>
