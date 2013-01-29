@@ -1,0 +1,9 @@
+	
+	<div class="span12">
+		<div class="well">
+			<b>Land:</b> <%=@query["country"]%> | 
+			<b>Wo:</b> <%=@query["where"]%> | 
+			<b>Umkreis:</b> <%=@query["around"]%> km
+			(<%= link_to 'ändern' , previous_wizard_path %>)
+		</div>
+	</div>

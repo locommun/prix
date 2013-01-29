@@ -1,0 +1,36 @@
+
+<div class="span12">
+	<ul class="nav nav-pills">
+		<li>
+			<a href="<%=url_for billboards_path %>">
+				<i  class="icon-chevron-left"></i> Zur Startseite
+			</a>
+		<li>
+			<a href="<%=url_for billboard_path(@announcement.billboard) %>">
+				<i  class="icon-chevron-left"></i> Zur Gemeinschaft
+			</a>
+		</li>
+		
+		<%if (current_user && @announcement.billboard.is_activated?(current_user) )%>
+			<li>
+				<a href="<%=url_for announcement_path(:id => @announcement.id, :format => :pdf) %>">
+					<strong> <i  class="icon-print"></i> Flyer drucken</strong>
+				</a>
+			</li>
+		<%end%>
+		<%if (current_user && @announcement.billboard.is_activated?(current_user) )%>
+			<li>
+				<a href="<%=url_for new_announcement_path(:billboard_id => @announcement.billboard.id,:announcement_id => @announcement.id) %>">
+					<i  class="icon-file"></i> Als Vorlage
+				</a>
+			</li>
+		<%end%>
+		<%if current_user && @announcement.user == current_user%>
+			<li>
+				<a href="<%=url_for edit_announcement_path(@announcement) %>">
+					<strong><i  class="icon-edit"></i> Bearbeiten</strong>
+				</a>
+			</li>
+		<%end%>
+	</ul>
+</div>
