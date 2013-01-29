@@ -1,8 +1,176 @@
-
 de:
+  common:
+    home: "Zur Startseite"
+    more: 'mehr'
+    change: 'ändern'
+    profile: "Zurück zum Profil"
+    edit: "Bearbeiten"
+    save: "Speichern"
+    send: "Abschicken"
+    cancel: "Abbrechen"
+    billboard: "Zur Gemeinschaft"
+    register: "registrieren"
+    login: "anmelden"
+    sign_out: "Abmelden"
+    faq: "FAQ"
+    credits : "Impressum"
+    sources: "Quellen"
+    mail: "Kontakt"
+    map:
+      lat: "Lat:"
+      long: "Long:"
+  find_announcement:
+    where:
+      country: "Land"
+      where: "Wo"
+      around: "Umkreis (km):"
+      collection: 
+        germany: "Deutschland"
+    choose:
+      name: "Name"
+      descrption: "Beschreibung"
+  billboard:
+    name: "Name der Gemeinschaft:"
+    code: "Aktivierungscode"
+    location: "Lagebeschreibung:"
+    location_hint: "Wo wird der Aushang der Gemeinschaft angebracht? Es ist sinnvoll eine möglichst genaue Lagebeschreibung anzugeben, damit der Aushang gefunden werden kann und deine Nachbarn der Gemeinschaft beitreten können. Am Besten eine Straße und Hausnummer angeben."
+    location_map: "Gebe den Ort des Aushangs auf folgender Karte möglichst genau an:"
+    print: "Aushang drucken"
+    this_is: "Das ist die Gemeinschaft"
+    activate: "Gemeinschaft beitreten"
+    search_godfather: "Pate suchen"
+    not_activated: "Du bist dieser Gemeinschaft noch nich beigetreten."
+    how_to: 
+      activate_1 : "Um dich freizuschalten, musst du zum Aushang der Gemeinschaft gehen und dort den QR-Code einscannen oder den dort ausgehängten Code abschreiben und unter "
+      activate_2 : "eingeben."
+      find: "Du findest den Aushang mit Hilfe der Karte und folgender Wegbeschreibung:"
+      faq_1: "Mehr dazu findest du in den "
+      faq_link: "FAQs"
+      faq_2: "."
+      search_godfather: "Du kannst in der Gemeinschaft einen Paten suchen, der dir zum Beispiel helfen kann Aktivitäten zu erstellen:"
+    dont_live_here: "Du wohnst noch nicht in der Nähe?"
+    activated:
+      wrong_billboard_1: "Du hast einen"
+      wrong_billboard_2: "eingescannt oder eingetippt! Um dich für diese Gemeinschaft freizuschalten, musst du dich"
+      wrong_billboard_3: "oder"
+      wrong_billboard_4: ", falls du noch keinen Benutzeraccount hast."
+    no_announcements:  "Keine Aktivitäten"
+    no_announcements_text: "Es gibt im Moment noch keine Aktivitäten in dieser Gemeinschaft. "
+    godfather_request: "Paten-Gesuche"
+    godfather_requests: "Dein Paten-Gesuch"
+    no_godfather_requests: "Keine Gesuche"
+  announcement:
+    name: "Titel"
+    description: "Beschreibung"
+    datetime:
+      label: "Termin"
+      no_date: "Kein Termin festlegen"
+      date_suggest: "Termin-Umfrage schalten"
+      date_fixed: "Termin festlegen: "
+      seperator: ' Uhrzeit: '
+    modules: "Module aktivieren"
+    location: "Standort der Aktivität"
+    location_hint: "wird nur angezeigt, wenn angegeben"
+    location_text: "Ortsbeschreibung"
+    location_text_hint: "Wo genau findet die Aktivität statt?"
+    create: "Aktivität erstellen"
+    edit: "Aktivität ändern"
+    print: "Flyer drucken"
+    my_activities: "Meine Aktivitäten:"
+    other_activities: "Fremde Aktivitäten:"
+    comment:
+      title: "Schreibe eine Nachricht:"
+      anonym: "Anonym:"
+      private_hint: "Private Nachrichten sind nur für Nutzer dieser Gemeinschaft sichtbar"
+      private: "Nur für Gemeinschaft sichtbar"
+    location: "Ortsbeschreibung:"
+    new: "Neue Aktivität"
+    datetime_suggestion:
+      title: "Terminvorschläge:"
+      no_suggestions: "Keine Terminvorschläge vorhanden"
+      fix: "Festlegen"
+      fix_hint: "Termin festlegen"
+      persons_can: " Personen können den Termin wahnehmen."
+      persons_cant: " Personen können den Termin nicht wahnehmen."
+      time: "Ich habe an diesem Termin Zeit"
+      no_time: "Ich habe an diesem Termin keine Zeit"
+      new: "Neuen Termin vorschlagen"
+      suggest: "Vorschlagen"
+    userjoin:
+      title: "Mitmachliste"
+      button:  "Mitmachen"
+    bringthing:
+      title: "Mitbringliste"
+      button: "Mitbringen"
+      thing: "Sache"
+  create_billboard:
+    print:
+      instruction: "Der Aushang der Gemeinschaft muss nun <b>ausgedruckt</b> und <b>aufgehängt</b> werden ( Diese Schritte sind auch noch später möglich! ):"
+      print_hint: "Wenn du momentan den Aushang nicht ausdrucken kannst, ist dies auch später noch möglich."
+      place: "Aushang aufhängen"
+      place_hint: "Nehme dazu den ausgedruckten Aushang und plaziere diesen so, dass man diesen mit Hilfe der Lagebeschreibung finden kann."
+      place_warn: "Wenn der Aushang nicht ausgedruckt und an der angegebenen Stelle plaziert wird, kann niemand deiner neuen Gemeinschaft beitreten!"
+    ready:
+      note: "Du kannst als Ersteller der Gemeinschaft jederzeit etwas ändern oder auch den Aushang erneut ausdrucken. Sobald du den Aushang aufgehängt hast, können deine Nachbarn der Gemeinschaft beitreten und selber Aktivitäten veranstallten."
+  description:
+    title: " FAQs "
+    locommun_head:  "Was ist Locommun?"
+    locommun_text: "Das Internet hat die Menschen näher zusammengebracht. Doch was ist mit den Menschen, die ohnehin schon nahe beieinander waren? Welche Bedeutung hat das Internet im Kiez? Wir finden, ziemlich viel. Mit Locommun kannst du dich mit deiner Umgebung vernetzen. Einfach eine Nachricht bei dir im Hausflur, an der nächsten Straßenecke oder beim Kulturverein posten. Ob du Fußball spielen, eine neue Sprache lernen oder einfach nur Leute kennenlernen willst: alles das ist möglich. Mit Locommun können wir uns lokal vernetzen."
+    how: "Wie geht das?"
+    how_text: "Eigentlich funktioniert Locommun nicht anders als die guten alten Aushänge an Pinnwänden, schwarzen Brettern, Litfaßsäulen, oder wie die Dinger noch heißen. Ein Aushang bei Locommun (bei uns heißt das Aktivität) ist digital und analog zugleich. Du erkennst ihn an dem Locommun-Logo und einem QR-Code. Ein QR-Code sieht ähnlich wie ein Barcode aus. Du kannst ihn mit deinem Smartphone abfotografieren und er führt dich dann zur richtigen Seite. Nur wenn du einen QR-Code abfotografiert hast, kannst du auch auf die jeweilige Pinnwand schreiben (wenn du kein Smartphone besitzt geht das auch mit einem Code den du abschreiben kannst). Das klingt kompliziert, aber es ist kinderleicht. Probier's doch einfach mal aus!"
+    local: "Nur lokal?"
+    local_text: "Das wäre ja langweilig. Natürlich ist es auch möglich, sich zwischen verschiedenen Kiezen, in verschiedenen Städten oder Ländern zu vernetzen. Sucht euch einfach einen Paten vor Ort und schon könnt ihr auch dort Aktivitäten unternehmen. Zum Beispiel vor dem nächsten Urlaub einfach mal vor Ort fragen, was so läuft. Oder umgekehrt: übernehmt eine Patenschaft für jemanden, der neu in der Stadt ist!"
+    beta: "Beta"
+    beta_text_1: "Locommun befindet sich noch in der Beta-Phase. Das bedeutet, dass du dir gerade eine erste Vorabversion ansiehst. Wir haben aber noch viele Ideen, um Locommun noch besser zu machen. Deshalb schrauben wir im Hintergrund fleißig weiter. Wenn du uns beim Arbeiten zuschauen willst, schau' mal auf " 
+    beta_text_2:  "vorbei. Wir hoffen, dass dir Locommun schon jetzt gefällt und du bald wieder vorbeikommst."
+    github: "GitHub"
+    godfather: "Patenschaft"
+    godfather_text: "Wenn du gerade umgezogen bist, bald umziehen wirst, oder einfach so in eine neue Stadt kommst, kannst du dort bei einer beliebigen Gemeinschaft ein Paten-Gesuch erstellen. All Diejenigen, welche bei dieser Gemeinschaft aktiv sind, sehen dieses Paten-Gesuch und können eine Patenschaft mit dir annehmen. Du hast dann die Möglichkeit mit dem Paten zu kommunizieren. Der Pate kann dir bei den verschiedensten Dingen behilflich sein! Also wenn du neu an einen Ort kommst, schau doch einfach mal, ob in deiner nähe eine Gemeinschaft ist, auf der du ein Paten-Gesuch erstellen kannst."
+  contact:
+    mail: "Kontakt"  
+    feedback: "Wir freuen uns jederzeit über dein Feedback. " 
+    feedback_text: "Schreibe uns deine Anmerkungen, Ideen, usw. auf "
+  index:
+    do_something_local: "Mach mal was Lokales! "
+    find_activities: "Finde lokale Aktivitäten"
+    find_activities_link: "Lokale Aktivität finden"
+    find_activities_text: "Finde Events, Veranstalltungen oder verschiedenste Arten von Aktivitäten."
+    find_billboard: "Suche Gemeinschaften"
+    find_billboard_link: "Gemeinschaft suchen"
+    find_billboard_text:  "Finde interessante Gemeinschaften und erstelle Aktivitäten."
+    code_found: "Du hast schon einen Beitrittscode einer Gemeinschaft gefunden?"
+    create_billboard: "Gründe eine Gemeinschaft"
+    create_billboard_link: "Gemeinschaft gründen"
+    create_billboard_text_1: "Gründe doch eine neue Gemeinschaft,"
+    create_billboard_text_2: "wenn es in deiner Nachbarschaft noch keine passende Gemeinschaft gibt?"
+  sources:
+    title: "Quellen"
+    text:  "Im Folgenden sind alle externen Quellen, welche für das Erstellen der Plattform Locommun verwendet wurden, aufgelistet. "
+    title_img: "Titelbilder (von links nach rechts):"
+  dialog:
+    accept: "Patenschaft annehmen"
+    accept_text_1: "Die Patenschaft wurde von"
+    accept_text_2: "angenommen."
+    more_info_on_godfather: "Mehr Informationen zum Thema Patenschaft"
+    write_dialog: "Schreibe eine Nachricht:"
+  godfather_form:
+    title: "Patensuche"
+    hint: "Stelle dich kurz vor:"
+    text: "Suche einen Paten bei der Gemeinschaft."
+  profile:
+    user:
+      edit: " Benutzerprofil bearbeiten"
+    godfather: "Pate"
+    no_godfather: "Noch kein Pate gefunden"
+    godfatherhood: "Patenschaften"
+
+
 
 #Wizards
   wizard:
+    continue: "Weiter"
+    back: "Zurück"
+    last_step: "Letzter Schritt!"
     create_billboard:
       title: "Gemeinschaft gründen"
       detail: "Allgemein"
@@ -22,6 +190,47 @@ de:
 
 # Devise
   devise:
+    registrations:
+      name: "Name"
+      email: "E-Mail"
+      password: "Passwort"
+      password_confirm: "Passwort bestätigen"
+      register: "Registrieren"
+      edit:
+        change_password: "Passwort ändern"
+        forgot_password: "Passwort vergessen?"
+        create_new_password: "Neues Passwort erstellen"
+        title: "Benutzerprofil bearbeiten"
+        password:
+          hint: "leer lassen wenn es nicht geändert werden soll!"
+          current_hint: "aktuelles Passwort zur Bestätigung eingeben"  
+          label: "Neues Passwort"
+          current_label: "Altes Passwort" 
+          confirmation_label: "Neues Passwort bestätigen"
+          change: "Passwort ändern"
+        change: "Ändern"
+      new:
+        title: "Registrieren"
+    confirmations:
+      resend: "Bestätigungsemail erneut senden"
+    sessions:
+      login:  "Anmelden"
+      remember_me: "Eingeloggt bleiben"
+    mailer:
+      confirmation_instructions:
+        link: "Folgen Sie dem untenstehenden Link, um Ihr Konto zu bestätigen:"
+        confirm: 'Konto bestätigen'
+      unlock_instructions:
+        locked: "Ihr Konto wurde aufgrund einer großen Anzahl von fehlgeschlagenen Anmeldeversuchen gesperrt."
+        link: "Folgen Sie dem untenstehenden Link, um Ihr Konto zu entsperren:"
+        unlock: 'Mein Konto entsperren'
+      reset_password_instructions:
+        link: "Jemand hat einen Link angefordert, um Ihr Passwort zu ändern, und Sie können das durch den unten aufgeführten Link tun."
+        change: 'Mein Passwort ändern'
+        wrong: "Wenn Sie das nicht angefordert haben, ignorieren Sie bitte diese E-mail."
+        wrong_hint: "Das Passwort wird nicht geändert bis Sie den obenstehenden Link abrufen, und ein neues Passwort bestimmen."
+      unlocks:
+        resend_unlock_instructions: "Entsperrungsemail erneut senden"
     links:
       sign_in: "Anmelden"
       sign_up: "Registrieren"

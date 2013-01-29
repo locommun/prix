@@ -1,17 +1,17 @@
 <div class="span12">
 		<div class="well">
 			
-			<h3>Kontakt</h3>
+			<h3><%= I18n.t("contact.mail") %></h3>
 			
-			<p>Wir freuen uns jederzeit über dein Feedback. </p>
+			<p><%= I18n.t("contact.feedback" ) %></p>
 			<p>
-				Schreibe uns deine Anmerkungen, Ideen, usw. auf <a href="mailto:info@locommun.eu ?subject=feedback">info@locommun.eu </a>
+				<p><%= I18n.t("contact.feedback_text" ) %></p> <a href="mailto:info@locommun.eu?subject=feedback">info@locommun.eu</a>
 			</p>
 			
 			
 
 		</div>
 		
-		<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i> Zur Startseite")), billboards_path , :class => "btn"  %>
+		<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i> " + I18n.t("common.home" ))), billboards_path , :class => "btn"  %>
 
 </div>

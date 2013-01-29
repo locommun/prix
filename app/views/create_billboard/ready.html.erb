@@ -9,11 +9,11 @@
 	<div class="span12">
 		<div class="well">
 		
-			<h4>Letzter Schritt!</h4>
+			<h4><%= I18n.t("wizard.last_step") %></h4>
 
 			<p>
-				Du kannst als Ersteller der Gemeinschaft jederzeit etwas ändern oder auch den Aushang erneut ausdrucken.
-				Sobald du den Aushang aufgehängt hast, können deine Nachbarn der Gemeinschaft beitreten und selber Aktivitäten veranstallten.
+				<%= I18n.t("create_billboard.ready.note") %>
+				
 				
 			</p>
 		</div>
@@ -21,9 +21,9 @@
 	</div>
 		<div class="span12">
 			
-		<%= link_to (raw ("<i  class=\"icon-chevron-left icon-white\"></i> Zurück")), previous_wizard_path, :class => 'btn btn-primary' %>
-		<%= link_to (raw ("Gemeinschaft erstellen <i  class=\"icon-chevron-right icon-white\"></i>")), next_wizard_path(), :class => 'btn btn-primary'%>
-			
+		<%= link_to (raw ("<i  class=\"icon-chevron-left icon-white\"></i> "+ I18n.t("wizard.back"))), previous_wizard_path, :class => 'btn btn-primary' %>
+		<%= link_to (raw (I18n.t("wizard.continue") + " <i  class=\"icon-chevron-right icon-white\"></i>")), next_wizard_path, :class => 'btn btn-primary'%>
+		
 	</div>
 	
 </div>

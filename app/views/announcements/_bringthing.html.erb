@@ -1,5 +1,5 @@
 <div class="billboard-controlls well">
-	<h4>Mitbringliste:</h4>
+	<h4><%= I18n.t("announcement.bringthing.title") %></h4>
 		
 		<% @announcement.bringthings.each do |bringthing| %>
 				<b><%= bringthing.thing %>(<%= bringthing.user.name %>)</b>,
@@ -9,10 +9,10 @@
 		<%if current_user%>
 			<%= simple_form_for(@announcement.bringthings.build) do |f| %>		
 			  <div class="form-inputs">
-			  	<%= f.input :thing, :label => false, :placeholder => "Sache", :input_html => {:maxlength =>35,:style=> 'width: 100px'}%> 
-			  	<%= f.input :announcement_id , :as => :hidden %>
+			  	<%= f.input :thing, :label => false, :placeholder => I18n.t("announcement.bringthing.thing"), :input_html => {:maxlength =>35,:style=> 'width: 100px'}%> 
+			  		<%= f.input :announcement_id , :as => :hidden %>
 			  </div>
-			  	<%= f.submit "Mitbringen" , :class => "btn btn-primary"%>	  
+			  	<%= f.submit I18n.t("announcement.bringthing.button") , :class => "btn btn-primary"%>	  
 			<% end %>
 		<%end%>	
 </div>

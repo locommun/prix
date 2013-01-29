@@ -3,7 +3,7 @@
 	<div class="span4">
 		<div class="well billboard-controlls">
 		   <h4>Gemeinschaft <%=billboard.name%></h4>
-		   <%= link_to "Zur Gemeinschaft", billboard , :class =>"btn btn-primary"%>
+		   <%= link_to I18n.t("common.billboard"), billboard , :class =>"btn btn-primary"%>
 		</div>
 	</div>
 	<%if !current_user.announcements(billboard).empty?%>
@@ -12,7 +12,7 @@
 		    <table class="table table-hover break-word">
 				
 			      <tr>
-			        <td><b>Meine Aktivitäten:</b></td>
+			        <td><b><%= I18n.t("announcement.my_activities" ) %></b></td>
 			      </tr>
 			      <% current_user.announcements(billboard).each do |announcement| %>
 			         <tr>
@@ -30,7 +30,7 @@
 	 <table class="table table-hover break-word">
 				
 			      <tr>
-			        <td><b>Fremde Aktivitäten:</b></td>
+			        <td><b><%= I18n.t("announcement.other_activities") %></b></td>
 			      </tr>
 			      <% current_user.commented_announcements(billboard).each do |announcement| %>
 			         <tr>
@@ -43,4 +43,3 @@
 		</div>
 		<%end%>
 </div>
-

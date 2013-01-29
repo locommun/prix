@@ -1,5 +1,5 @@
 <div class="well">
-<h2>Passwort ändern</h2>
+<h2><%= I18n.t("devise.registrations.edit.change_password" ) %></h2>
 
 <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= f.error_notification %>
@@ -8,12 +8,12 @@
   <%= f.full_error :reset_password_token %>
 
   <div class="inputs">
-    <%= f.input :password, :label => "Neues Passwort", :required => true %>
-    <%= f.input :password_confirmation, :label => "Neues Passwort bestätigen", :required => true %>
+    <%= f.input :password, :label => I18n.t("devise.registrations.edit.password.label"), :required => true %>
+    <%= f.input :password_confirmation, :label => I18n.t("devise.registrations.edit.password.confirmation_label"), :required => true %>
   </div>
 
   <div class="actions">
-    <%= f.button :submit, "Passwort ändern" %>
+    <%= f.button :submit, :label => I18n.t("devise.registrations.edit.password.change") %>
   </div>
 <% end %>
 

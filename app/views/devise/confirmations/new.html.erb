@@ -1,14 +1,14 @@
-<h2>Bestätigungsemail erneut senden</h2>
+<h2><%= I18n.t("devise.confirmations.resend") %></h2>
 
 <%= simple_form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
   <%= f.error_notification %>
 
   <div class="inputs">
-    <%= f.input :email, :required => true ,:label => "E-Mail"%>
+    <%= f.input :email, :required => true , :label => I18n.t("devise.registrations.email")%>
   </div>
 
   <div class="actions">
-    <%= f.button :submit, "Bestätigungsemail erneut senden." %>
+    <%= f.button :submit, I18n.t("devise.confirmations.resend") %>
   </div>
 <% end %>
 

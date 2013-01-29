@@ -6,10 +6,10 @@
 	
 	<div class="span12">
 		<div class="well">
-			<b>Land:</b> <%=@query["country"]%> | 
-			<b>Wo:</b> <%=@query["where"]%> | 
-			<b>Umkreis:</b> <%=@query["around"]%> km
-			(<%= link_to 'ändern' , previous_wizard_path %>)
+			<b><%= I18n.t("find_announcement.where.country") %></b> <%=@query["country"]%> | 
+			<b><%= I18n.t("find_announcement.where.where") %></b> <%=@query["where"]%> | 
+			<b><%= I18n.t("find_announcement.where.around") %></b> <%=@query["around"]%> km
+			(<%= link_to I18n.t("common.change") , previous_wizard_path %>)
 		</div>
 	</div>
 	<div class="span12">
@@ -17,8 +17,8 @@
 			<table class="table table-hover">
 				<thead>
 			        <tr>
-			          <th>Name</th>
-			          <th>Beschreibung</th>
+			          <th><%= I18n.t("billboard.name") %></th>
+			          <th><%= I18n.t("billboard.location") %></th>
 			        </tr>
 			      </thead>
 			      <tbody>

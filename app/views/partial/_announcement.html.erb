@@ -1,12 +1,12 @@
 <div class= "row">
 	<div class="span12" id="navigation-announcemnet">
-		<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i> Zur Startseite")), billboards_path ,  :class =>"btn"%>
-		<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i> Zur Gemeinschaft")), billboard_path(@announcement.billboard) ,  :class =>"btn"%>
+		<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i> "+ I18n.t("common.home" ))), billboards_path ,  :class =>"btn"%>
+		<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i> "+ I18n.t("common.billboard" ))), billboard_path(@announcement.billboard) ,  :class =>"btn"%>
 		<%if (current_user && @announcement.billboard.is_activated?(current_user) )%>
-					<%= link_to (raw ("<i  class=\"icon-print icon-white \"></i> Flyer drucken")), announcement_path(:id => @announcement.id, :format => :pdf) ,:class => "btn btn-primary" %>
+					<%= link_to (raw ("<i  class=\"icon-print icon-white \"></i> "+ I18n.t("announcement.print" ))), announcement_path(:id => @announcement.id, :format => :pdf) ,:class => "btn btn-primary" %>
 				<%end%>
 		<%if current_user && @announcement.user == current_user%>
-			<%= link_to (raw ("<i  class=\"icon-edit\"></i> Bearbeiten")), edit_announcement_path(@announcement) , :class => "btn"%>
+			<%= link_to (raw ("<i  class=\"icon-edit\"></i> "+ I18n.t("common.edit" ))), edit_announcement_path(@announcement) , :class => "btn"%>
 		<%end%>
 	</div>
 </div>
@@ -28,7 +28,7 @@
 								<%= comment.user.name %>:
 							</strong> <%= comment.text %>
 							<%else%>
-							<strong>Anonym:</strong> <%= comment.text %>
+							<strong><%= I18n.t("announcement.comment.anonym" ) %></strong> <%= comment.text %>
 							<%end%>
 						</div>
 					<%end%>
@@ -43,7 +43,7 @@
 			<%end%>
 			<%if @announcement.location != "" && @announcement.location %>
 				<div class="billboard-controlls well">
-					<h4>Ortsbeschreibung:</h4> 
+					<h4><%= I18n.t("announcement.location") %></h4> 
 					<%=@announcement.location%>
 				</div>
 			<%end%>

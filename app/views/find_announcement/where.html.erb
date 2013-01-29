@@ -6,17 +6,17 @@
 	<div class="span12">
 			<div class="well">
 				<%= simple_form_for :activity, :url => next_wizard_path, :method => :get do |f| %>
-					<%= f.input :country, :selected => (@query["country"]) ,:label => "Land", :collection => ['Deutschland'] %>
-	  				<%= f.input :where, :label => "Wo", :input_html => { :value =>  (@query['where'])} %>
-	  				<%= f.input :around, :selected => (@query['around']) , :collection => [1,2,3,4,5,6,7,8,9,10,20,30,40,50] , :label => "Umkreis (km)"%>
+					<%= f.input :country, :selected => (@query["country"]) ,:label => I18n.t("find_announcement.where.country"), :collection => [ I18n.t("find_announcement.where.collection.germany")] %>
+	  				<%= f.input :where, :label => I18n.t("find_announcement.where.where" ), :input_html => { :value =>  (@query['where'])} %>
+	  				<%= f.input :around, :selected => (@query['around']) , :collection => [1,2,3,4,5,6,7,8,9,10,20,30,40,50] , :label => I18n.t("find_announcement.where.around" )%>
 	  				
-	  				<button class="btn btn-primary">Weiter <i  class="icon-chevron-right icon-white"></i></button>
+	  				<button class="btn btn-primary"><%= I18n.t("wizard.continue" ) %> <i  class="icon-chevron-right icon-white"></i></button>
 
 				<% end %>
 	
 			</div>
 			
-			<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i> Zur Startseite")), billboards_path , :class => "btn"  %>
+			<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i> "+ I18n.t("common.home", :default => "Zur Startseite"))), billboards_path , :class => "btn"  %>
 	
 	</div>
 

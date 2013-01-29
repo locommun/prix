@@ -1,13 +1,12 @@
-
 <%= simple_form_for @billboard, :url => next_wizard_path, :method => :put do |f| %>
 
 	<%= f.error_notification %>
-	
-	<%= f.input :name , :label => "Name der Gemeinschaft:"%>
-	<%= f.input :description , :input_html => { :cols => 50, :rows => 5 }, :label => "Lagebeschreibung:", :hint => "Wo wird der Aushang der Gemeinschaft angebracht? Es ist sinnvoll eine möglichst genaue Lagebeschreibung anzugeben, damit der Aushang gefunden werden kann und deine Nachbarn der Gemeinschaft beitreten können. Am Besten eine Straße und Hausnummer angeben." %> <br />
 
-	<b>Gebe den Ort des Aushangs auf folgender Karte möglichst genau an:</b> </br></br>
-	
+	<%= f.input :name , :label => I18n.t("billboard.name")%>
+	<%= f.input :description , :input_html => { :cols => 50, :rows => 5 }, :label => I18n.t("billboard.location"), :hint => I18n.t("billboard.location_hint") %> <br />
+
+	<b><%= I18n.t("billboard.location_map")%> </b> </br></br>
+
 	<% if request.location %>
 	  <%= gmaps({ 
 		"map_options" => {  "center_longitude" => request.location.longitude,"center_latitude" => request.location.latitude, "zoom" => 12, "auto_adjust" => true},
@@ -68,15 +67,13 @@
   <% end %></br>
 	<%= f.input :latitude, :readonly => true%>
 	<%= f.input :longitude,:readonly => true%>
-	
+
 	<br />
-	
-	<button class="btn btn-primary">Weiter <i  class="icon-chevron-right icon-white"></i></button>
+
+	<button class="btn btn-primary"><%= I18n.t("wizard.continue" ) %> <i  class="icon-chevron-right icon-white"></i></button>
 
 <% end %>
 
 
 
 
-
- 

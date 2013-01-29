@@ -1,43 +1,41 @@
 <div class="row">
-	
+
 	<div class="span12">
 		<%= render 'partial/header' %>
 	</div>
-	
+
 	<%= render 'info' %>
-	
+
 	<div class="span12">
 		<div class="well">
-			Der Aushang der Gemeinschaft muss nun <b>ausgedruckt</b> und <b>aufgehängt</b> werden ( Diese Schritte sind auch noch später möglich! ):
+			<%= I18n.t("create_billboard.print.instruction") %>
 			<br /><br />
-			
+
 		    <ol>
 		    	<li>
-		    		<%= link_to (raw ("<i  class=\"icon-print \"></i> Aushang drucken")), from_session_billboards_path(:format => :pdf) ,:class => "btn" , :target => "_blank" %><br />
-					<em>Wenn du momentan den Aushang nicht ausdrucken kannst, ist dies auch später noch möglich. </em>
+		    		<%= link_to (raw ("<i  class=\"icon-print \"></i> "+ I18n.t("billboard.print"))), from_session_billboards_path(:format => :pdf) ,:class => "btn" , :target => "_blank" %><br />
+					<em><%= I18n.t("create_billboard.print.print_hint") %> </em>
 				</li>
 				<br />
 				<li>
-					<b>Aushang aufhängen</b> <br />
-					<em>Nehme dazu den ausgedruckten Aushang und plaziere diesen so, dass man diesen mit Hilfe der Lagebeschreibung finden kann.</em>
+					<b><%= I18n.t("create_billboard.print.place") %></b> <br />
+					<em><%= I18n.t("create_billboard.print.place_hint") %></em>
 		    	</li>
 		    </ol>
-		    
+
 				<br /><br />
 			<p>
-				<i class="icon-info-sign"></i> <em>
-				Wenn der Aushang nicht ausgedruckt und an der angegebenen Stelle plaziert wird, kann niemand deiner neuen Gemeinschaft beitreten!</em>
+				<i class="icon-info-sign"></i> 
+				<em><%= I18n.t("create_billboard.print.place_warn") %>
+				</em>
 			</p>
 		</div>
 	</div>
 	<div class="span12">
-			
-		<%= link_to (raw ("<i  class=\"icon-chevron-left icon-white\"></i> Zurück")), previous_wizard_path, :class => 'btn btn-primary' %>
-		<%= link_to (raw ("Weiter <i  class=\"icon-chevron-right icon-white\"></i>")), next_wizard_path, :class => 'btn btn-primary'%>
-			
+
+		<%= link_to (raw ("<i  class=\"icon-chevron-left icon-white\"></i> "+ I18n.t("wizard.back"))), previous_wizard_path, :class => 'btn btn-primary' %>
+		<%= link_to (raw (I18n.t("wizard.continue") + " <i  class=\"icon-chevron-right icon-white\"></i>")), next_wizard_path, :class => 'btn btn-primary'%>
+
 	</div>
 
 </div>
-
-
-

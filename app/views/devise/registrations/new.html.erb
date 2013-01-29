@@ -1,19 +1,19 @@
 
 <div class="well">
-<h2>Registrieren</h2>
+<h2><%= I18n.t("devise.registrations.new.title") %></h2>
 
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
   <div class="inputs">
-  	<%= f.input :name, :required => true, :autofocus => true  , :label => "Name"%>
-    <%= f.input :email, :required => true  , :label => "E-Mail"%>
-    <%= f.input :password, :required => true , :label => "Passwort"%>
-    <%= f.input :password_confirmation, :required => true , :label => "Passwort bestätigen"%>
+  	<%= f.input :name, :required => true, :autofocus => true  , :label => I18n.t("devise.registrations.name")%>
+    <%= f.input :email, :required => true  , :label => I18n.t("devise.registrations.email")%>
+    <%= f.input :password, :required => true , :label => I18n.t("devise.registrations.password")%>
+    <%= f.input :password_confirmation, :required => true , :label => I18n.t("devise.registrations.password_confirm")%>
   </div>
 
   <div class="actions">
-    <%= f.button :submit, "Registrieren" %>
+    <%= f.button :submit, I18n.t("devise.registrations.register") %>
   </div>
 <% end %>
 

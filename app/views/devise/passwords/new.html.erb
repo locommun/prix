@@ -1,15 +1,15 @@
 <div class="well">
-<h2>Passwort vergessen?</h2>
+<h2><%= I18n.t("devise.registrations.edit.forgot_password" ) %></h2>
 
 <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
   <%= f.error_notification %>
 
   <div class="inputs">
-    <%= f.input :email, :required => true %>
+    <%= f.input :email, :required => true , :label => I18n.t("devise.registrations.email")%>
   </div>
 
   <div class="actions">
-    <%= f.button :submit, "Neues Passwort erstellen" %>
+    <%= f.button :submit, I18n.t("devise.registrations.edit.create_new_password" ) %>
   </div>
 <% end %>
 
