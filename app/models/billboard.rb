@@ -12,7 +12,7 @@ class Billboard < ActiveRecord::Base
 	validates_numericality_of :latitude, {:minimum => 0, :maximum => 90}
 	validates_numericality_of :longitude, {:minimum => -180, :maximum => 180}
   
-  acts_as_gmappable
+  acts_as_gmappable :process_geocoding => false
   def gmaps4rails_address
     ""
   end

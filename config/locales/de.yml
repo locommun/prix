@@ -79,7 +79,7 @@ de:
     create: "Aktivität erstellen"
     edit: "Aktivität ändern"
     clone: "Aktivität klonen"
-    clone_text: "Du hast eine andere Aktivität als Vorlage verwendet. Bis auf den <strong>Termin</strong> wurden alle Felder übernommen. <strong>Du musst deine Einstellungen für den Termin neu festlegen!</strong>"
+    clone_text: "Du hast eine andere Aktivität als Vorlage verwendet. Bis auf den Termin wurden alle Felder übernommen. Du musst deine Einstellungen für den Termin neu festlegen!"
     print: "Flyer drucken"
     my_activities: "Meine Aktivitäten:"
     other_activities: "Fremde Aktivitäten:"
@@ -110,7 +110,7 @@ de:
       thing: "Sache"
   create_billboard:
     print:
-      instruction: "Der Aushang der Gemeinschaft muss nun <b>ausgedruckt</b> und <b>aufgehängt</b> werden ( Diese Schritte sind auch noch später möglich! ):"
+      instruction: "Der Aushang der Gemeinschaft muss nun ausgedruckt und aufgehängt werden ( Diese Schritte sind auch noch später möglich! ):"
       print_hint: "Wenn du momentan den Aushang nicht ausdrucken kannst, ist dies auch später noch möglich."
       place: "Aushang aufhängen"
       place_hint: "Nehme dazu den ausgedruckten Aushang und plaziere diesen so, dass man diesen mit Hilfe der Lagebeschreibung finden kann."

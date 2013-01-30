@@ -52,6 +52,7 @@ class CreateBillboardController < ApplicationController
       return
       else
         generate_map_json @billboard
+        step = :detail
         render :detail
         return
       end
@@ -70,13 +71,16 @@ class CreateBillboardController < ApplicationController
         if session['billboard_create']
           @billboard = Billboard.new ActiveSupport::JSON.decode session['billboard_create']
         else
-          redirect_to wizard_path(:detail)
-        return
+           generate_map_json @billboard
+           step = :detail
+            render :detail
+            return
         end
       end
 
       if !(@billboard.valid?)
         generate_map_json @billboard
+        step = :detail
         render :detail
         return
       end
