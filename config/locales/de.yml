@@ -35,7 +35,7 @@ de:
       descrption: "Beschreibung"
   billboard:
     name: "Name der Gemeinschaft:"
-    code: "Aktivierungscode"
+    code: "Beitrittscode"
     location: "Lagebeschreibung:"
     location_hint: "Wo wird der Aushang der Gemeinschaft angebracht? Es ist sinnvoll eine möglichst genaue Lagebeschreibung anzugeben, damit der Aushang gefunden werden kann und deine Nachbarn der Gemeinschaft beitreten können. Am Besten eine Straße und Hausnummer angeben."
     location_map: "Gebe den Ort des Aushangs auf folgender Karte möglichst genau an:"
@@ -136,7 +136,7 @@ de:
       link: "Link zu dieser Aktivität"
     community:
       scan: "Oder scanne einfach den QR-Code mit deinem Smartphone"
-      activate: "Um dieser Gemeinschaft beizutreten gebe folgenden Aktivierungscode auf locommun.eu ein"
+      activate: "Um dieser Gemeinschaft beizutreten gebe folgenden Beitrittscode auf locommun.eu ein"
   contact:
     mail: "Kontakt"  
     feedback: "Wir freuen uns jederzeit über dein Feedback. " 
