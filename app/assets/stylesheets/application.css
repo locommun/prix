@@ -38,7 +38,7 @@
 }
 
 #main-container {
-    margin-top: 100px;
+    margin-top: 60px;
 }
 
 #minimap {
@@ -92,6 +92,10 @@
 		height:auto !important;
 	}
 	
+	#main-container {
+    	margin-top: 0;
+	}
+	
  }
  
  @media (min-width:481px) and (max-width: 767px) {
@@ -107,6 +111,9 @@
 	.fixed-login-size {
 		height:auto !important;
 	}
+	#main-container {
+    	margin-top: 0;
+	}
  }
  
  @media (min-width: 768px) and (max-width: 979px) { 
@@ -118,6 +125,9 @@
 	}
 	.fixed-title-thumb {
 		height:510px !important;
+	}
+	#main-container {
+    	margin-top: 0;
 	}
  }
 

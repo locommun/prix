@@ -6,11 +6,25 @@
 		<%= wicked_pdf_stylesheet_link_tag "application" -%>
 		
 		<style>
-			body {
-				
+			div.flyer {
+				margin:0 0 0 0;
 				height: 1012px;
+				width:auto;
 				background-position: left top;
 			  	background-image: url( 'file:///<%= asset_pathname('community-flyer.png') %>');
+			  	background-repeat: no-repeat;
+			  	background-size: 100% 100%;
+			  	background-clip:border-box;
+			  	-webkit-background-clip:border-box;  /* Safari */
+			}
+			
+			
+			div.stubs {
+				margin-top: 0px; 
+				height: 1012px;
+				width:auto;
+				background-position: left top;
+			  	background-image: url( 'file:///<%= asset_pathname('stubs.png') %>');
 			  	background-repeat: no-repeat;
 			  	background-size: 100% 100%;
 			  	background-clip:border-box;
@@ -22,8 +36,11 @@
 	</head>
 
 	<body>
-
-		<%=render 'flyer'%>
-
+		<div class="flyer">
+			<%=render 'flyer'%>
+		</div>
+		<div class="stubs">
+			<%=render 'stubs'%>
+		</div>
 	</body>
 </html>

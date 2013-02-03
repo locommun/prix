@@ -59,8 +59,8 @@ de:
       wrong_billboard_4: ", falls du noch keinen Benutzeraccount hast."
     no_announcements:  "Keine Aktivitäten"
     no_announcements_text: "Es gibt im Moment noch keine Aktivitäten in dieser Gemeinschaft. "
-    godfather_request: "Paten-Gesuche"
-    godfather_requests: "Dein Paten-Gesuch"
+    godfather_requests: "Paten-Gesuche"
+    godfather_request: "Dein Paten-Gesuch"
     no_godfather_requests: "Keine Gesuche"
   announcement:
     name: "Titel"

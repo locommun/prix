@@ -1,0 +1,30 @@
+
+			<% if user_signed_in? %>
+				<%old_dialog = dialog_sent? @billboard.id%>
+				<% if old_dialog %>
+					
+					<div class="billboard-controlls well">
+						<div class="well">
+							<b><%= link_to  I18n.t("billboard.godfather_request") , :controller => "billboards", :action => "dialog", :id => old_dialog.id %></b>
+						</div>
+					</div>
+				<%end%>
+			<%end%>
+			<%if user_signed_in? && @billboard.is_activated?(current_user) %>
+				<div class="billboard-controlls well">
+					<h3><%= I18n.t("billboard.godfather_requests") %></h3>
+						<%counter=0%>
+						<% @billboard.dialogs.each do |dialog| %>
+							<%if !dialog.godfather && dialog.user%>
+								<div class="well white-well">
+									<b><%= link_to  dialog.user.name , :controller => "billboards", :action => "dialog", :id => dialog.id %></b>
+								</div>
+								<%counter=counter+1%>
+							<%end%>
+						<%end%>
+						
+						<%if counter == 0%>
+							<b><%= I18n.t("billboard.no_godfather_requests") %></b>
+						<%end%>
+				</div>
+			<%end%>

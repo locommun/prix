@@ -2,13 +2,17 @@
 @import "responsive.less";
 
 .billboard-controlls {
-  background-color: @navbarInverseBackground;
-  color: @navbarInverseText;
+ 
+  background-color: lighten(@linkColor,55);
+  color: @black;
 }
 
-.comment-form {
-  background-color: @infoBackground;
-  color: @infoText;
+.announcement-map {
+ padding:0px;
+}
+
+.white-well  {
+  background-color: @white;
 }
 
 
@@ -22,7 +26,18 @@
     .border-bottom-radius(0px); 
     margin-bottom: 0px;
     border-bottom-width:0px;
+    padding: 0px;
 }
+
+#billboard-nav-inner{
+  padding: 19px;
+}
+
+#billboard-nav-map{
+  border: 0px solid darken(@wellBackground, 7%);
+  border-bottom-width:1px;
+}
+
 
 /*
  * 
@@ -33,17 +48,13 @@
 .datetime select {
   width: auto;
   padding: 0;
-  background-color: darken(@navbarInverseBackground,10);
-  color: @white;
-  border-color: @white;
-}
-.datetime option  {
-  background-color: @navbarInverseBackground;
-  color: @white;
+  background-color: @white;
+ 
 }
 
+
 .date-box {
-  background-color: darken(@navbarInverseBackground,10);
+  background-color: @white;
   display:block;
   border: 1px solid darken(@wellBackground, 7%);
   .border-radius(@baseBorderRadius);

@@ -1,20 +1,19 @@
 <div class="span3">
 	<div class="billboard-controlls well  break-word" id="billboard-nav-well">
-		<h2><%= @billboard.name %></h2>
-		<p>
-			<%= @billboard.description %>
-		</p>
-		<%= gmaps({
+		<div id="billboard-nav-map">
+			<%= gmaps({
 		"map_options" => { "container_class" => "minimap_container", "id" =>  "minimap","auto_adjust" => true , "zoom" => 14,"auto_zoom" => false},
 		"markers" => {"data" => @json}
 		}) %> 
-		<p style="font-size:xx-small;">
-			<b><%= I18n.t("common.map.lat", :default => "Lat:") %></b>
-			<%= @billboard.latitude %></p>
-		<p style="font-size:xx-small;">
-			<b><%= I18n.t("common.map.long", :default => "Long:") %></b>
-			<%= @billboard.longitude %>
+		</div>
+		<div id="billboard-nav-inner">
+		
+		<p>
+			<%= @billboard.description %>
 		</p>
+		</div>
+	
+		
 	</div>
 	<!--Billboard Navigation -->
 		
@@ -68,4 +67,5 @@
 	    			</a>
 	    		</li>
 	    </ul>
+	    <%=render '/partial/godfather_nav'%>
 </div>
