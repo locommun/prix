@@ -5,66 +5,67 @@
 	<%= f.input :name , :label => I18n.t("billboard.name")%>
 	<%= f.input :description , :input_html => { :cols => 50, :rows => 5 }, :label => I18n.t("billboard.location") , :hint => I18n.t("billboard.location_hint") %> <br />
 
-	<b><%= I18n.t("billboard.location_map" %></b> </br></br>
+	<b><%= I18n.t("billboard.location_map") %></b> </br></br>
 	
 	<% if request.location %>
 	  <%= gmaps({ 
 		"map_options" => {  "center_longitude" => request.location.longitude,"center_latitude" => request.location.latitude, "zoom" => 12, "auto_adjust" => true},
 		"markers" => {"data" => @json}
 		}) %> 
-		<%else%>
+	<%else%>
 		 <%= gmaps({ 
 		"map_options" => {  "zoom" => 1, "auto_adjust" => true , "auto_zoom" => false },
 		"markers" => {"data" => @json}
 		}) %> 
-		<%end%>
-	  <% content_for :scripts do %>
-    <script type="text/javascript" charset="utf-8">
-        var markersArray = [];
-        // On click, clear markers, place a new one, update coordinates in the form
-        Gmaps.map.callback = function() {
-            google.maps.event.addListener(Gmaps.map.serviceObject, 'click', function(event) {
-              clearOverlays();
-              placeMarker(event.latLng);
-              updateFormLocation(event.latLng);
-            });
-        };
-        // Update form attributes with given coordinates
-        function updateFormLocation(latLng) {
-            $('#billboard_latitude').val(latLng.lat());
-            $('#billboard_longitude').val(latLng.lng());
-            
-        }
-        // Add a marker with an open infowindow
-        function placeMarker(latLng) {
-            var marker = new google.maps.Marker({
-                position: latLng, 
-                map: Gmaps.map.serviceObject,
-                draggable: true
-            });
-            markersArray.push(marker);
-            //Gmaps.map.replaceMarkers(markersArray)
-            // Set and open infowindow
-            var infowindow = new google.maps.InfoWindow({
-               
-            });
-            infowindow.open(Gmaps.map.serviceObject,marker);
-            // Listen to drag & drop
-            google.maps.event.addListener(marker, 'dragend', function() {
-                updateFormLocation(this.getPosition());
-            });
-        }
-        // Removes the overlays from the map
-        function clearOverlays() {
-          if (markersArray) {
-            for (var i = 0; i < markersArray.length; i++ ) {
-              markersArray[i].setMap(null);
-            }
-          }
-          markersArray.length = 0;
-        }
-    </script>
-  <% end %></br>
+	<%end%>
+	<% content_for :scripts do %>
+	    <script type="text/javascript" charset="utf-8">
+	        var markersArray = [];
+	        // On click, clear markers, place a new one, update coordinates in the form
+	        Gmaps.map.callback = function() {
+	            google.maps.event.addListener(Gmaps.map.serviceObject, 'click', function(event) {
+	              clearOverlays();
+	              placeMarker(event.latLng);
+	              updateFormLocation(event.latLng);
+	            });
+	        };
+	        // Update form attributes with given coordinates
+	        function updateFormLocation(latLng) {
+	            $('#billboard_latitude').val(latLng.lat());
+	            $('#billboard_longitude').val(latLng.lng());
+	            
+	        }
+	        // Add a marker with an open infowindow
+	        function placeMarker(latLng) {
+	            var marker = new google.maps.Marker({
+	                position: latLng, 
+	                map: Gmaps.map.serviceObject,
+	                draggable: true
+	            });
+	            markersArray.push(marker);
+	            //Gmaps.map.replaceMarkers(markersArray)
+	            // Set and open infowindow
+	            var infowindow = new google.maps.InfoWindow({
+	               
+	            });
+	            infowindow.open(Gmaps.map.serviceObject,marker);
+	            // Listen to drag & drop
+	            google.maps.event.addListener(marker, 'dragend', function() {
+	                updateFormLocation(this.getPosition());
+	            });
+	        }
+	        // Removes the overlays from the map
+	        function clearOverlays() {
+	          if (markersArray) {
+	            for (var i = 0; i < markersArray.length; i++ ) {
+	              markersArray[i].setMap(null);
+	            }
+	          }
+	          markersArray.length = 0;
+	        }
+	    </script>
+  	<% end %></br>
+  
 	<%= f.input :latitude, :readonly => true, :as=>:hidden , :input_html => {:id => "billboard_latitude"}%>
 	<%= f.input :longitude,:readonly => true, :as=>:hidden, :input_html => {:id => "billboard_longitude"}%>
 	
@@ -72,10 +73,5 @@
 	
 	
 	<%= f.submit I18n.t("common.save"), :class => "btn btn-primary" %>
+		
 <% end %>
-
-
-
-
-
- 
