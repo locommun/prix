@@ -1,2 +1,24 @@
 
-	test
+<div class="stub-header">
+	<h3><%= I18n.t("billboard.code")%> <%= I18n.t("common.for")%> <%= @billboard.name%>:</h3>
+
+</div>
+		
+	<% distanz_top = 1175 %>
+	<% distanz_left =  -35 %>
+	
+	<% for j in 0..4 %>
+		<% for i in 0..10 %>
+	
+			<p class="break-word vertical-stub" style="position:absolute; left: <%= distanz_left%> px; top:  <%= distanz_top%> px;">
+				<small> <strong>locommun.eu</strong> <br/>Code: <%= @billboard.key%></small>
+			</p>
+			
+			<% distanz_left = distanz_left + 56 %>
+			
+		<%end%>
+		
+		<% distanz_top = distanz_top + 180 %>
+		<% distanz_left =  -35 %>
+		
+	<%end%>

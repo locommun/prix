@@ -7,7 +7,6 @@
 		
 		<style>
 			div.flyer {
-				margin:0 0 0 0;
 				height: 1012px;
 				width:auto;
 				background-position: left top;
@@ -17,7 +16,15 @@
 			  	background-clip:border-box;
 			  	-webkit-background-clip:border-box;  /* Safari */
 			}
-			
+			div.stubs {
+				top: 1030px;
+				height: 1012px;
+				background-image: url( 'file:///<%= asset_pathname('stubs.png') %>');
+			  	background-repeat: no-repeat;
+			  	background-size: 100% 100%;
+			  	background-clip:border-box;
+			  	-webkit-background-clip:border-box;  /* Safari */
+			}
 
 
 		</style>
@@ -28,5 +35,10 @@
 		<div class="flyer">
 			<%=render 'flyer'%>
 		</div>
+		
+		<div class="stubs">
+			<%=render 'stubs'%>
+		</div>
+
 	</body>
 </html>

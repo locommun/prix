@@ -4,7 +4,7 @@
 
 	<div class="form-inputs">
 
-		<%= f.input :private, :wrapper => :checkbox,:label => raw("<abbr title=\""+I18n.t("announcement.comment.private_hint")+"\">"+I18n.t("announcement.comment.private_hint")+"</abbr>")  %>
+		<%= f.input :private, :wrapper => :checkbox,:label => raw("<abbr title=\""+I18n.t("announcement.comment.private_hint")+"\">"+I18n.t("announcement.comment.private")+"</abbr>")  %>
 		<%= f.input :text ,:label => false, :required => false , :input_html => {:rows => 3 ,:id => "comment-form-input"}%>
 		<%= f.input :announcement_id , :as => :hidden %>
 	</div>

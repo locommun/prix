@@ -7,6 +7,9 @@
 		<p>
 			<%= I18n.t("billboard.how_to.activate_1") %>
 		</p>
+		<p>
+			<%=link_to I18n.t("billboard.activate"), activate_form_billboard_path(@billboard)%>
+		</p>
 		
 		<p><%= I18n.t("billboard.how_to.find") %></p>
 		

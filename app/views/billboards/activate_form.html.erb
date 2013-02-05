@@ -1,36 +1,26 @@
 <div class="row">
+	
 	<% if @billboard %>
 		<%=render '/partial/billboard_nav'%>
 		<div class="span6">
 	<%else%>
 		<div class="span12">
 	<% end %>
+		
 	<% if @billboard %>
 		<%=render '/partial/request_activate_text'%>
 	<%end%>
-		<div class="billboard-controlls well">
-		<h3>
-			<%= I18n.t("common.community") %>
-			<% if @billboard %>
-				<%= @billboard.name %> 
-			<% end %>
-			<%= I18n.t("common.activate") %>:
-			</h3>
-		<p>
-
-		</p>
-		<form class="form-inline" action="activate">
-			<input type="text"  name="key"  value="<%= params["code"]%>" placeholder="Code...">
-			<button type="submit" class="btn btn-primary">
-				<%= I18n.t("common.activate") %>
-			</button>
-		</form>	 
-		</div>
-		<% if @billboard %>
-			<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i>" + I18n.t("common.cancel"))), billboard_path(@billboard)  , :class => "btn"  %>
-		<%else%>
-			<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i>" + I18n.t("common.cancel"))), billboards_path  , :class => "btn"  %>
-		<%end%>
+	
+	<%=render 'request_activate_form'%>
+	
+	<% if @billboard %>
+		<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i>" + I18n.t("common.cancel"))), billboard_path(@billboard)  , :class => "btn"  %>
+	<%else%>
+		<%= link_to (raw ("<i  class=\"icon-chevron-left\"></i>" + I18n.t("common.cancel"))), billboards_path  , :class => "btn"  %>
+	<%end%>
+		
 	</div>
+	
 	<div class="span3"></div>
+	
 </div>

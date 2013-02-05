@@ -45,7 +45,7 @@ de:
     search_godfather: "Pate suchen"
     not_activated: "Du bist dieser Gemeinschaft noch nicht beigetreten."
     how_to: 
-      activate_1 : "Um dich freizuschalten musst du zum Aushang der Gemeinschaft gehen und dort den QR-Code einscannen oder den dort ausgehängten Code abschreiben und hier eingeben."
+      activate_1 : "Um dieser Gemeinschaft beizutreten musst du zum Aushang der Gemeinschaft gehen und dort den QR-Code einscannen oder den dort ausgehängten Code abschreiben und unter Gemeinschaft beitreten eingeben:"
       find: "Du findest den Aushang mit Hilfe der Karte und folgender Wegbeschreibung:"
       faq_1: "Mehr dazu findest du in den "
       faq_link: "FAQs"
