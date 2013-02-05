@@ -1,5 +1,5 @@
 
 <%= gmaps({
 		"map_options" => { "container_class" => "medium_container", "id" =>  "mediummap","auto_adjust" => true , "auto_zoom" => true},
-		"markers" => {"data" => @json_billboard,:options => {"randomize" => true}}
+		"markers" => {"data" => @json_billboard,:options => {"randomize" => true,"max_random_distance" => 5}}
 		}) %>
