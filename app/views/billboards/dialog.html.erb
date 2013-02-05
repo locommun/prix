@@ -20,7 +20,7 @@
 
 
 	<div class="well">	
-		<a href="/billboards/description#pate"><%= I18n.t("dialog.more_info_on_godfather" ) %></a>
+		<a href="<%= url_for(:controller => "billboards",:action => 'description', :anchor => "pate") %>"><%= I18n.t("dialog.more_info_on_godfather" ) %></a>
 		<hr />
 		<%= simple_form_for(@dialog.dialogcomments.build) do |f| %>
 		

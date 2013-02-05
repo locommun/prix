@@ -5,7 +5,7 @@
 		<div class="billboard-controlls well">
 
 			<h3><%= I18n.t("godfather_form.title") %></h3>
-			<p><%= I18n.t("godfather_form.text") %> <a href="/billboards/description#pate"><span class="label label-demestoa">?</span></a></p> 
+			<p><%= I18n.t("godfather_form.text") %> <a href="<%= url_for(:controller => "billboards",:action => 'description', :anchor => "pate") %>"><span class="label label-demestoa">?</span></a></p> 
 			<%= simple_form_for(@billboard.dialogs.build) do |f| %>
 			
 			  <div class="form-inputs">

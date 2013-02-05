@@ -24,7 +24,7 @@ class Announcement < ActiveRecord::Base
   
   def gmaps4rails_infowindow
     if self.id
-      head = "<a href=\"#{announcement_path(self)}\"><h3>#{self.name}</h3></a>"
+      head = "<a href=\"#{url_for(announcement_path(self,:locale => I18n.locale))}\"><h3>#{self.name}</h3></a>"
     else
       ""
     end

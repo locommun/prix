@@ -21,7 +21,7 @@ class Billboard < ActiveRecord::Base
 
   def gmaps4rails_infowindow
     if self.id
-      head = "<a href=\"#{billboard_path(self)}\"><h3>#{self.name}</h3></a>"
+      head = "<a href=\"#{url_for(billboard_path(self,:locale => I18n.locale))}\"><h3>#{self.name}</h3></a>"
     else
       ""
     end

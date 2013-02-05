@@ -52,4 +52,23 @@ class ApplicationController < ActionController::Base
      @json = object.to_gmaps4rails
   end
   
+  before_filter :set_i18n_locale
+ 
+  def set_i18n_locale
+    unless params[:locale]
+        params[:locale] = extract_locale_from_accept_language_header
+    end
+    available = ['en', 'de']
+    if available.include? params[:locale]
+        I18n.locale = params[:locale]
+    end
+  end
+
+  def extract_locale_from_accept_language_header
+    request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
+  end
+
+  def default_url_options
+    { :locale => I18n.locale }
+  end
 end

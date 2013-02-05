@@ -19,7 +19,7 @@
       <div class="navbar-inner">
         <div class="container">
           
-          <a class="brand" href="/">Locommun</a><a href="/billboards/description#beta"><span class="label label-demestoa">Beta</span></a>
+          <a class="brand" href="<%= url_for(root_path) %>">Locommun</a><a href="<%= url_for(:controller => "billboards",:action => 'description', :anchor => "beta") %>"><span class="label label-demestoa">Beta</span></a>
           
           <ul class="nav pull-right">
           	<% if user_signed_in? %>
@@ -55,10 +55,10 @@
 
 	<footer class="center-content">
 			<%= yield :scripts %>
-    <a href="/billboards/description"><%= I18n.t("common.faq") %></a> | 
+    <a href="<%= url_for(:controller => "billboards",:action => 'description') %>"><%= I18n.t("common.faq") %></a> | 
 	<%= link_to I18n.t("common.credits"),"http://www.mi.fu-berlin.de/fb/impressum/index.html" %> |
-	<a href="/billboards/sources"><%= I18n.t("common.sources") %></a> |
-	<a href="/billboards/contact"><%= I18n.t("common.mail") %></a>
+	<a href="<%= url_for(:controller => "billboards",:action => 'sources') %>"><%= I18n.t("common.sources") %></a> |
+	<a href="<%= url_for(:controller => "billboards",:action => 'contact') %>"><%= I18n.t("common.mail") %></a>
 	</footer>
   <span style="height:10px;">&nbsp;</span>
 

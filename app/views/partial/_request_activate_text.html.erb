@@ -15,7 +15,7 @@
 		
 		<p><b><%= @billboard.description%></b></p>
 		
-		<p><%= I18n.t("billboard.how_to.faq_1")%> <a href="/billboards/description"><%= I18n.t("billboard.how_to.faq_link") %></a><%= I18n.t("billboard.how_to.faq_2")%></p> 
+		<p><%= I18n.t("billboard.how_to.faq_1")%> <a href="<%= url_for(:controller => "billboards",:action => 'description') %>"><%= I18n.t("billboard.how_to.faq_link") %></a><%= I18n.t("billboard.how_to.faq_2")%></p> 
 </div>	
 <% if (!current_user || !@billboard.is_activated?(current_user) ) %>
 		<%old_dialog = dialog_sent? @billboard.id%>

@@ -2,24 +2,269 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  common:
+    community: "Community"
+    home: "Home"
+    more: 'more'
+    change: 'change'
+    profile: "Back to profile"
+    edit: "Edit"
+    save: "Save"
+    send: "Send"
+    cancel: "Cancel"
+    activate: "join"
+    report: "report"
+    billboard: "Go to Community"
+    register: "sign up"
+    login: "login"
+    sign_out: "logout"
+    faq: "FAQ"
+    credits : "About us"
+    sources: "Sources"
+    mail: "Contect"
+    map:
+      lat: "Lat:"
+      long: "Long:"
+    for: "for"
+  find_announcement:
+    where:
+      country: "Country"
+      where: "Where"
+      around: "Radius (km):"
+      collection: 
+        germany: "Germany"
+    choose:
+      name: "Name"
+      descrption: "Description"
+  billboard:
+    name: "Name of the community:"
+    code: "Join-Code"
+    location: "Description of location:"
+    location_hint: "Where is the notice of the community placed? It is wise to give a good description of the location so people can find it and join your community. For example enter the street and house number."
+    location_map: "Place the marker as good as possible on the following map to describe where the notice can be found:"
+    print: "Print notice"
+    this_is: "This is the community"
+    activate: "Join community"
+    search_godfather: "Search Sponsor"
+    not_activated: "You didn't join the community yet."
+    how_to: 
+      activate_1 : "To join this community you have to find the notice of this community and scan the QR-code that is written there or copy the code and paste it to the web:"
+      find: "You can find the notice with the map and the description of its location:"
+      faq_1: "You can get more information in the "
+      faq_link: "FAQs"
+      faq_2: "."
+      search_godfather: "You can search for a sponsor that helps you to place activities or interact otherwise with the community:"
+    dont_live_here: "Don't live near?"
+    activated:
+      wrong_billboard_1: "You have scanned or entered a "
+      wrong_billboard_2: "! To join this community you have to"
+      wrong_billboard_3: "or"
+      wrong_billboard_4: ", if you don't have an registered account yet."
+    no_announcements:  "No activities"
+    no_announcements_text: "This community has no activities. "
+    godfather_requests: "Sponsor requests"
+    godfather_request: "Your sponsor request"
+    no_godfather_requests: "No sponsor requests!"
+  announcement:
+    name: "Headline"
+    description: "Description"
+    datetime:
+      label: "Fixed date"
+      no_date: "No date"
+      date_suggest: "Start date survey"
+      date_fixed: "Enter date: "
+      seperator: ' Time: '
+    modules: "Activate modules"
+    location: "Location of this activity"
+    location_hint: "only displayed if entered"
+    location_text: "Description of location"
+    location_text_hint: "Where exactly will your activity take place?"
+    create: "Create activity"
+    edit: "Change activity"
+    clone: "Clone activity"
+    clone_text: "You cloned an activity! All settings except the date/time information were copied. Please enter the date/time information."
+    print: "Print leaflet"
+    my_activities: "My activities:"
+    other_activities: "Other activities:"
+    comment:
+      title: "Write a message:"
+      anonym: "Anonymous:"
+      private_hint: "Private messages are only visable to your community."
+      private: "Only visible to community"
+    location: "Description of location:"
+    new: "New activity"
+    datetime_suggestion:
+      title: "Date proposals:"
+      no_suggestions: "No date proposals present!"
+      fix: "Fix"
+      fix_hint: "Fix this date"
+      persons_can: " people can keep this appointment."
+      persons_cant: " people can't keep this appointment."
+      time: "I can keep this appointment"
+      no_time: "I can't keep this appointment"
+      new: "Suggest new date"
+      suggest: "Suggest"
+    userjoin:
+      title: "Participants"
+      button:  "Participate"
+    bringthing:
+      title: "Bring things"
+      button: "Bring"
+      thing: "Thing"
+  create_billboard:
+    print:
+      instruction: "The notice of this community has to be printed out and placed to the target location ( You can do this later! ):"
+      print_hint: "If you can't print it out at the moment you can do this later."
+      place: "Place notice"
+      place_hint: "Place the notice in a way that people can find it with your description of the location"
+      place_warn: "If the notice is not placed to the target community nobody can join your community on their own!"
+    ready:
+      note: "Since you are the founder of this community you can print the notice at any time. As soon as you place it, your neighbours can join your community and start activities themselves."
+  description:
+    title: " FAQs "
+    locommun_head:  "Was ist Locommun?"
+    locommun_text: "Locommun ist ein lokales soziales Netzwerk in welchem sich Gemeinschaften zusammenfinden. Bei einer Gemeinschaft gibt es Aktivitäten, welche über Locommun organisiert werden können. Wenn du dieser Gemeinschaft beitreten willst, kannst auch Du Aktivitäten veranstallten und über Locommun organisieren und andere informieren! "
+    how: "Wie geht das?"
+    how_text: "Eigentlich funktioniert Locommun nicht anders als die guten alten Aushänge an Pinnwänden, schwarzen Brettern, Litfaßsäulen, oder wie die Dinger noch heißen. Ein Aushang bei Locommun (bei uns heißt das Aktivität) ist digital und analog zugleich. Du erkennst ihn an dem Locommun-Logo und einem QR-Code. Ein QR-Code sieht ähnlich wie ein Barcode aus. Du kannst ihn mit deinem Smartphone abfotografieren und er führt dich dann zur richtigen Seite. Nur wenn du einen QR-Code abfotografiert hast, kannst du auch auf die jeweilige Pinnwand schreiben (wenn du kein Smartphone besitzt geht das auch mit einem Code den du abschreiben kannst). Das klingt kompliziert, aber es ist kinderleicht. Probier's doch einfach mal aus!"
+    local: "Nur lokal?"
+    local_text: "Das wäre ja langweilig. Natürlich ist es auch möglich, sich zwischen verschiedenen Kiezen, in verschiedenen Städten oder Ländern zu vernetzen. Sucht euch einfach einen Paten vor Ort und schon könnt ihr auch dort Aktivitäten unternehmen. Zum Beispiel vor dem nächsten Urlaub einfach mal vor Ort fragen, was so läuft. Oder umgekehrt: übernehmt eine Patenschaft für jemanden, der neu in der Stadt ist!"
+    beta: "Beta"
+    beta_text_1: "Locommun befindet sich noch in der Beta-Phase. Das bedeutet, dass du dir gerade eine erste Vorabversion ansiehst. Wir haben aber noch viele Ideen, um Locommun noch besser zu machen. Deshalb schrauben wir im Hintergrund fleißig weiter. Wenn du uns beim Arbeiten zuschauen willst, schau' mal auf " 
+    beta_text_2:  "vorbei. Wir hoffen, dass dir Locommun schon jetzt gefällt und du bald wieder vorbeikommst."
+    github: "GitHub"
+    godfather: "Patenschaft"
+    godfather_text: "Wenn du gerade umgezogen bist, bald umziehen wirst, oder einfach so in eine neue Stadt kommst, kannst du dort bei einer beliebigen Gemeinschaft ein Paten-Gesuch erstellen. All Diejenigen, welche bei dieser Gemeinschaft aktiv sind, sehen dieses Paten-Gesuch und können eine Patenschaft mit dir annehmen. Du hast dann die Möglichkeit mit dem Paten zu kommunizieren. Der Pate kann dir bei den verschiedensten Dingen behilflich sein! Also wenn du neu an einen Ort kommst, schau doch einfach mal, ob in deiner nähe eine Gemeinschaft ist, auf der du ein Paten-Gesuch erstellen kannst."
+  flyer:
+    activity:
+      link: "Link to this activity"
+    community:
+      scan: "Or just scan the QR-code."
+      activate: "To join this community enter this code on locommun.eu"
+  contact:
+    mail: "Contact"  
+    feedback: "We are looking forward for any feedback. " 
+    feedback_text: "Write us your ideas, questions, ... "
+  index:
+    do_something_local: "Do something local! "
+    find_activities: "Find local activities"
+    find_activities_link: "Find local activities"
+    find_activities_text: "Find events or other activities."
+    find_billboard: "Search for communities"
+    find_billboard_link: "Search for a community"
+    find_billboard_text:  "Find interesting communities and start activities."
+    code_found: "Found a Join-Code?"
+    create_billboard: "Found communities"
+    create_billboard_link: "Found a community"
+    create_billboard_text_1: "Just found a community"
+    create_billboard_text_2: "if you can't find any near you?"
+  sources:
+    title: "Sources"
+    text:  "Following sources were used for building Locommun. "
+    title_img: "Title images (from left to right):"
+  dialog:
+    accept: "Accept sponsorship"
+    accept_text_1: "The sponsorship request was accepted from "
+    accept_text_2: "."
+    more_info_on_godfather: "More Information on Sponsorship!"
+    write_dialog: "Write a message:"
+  godfather_form:
+    title: "Search for sponsors"
+    hint: "Describe yourself:"
+    text: "Search for a sponsor in this community."
+  profile:
+    user:
+      edit: " Edit user profile"
+    godfather: "Sponsor"
+    no_godfather: "No sponsor found yet"
+    godfatherhood: "Sponsorships"
+
+#Will-paginate
+  will_paginate:
+    next_label: "Next"
+    previous_label: "Previous"
+
+#Wizards
+  wizard:
+    continue: "Continue"
+    back: "Back"
+    last_step: "Last step!"
+    create_billboard:
+      title: "Found community"
+      detail: "General information"
+      print: "Print and place"
+      ready: "Review"
+      save:  "Finished"
+    find_billboard:
+      title: "Find community"
+      where: "Which and Where"
+      choose: "Choose"
+      join: "Join"
+    find_announcement:
+      title: "Find activity"
+      where: "Which and Where"
+      choose: "Choose"
+      join: "Join"
+
 # Devise
   devise:
+    registrations:
+      name: "Name"
+      email: "E-Mail"
+      password: "Password"
+      password_confirm: "Password confirmation"
+      register: "Sign up"
+      edit:
+        change_password: "Change password"
+        forgot_password: "Forgot password?"
+        create_new_password: "Create new password"
+        title: "Edit user profile"
+        password:
+          hint: "leave empty for no change!"
+          current_hint: "Current password for confirmation"  
+          label: "New password"
+          current_label: "Old Password" 
+          confirmation_label: "Neues passwort bestätigen"
+          change: "Change password"
+        change: "Change"
+      new:
+        title: "Sign up"
+    confirmations:
+      resend: "Resend confirmation mail"
+    sessions:
+      login:  "Login"
+      remember_me: "Remember me"
+    mailer:
+      confirmation_instructions:
+        link: "Follow the link below to confirm your account:"
+        confirm: 'Confirm account'
+      unlock_instructions:
+        locked: 'Your account is locked.'
+        link: "Follow the link below to unlock it:"
+        unlock: 'Unlock account'
+      reset_password_instructions:
+        link: "Somebody has requested to change the password for this account."
+        change: 'Change my password'
+        wrong: "If you didn't request this please ignore this mail."
+        wrong_hint: "The password won't be changed until you follow the link."
+      unlocks:
+        resend_unlock_instructions: "Resend unlock instructions."
     links:
-      sign_in: "Sign in"
+      sign_in: "Login"
       sign_up: "Sign up"
-      forgot_password: "Forgot your password?"
-      confirmation_instruction: "Didn't receive confirmation instructions?"
-      unlock_instruction: "Didn't receive unlock instructions?"
-      sign_in_with: "Sign in with #{provider.to_s.titleize}"
+      forgot_password: "Forgot password?"
+      confirmation_instruction: "Didn't recieve confirmation instruction?"
+      unlock_instruction: "Didn't recieve unlock instruction?"
+      sign_in_with: "Login with #{provider.to_s.titleize}"
     actions:
-      unlock: "Resend unlock instructions"
+      unlock: "Resend unlock mail."
     new_profile:
       password: "Enter password"
       password_confirmation: "Confirm password"
     edit_profile:
-      email: "Enter your email address"
-      password: "Enter new password (leave blank if you don't want to change it)"
+      email: "Enter E-Mail"
+      password: "Choose a new password (Leave empty if you don't want it to change)"
       password_confirmation: "Confirm new password"
-      current_password: "Enter current password (we need your current password to confirm your changes)"
-      cancel_account: "Cancel my account"
+      current_password: "Old password"
+      cancel_account: "Delete my account"
       cancel_account_confirm: "Are you sure?"
+      
