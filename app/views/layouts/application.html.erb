@@ -19,7 +19,7 @@
       <div class="navbar-inner">
         <div class="container">
           
-          <a class="brand" href="<%= url_for(root_path) %>">Locommun</a><a href="<%= url_for(:controller => "/billboards",:action => 'description', :anchor => "beta") %>"><span class="label label-demestoa">Beta</span></a>
+          <a href="<%= url_for(root_path) %>"><%=  image_tag('logo.png', :title => "Locommun.eu" )%></a>
           
           <ul class="nav pull-right">
           	<% if user_signed_in? %>
