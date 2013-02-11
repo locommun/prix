@@ -225,6 +225,9 @@ de:
         change: "Ändern"
       new:
         title: "Registrieren"
+    failure:
+      user: 
+        not_found_in_database: "Diesen Benutzer gibt es nicht."
     confirmations:
       resend: "Bestätigungsemail erneut senden"
     sessions:

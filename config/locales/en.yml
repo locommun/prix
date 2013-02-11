@@ -228,6 +228,9 @@ en:
         change: "Change"
       new:
         title: "Sign up"
+    failure:
+        user:
+            not_found_in_database: "User doesn't exist."
     confirmations:
       resend: "Resend confirmation mail"
     sessions:
