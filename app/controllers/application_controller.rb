@@ -58,7 +58,7 @@ class ApplicationController < ActionController::Base
     unless params[:locale]
         params[:locale] = extract_locale_from_accept_language_header
     end
-    available = ['en', 'de']
+    available = get_available_locales
     if available.include? params[:locale]
         I18n.locale = params[:locale]
     end
@@ -71,4 +71,11 @@ class ApplicationController < ActionController::Base
   def default_url_options
     { :locale => I18n.locale }
   end
+  
+  helper_method :get_available_locales
+  
+  def get_available_locales
+    ['en', 'de']
+  end
+  
 end

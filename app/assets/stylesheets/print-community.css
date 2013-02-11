@@ -18,7 +18,7 @@ div.link{
 	position: absolute;
 
 	
-	top: 500 px;
+	top: 450 px;
 	left: 115 px;
 	height: 250px;
 	width:470px;
@@ -27,7 +27,7 @@ div.link{
 div.qrcode1{
 	position: absolute;
 	
-	top: 720 px;
+	top: 670 px;
 	left: 115 px;
 	height: 200px;
 	width: 470px;
@@ -47,4 +47,11 @@ div.stub-header{
 	left: 30 px;
 	height: 70px;
 	width:650px;
+}
+
+div.powered_by {
+	position: fixed;
+	
+	top: 850 px;
+	left: 250 px;
 }

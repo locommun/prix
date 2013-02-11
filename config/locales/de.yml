@@ -1,4 +1,5 @@
 de:
+  lang_name: "Deutsch"
   common:
     community: "Gemeinschaft"
     home: "Zur Startseite"
@@ -36,6 +37,7 @@ de:
   billboard:
     name: "Name der Gemeinschaft:"
     code: "Beitrittscode"
+    enter_join_code: "Gebe den Beitrittscode vom Aushang der Gemeinschaft hier ein um der Gemeinschaft beizutreten."
     location: "Lagebeschreibung:"
     location_hint: "Wo wird der Aushang der Gemeinschaft angebracht? Es ist sinnvoll eine möglichst genaue Lagebeschreibung anzugeben, damit der Aushang gefunden werden kann und deine Nachbarn der Gemeinschaft beitreten können. Am Besten eine Straße und Hausnummer angeben."
     location_map: "Gebe den Ort des Aushangs auf folgender Karte möglichst genau an:"

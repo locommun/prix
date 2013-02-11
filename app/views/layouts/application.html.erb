@@ -58,7 +58,17 @@
     <a href="<%= url_for(:controller => "/billboards",:action => 'description') %>"><%= I18n.t("common.faq") %></a> | 
 	<%= link_to I18n.t("common.credits"),"http://www.mi.fu-berlin.de/fb/impressum/index.html" %> |
 	<a href="<%= url_for(:controller => "/billboards",:action => 'sources') %>"><%= I18n.t("common.sources") %></a> |
-	<a href="<%= url_for(:controller => "/billboards",:action => 'contact') %>"><%= I18n.t("common.mail") %></a>
+	<a href="<%= url_for(:controller => "/billboards",:action => 'contact') %>"><%= I18n.t("common.mail") %></a> <br/>
+	<% first=true %>
+	<% get_available_locales.each do |locale| %>
+		 <%= "|" unless first %> 
+			<%if params[:locale] == locale%>
+			 	<%= I18n.t("lang_name", :locale => locale) %>
+			<%else%>
+			 	<%= link_to I18n.t("lang_name", :locale => locale) , :locale => locale %>
+		 	<%end%>
+		 <% first = false%>
+	<%end%>
 	</footer>
   <span style="height:10px;">&nbsp;</span>
 

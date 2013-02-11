@@ -2,6 +2,7 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  lang_name: "English"
   common:
     community: "Community"
     home: "Home"
@@ -37,10 +38,11 @@ en:
       name: "Name"
       descrption: "Description"
   billboard:
-    name: "Name of the community:"
+    name: "The community's name:"
     code: "Join-Code"
-    location: "Description of location:"
-    location_hint: "Where is the posting of the community placed? It is wise to give a good description of the location so people can find it and join your community. For example enter the street and house number."
+    enter_join_code: "Enter the Join-Code of the Community from the notice to join this community."
+    location: "Directions to the locations:"
+    location_hint: "Where is the posting of the community placed? It is wise to give good directions to the locations so people can find it and join your community. For example enter the street and house number."
     location_map: "Place the marker as good as possible on the following map to describe where the posting can be found:"
     print: "Print posting"
     this_is: "This is the community"
@@ -49,7 +51,7 @@ en:
     not_activated: "You didn't join the community yet."
     how_to: 
       activate_1 : "To join this community you have to find the posting of this community and scan the QR-code that is written there or copy the code and paste it to the web:"
-      find: "You can find the posting with the map and the description of its location:"
+      find: "You can find the posting with the map and the directions to the locations:"
       faq_1: "You can get more information in the "
       faq_link: "FAQs"
       faq_2: "."
@@ -77,7 +79,7 @@ en:
     modules: "Activate modules"
     location: "Location of this activity"
     location_hint: "only displayed if entered"
-    location_text: "Description of location"
+    location_text: "Directions to the locations"
     location_text_hint: "Where exactly will your activity take place?"
     create: "Create activity"
     edit: "Change activity"
@@ -91,7 +93,7 @@ en:
       anonym: "Anonymous:"
       private_hint: "Private messages are only visable to your community."
       private: "Only visible to community"
-    location: "Description of location:"
+    location: "Directions to the locations:"
     new: "New activity"
     datetime_suggestion:
       title: "Date proposals:"
@@ -116,7 +118,7 @@ en:
       instruction: "The posting of this community has to be printed out and placed to the target location ( You can do this later! ):"
       print_hint: "If you can't print it out at the moment you can do this later."
       place: "Place posting"
-      place_hint: "Place the posting in a way that people can find it with your description of the location"
+      place_hint: "Place the posting in a way that people can find it with your directions to the locations"
       place_warn: "If the posting is not placed to the target community nobody can join your community on their own!"
     ready:
       note: "Since you are the founder of this community you can print the posting at any time. As soon as you place it, your neighbours can join your community and start activities themselves."
@@ -155,8 +157,8 @@ en:
     code_found: "Found a Join-Code?"
     create_billboard: "Establish communities"
     create_billboard_link: "Establish a community"
-    create_billboard_text_1: "Simply establish a new community"
-    create_billboard_text_2: "Can't find any nearby?"
+    create_billboard_text_1: "Simply establish a new community,"
+    create_billboard_text_2: "if you can't find any nearby that suit your intrests."
   sources:
     title: "Sources"
     text:  "Following sources were used for building Locommun. "

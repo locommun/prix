@@ -60,10 +60,10 @@ p.powered_by {
 	-webkit-transform:rotate(90deg);
 	-moz-transform:rotate(90deg);
 	-o-transform: rotate(90deg);
-	left: 150px;
-	top: 350px;
+	left: 80px;
+	top: 250px;
 }
 
 p.powered_by2 {
-	top: 895px !important;
+	top: 795px !important;
 }
