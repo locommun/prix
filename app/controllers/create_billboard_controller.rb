@@ -2,6 +2,17 @@
 # encoding: utf-8
 class CreateBillboardController < ApplicationController
   
+  def generate_key
+     #TODO: check for correktness
+      if !@billboard.key 
+        key = SecureRandom.hex(8)
+        while Billboard.where(:key => key).first
+          key = SecureRandom.hex(8)
+        end
+        @billboard.key = key
+      end
+  end
+  
   before_filter :authenticate_user!
   include Wicked::Wizard
 
@@ -36,12 +47,7 @@ class CreateBillboardController < ApplicationController
       
       @billboard.user = current_user
 
-      #TODO: check for correktness
-      key = SecureRandom.hex(8)
-      while Billboard.where(:key => key).first
-        key = SecureRandom.hex(8)
-      end
-      @billboard.key = key
+     
   
       @billboard.gmaps = true
       
@@ -66,6 +72,7 @@ class CreateBillboardController < ApplicationController
 
       if params[:billboard]
         @billboard = Billboard.new params[:billboard]
+        generate_key
         session['billboard_create'] =  @billboard.to_json
       else
         if session['billboard_create']
@@ -77,7 +84,7 @@ class CreateBillboardController < ApplicationController
             return
         end
       end
-
+      
       if !(@billboard.valid?)
         generate_map_json @billboard
         step = :detail
